@@ -8,10 +8,12 @@ import (
 	"strconv"
 	"sort"
 	"math/rand"
+	"flag"
 )
 
 const (
-	pima_diabetes_version = "0.1"
+	default_split_percentage = 0.1		// 10% of records go in test set and 90% in training set
+	pima_diabetes_version = "0.2"
 	diabetes_data_file = "pima-indians-diabetes.txt"
 )
 
@@ -40,12 +42,25 @@ type PimaDiabetesRecord struct {
 
 var pimaDiabetesData []PimaDiabetesRecord	// Data store
 var pimaTestData []PimaDiabetesRecord 		// Test data subset
+var splitPercentage float64 = default_split_percentage
 
 func showTitle () {
 	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
 
 //	dt := time.Now ()
 //	fmt.Printf ("Execution Date: %s", dt.Format("01-01-2001"))
+}
+
+func getParameters () {
+	
+	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes.")
+
+	flag.Parse ()
+	
+	if splitPercentage <= 0.0 || splitPercentage >= 1.0 {
+		splitPercentage = default_split_percentage
+		fmt.Println ("Invalid split value specified, reverting to default.\n")
+	}
 }
 
 func loadDiabetesFile (filename string) (error, int) {
@@ -88,6 +103,10 @@ func loadDiabetesFile (filename string) (error, int) {
 	}
 
 	return nil, recordCount
+}
+
+func percentage (numerator, denominator float64) float64 {
+	return 100*numerator/denominator
 }
 
 func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) {
@@ -139,19 +158,21 @@ func main () {
 		panic (err)
 	}
 
+	getParameters ()
+
 	fmt.Printf ("Read %d diabetes records.\n", count)
 
-	p:=0.1
+	fmt.Printf ("Split Percentage = %.2f\n\n", splitPercentage)
 
 	// Partition source data into training and test data
-	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), p)
+	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), splitPercentage)
 	if err != nil {
 		fmt.Println ("Problem created test data subset.")
 		os.Exit(-1)
 	}
 
-	fmt.Printf ("Created training data subset with %d records.\n", trainingSetSize)
-    fmt.Printf ("Created test data subset with %d records.\n", testSetSize)
+	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, percentage(float64(trainingSetSize), float64(count)))
+    fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, percentage(float64(testSetSize), float64(count)))
 
 
 }
