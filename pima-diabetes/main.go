@@ -5,8 +5,9 @@ import (
 	"os"
 	"io"
 	"encoding/csv"
-//	"time"
 	"strconv"
+	"sort"
+	"math/rand"
 )
 
 const (
@@ -34,24 +35,25 @@ type PimaDiabetesRecord struct {
 	BodyMassIndex int 
 	DiabetesPedigreeFunction int
 	Age int
-	TestedPositive int
+	TestedPositive int // maybe should be a bool buit stored in file as int
 }
 
 var pimaDiabetesData []PimaDiabetesRecord	// Data store
+var pimaTestData []PimaDiabetesRecord 		// Test data subset
 
 func showTitle () {
-	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n", pima_diabetes_version)
+	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
 
 //	dt := time.Now ()
 //	fmt.Printf ("Execution Date: %s", dt.Format("01-01-2001"))
 }
 
-func loadDiabetesFile (filename string) (int, error) {
+func loadDiabetesFile (filename string) (error, int) {
 	file, err := os.Open (filename)
 
 	if err != nil {
 		fmt.Println ("Unable to open CSV file")
-		return 0, err
+		return err, 0
 	}
 
 	r := csv.NewReader (file)
@@ -64,7 +66,7 @@ func loadDiabetesFile (filename string) (int, error) {
 		}
 
 		if err != nil {
-			return recordCount, err
+			return err, recordCount
 		}
 
 		// Append the record
@@ -85,17 +87,71 @@ func loadDiabetesFile (filename string) (int, error) {
 
 	}
 
-	return recordCount, nil
+	return nil, recordCount
+}
+
+func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) {
+
+	var trainingRecordCount float64 = (1.0 - testDataSplit) * float64(sizeOfDataSet)
+	var recordIndexList []int
+	var testRecordCount int = sizeOfDataSet - int(trainingRecordCount)
+
+	// create test subset
+	for index := 0; index < int (testRecordCount); index++ {
+		// select a record at random and move it to the test data
+		r := rand.Intn(sizeOfDataSet) 
+		recordIndexList = append(recordIndexList, r) // add index to list for later
+
+		//copyPimaRecordToTestData
+		var newRecord PimaDiabetesRecord
+
+		newRecord.Age = pimaDiabetesData[r].Age
+		newRecord.BodyMassIndex = pimaDiabetesData[r].BodyMassIndex
+		newRecord.DiabetesPedigreeFunction = pimaDiabetesData[r].DiabetesPedigreeFunction
+		newRecord.DiastolicBloodPressure = pimaDiabetesData[r].DiastolicBloodPressure
+		newRecord.PlasmaGlucoseConcentration = pimaDiabetesData[r].PlasmaGlucoseConcentration
+		newRecord.SeriumInsulin = pimaDiabetesData[r].SeriumInsulin
+		newRecord.TestedPositive = pimaDiabetesData[r].TestedPositive
+		newRecord.TricepsSkinfoldThickness = pimaDiabetesData[r].TricepsSkinfoldThickness
+		
+		pimaTestData = append(pimaTestData, newRecord)
+	}
+
+	// now sort index list into descending order so we can remove these records from training set
+	sort.Ints (recordIndexList)
+	sort.Slice(recordIndexList, func(i, j int) bool { // descnding order
+		return recordIndexList[i] > recordIndexList[j]
+	})
+
+	// now iterate through the index array removing the entry from the training set - to remove duplicates
+	for index := range (recordIndexList) {
+		pimaDiabetesData = append (pimaDiabetesData[:index], pimaDiabetesData[index+1:]...)
+	}
+
+
+	return nil, int(trainingRecordCount), len(pimaTestData)
 }
 
 func main () {
 	showTitle ()
-	count, err := loadDiabetesFile (diabetes_data_file)
+	err, count := loadDiabetesFile (diabetes_data_file)
 	if err != nil {
 		panic (err)
 	}
 
-	fmt.Printf ("Read %d diabetes records\n", count)
+	fmt.Printf ("Read %d diabetes records.\n", count)
+
+	p:=0.1
+
+	// Partition source data into training and test data
+	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), p)
+	if err != nil {
+		fmt.Println ("Problem created test data subset.")
+		os.Exit(-1)
+	}
+
+	fmt.Printf ("Created training data subset with %d records.\n", trainingSetSize)
+    fmt.Printf ("Created test data subset with %d records.\n", testSetSize)
 
 
 }
