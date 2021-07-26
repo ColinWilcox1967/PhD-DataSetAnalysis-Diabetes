@@ -1,4 +1,4 @@
-package main
+package support
 
 import (
 	"fmt"
@@ -9,6 +9,9 @@ import (
 	"sort"
 	"math/rand"
 	"flag"
+	"./support"
+	"./metrics"
+	"./diabetesdata"
 )
 
 const (
@@ -18,31 +21,14 @@ const (
 )
 
 
-// Pima Diabetes Database, all fields are numeric
-//0. Number of times pregnant.
-//1. Plasma glucose concentration a 2 hours in an oral glucose tolerance test.
-//2. Diastolic blood pressure (mm Hg).
-//3. Triceps skinfold thickness (mm).
-//4. 2-Hour serum insulin (mu U/ml).
-//5. Body mass index (weight in kg/(height in m)^2).
-//6. Diabetes pedigree function.
-//7. Age (years).
-//8. Class variable (0 or 1).
 
-type PimaDiabetesRecord struct {
-	PlasmaGlucoseConcentration int
-	DiastolicBloodPressure int
-	TricepsSkinfoldThickness int 
-	SeriumInsulin int 
-	BodyMassIndex int 
-	DiabetesPedigreeFunction int
-	Age int
-	TestedPositive int // maybe should be a bool buit stored in file as int
-}
 
-var pimaDiabetesData []PimaDiabetesRecord	// Data store
-var pimaTestData []PimaDiabetesRecord 		// Test data subset
+var pimaDiabetesData []diabetesdata.PimaDiabetesRecord	// Original Data store
+var pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
+var pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
 var splitPercentage float64 = default_split_percentage
+var sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
+
 
 func showTitle () {
 	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
@@ -59,7 +45,8 @@ func getParameters () {
 	
 	if splitPercentage <= 0.0 || splitPercentage >= 1.0 {
 		splitPercentage = default_split_percentage
-		fmt.Println ("Invalid split value specified, reverting to default.\n")
+		fmt.Println ("Invalid split value specified, reverting to default.")
+		fmt.Println ("")
 	}
 }
 
@@ -85,7 +72,7 @@ func loadDiabetesFile (filename string) (error, int) {
 		}
 
 		// Append the record
-		var newRecord PimaDiabetesRecord
+		var newRecord diabetesdata.PimaDiabetesRecord
 
 		newRecord.PlasmaGlucoseConcentration,_ = strconv.Atoi(record[0])
 		newRecord.DiastolicBloodPressure,_ = strconv.Atoi(record[1])
@@ -105,9 +92,6 @@ func loadDiabetesFile (filename string) (error, int) {
 	return nil, recordCount
 }
 
-func percentage (numerator, denominator float64) float64 {
-	return 100*numerator/denominator
-}
 
 func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) {
 
@@ -115,14 +99,18 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	var recordIndexList []int
 	var testRecordCount int = sizeOfDataSet - int(trainingRecordCount)
 
-	// create test subset
+	// Duplicate raw data records into potential training data set
+	pimaTrainingData := make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
+	copy(pimaTrainingData, pimaDiabetesData)
+
+	// create test and training subset
 	for index := 0; index < int (testRecordCount); index++ {
 		// select a record at random and move it to the test data
 		r := rand.Intn(sizeOfDataSet) 
 		recordIndexList = append(recordIndexList, r) // add index to list for later
 
 		//copyPimaRecordToTestData
-		var newRecord PimaDiabetesRecord
+		var newRecord diabetesdata.PimaDiabetesRecord
 
 		newRecord.Age = pimaDiabetesData[r].Age
 		newRecord.BodyMassIndex = pimaDiabetesData[r].BodyMassIndex
@@ -144,7 +132,7 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 
 	// now iterate through the index array removing the entry from the training set - to remove duplicates
 	for index := range (recordIndexList) {
-		pimaDiabetesData = append (pimaDiabetesData[:index], pimaDiabetesData[index+1:]...)
+		pimaTrainingData = append (pimaTrainingData[:index], pimaTrainingData[index+1:]...)
 	}
 
 
@@ -171,8 +159,18 @@ func main () {
 		os.Exit(-1)
 	}
 
-	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, percentage(float64(trainingSetSize), float64(count)))
-    fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, percentage(float64(testSetSize), float64(count)))
+	sourceDataMetrics = metrics.GetDataSetMetrics (pimaDiabetesData)
+	TrainingDataSetMetrics = metrics.GetDataSetMetrics (pimaTrainingData)
+	TestDataSetMetrics = metrics.GetDataSetMetrics (pimaTestData)
+
+	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
+	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
+	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
+	
+
+	
+	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
+    fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
 
 
 }
