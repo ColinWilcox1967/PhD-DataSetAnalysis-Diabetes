@@ -1,4 +1,4 @@
-package support
+package main
 
 import (
 	"fmt"
@@ -168,7 +168,6 @@ func main () {
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
 	
 
-	
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
     fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
 

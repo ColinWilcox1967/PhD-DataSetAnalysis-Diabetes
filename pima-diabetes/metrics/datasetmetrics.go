@@ -1,6 +1,6 @@
 package metrics
 
-import "reflect"
+import "../support"
 import "fmt"
 import "../diabetesdata"
 
@@ -10,9 +10,8 @@ type DataSetMetrics struct {
 	NumberOfMissingElements int
 }
 
-
 func countMissingElements (record diabetesdata.PimaDiabetesRecord) int {
-	return 0
+	return support.SizeOfPimaDiabetesRecord () // for now
 }
 
 func ShowDataSetStatistics (displayName string, metrics DataSetMetrics) {
@@ -25,11 +24,13 @@ func GetDataSetMetrics (dataset []diabetesdata.PimaDiabetesRecord) DataSetMetric
 
 	var metrics DataSetMetrics
 	
-	numberOfFields := reflect.TypeOf(diabetesdata.PimaDiabetesRecord {}).NumField() // get number of fields in a struct
+	numberOfFields := support.SizeOfPimaDiabetesRecord ()
 
 	metrics.Size = len(dataset) * numberOfFields 
+	metrics.NumberOfMissingElements = 0
 
-	for index := 0; index < metrics.Size; index++ {
+	// loop round finding missing elements for each record. fixed for now
+	for index := 0; index < len(dataset); index++ {
 		metrics.NumberOfMissingElements += countMissingElements (dataset[index])
 	}
 
