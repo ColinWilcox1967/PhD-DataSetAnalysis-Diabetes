@@ -13,6 +13,7 @@ import (
 	"./support"
 	"./metrics"
 	"./diabetesdata"
+	"./logging"
 )
 
 const (
@@ -144,6 +145,11 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 
 func main () {
 	showTitle ()
+
+	logging.InitLog ("log.txt")
+	logging.EraseLog ()
+	logging.WriteLog ("sample3")
+
 	err, count := loadDiabetesFile (diabetes_data_file)
 	if err != nil {
 		panic (err)
