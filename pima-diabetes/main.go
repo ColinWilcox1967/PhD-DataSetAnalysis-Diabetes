@@ -9,6 +9,7 @@ import (
 	"sort"
 	"math/rand"
 	"flag"
+	"time"
 	"./support"
 	"./metrics"
 	"./diabetesdata"
@@ -100,12 +101,15 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	var testRecordCount int = sizeOfDataSet - int(trainingRecordCount)
 
 	// Duplicate raw data records into potential training data set
-	pimaTrainingData := make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
+	pimaTrainingData = make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
 	copy(pimaTrainingData, pimaDiabetesData)
+
+	rand.Seed(time.Now().UnixNano()) // generate seed each time
 
 	// create test and training subset
 	for index := 0; index < int (testRecordCount); index++ {
 		// select a record at random and move it to the test data
+		
 		r := rand.Intn(sizeOfDataSet) 
 		recordIndexList = append(recordIndexList, r) // add index to list for later
 
@@ -135,8 +139,7 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 		pimaTrainingData = append (pimaTrainingData[:index], pimaTrainingData[index+1:]...)
 	}
 
-
-	return nil, int(trainingRecordCount), len(pimaTestData)
+	return nil, len(pimaTrainingData), len(pimaTestData)
 }
 
 func main () {
@@ -154,12 +157,14 @@ func main () {
 
 	// Partition source data into training and test data
 	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), splitPercentage)
+
 	if err != nil {
 		fmt.Println ("Problem created test data subset.")
 		os.Exit(-1)
 	}
 
 	sourceDataMetrics = metrics.GetDataSetMetrics (pimaDiabetesData)
+
 	TrainingDataSetMetrics = metrics.GetDataSetMetrics (pimaTrainingData)
 	TestDataSetMetrics = metrics.GetDataSetMetrics (pimaTestData)
 
@@ -168,6 +173,7 @@ func main () {
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
 	
 
+	fmt.Println("")
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
     fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
 
