@@ -12,6 +12,7 @@ package diabetesdata
 //8. Class variable (0 or 1).
 
 type PimaDiabetesRecord struct {
+	NumberOfTimesPregnant int
 	PlasmaGlucoseConcentration int
 	DiastolicBloodPressure int
 	TricepsSkinfoldThickness int 
@@ -19,6 +20,8 @@ type PimaDiabetesRecord struct {
 	BodyMassIndex int 
 	DiabetesPedigreeFunction int
 	Age int
+
+	
 	TestedPositive int // maybe should be a bool buit stored in file as int
 }
 // end of file
