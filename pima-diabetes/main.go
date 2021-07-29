@@ -6,6 +6,7 @@ import (
 	"io"
 	"encoding/csv"
 	"strconv"
+	"strings"
 	"sort"
 	"math/rand"
 	"flag"
@@ -20,6 +21,7 @@ const (
 	default_split_percentage = 0.1		// 10% of records go in test set and 90% in training set
 	pima_diabetes_version = "0.2"
 	diabetes_data_file = "pima-indians-diabetes.txt"
+	default_logfile = "./log.txt"
 )
 
 
@@ -30,7 +32,7 @@ var pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
 var pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
 var splitPercentage float64 = default_split_percentage
 var sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
-
+var logfileName string
 
 func showTitle () {
 	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
@@ -42,6 +44,7 @@ func showTitle () {
 func getParameters () {
 	
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes.")
+	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 
 	flag.Parse ()
 	
@@ -50,6 +53,7 @@ func getParameters () {
 		fmt.Println ("Invalid split value specified, reverting to default.")
 		fmt.Println ("")
 	}
+	
 }
 
 func loadDiabetesFile (filename string) (error, int) {
@@ -143,19 +147,24 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	return nil, len(pimaTrainingData), len(pimaTestData)
 }
 
+func processDataSets () {
+
+	// nothing for now well hook algoriths in here
+}
+
 func main () {
 	showTitle ()
 
-	logging.InitLog ("log.txt")
-	logging.EraseLog ()
-	logging.WriteLog ("sample3")
+	getParameters ()
+
+	logging.InitLog (logfileName)
+
+	fmt.Printf ("Using log file : '%s'\n", strings.ToUpper(logfileName))
 
 	err, count := loadDiabetesFile (diabetes_data_file)
 	if err != nil {
 		panic (err)
 	}
-
-	getParameters ()
 
 	fmt.Printf ("Read %d diabetes records.\n", count)
 
@@ -174,14 +183,19 @@ func main () {
 	TrainingDataSetMetrics = metrics.GetDataSetMetrics (pimaTrainingData)
 	TestDataSetMetrics = metrics.GetDataSetMetrics (pimaTestData)
 
+	fmt.Println ("Preprocessed DataSets ...")
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
-	
+
+	fmt.Println ("\nProcessed Datasets ...")
+	processDataSets ()
+	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
+	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
+	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
+
 
 	fmt.Println("")
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
     fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
-
-
 }

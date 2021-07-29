@@ -25,7 +25,36 @@ type DataSetStatisticsRecord struct {
 }
 
 func countMissingElements (record diabetesdata.PimaDiabetesRecord) int {
-	return support.SizeOfPimaDiabetesRecord () // for now
+
+	missingFieldCount := 0
+
+	// for each zero value increment count
+	if record.NumberOfTimesPregnant == 0{
+		missingFieldCount++
+	}
+	if record.PlasmaGlucoseConcentration == 0 {
+		missingFieldCount++
+	}
+	if record.DiastolicBloodPressure == 0 {
+		missingFieldCount++
+	}
+	if record.TricepsSkinfoldThickness == 0 {
+		missingFieldCount++
+	}
+	if record.SeriumInsulin == 0 {
+		missingFieldCount++
+	}
+	if record.BodyMassIndex == 0 {
+		missingFieldCount++
+	}
+	if record.DiabetesPedigreeFunction == 0 {
+		missingFieldCount++
+	}
+	if record.Age == 0 {
+		missingFieldCount++
+	}
+	
+	return missingFieldCount
 }
 
 func ShowDataSetStatistics (displayName string, metrics DataSetMetrics) {
