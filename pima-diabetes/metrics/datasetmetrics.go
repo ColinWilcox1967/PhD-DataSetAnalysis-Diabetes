@@ -24,6 +24,11 @@ type DataSetStatisticsRecord struct {
 	MidRange float64			//50%
 }
 
+
+func HasMissingElements (record diabetesdata.PimaDiabetesRecord) bool {
+	return countMissingElements (record) > 0
+}
+
 func countMissingElements (record diabetesdata.PimaDiabetesRecord) int {
 
 	missingFieldCount := 0
