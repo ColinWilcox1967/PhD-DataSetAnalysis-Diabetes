@@ -15,6 +15,7 @@ import (
 	"./metrics"
 	"./diabetesdata"
 	"./logging"
+	"./algorithms"
 )
 
 const (
@@ -24,15 +25,15 @@ const (
 	default_logfile = "./log.txt"
 )
 
-
-
-
-var pimaDiabetesData []diabetesdata.PimaDiabetesRecord	// Original Data store
-var pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
-var pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
-var splitPercentage float64 = default_split_percentage
-var sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
-var logfileName string
+var (
+ 	pimaDiabetesData []diabetesdata.PimaDiabetesRecord	// Original Data store
+	pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
+	pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
+	splitPercentage float64 = default_split_percentage  // 0.0 < percentage < 1.0
+	sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
+	logfileName string
+	algorithmToUse int // reference of which cell replacement algorithm will be used.
+)
 
 func showTitle () {
 	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
@@ -43,11 +44,13 @@ func showTitle () {
 
 func getParameters () {
 	
-	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes.")
+	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
+	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
 
 	flag.Parse ()
 	
+	// out of range check?
 	if splitPercentage <= 0.0 || splitPercentage >= 1.0 {
 		splitPercentage = default_split_percentage
 		fmt.Println ("Invalid split value specified, reverting to default.")
@@ -150,6 +153,8 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 func processDataSets () {
 
 	// nothing for now well hook algoriths in here
+	fmt.Printf ("Missing data algorithm: %s\n", algorithms.GetAlgorithmDescription (algorithmToUse))
+	
 }
 
 func main () {
@@ -188,8 +193,9 @@ func main () {
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
 
-	fmt.Println ("\nProcessed Datasets ...")
 	processDataSets ()
+
+	fmt.Println ("\nProcessed Datasets ...")
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
