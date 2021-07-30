@@ -150,6 +150,21 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	return nil, len(pimaTrainingData), len(pimaTestData)
 }
 
+func countTrainingSetRecords () (int, int) {
+
+	var positiveCount, negativeCount int
+
+	for index := 0; index< len (pimaTrainingData); index++ {
+		if pimaTrainingData[index].TestedPositive == 1 {
+			positiveCount++
+		} else {
+			negativeCount++
+		}
+	}
+
+	return positiveCount, negativeCount
+}
+
 func processDataSets () {
 
 	// nothing for now well hook algoriths in here
@@ -187,6 +202,14 @@ func main () {
 
 	TrainingDataSetMetrics = metrics.GetDataSetMetrics (pimaTrainingData)
 	TestDataSetMetrics = metrics.GetDataSetMetrics (pimaTestData)
+
+	positiveCount, negativeCount := countTrainingSetRecords()
+
+	fmt.Printf ("Training set split - %d Positive Outcomes (%.2f%), %d Negative Outcomes (%.2f%)\n", 
+	positiveCount,
+	support.Percentage(float64(positiveCount), float64(trainingSetSize)),
+	negativeCount,
+	support.Percentage(float64(negativeCount), float64(trainingSetSize)))
 
 	fmt.Println ("Preprocessed DataSets ...")
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
