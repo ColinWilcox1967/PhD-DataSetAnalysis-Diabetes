@@ -147,8 +147,11 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 
 	// now iterate through the index array removing the entry from the training set - to remove duplicates
 	for index := range (recordIndexList) {
-		pimaTrainingData = append (pimaTrainingData[:index], pimaTrainingData[index+1:]...)
-	}
+
+		if index < len(pimaTrainingData) {
+			pimaTrainingData = append (pimaTrainingData[:index], pimaTrainingData[index+1:]...)
+		}
+	}	
 
 	return nil, len(pimaTrainingData), len(pimaTestData)
 }
