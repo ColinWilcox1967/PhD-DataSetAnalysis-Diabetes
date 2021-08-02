@@ -17,8 +17,8 @@ type PimaDiabetesRecord struct {
 	DiastolicBloodPressure int
 	TricepsSkinfoldThickness int 
 	SeriumInsulin int 
-	BodyMassIndex int 
-	DiabetesPedigreeFunction int
+	BodyMassIndex float64 
+	DiabetesPedigreeFunction float64
 	Age int
 
 	

@@ -83,15 +83,18 @@ func loadDiabetesFile (filename string) (error, int) {
 		// Append the record
 		var newRecord diabetesdata.PimaDiabetesRecord
 
-		newRecord.PlasmaGlucoseConcentration,_ = strconv.Atoi(record[0])
-		newRecord.DiastolicBloodPressure,_ = strconv.Atoi(record[1])
-		newRecord.TricepsSkinfoldThickness,_ = strconv.Atoi(record[2])
-		newRecord.SeriumInsulin,_ = strconv.Atoi(record[3])
-		newRecord.BodyMassIndex,_ = strconv.Atoi(record[4])
-		newRecord.DiabetesPedigreeFunction,_ = strconv.Atoi(record[5])
-		newRecord.Age,_ = strconv.Atoi(record[6])
-		newRecord.TestedPositive,_ = strconv.Atoi(record[7])
-		
+		newRecord.NumberOfTimesPregnant,_ = strconv.Atoi(record[0])
+		newRecord.PlasmaGlucoseConcentration,_ = strconv.Atoi(record[1])
+		newRecord.DiastolicBloodPressure,_ = strconv.Atoi(record[2])
+		newRecord.TricepsSkinfoldThickness,_ = strconv.Atoi(record[3])
+		newRecord.SeriumInsulin,_ = strconv.Atoi(record[4])
+
+		newRecord.BodyMassIndex,_ = strconv.ParseFloat(record[5], 64) // 64 bit float
+		newRecord.DiabetesPedigreeFunction,_ = strconv.ParseFloat(record[6], 64) // 64 bit float
+
+		newRecord.Age,_ = strconv.Atoi(record[7])
+		newRecord.TestedPositive,_ = strconv.Atoi(record[8])
+
 		pimaDiabetesData = append(pimaDiabetesData, newRecord)
 
 		recordCount++
@@ -154,7 +157,7 @@ func countTrainingSetRecords () (int, int) {
 
 	var positiveCount, negativeCount int
 
-	for index := 0; index< len (pimaTrainingData); index++ {
+	for index := 0; index < len (pimaTrainingData); index++ {
 		if pimaTrainingData[index].TestedPositive == 1 {
 			positiveCount++
 		} else {
@@ -205,13 +208,16 @@ func main () {
 
 	positiveCount, negativeCount := countTrainingSetRecords()
 
-	fmt.Printf ("Training set split - %d Positive Outcomes (%.2f%), %d Negative Outcomes (%.2f%)\n", 
-	positiveCount,
-	support.Percentage(float64(positiveCount), float64(trainingSetSize)),
-	negativeCount,
-	support.Percentage(float64(negativeCount), float64(trainingSetSize)))
+	positivePercentage := support.Percentage (float64(positiveCount), float64(trainingSetSize))
+	negativePercentage := support.Percentage (float64(negativeCount), float64(trainingSetSize))
 
-	fmt.Println ("Preprocessed DataSets ...")
+	fmt.Printf ("Training set split - %d Positive Outcomes (%.2f%%), %d Negative Outcomes (%.2f%%)\n", 
+	positiveCount,
+	positivePercentage,
+	negativeCount,
+	negativePercentage)
+
+	fmt.Println ("\nPreprocessed DataSets ...")
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)

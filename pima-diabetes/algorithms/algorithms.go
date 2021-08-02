@@ -40,18 +40,18 @@ func ReplaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) []
 	// loop through and replace all missing elements with mean for the column
 
 	// must be a simpler way to do this?????
-	var columnTotal = make([]int, numberOfFields)
+	var columnTotal = make([]float64, numberOfFields)
 	var columnMean = make([]float64, numberOfFields)
 
 	for index := 0; index < numberOfRecords; index++ {
-		columnTotal[0] += dataset[index].NumberOfTimesPregnant
-		columnTotal[1] += dataset[index].PlasmaGlucoseConcentration
-		columnTotal[2] += dataset[index].DiastolicBloodPressure
-		columnTotal[3] += dataset[index].TricepsSkinfoldThickness
-		columnTotal[4] += dataset[index].SeriumInsulin
+		columnTotal[0] += float64(dataset[index].NumberOfTimesPregnant)
+		columnTotal[1] += float64(dataset[index].PlasmaGlucoseConcentration)
+		columnTotal[2] += float64(dataset[index].DiastolicBloodPressure)
+		columnTotal[3] += float64(dataset[index].TricepsSkinfoldThickness)
+		columnTotal[4] += float64(dataset[index].SeriumInsulin)
 		columnTotal[5] += dataset[index].BodyMassIndex
 		columnTotal[6] += dataset[index].DiabetesPedigreeFunction
-		columnTotal[7] += dataset[index].Age
+		columnTotal[7] += float64(dataset[index].Age)
 	}
 
 	// work out means
@@ -93,15 +93,15 @@ func ReplaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) []
 		}
 
 		if dataset[index].BodyMassIndex == 0 {
-			resultSet[index].BodyMassIndex = int(columnMean[index])
+			resultSet[index].BodyMassIndex = columnMean[index]
 		} else {
-			resultSet[index].BodyMassIndex = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].BodyMassIndex = float64(dataset[index].PlasmaGlucoseConcentration)
 		}
 
 		if dataset[index].DiabetesPedigreeFunction == 0 {
-			resultSet[index].DiabetesPedigreeFunction = int(columnMean[index])
+			resultSet[index].DiabetesPedigreeFunction = columnMean[index]
 		} else {
-			resultSet[index].DiabetesPedigreeFunction = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].PlasmaGlucoseConcentration)
 		}
 
 		if dataset[index].Age == 0 {
