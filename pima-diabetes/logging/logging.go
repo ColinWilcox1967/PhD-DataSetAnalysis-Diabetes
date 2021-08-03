@@ -29,10 +29,11 @@ func InitLog (logfilename string) {
 	logsession.LogInitialised = true
 }
 
-func DoWriteString (str string, log bool) {
-	fmt.Print (str)
-
-	if log {
+func DoWriteString (str string, writeToConsole, writeToLog bool) {
+	if writeToConsole {
+		fmt.Print (str)
+	}
+	if writeToLog {
 		writeLog (str)
 	}
 }

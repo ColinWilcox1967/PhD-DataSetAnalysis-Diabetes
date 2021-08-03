@@ -48,12 +48,12 @@ func countMissingElements (record diabetesdata.PimaDiabetesRecord) int {
 func ShowDataSetStatistics (displayName string, metrics DataSetMetrics) {
 
 	str := fmt.Sprintf ("%s : ", displayName)
-	logging.DoWriteString (str, true)
+	logging.DoWriteString (str, true,true)
 	
 	sparsity := float64(100.0*metrics.NumberOfMissingElements)/float64(metrics.Size)
 
 	str = fmt.Sprintf ("Sparsity = %.2f%% (%d out of %d elements)\n", sparsity, metrics.NumberOfMissingElements, metrics.Size)
-	logging.DoWriteString (str, true)
+	logging.DoWriteString (str, true,true)
 }
 
 func SourceDataSetMetricsByFeature (dataset []diabetesdata.PimaDiabetesRecord) []DataSetStatisticsRecord {

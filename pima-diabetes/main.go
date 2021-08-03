@@ -42,7 +42,7 @@ func showTitle () {
 func showSessionHeading () {
 	dt := time.Now()
 	var str string = fmt.Sprintf("Session Date: %s", dt.Format("01-01-2001"))
-	logging.DoWriteString (str, true)
+	logging.DoWriteString (str, false,true)
 }
 
 func getParameters () {
