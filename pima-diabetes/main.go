@@ -37,9 +37,12 @@ var (
 
 func showTitle () {
 	fmt.Printf ("Pima Diabetes Database Analysis (%s)\n\n", pima_diabetes_version)
+}
 
-//	dt := time.Now ()
-//	fmt.Printf ("Execution Date: %s", dt.Format("01-01-2001"))
+func showSessionHeading () {
+	dt := time.Now()
+	var str string = fmt.Sprintf("Session Date: %s", dt.Format("01-01-2001"))
+	logging.WriteLog (str)
 }
 
 func getParameters () {
@@ -179,11 +182,13 @@ func processDataSets () {
 }
 
 func main () {
-	showTitle ()
-
 	getParameters ()
 
 	logging.InitLog (logfileName)
+
+	showTitle ()
+
+	showSessionHeading ()
 
 	fmt.Printf ("Using log file : '%s'\n", strings.ToUpper(logfileName))
 

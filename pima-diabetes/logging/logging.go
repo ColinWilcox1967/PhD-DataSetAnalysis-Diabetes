@@ -34,9 +34,4 @@ func WriteLog (s string) {
 	} 
 }
 
-//func EraseLog () {
-//	log.SetOutput (nil)
-//	defer os.Remove (logsession.Logfilename)
-//}
-
 // end of file
