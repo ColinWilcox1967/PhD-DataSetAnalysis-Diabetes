@@ -1,8 +1,10 @@
 package logging
 
-import "log"
-import "os"
-
+import (
+	"fmt"
+	"log"
+	"os"
+)
 
 type LogFileSession struct {
 	Logfilename string
@@ -27,11 +29,22 @@ func InitLog (logfilename string) {
 	logsession.LogInitialised = true
 }
 
-func WriteLog (s string) {
+func DoWriteString (str string, log bool) {
+	fmt.Print (str)
+
+	if log {
+		writeLog (str)
+	}
+}
+
+// helper
+func writeLog (s string) {
 
 	if logsession.LogInitialised {
 		log.Println (s)
 	} 
 }
+
+
 
 // end of file

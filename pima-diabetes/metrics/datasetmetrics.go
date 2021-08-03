@@ -5,11 +5,8 @@ import(
 	"fmt"
 	"../support"
 	"../diabetesdata"
+	"../logging"
 )
-
-
-
-
 
 func HasMissingElements (record diabetesdata.PimaDiabetesRecord) bool {
 	return countMissingElements (record) > 0
@@ -50,11 +47,13 @@ func countMissingElements (record diabetesdata.PimaDiabetesRecord) int {
 
 func ShowDataSetStatistics (displayName string, metrics DataSetMetrics) {
 
-	fmt.Printf ("%s : ", displayName)
-
+	str := fmt.Sprintf ("%s : ", displayName)
+	logging.DoWriteString (str, true)
+	
 	sparsity := float64(100.0*metrics.NumberOfMissingElements)/float64(metrics.Size)
 
-	fmt.Printf ("Sparsity = %.2f%% (%d out of %d elements)\n", sparsity, metrics.NumberOfMissingElements, metrics.Size)
+	str = fmt.Sprintf ("Sparsity = %.2f%% (%d out of %d elements)\n", sparsity, metrics.NumberOfMissingElements, metrics.Size)
+	logging.DoWriteString (str, true)
 }
 
 func SourceDataSetMetricsByFeature (dataset []diabetesdata.PimaDiabetesRecord) []DataSetStatisticsRecord {
