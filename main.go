@@ -186,7 +186,10 @@ func main () {
 
 	getParameters ()
 
-	logging.InitLog (logfileName)
+	if err := logging.InitLog (logfileName); err != nil {
+		fmt.Printf("%s\n", err.Error ()) // log error to console
+		os.Exit(-1)
+	}
 
 	showTitle ()
 
