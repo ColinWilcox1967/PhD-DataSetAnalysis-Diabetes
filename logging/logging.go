@@ -30,6 +30,7 @@ func InitLog (logfilename string) {
 }
 
 func DoWriteString (str string, writeToConsole, writeToLog bool) {
+	
 	if writeToConsole {
 		fmt.Printf ("%s", str) 
 	}

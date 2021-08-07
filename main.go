@@ -202,7 +202,7 @@ func main () {
 	str = fmt.Sprintf ("Read %d diabetes records.\n", count)
 	logging.DoWriteString(str, true, true)
 
-	str = fmt.Sprintf ("Split Percentage = %.2f\n\n", splitPercentage)
+	str = fmt.Sprintf ("Split Percentage = %.2f\n", splitPercentage)
 	logging.DoWriteString(str, true, true)
 
 	// Partition source data into training and test data
@@ -229,14 +229,17 @@ func main () {
 	negativeCount,
 	negativePercentage)
 
-	fmt.Println ("\nPreprocessed DataSets ...")
+	logging.DoWriteString("\n", true, false)
+	logging.DoWriteString ("Preprocessed Datasets...\n", true, true)
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
 
 	processDataSets ()
 
-	fmt.Println ("\nProcessed Datasets ...")
+	logging.DoWriteString("\n", true, false)
+	logging.DoWriteString ("Processed Datasets ...\n", true, true)
+
 	metrics.ShowDataSetStatistics ("Raw Data Set", sourceDataMetrics)
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
