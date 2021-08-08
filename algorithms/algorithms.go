@@ -156,6 +156,21 @@ func checkTestDataRecord (testitem diabetesdata.PimaDiabetesRecord) bool {
 	return false
 }
 
+func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
+	anonymous := make([]float64, support.SizeOfPimaDiabetesRecord()-1)
+
+	anonymous[0] = float64(data.NumberOfTimesPregnant)
+	anonymous[1] = float64(data.PlasmaGlucoseConcentration)
+	anonymous[2] = float64(data.DiastolicBloodPressure)
+	anonymous[3] = float64(data.TricepsSkinfoldThickness)
+	anonymous[4] = float64(data.SeriumInsulin)
+	anonymous[5] = float64(data.BodyMassIndex)
+	anonymous[6] = float64(data.DiabetesPedigreeFunction)
+	anonymous[7] = float64(data.Age)
+
+	return anonymous
+}
+
 func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
 
@@ -164,7 +179,10 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 		var measure SimilarityMeasure
 		
 		measure.Index = index
-		measure.CosineSimilarity = support.CosineSimilarity (pimaTrainingData[index], testdata, elementsToCompare)
+
+		vector1 := anonymiseDiabetesRecord(pimaTrainingData[index])
+		vector2 := anonymiseDiabetesRecord(testdata)
+		measure.CosineSimilarity = support.CosineSimilarity (vector1, vector2, elementsToCompare)
 
 		similarityTable = append (similarityTable, measure)
 	}
