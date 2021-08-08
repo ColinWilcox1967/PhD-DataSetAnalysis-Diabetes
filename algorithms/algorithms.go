@@ -7,8 +7,15 @@ import (
 	"../support"
 	"../logging"
 	"errors"
+	"sort"
 )
 
+type SimilarityMeasure struct {
+	CosineSimilarity float64
+	Index			 int
+}
+
+var similarityTable []SimilarityMeasure // stores the indesx and measure of the closest records
 
 var algorithmDescriptions = []string{"None","Remove incomplete Records","ReplaceMissingValuesWithMean"}
 
@@ -143,8 +150,29 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 	return data, err
 }
 
+
+// TBD
 func checkTestDataRecord (testitem diabetesdata.PimaDiabetesRecord) bool {
 	return false
+}
+
+func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
+	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
+
+	// measure similarity against each record in training set
+	for index := 0; index < len(pimaTrainingData); index++ {
+		var measure SimilarityMeasure
+		
+		measure.Index = index
+		measure.CosineSimilarity = support.CosineSimilarity (pimaTrainingData[index], testdata, elementsToCompare)
+
+		similarityTable = append (similarityTable, measure)
+	}
+
+	// sort by cosine measure to get most similar at the lowest index
+	sort.Slice(similarityTable[:], func(i, j int) bool {
+		return similarityTable[i].CosineSimilarity < similarityTable[j].CosineSimilarity
+	  })
 }
 
 func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
@@ -159,6 +187,9 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 			actualNegatives++
 		}
 
+		// Build SimilarityTable for all records in training set
+		buildSimilarityTable (testdata[index])
+
 		// do the work and make a prediction
 		if checkTestDataRecord (testdata[index]) {
 			predictedPositives++
@@ -168,7 +199,8 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 	}
 
 	// now dump the summary
-	str := "\nResults of applying test data records:\n"
+	logging.DoWriteString ("",true,true)
+	str := "Results of applying test data records:\n"
 	logging.DoWriteString(str,true,true)
 
 	str = fmt.Sprintf("Predicted Positives : %d (%0.2f%%)\n", predictedPositives, support.Percentage(float64(predictedPositives), float64(len(testdata))))
