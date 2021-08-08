@@ -259,4 +259,7 @@ func main () {
 		logging.DoWriteString (str, true, true)
 		os.Exit(-2)
 	}
+
+	// run the algorithms against the test data set
+	algorithms.DoShowAlgorithmTestSummary (pimaTestData)
 }

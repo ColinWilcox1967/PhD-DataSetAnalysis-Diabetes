@@ -1,9 +1,11 @@
 package algorithms 
 
 import (
+	"fmt"
 	"../diabetesdata"
 	"../metrics"
 	"../support"
+	"../logging"
 	"errors"
 )
 
@@ -139,6 +141,45 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 	}
 
 	return data, err
+}
+
+func checkTestDataRecord (testitem diabetesdata.PimaDiabetesRecord) bool {
+	return false
+}
+
+func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
+	var predictedPositives, predictedNegatives int
+	var actualPositives, actualNegatives int
+
+	// Now get the results as per the test data
+	for index := 0; index < len(testdata); index++ {
+		if testdata[index].TestedPositive == 1 {
+			actualPositives++
+		} else {
+			actualNegatives++
+		}
+
+		// do the work and make a prediction
+		if checkTestDataRecord (testdata[index]) {
+			predictedPositives++
+		} else {
+			predictedNegatives++
+		}
+	}
+
+	// now dump the summary
+	str := "\nResults of applying test data records:\n"
+	logging.DoWriteString(str,true,true)
+
+	str = fmt.Sprintf("Predicted Positives : %d (%0.2f%%)\n", predictedPositives, support.Percentage(float64(predictedPositives), float64(len(testdata))))
+	logging.DoWriteString (str, true, true)
+	str = fmt.Sprintf("Actual Positives : %d (%0.2f%% Accuracy)\n", actualPositives, support.Percentage(float64(actualPositives), float64(predictedPositives)))
+	logging.DoWriteString (str, true, true)
+
+	str = fmt.Sprintf("Predicted Negatives : %d (%0.2f%%)\n", predictedNegatives, support.Percentage(float64(predictedNegatives), float64(len(testdata))))
+	logging.DoWriteString (str, true, true)
+	str = fmt.Sprintf("Actual Negatives : %d (%0.2f%% Accuracy)\n", actualNegatives, support.Percentage(float64(actualNegatives), float64(predictedNegatives)))
+	logging.DoWriteString (str, true, true)
 }
 
 // end of file
