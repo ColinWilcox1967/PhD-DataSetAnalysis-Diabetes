@@ -1,13 +1,17 @@
 package algorithms 
 
-import "../diabetesdata"
-import "../metrics"
-import "../support"
+import (
+	"../diabetesdata"
+	"../metrics"
+	"../support"
+	"errors"
+)
 
+
+var algorithmDescriptions = []string{"None","Remove incomplete Records","ReplaceMissingValuesWithMean"}
 
 func GetAlgorithmDescription (algoIndex int) string {
 
-	algorithmDescriptions := []string{"None","Remove incomplete Records","ReplaceMissingValuesWithMean"}
 
 	if algoIndex >= 0 && algoIndex < len(algorithmDescriptions) {
 		return algorithmDescriptions[algoIndex]
@@ -16,7 +20,7 @@ func GetAlgorithmDescription (algoIndex int) string {
 	return ""
 }
 
-func RemoveIncompleteRecords (dataset []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord {
+func removeIncompleteRecords (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error)  {
 
 	var resultSet []diabetesdata.PimaDiabetesRecord
 
@@ -27,10 +31,10 @@ func RemoveIncompleteRecords (dataset []diabetesdata.PimaDiabetesRecord) []diabe
 		}
 	}
 
-	return resultSet
+	return resultSet, nil
 }
 
-func ReplaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord{
+func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	numberOfFields := support.SizeOfPimaDiabetesRecord ()
 	numberOfRecords := len(dataset)
@@ -112,7 +116,29 @@ func ReplaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) []
 
 	}
 
-	return resultSet
+	return resultSet, nil
+}
+
+func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm int) ([]diabetesdata.PimaDiabetesRecord, error) {
+
+	// index specified out of range
+	if algorithm < 0 || algorithm > len(algorithmDescriptions)-1 {
+		return dataset, errors.New ("Invalid algorithm specified")
+	}
+
+	var data []diabetesdata.PimaDiabetesRecord
+	var err error = nil
+
+	switch (algorithm) {
+		case 0: // None
+			break
+		case 1: data, err = removeIncompleteRecords (dataset)
+			break
+		case 2: data, err = replaceMissingValuesWithMean (dataset)
+			break
+	}
+
+	return data, err
 }
 
 // end of file

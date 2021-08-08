@@ -247,8 +247,16 @@ func main () {
 	metrics.ShowDataSetStatistics ("Training Data Set", TrainingDataSetMetrics)
 	metrics.ShowDataSetStatistics ("Test Data Set", TestDataSetMetrics)
 
-
 	fmt.Println("")
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
     fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
+
+
+	// now perform the missing data algorithm
+	if pimaTrainingData, err = algorithms.DoProcessAlgorithm (pimaTrainingData, algorithmToUse); err != nil {
+		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
+
+		logging.DoWriteString (str, true, true)
+		os.Exit(-2)
+	}
 }
