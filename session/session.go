@@ -33,3 +33,16 @@ func CreateSessionFileName () string {
 	
 	return str
 }
+
+func CreateSessionFile (filename string) (*os.File, error, bool) {
+	var err error
+	var handle *os.File
+
+	handle, err = os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+    if err != nil {
+       return nil, err, false
+    }
+
+	return handle, nil, true
+
+}

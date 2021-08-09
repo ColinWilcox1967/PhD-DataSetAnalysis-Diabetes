@@ -16,6 +16,7 @@ import (
 	"./diabetesdata"
 	"./logging"
 	"./algorithms"
+	"./session"
 )
 
 const (
@@ -200,6 +201,19 @@ func main () {
 	
 	showSessionHeading ()
 
+	sessionName := session.CreateSessionFileName ()
+
+	sessionHandle, err, status := session.CreateSessionFileName(sessionName)
+	defer sessionHandle.Close ()
+
+	sessionHandle.Write ([]byte{"Session Started"})
+
+	// bail out if theres any kind of error
+	if !status || err != nil {
+		logging.DoWriteString (err.Error(), true, true)
+		os.Exit(-3)
+	}
+
 	fmt.Printf ("Using log file : '%s'\n", strings.ToUpper(logfileName))
 
 	err, count := loadDiabetesFile (diabetes_data_file)
@@ -267,4 +281,6 @@ func main () {
 
 	// run the algorithms against the test data set
 	algorithms.DoShowAlgorithmTestSummary (pimaTestData)
+
+	sessionHandle.Write ([]byte{"Session Finished"})
 }
