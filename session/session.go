@@ -2,8 +2,10 @@ package session
 
 import (
 	"os"
-
+	"fmt"
+	"time"
 )
+
 func getCurrentApplicationFolder () string {
 	path, _ := os.Executable()
 	
@@ -26,5 +28,8 @@ func CreateSessionFolder () bool {
 }
 
 func CreateSessionFileName () string {
-	return ""
+	str := "Session "
+	str += fmt.Sprintf ("%s", time.Now().Format("2006-01-02 15:04:05"))
+	
+	return str
 }
