@@ -193,6 +193,11 @@ func main () {
 
 	showTitle ()
 
+	// build the session foldre structure
+	if !session.SessionFolderExists () {
+		session.CreateSessionFolder ()
+	}
+	
 	showSessionHeading ()
 
 	fmt.Printf ("Using log file : '%s'\n", strings.ToUpper(logfileName))
