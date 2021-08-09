@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"../diabetesdata"
 	"../metrics"
+	"../datasets"
 	"../support"
 	"../logging"
 	"errors"
@@ -175,12 +176,12 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
 
 	// measure similarity against each record in training set
-	for index := 0; index < len(pimaTrainingData); index++ {
+	for index := 0; index < len(datasets.PimaTrainingData); index++ {
 		var measure SimilarityMeasure
 		
 		measure.Index = index
 
-		vector1 := anonymiseDiabetesRecord(pimaTrainingData[index])
+		vector1 := anonymiseDiabetesRecord(datasets.PimaTrainingData[index])
 		vector2 := anonymiseDiabetesRecord(testdata)
 		measure.CosineSimilarity = support.CosineSimilarity (vector1, vector2, elementsToCompare)
 

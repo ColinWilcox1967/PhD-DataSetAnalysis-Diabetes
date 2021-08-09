@@ -14,6 +14,7 @@ import (
 	"./support"
 	"./metrics"
 	"./diabetesdata"
+	"./datasets"
 	"./logging"
 	"./algorithms"
 	"./session"
@@ -28,8 +29,8 @@ const (
 
 var (
  	pimaDiabetesData []diabetesdata.PimaDiabetesRecord	// Original Data store
-	pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
-	pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
+//	pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
+//	pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
 	splitPercentage float64 = default_split_percentage  // 0.0 < percentage < 1.0
 	sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
 	logfileName string
@@ -114,8 +115,8 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	var testRecordCount int = sizeOfDataSet - int(trainingRecordCount)
 
 	// Duplicate raw data records into potential training data set
-	pimaTrainingData = make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
-	copy(pimaTrainingData, pimaDiabetesData)
+	datasets.PimaTrainingData = make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
+	copy(datasets.PimaTrainingData, pimaDiabetesData)
 
 	rand.Seed(time.Now().UnixNano()) // generate seed each time
 
@@ -138,7 +139,7 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 		newRecord.TestedPositive = pimaDiabetesData[r].TestedPositive
 		newRecord.TricepsSkinfoldThickness = pimaDiabetesData[r].TricepsSkinfoldThickness
 		
-		pimaTestData = append(pimaTestData, newRecord)
+		datasets.PimaTestData = append(datasets.PimaTestData, newRecord)
 	}
 
 	// now sort index list into descending order so we can remove these records from training set
@@ -150,20 +151,20 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 	// now iterate through the index array removing the entry from the training set - to remove duplicates
 	for index := range (recordIndexList) {
 
-		if index < len(pimaTrainingData) {
-			pimaTrainingData = append (pimaTrainingData[:index], pimaTrainingData[index+1:]...)
+		if index < len(datasets.PimaTrainingData) {
+			datasets.PimaTrainingData = append (datasets.PimaTrainingData[:index], datasets.PimaTrainingData[index+1:]...)
 		}
 	}	
 
-	return nil, len(pimaTrainingData), len(pimaTestData)
+	return nil, len(datasets.PimaTrainingData), len(datasets.PimaTestData)
 }
 
 func countTrainingSetRecords () (int, int) {
 
 	var positiveCount, negativeCount int
 
-	for index := 0; index < len (pimaTrainingData); index++ {
-		if pimaTrainingData[index].TestedPositive == 1 {
+	for index := 0; index < len (datasets.PimaTrainingData); index++ {
+		if datasets.PimaTrainingData[index].TestedPositive == 1 {
 			positiveCount++
 		} else {
 			negativeCount++
@@ -203,10 +204,10 @@ func main () {
 
 	sessionName := session.CreateSessionFileName ()
 
-	sessionHandle, err, status := session.CreateSessionFileName(sessionName)
+	sessionHandle, err, status := session.CreateSessionFile(sessionName)
 	defer sessionHandle.Close ()
 
-	sessionHandle.Write ([]byte{"Session Started"})
+	sessionHandle.WriteString ("Session Started")
 
 	// bail out if theres any kind of error
 	if !status || err != nil {
@@ -237,11 +238,10 @@ func main () {
 
 	sourceDataMetrics = metrics.GetDataSetMetrics (pimaDiabetesData)
 
-	TrainingDataSetMetrics = metrics.GetDataSetMetrics (pimaTrainingData)
-	TestDataSetMetrics = metrics.GetDataSetMetrics (pimaTestData)
+	TrainingDataSetMetrics = metrics.GetDataSetMetrics (datasets.PimaTrainingData)
+	TestDataSetMetrics = metrics.GetDataSetMetrics (datasets.PimaTestData)
 
 	positiveCount, negativeCount := countTrainingSetRecords()
-
 	positivePercentage := support.Percentage (float64(positiveCount), float64(trainingSetSize))
 	negativePercentage := support.Percentage (float64(negativeCount), float64(trainingSetSize))
 
@@ -272,7 +272,7 @@ func main () {
 
 
 	// now perform the missing data algorithm
-	if pimaTrainingData, err = algorithms.DoProcessAlgorithm (pimaTrainingData, algorithmToUse); err != nil {
+	if datasets.PimaTrainingData, err = algorithms.DoProcessAlgorithm (datasets.PimaTrainingData, algorithmToUse); err != nil {
 		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
 
 		logging.DoWriteString (str, true, true)
@@ -280,7 +280,7 @@ func main () {
 	}
 
 	// run the algorithms against the test data set
-	algorithms.DoShowAlgorithmTestSummary (pimaTestData)
+	algorithms.DoShowAlgorithmTestSummary (datasets.PimaTestData)
 
-	sessionHandle.Write ([]byte{"Session Finished"})
+	sessionHandle.WriteString ("Session Finished")
 }
