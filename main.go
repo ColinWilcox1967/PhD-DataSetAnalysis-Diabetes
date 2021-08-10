@@ -48,11 +48,17 @@ func showSessionHeading () {
 
 func getParameters () {
 	
+	var sessionFolder string
+
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
+	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies sesion log folder.")
 
 	flag.Parse ()
+
+	// set the session folder
+	session.SetSessionFolder (sessionFolder)
 	
 	// out of range check?
 	if splitPercentage <= 0.0 || splitPercentage >= 1.0 {

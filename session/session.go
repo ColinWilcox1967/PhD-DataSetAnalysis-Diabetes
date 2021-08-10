@@ -6,8 +6,22 @@ import (
 	"time"
 )
 
+const default_session_folder = "./sessions"
+
+var session_folder string = default_session_folder
+
+
+func SetSessionFolder (folder string) { // basic public setter
+
+	if folder == "" {
+		session_folder = default_session_folder
+	} else {
+		session_folder = folder
+	}
+}
+
 func SessionFolderExists () bool {
-	fullPath := "./sessions"
+	fullPath := session_folder
 	// check if folder exists ...
 	_, err := os.Stat(fullPath)
 
@@ -15,13 +29,13 @@ func SessionFolderExists () bool {
 }
 
 func CreateSessionFolder () bool {
-    err := os.Mkdir("./sessions", 0755)
+    err := os.Mkdir(session_folder, 0755)
 		
 	return err == nil
 }
 
 func CreateSessionFileName () string {
-	str := "./sessions/Session - "
+	str := session_folder+"/Session - "
 	str += fmt.Sprintf ("%s.txt", time.Now().Format("2006-01-02-150405"))
 	
 	return str
