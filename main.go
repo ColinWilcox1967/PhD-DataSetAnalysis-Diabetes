@@ -205,6 +205,11 @@ func main () {
 	sessionName := session.CreateSessionFileName ()
 
 	sessionHandle, err, status := session.CreateSessionFile(sessionName)
+
+	if err != nil {
+		fmt.Printf (err.Error ())
+		os.Exit(-4)
+	}
 	defer sessionHandle.Close ()
 
 	sessionHandle.WriteString ("Session Started")
