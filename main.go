@@ -257,10 +257,10 @@ func main () {
 	negativePercentage := support.Percentage (float64(negativeCount), float64(trainingSetSize))
 
 	fmt.Printf ("Training set split - %d Positive Outcomes (%.2f%%), %d Negative Outcomes (%.2f%%)\n", 
-	positiveCount,
-	positivePercentage,
-	negativeCount,
-	negativePercentage)
+				positiveCount,
+				positivePercentage,
+				negativeCount,
+				negativePercentage)
 
 	logging.DoWriteString("\n", true, false)
 	logging.DoWriteString ("Preprocessed Datasets...\n", true, true)
@@ -290,6 +290,8 @@ func main () {
 		os.Exit(-2)
 	}
 
+	// dump the session results here
+	
 	// run the algorithms against the test data set
 	algorithms.DoShowAlgorithmTestSummary (datasets.PimaTestData)
 

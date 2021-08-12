@@ -206,8 +206,16 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 			actualNegatives++
 		}
 
-		// Build SimilarityTable for all records in training set
+		// Build SimilarityTable for all records in training set for this test record!!
 		buildSimilarityTable (testdata[index])
+
+		similarityToTestRecord := similarityTable[0].CosineSimilarity
+		recordIndexOfClosestMatch := similarityTable[0].Index
+
+		//needs some work on tjis bit
+		str := fmt.Sprintf ("%03d\t%03d\t%08f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
+													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
+		logging.DoWriteString(str, true, true) // this wil be in session file really
 
 		// do the work and make a prediction
 		if checkTestDataRecord (testdata[index]) {
@@ -215,12 +223,14 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 		} else {
 			predictedNegatives++
 		}
+
 	}
 
 	// now dump the summary
 	logging.DoWriteString ("",true,true)
 	str := "Results of applying test data records:\n"
 	logging.DoWriteString(str,true,true)
+
 
 	str = fmt.Sprintf("Predicted Positives : %d (%0.2f%%)\n", predictedPositives, support.Percentage(float64(predictedPositives), float64(len(testdata))))
 	logging.DoWriteString (str, true, true)
@@ -232,6 +242,7 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 	str = fmt.Sprintf("Actual Negatives : %d (%0.2f%% Accuracy)\n", actualNegatives, support.Percentage(float64(actualNegatives), float64(predictedNegatives)))
 	logging.DoWriteString (str, true, true)
 }
+
 
 // end of file
 
