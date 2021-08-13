@@ -136,16 +136,16 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		return dataset, errors.New ("Invalid algorithm specified")
 	}
 
-	var data []diabetesdata.PimaDiabetesRecord
+	data := make([]diabetesdata.PimaDiabetesRecord, len(dataset))
 	var err error = nil
 
 	switch (algorithm) {
-		case 0: // None
-			break
+		case 0: copy(data[:], dataset)
 		case 1: data, err = removeIncompleteRecords (dataset)
-			break
 		case 2: data, err = replaceMissingValuesWithMean (dataset)
-			break
+		default:
+			copy(data[:], dataset)
+
 	}
 
 	return data, err
@@ -176,6 +176,9 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
 
 	// measure similarity against each record in training set
+
+	fmt.Printf(">>> %d\n", len(datasets.PimaTrainingData))
+
 	for index := 0; index < len(datasets.PimaTrainingData); index++ {
 		var measure SimilarityMeasure
 		
@@ -208,6 +211,11 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 
 		// Build SimilarityTable for all records in training set for this test record!!
 		buildSimilarityTable (testdata[index])
+
+		if len(similarityTable) == 0 {
+			// ok for some reason the comparison table has ended up empty
+			return
+		}
 
 		similarityToTestRecord := similarityTable[0].CosineSimilarity
 		recordIndexOfClosestMatch := similarityTable[0].Index
