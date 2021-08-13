@@ -284,17 +284,12 @@ func main () {
 
 	// now perform the missing data algorithm
 	
-	fmt.Printf ("111: %d\n", len(datasets.PimaTrainingData))
 	if datasets.PimaTrainingData, err = algorithms.DoProcessAlgorithm (datasets.PimaTrainingData, algorithmToUse); err != nil {
 		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
 
 		logging.DoWriteString (str, true, true)
 		os.Exit(-2)
 	}
-
-	fmt.Printf ("222: %d\n", len(datasets.PimaTrainingData))
-
-
 
 	// dump the session results here
 	

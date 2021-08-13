@@ -154,7 +154,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 
 // TBD
 func checkTestDataRecord (testitem diabetesdata.PimaDiabetesRecord) bool {
-	return false
+	return testitem.TestedPositive == 1
 }
 
 func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
@@ -176,8 +176,6 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
 
 	// measure similarity against each record in training set
-
-	fmt.Printf(">>> %d\n", len(datasets.PimaTrainingData))
 
 	for index := 0; index < len(datasets.PimaTrainingData); index++ {
 		var measure SimilarityMeasure
@@ -223,10 +221,10 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 		//needs some work on tjis bit
 		str := fmt.Sprintf ("%03d\t%03d\t%08f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
 													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
-		logging.DoWriteString(str, true, true) // this wil be in session file really
+		logging.DoWriteString(str, true, true) // this will be in session file really
 
 		// do the work and make a prediction
-		if checkTestDataRecord (testdata[index]) {
+		if checkTestDataRecord (datasets.PimaTrainingData[recordIndexOfClosestMatch]) {
 			predictedPositives++
 		} else {
 			predictedNegatives++
