@@ -151,12 +151,6 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 	return data, err
 }
 
-
-// TBD
-func checkTestDataRecord (testitem diabetesdata.PimaDiabetesRecord) bool {
-	return testitem.TestedPositive == 1
-}
-
 func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
 	anonymous := make([]float64, support.SizeOfPimaDiabetesRecord()-1)
 
@@ -177,6 +171,8 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 
 	// measure similarity against each record in training set
 
+	similarityTable = []SimilarityMeasure{} // reset on each pass 
+
 	for index := 0; index < len(datasets.PimaTrainingData); index++ {
 		var measure SimilarityMeasure
 		
@@ -191,7 +187,7 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 
 	// sort by cosine measure to get most similar at the lowest index
 	sort.Slice(similarityTable[:], func(i, j int) bool {
-		return similarityTable[i].CosineSimilarity < similarityTable[j].CosineSimilarity
+		return similarityTable[i].CosineSimilarity > similarityTable[j].CosineSimilarity
 	  })
 }
 
@@ -201,6 +197,7 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 
 	// Now get the results as per the test data
 	for index := 0; index < len(testdata); index++ {
+		// outcome read from the actual record
 		if testdata[index].TestedPositive == 1 {
 			actualPositives++
 		} else {
@@ -215,6 +212,7 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 			return
 		}
 
+		// most similar record from training set will now be element zero.
 		similarityToTestRecord := similarityTable[0].CosineSimilarity
 		recordIndexOfClosestMatch := similarityTable[0].Index
 
@@ -223,8 +221,8 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
 		logging.DoWriteString(str, true, true) // this will be in session file really
 
-		// do the work and make a prediction
-		if checkTestDataRecord (datasets.PimaTrainingData[recordIndexOfClosestMatch]) {
+		// do the work and make a prediction based on closest record
+		if datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive == 1 {
 			predictedPositives++
 		} else {
 			predictedNegatives++
