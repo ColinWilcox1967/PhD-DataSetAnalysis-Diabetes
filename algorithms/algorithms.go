@@ -192,18 +192,13 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 }
 
 func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
-	var predictedPositives, predictedNegatives int
-	var actualPositives, actualNegatives int
-
+	
+	var mismatchCounter int
+	
 	// Now get the results as per the test data
 	for index := 0; index < len(testdata); index++ {
 		// outcome read from the actual record
-		if testdata[index].TestedPositive == 1 {
-			actualPositives++
-		} else {
-			actualNegatives++
-		}
-
+		
 		// Build SimilarityTable for all records in training set for this test record!!
 		buildSimilarityTable (testdata[index])
 
@@ -217,34 +212,18 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 		recordIndexOfClosestMatch := similarityTable[0].Index
 
 		//needs some work on tjis bit
-		str := fmt.Sprintf ("%03d\t%03d\t%08f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
+		str := fmt.Sprintf ("%03d\t%03d\t%10f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
 													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
 		logging.DoWriteString(str, true, true) // this will be in session file really
 
-		// do the work and make a prediction based on closest record
-		if datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive == 1 {
-			predictedPositives++
-		} else {
-			predictedNegatives++
+		if testdata[index].TestedPositive != datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive {
+			mismatchCounter++
 		}
 
 	}
 
-	// now dump the summary
-	logging.DoWriteString ("",true,true)
-	str := "Results of applying test data records:\n"
-	logging.DoWriteString(str,true,true)
-
-
-	str = fmt.Sprintf("Predicted Positives : %d (%0.2f%%)\n", predictedPositives, support.Percentage(float64(predictedPositives), float64(len(testdata))))
-	logging.DoWriteString (str, true, true)
-	str = fmt.Sprintf("Actual Positives : %d (%0.2f%% Accuracy)\n", actualPositives, support.Percentage(float64(actualPositives), float64(predictedPositives)))
-	logging.DoWriteString (str, true, true)
-
-	str = fmt.Sprintf("Predicted Negatives : %d (%0.2f%%)\n", predictedNegatives, support.Percentage(float64(predictedNegatives), float64(len(testdata))))
-	logging.DoWriteString (str, true, true)
-	str = fmt.Sprintf("Actual Negatives : %d (%0.2f%% Accuracy)\n", actualNegatives, support.Percentage(float64(actualNegatives), float64(predictedNegatives)))
-	logging.DoWriteString (str, true, true)
+	fmt.Printf ("Mismatch Counter = %d out of %d (%.02f%%)\n", mismatchCounter, len(testdata), support.Percentage(float64(mismatchCounter), float64(len(testdata))))
+	
 }
 
 
