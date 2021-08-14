@@ -222,7 +222,7 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 
 	}
 
-	fmt.Printf ("Mismatch Counter = %d out of %d (%.02f%%)\n", mismatchCounter, len(testdata), support.Percentage(float64(mismatchCounter), float64(len(testdata))))
+	fmt.Printf ("Prediction accuracy  = %d out of %d (%.02f%%)\n", len(testdata)-mismatchCounter, len(testdata), support.Percentage(float64(len(testdata)-mismatchCounter), float64(len(testdata))))
 	
 }
 
