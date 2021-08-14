@@ -23,6 +23,38 @@ func FileExists (filename string) bool {
 	return true
 }
 
+func LeftAlignStringInColumn (s string, n int) string {
+	l := len(s)
+	if l > n {
+		return s
+	}
+	padding := n - l
+
+	str := s
+	for i := 0; i < padding; i++ {
+		str += " "
+	}
+	return str
+}
+
+func CentreStringInColumn (s string, n int) string {
+	l := len(s)
+	if l > n {
+		return s
+	}
+	padding :=(n - l)/2
+
+	str := ""
+	for i := 0; i < padding; i++ {
+		str += " "
+	}
+	str += s
+	for i := 0; i < padding; i++ {
+		str += " "
+	}
+	return str
+}
+
 
 // general function to produce cosine similarity
 func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {

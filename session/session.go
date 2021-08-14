@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 	"errors"
+	"../algorithms"
 )
 
 const default_session_folder = "./sessions"
@@ -59,13 +60,17 @@ func CreateSessionFile (filename string) (*os.File, error, bool) {
 
 }
 
-func StartSession (handle *os.File) error {
+func StartSession (handle *os.File, algorithm int) error {
 
 	if handle == nil {
 		return errors.New ("Invalid session file handle")
 	}
 	str := fmt.Sprintf ("--- Session started : %s\n", getCurrentTimestamp ())
 	handle.WriteString (str)
+
+	// dump algorith type being used
+	str = fmt.Sprintf("Algorithm being used is '%s'\n\n", algorithms.GetAlgorithmDescription(algorithm))
+	handle.WriteString(str)
 
 	return nil
 }

@@ -218,14 +218,14 @@ func main () {
 	}
 	defer sessionHandle.Close ()
 
-	err = session.StartSession (sessionHandle) 
+	err = session.StartSession (sessionHandle, algorithmToUse) 
 	
 	// bail out if theres any kind of error
 	if !status || err != nil {
 		logging.DoWriteString (err.Error(), true, true)
 		os.Exit(-3)
 	}
-
+	
 	fmt.Printf ("Using log file : '%s'\n", strings.ToUpper(logfileName))
 
 	err, count := loadDiabetesFile (diabetes_data_file)

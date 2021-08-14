@@ -10,6 +10,7 @@ import (
 	"errors"
 	"sort"
 	"os"
+	"strconv"
 )
 
 type SimilarityMeasure struct {
@@ -197,9 +198,20 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	var mismatchCounter int
 	
 	// Table column headings
-	str := fmt.Sprintf ("%10s %10s %10s %5s %5s\n", "Test Record","Best Match","Similarity","Predicted","Calculated")
+	str := support.LeftAlignStringInColumn ("Test Record", 15)
+	str += support.LeftAlignStringInColumn ("Best Match", 15)
+	str += support.LeftAlignStringInColumn ("Similarity", 12)
+	str += support.LeftAlignStringInColumn ("Predicted", 12)
+	str += support.LeftAlignStringInColumn ("Calculated", 12)
+	str += "\n"
 	sessionhandle.WriteString(str)
-	str= fmt.Sprintf ("%10s %10s %10s %5s %5s\n", "Number","Record","Measure","Outcome","Outcome")
+
+	str = support.LeftAlignStringInColumn ("Number", 15)
+	str += support.LeftAlignStringInColumn ("Record", 15)
+	str += support.LeftAlignStringInColumn ("Measure", 12)
+	str += support.LeftAlignStringInColumn ("Outcome", 12)
+	str += support.LeftAlignStringInColumn ("Outcome", 12)
+	str+= "\n"
 	sessionhandle.WriteString(str)
 
 	// Now get the results as per the test data
@@ -219,8 +231,12 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		recordIndexOfClosestMatch := similarityTable[0].Index
 
 		//needs some work on tjis bit
-		str := fmt.Sprintf ("%03d\t%03d\t%10f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
-													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
+		str := support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)
+		str += support.CentreStringInColumn (fmt.Sprintf ("%-15s",strconv.Itoa (recordIndexOfClosestMatch)), 15)
+		str += support.CentreStringInColumn (strconv.FormatFloat(similarityToTestRecord, 'g', 1, 64), 12)
+		str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
+		str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)),12)
+		str += "\n"
 		sessionhandle.WriteString (str) // this will be in session file really
 
 		if testdata[index].TestedPositive != datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive {
