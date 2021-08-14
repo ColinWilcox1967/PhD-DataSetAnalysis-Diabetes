@@ -218,8 +218,8 @@ func main () {
 	}
 	defer sessionHandle.Close ()
 
-	sessionHandle.WriteString ("Session Started")
-
+	err = session.StartSession (sessionHandle) 
+	
 	// bail out if theres any kind of error
 	if !status || err != nil {
 		logging.DoWriteString (err.Error(), true, true)
@@ -294,7 +294,9 @@ func main () {
 	// dump the session results here
 	
 	// run the algorithms against the test data set
-	algorithms.DoShowAlgorithmTestSummary (datasets.PimaTestData)
+	algorithms.DoShowAlgorithmTestSummary (sessionHandle, datasets.PimaTestData)
 
-	sessionHandle.WriteString ("Session Finished")
+	if session.EndSession (sessionHandle) != nil {
+		logging.DoWriteString ("Problem closing session file", true, true)
+	}
 }

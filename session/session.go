@@ -4,12 +4,16 @@ import (
 	"os"
 	"fmt"
 	"time"
+	"errors"
 )
 
 const default_session_folder = "./sessions"
 
 var session_folder string = default_session_folder
 
+func getCurrentTimestamp () string {
+	return time.Now().Format("2006-01-02-150405")
+}
 
 func SetSessionFolder (folder string) { // basic public setter
 
@@ -36,7 +40,7 @@ func CreateSessionFolder () bool {
 
 func CreateSessionFileName () string {
 	str := session_folder+"/Session - "
-	str += fmt.Sprintf ("%s.txt", time.Now().Format("2006-01-02-150405"))
+	str += fmt.Sprintf ("%s.txt", getCurrentTimestamp())
 	
 	return str
 }
@@ -53,4 +57,22 @@ func CreateSessionFile (filename string) (*os.File, error, bool) {
 
 	return handle, nil, true
 
+}
+
+func StartSession (handle *os.File) error {
+
+	if handle == nil {
+		return errors.New ("Invalid session file handle")
+	}
+	str := fmt.Sprintf ("--- Session started : %s\n", getCurrentTimestamp ())
+	handle.WriteString (str)
+
+	return nil
+}
+
+func EndSession (handle *os.File) error {
+
+	str := fmt.Sprintf ("--- Session ended : %s\n", getCurrentTimestamp ())
+	handle.WriteString (str)
+	return handle.Close ()
 }

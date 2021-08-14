@@ -9,6 +9,7 @@ import (
 	"../logging"
 	"errors"
 	"sort"
+	"os"
 )
 
 type SimilarityMeasure struct {
@@ -191,10 +192,16 @@ func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	  })
 }
 
-func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
+func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
 	var mismatchCounter int
 	
+	// Table column headings
+	str := fmt.Sprintf ("%10s %10s %10s %5s %5s\n", "Test Record","Best Match","Similarity","Predicted","Calculated")
+	sessionhandle.WriteString(str)
+	str= fmt.Sprintf ("%10s %10s %10s %5s %5s\n", "Number","Record","Measure","Outcome","Outcome")
+	sessionhandle.WriteString(str)
+
 	// Now get the results as per the test data
 	for index := 0; index < len(testdata); index++ {
 		// outcome read from the actual record
@@ -214,7 +221,7 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 		//needs some work on tjis bit
 		str := fmt.Sprintf ("%03d\t%03d\t%10f\t%b\t%b\n", index, recordIndexOfClosestMatch, similarityToTestRecord,
 													 testdata[index].TestedPositive, datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)
-		logging.DoWriteString(str, true, true) // this will be in session file really
+		sessionhandle.WriteString (str) // this will be in session file really
 
 		if testdata[index].TestedPositive != datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive {
 			mismatchCounter++
@@ -222,8 +229,11 @@ func DoShowAlgorithmTestSummary (testdata []diabetesdata.PimaDiabetesRecord ) {
 
 	}
 
-	fmt.Printf ("Prediction accuracy  = %d out of %d (%.02f%%)\n", len(testdata)-mismatchCounter, len(testdata), support.Percentage(float64(len(testdata)-mismatchCounter), float64(len(testdata))))
+	// final accuracy measure
+	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", len(testdata)-mismatchCounter, len(testdata), support.Percentage(float64(len(testdata)-mismatchCounter), float64(len(testdata))))
 	
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
 }
 
 
