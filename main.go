@@ -53,7 +53,7 @@ func getParameters () {
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
-	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies sesion log folder.")
+	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies session log folder.")
 
 	flag.Parse ()
 
