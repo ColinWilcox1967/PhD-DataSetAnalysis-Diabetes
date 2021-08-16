@@ -32,6 +32,7 @@ func GetAlgorithmDescription (algoIndex int) string {
 	return ""
 }
 
+// Algo=1
 func removeIncompleteRecords (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error)  {
 
 	var resultSet []diabetesdata.PimaDiabetesRecord
@@ -53,6 +54,7 @@ func removeIncompleteRecords (dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 	return resultSet, nil
 }
 
+// Algo=2
 func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	numberOfFields := support.SizeOfPimaDiabetesRecord ()
@@ -82,53 +84,59 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 		columnMean[index] = float64(columnTotal[index])/float64(numberOfRecords)
 	}
 
+	// Dump all the column means
+	for index := 0; index < numberOfFields; index++ {
+		str := fmt.Sprintf ("Mean (Column %d) = %0.2f\n", index, columnMean[index])
+		logging.DoWriteString (str, true, true)
+	}
+
 	// now sycle through the record and replace missing data with the mean for that column
 	for index := 0; index < numberOfRecords; index++ {
 
 		if dataset[index].NumberOfTimesPregnant == 0 {
-			resultSet[index].NumberOfTimesPregnant = int(columnMean[index])
+			resultSet[index].NumberOfTimesPregnant = int(columnMean[0])
 		} else {
 			resultSet[index].NumberOfTimesPregnant = dataset[index].NumberOfTimesPregnant
 		}
-		
+	
 		if dataset[index].PlasmaGlucoseConcentration == 0 {
-			resultSet[index].PlasmaGlucoseConcentration = int(columnMean[index])
+			resultSet[index].PlasmaGlucoseConcentration = int(columnMean[1])
 		} else {
 			resultSet[index].PlasmaGlucoseConcentration = dataset[index].PlasmaGlucoseConcentration
 		}
-
+	
 		if dataset[index].DiastolicBloodPressure == 0 {
-			resultSet[index].DiastolicBloodPressure = int(columnMean[index])
+			resultSet[index].DiastolicBloodPressure = int(columnMean[2])
 		} else {
 			resultSet[index].DiastolicBloodPressure = dataset[index].PlasmaGlucoseConcentration
 		}
 
 		if dataset[index].TricepsSkinfoldThickness == 0 {
-			resultSet[index].TricepsSkinfoldThickness = int(columnMean[index])
+			resultSet[index].TricepsSkinfoldThickness = int(columnMean[3])
 		} else {
 			resultSet[index].TricepsSkinfoldThickness = dataset[index].PlasmaGlucoseConcentration
 		}
 
 		if dataset[index].SeriumInsulin == 0 {
-			resultSet[index].SeriumInsulin = int(columnMean[index])
+			resultSet[index].SeriumInsulin = int(columnMean[4])
 		} else {
 			resultSet[index].SeriumInsulin = dataset[index].PlasmaGlucoseConcentration
 		}
 
 		if dataset[index].BodyMassIndex == 0 {
-			resultSet[index].BodyMassIndex = columnMean[index]
+			resultSet[index].BodyMassIndex = columnMean[5]
 		} else {
 			resultSet[index].BodyMassIndex = float64(dataset[index].PlasmaGlucoseConcentration)
 		}
 
 		if dataset[index].DiabetesPedigreeFunction == 0 {
-			resultSet[index].DiabetesPedigreeFunction = columnMean[index]
+			resultSet[index].DiabetesPedigreeFunction = columnMean[6]
 		} else {
 			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].PlasmaGlucoseConcentration)
 		}
-
+	
 		if dataset[index].Age == 0 {
-			resultSet[index].Age = int(columnMean[index])
+			resultSet[index].Age = int(columnMean[7])
 		} else {
 			resultSet[index].Age = dataset[index].PlasmaGlucoseConcentration
 		}
