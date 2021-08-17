@@ -37,6 +37,16 @@ func LeftAlignStringInColumn (s string, n int) string {
 	return str
 }
 
+func ContainsInArray (array []int, n int) bool {
+	for _, value := range (array) {
+		if value == n {
+			return true
+		}
+	}
+
+	return false
+}
+
 func CentreStringInColumn (s string, n int) string {
 	l := len(s)
 	if l > n {

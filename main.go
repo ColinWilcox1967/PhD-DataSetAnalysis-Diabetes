@@ -29,8 +29,6 @@ const (
 
 var (
  	pimaDiabetesData []diabetesdata.PimaDiabetesRecord	// Original Data store
-//	pimaTrainingData []diabetesdata.PimaDiabetesRecord   // Training dataset
-//	pimaTestData []diabetesdata.PimaDiabetesRecord 		// Test data subset
 	splitPercentage float64 = default_split_percentage  // 0.0 < percentage < 1.0
 	sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
 	logfileName string
@@ -122,17 +120,26 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 
 	// Duplicate raw data records into potential training data set
 	datasets.PimaTrainingData = make([]diabetesdata.PimaDiabetesRecord, len(pimaDiabetesData))
+	
 	copy(datasets.PimaTrainingData, pimaDiabetesData)
 
 	rand.Seed(time.Now().UnixNano()) // generate seed each time
 
 	// create test and training subset
+
+	datasets.PimaTestData = nil
+
 	for index := 0; index < int (testRecordCount); index++ {
+	
 		// select a record at random and move it to the test data
-		
 		r := rand.Intn(sizeOfDataSet) 
+		for support.ContainsInArray (recordIndexList, r) {
+			r = rand.Intn(sizeOfDataSet) 
+		}
+
 		recordIndexList = append(recordIndexList, r) // add index to list for later
 
+		
 		//copyPimaRecordToTestData
 		var newRecord diabetesdata.PimaDiabetesRecord
 
@@ -150,16 +157,15 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 
 	// now sort index list into descending order so we can remove these records from training set
 	sort.Ints (recordIndexList)
-	sort.Slice(recordIndexList, func(i, j int) bool { // descnding order
+	sort.Slice(recordIndexList, func(i, j int) bool { // descending order
 		return recordIndexList[i] > recordIndexList[j]
 	})
 
 	// now iterate through the index array removing the entry from the training set - to remove duplicates
-	for index := range (recordIndexList) {
 
-		if index < len(datasets.PimaTrainingData) {
-			datasets.PimaTrainingData = append (datasets.PimaTrainingData[:index], datasets.PimaTrainingData[index+1:]...)
-		}
+	for index := 0; index < len(recordIndexList); index++ {
+		pos := recordIndexList[index]
+		datasets.PimaTrainingData = append (datasets.PimaTrainingData[:pos], datasets.PimaTrainingData[pos+1:]...)
 	}	
 
 	return nil, len(datasets.PimaTrainingData), len(datasets.PimaTestData)
@@ -236,10 +242,11 @@ func main () {
 	str = fmt.Sprintf ("Read %d diabetes records.\n", count)
 	logging.DoWriteString(str, true, true)
 
-	str = fmt.Sprintf ("Split Percentage = %.2f\n", splitPercentage)
+	str = fmt.Sprintf ("Split Percentage = %.2f%%\n", float64(100)*splitPercentage)
 	logging.DoWriteString(str, true, true)
 
 	// Partition source data into training and test data
+
 	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), splitPercentage)
 
 	if err != nil {
