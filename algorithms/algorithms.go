@@ -19,7 +19,7 @@ type SimilarityMeasure struct {
 
 var similarityTable []SimilarityMeasure // stores the indesx and measure of the closest records
 
-var algorithmDescriptions = []string{"None","Remove incomplete Records","ReplaceMissingValuesWithMean"}
+var algorithmDescriptions = []string{"None","Remove incomplete Records","ReplaceMissingValuesWithMean", "ReplaceMissingValuesWithModal"}
 
 func GetAlgorithmDescription (algoIndex int) string {
 
@@ -46,6 +46,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 1: data, err = removeIncompleteRecords (dataset)
 		case 2: data, err = replaceMissingValuesWithMean (dataset)
 		case 3: data, err = replaceGradientValue (dataset)
+		case 4: data, err = replaceMissingValuesWithModal (dataset)
 		default:
 			copy(data[:], dataset)
 
