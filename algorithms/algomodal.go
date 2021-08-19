@@ -25,9 +25,10 @@ func valueExistsForFeature (list []valueCount, value int) (bool, int) {
 
 //algo=4
 func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
-
 	numberOfFields := support.SizeOfPimaDiabetesRecord () - 1
 	numberOfRecords := len(dataset)
+
+	var resultSet = make([]diabetesdata.PimaDiabetesRecord, numberOfRecords)
 
 	columnCount := make([][]valueCount, numberOfFields)
 	columnModal := make([]valueCount, numberOfFields)
@@ -86,22 +87,68 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 
 	// done all the counts. need to find modal value for each column
 	for field := 0; field < numberOfFields; field++ {
-		if support.GetFieldTypeWithinStruct (&columnCount[field], field) == "int" {
-				sort.Slice(columnCount[field][:], 
+		sort.Slice(columnCount[field][:], 
 					func(i, j int) bool {
-					return columnCount[field][i].IntValue > columnCount[field][j].IntValue})
-			columnModal[field].IntValue = columnCount[field][0].IntValue
-		} else {
-			sort.Slice(columnCount[field][:], 
-				func(i, j int) bool {
-				return columnCount[field][i].FloatValue > columnCount[field][j].FloatValue})
-			columnModal[field].FloatValue = columnCount[field][0].FloatValue
-		}
+					return columnCount[field][i].Count > columnCount[field][j].Count})
 
-		
+			if support.GetFieldTypeWithinStruct(&columnCount[field], field) == "int" {
+				columnModal[field].IntValue = columnCount[field][0].IntValue
+			} else {
+				columnModal[field].FloatValue = columnCount[field][0].FloatValue
+			}
 	}
 
-	// now we have the modal for each colum run through and process the data set
+	// now we have the modal for each columm run through and process the data set
 	
-	return nil,nil
+	for index:= 0; index < numberOfRecords; index++ {
+		if dataset[index].NumberOfTimesPregnant == 0 {
+			resultSet[index].NumberOfTimesPregnant = columnModal[0].IntValue
+		} else {
+			resultSet[index].NumberOfTimesPregnant = dataset[index].NumberOfTimesPregnant
+		}
+	
+		if dataset[index].PlasmaGlucoseConcentration == 0 {
+			resultSet[index].PlasmaGlucoseConcentration = columnModal[1].IntValue
+		} else {
+			resultSet[index].PlasmaGlucoseConcentration = dataset[index].PlasmaGlucoseConcentration
+		}
+	
+		if dataset[index].DiastolicBloodPressure == 0 {
+			resultSet[index].DiastolicBloodPressure = columnModal[2].IntValue
+		} else {
+			resultSet[index].DiastolicBloodPressure = dataset[index].PlasmaGlucoseConcentration
+		}
+
+		if dataset[index].TricepsSkinfoldThickness == 0 {
+			resultSet[index].TricepsSkinfoldThickness = columnModal[3].IntValue
+		} else {
+			resultSet[index].TricepsSkinfoldThickness = dataset[index].PlasmaGlucoseConcentration
+		}
+
+		if dataset[index].SeriumInsulin == 0 {
+			resultSet[index].SeriumInsulin = columnModal[4].IntValue
+		} else {
+			resultSet[index].SeriumInsulin = dataset[index].PlasmaGlucoseConcentration
+		}
+
+		if dataset[index].BodyMassIndex == 0 {
+			resultSet[index].BodyMassIndex = columnModal[5].FloatValue
+		} else {
+			resultSet[index].BodyMassIndex = float64(dataset[index].PlasmaGlucoseConcentration)
+		}
+
+		if dataset[index].DiabetesPedigreeFunction == 0 {
+			resultSet[index].DiabetesPedigreeFunction = columnModal[6].FloatValue
+		} else {
+			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].PlasmaGlucoseConcentration)
+		}
+	
+		if dataset[index].Age == 0 {
+			resultSet[index].Age = columnModal[7].IntValue
+		} else {
+			resultSet[index].Age = dataset[index].PlasmaGlucoseConcentration
+		}
+	}
+
+	return resultSet,nil
 }
