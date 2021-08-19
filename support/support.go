@@ -95,4 +95,11 @@ func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {
 	return similarity
 }
 
+// determines the nature of a field within a struct
+func GetFieldTypeWithinStruct (a interface{}, n int) string  {
+	v := reflect.ValueOf(a).Elem()
+	f:= v.Field(n)
+	return f.Kind().String()
+}
+
 // end of file

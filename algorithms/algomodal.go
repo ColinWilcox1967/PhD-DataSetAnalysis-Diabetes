@@ -15,12 +15,6 @@ func modalCount () int {
 	return 0
 }
 
-// TBD
-func fieldIsInteger (n int) bool {
-	return true
-}
-
-
 // just checks if value already exists in the list for this feature
 func valueExistsForFeature (list []valueCount, value int) (bool, int) {
 	for i := 0; i < len(list); i++ {
@@ -47,8 +41,12 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 		var pos int
 		var exists bool
 		var value float64
+		var fieldType string
 
 		for field := 0; field < numberOfFields; field++ {
+
+			fieldType = support.GetFieldTypeWithinStruct (&r, field)
+						
 			switch field {
 				case 0: value = float64(r.NumberOfTimesPregnant)
 				case 1: value = float64(r.DiastolicBloodPressure)
@@ -62,27 +60,29 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 
 			exists, pos = valueExistsForFeature (columnCount[field], int(value))
 		
-			if fieldIsInteger (field) {
-				// integer fields
-
-				if !exists {
-					v.Count = 1
-					v.IntValue = value
-					columnCount[field] = append(columnCount[field], v)
-				} else {
-					columnCount[field][pos].Count++			
-				}
-			} else {
-				// floating point fields
-				if !exists {
-					v.Count = 1
-					v.FloatValue = valueCount
-					columnCount[field] = append(columnCount[field],v)
-				} else {
-					columnCount[field][pos].Count++
-				}
+			switch fieldType {
+				case "int":
+					if !exists {
+						v.Count = 1
+						v.IntValue = int(value)
+						columnCount[field] = append(columnCount[field], v)
+					} else {
+						columnCount[field][pos].Count++			
+					}
+				case "float64":
+					// floating point fields
+					if !exists {
+						v.Count = 1
+						v.FloatValue = value
+						columnCount[field] = append(columnCount[field],v)
+					} else {
+						columnCount[field][pos].Count++
+					}
+				default:
+					break
+				}	
+				
 			}
-		}
 	}
 
 	
