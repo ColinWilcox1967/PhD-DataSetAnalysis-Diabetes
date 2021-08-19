@@ -3,16 +3,13 @@ package algorithms
 import (
 	"../diabetesdata"
 	"../support"
+	"sort"
 )
 
 type valueCount struct {
 	IntValue int
 	FloatValue float64
 	Count int
-}
-
-func modalCount () int {
-	return 0
 }
 
 // just checks if value already exists in the list for this feature
@@ -33,6 +30,7 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 	numberOfRecords := len(dataset)
 
 	columnCount := make([][]valueCount, numberOfFields)
+	columnModal := make([]valueCount, numberOfFields)
 
 	for index := 0; index < numberOfRecords; index++ {
 		r := dataset[index]
@@ -60,6 +58,7 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 
 			exists, pos = valueExistsForFeature (columnCount[field], int(value))
 		
+			// maintain count of unique values for each field
 			switch fieldType {
 				case "int":
 					if !exists {
@@ -85,6 +84,24 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 			}
 	}
 
+	// done all the counts. need to find modal value for each column
+	for field := 0; field < numberOfFields; field++ {
+		if support.GetFieldTypeWithinStruct (&columnCount[field], field) == "int" {
+				sort.Slice(columnCount[field][:], 
+					func(i, j int) bool {
+					return columnCount[field][i].IntValue > columnCount[field][j].IntValue})
+			columnModal[field].IntValue = columnCount[field][0].IntValue
+		} else {
+			sort.Slice(columnCount[field][:], 
+				func(i, j int) bool {
+				return columnCount[field][i].FloatValue > columnCount[field][j].FloatValue})
+			columnModal[field].FloatValue = columnCount[field][0].FloatValue
+		}
+
+		
+	}
+
+	// now we have the modal for each colum run through and process the data set
 	
 	return nil,nil
 }
