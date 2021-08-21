@@ -2,10 +2,11 @@ package algorithms
 
 import (
 	"../diabetesdata"
+
 )
 
-// algo=4
-func replaceGradientValue (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
+// algo=5
+func replaceNearestNeighbours (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	numberOfRecords := len(dataset)
 
