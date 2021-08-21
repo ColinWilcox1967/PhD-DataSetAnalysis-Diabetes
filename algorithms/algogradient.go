@@ -3,7 +3,7 @@ package algorithms
 import (
 	"../diabetesdata"
 )
-// algo=3
+// algo=4
 func replaceGradientValue (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	numberOfRecords := len(dataset)

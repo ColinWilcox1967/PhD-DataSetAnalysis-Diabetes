@@ -36,7 +36,6 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 	columnCount := make([][]valueCount, numberOfFields)
 	columnModal := make([]valueCount, numberOfFields)
 
-	fmt.Println ("A")
 	for index := 0; index < numberOfRecords; index++ {
 		r := dataset[index]
 
@@ -89,21 +88,20 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 			}
 	}
 
-	fmt.Println ("B")
 	// done all the counts. need to find modal value for each column
-	for field := 0; field < numberOfFields; field++ {
+	fieldsInStructure := support.GetNumberOfFieldsInStructure (valueCount{})
+	for field := 0; field < fieldsInStructure; field++ {
 		sort.Slice(columnCount[field][:], 
 					func(i, j int) bool {
 					return columnCount[field][i].Count > columnCount[field][j].Count})
-
-			if support.GetFieldTypeWithinStruct(&columnCount[field], field) == "int" {
+			
+			if support.GetFieldTypeWithinStruct(&columnCount[field][0], field) == "int" {
 				columnModal[field].IntValue = columnCount[field][0].IntValue
 			} else {
 				columnModal[field].FloatValue = columnCount[field][0].FloatValue
 			}
 	}
 
-	fmt.Println ("C")
 	// Dump all the column modal values
 	for index := 0; index < numberOfFields; index++ {
 		fieldType := support.GetFieldTypeWithinStruct (&dataset[0], index)
@@ -122,7 +120,6 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 	}
 	// now we have the modal for each columm run through and process the data set
 	
-	fmt.Println ("D")
 	for index:= 0; index < numberOfRecords; index++ {
 		if dataset[index].NumberOfTimesPregnant == 0 {
 			resultSet[index].NumberOfTimesPregnant = columnModal[0].IntValue
