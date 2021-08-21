@@ -45,8 +45,8 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 0: copy(data[:], dataset)
 		case 1: data, err = removeIncompleteRecords (dataset)
 		case 2: data, err = replaceMissingValuesWithMean (dataset)
-		case 3: data, err = replaceGradientValue (dataset)
-		case 4: data, err = replaceMissingValuesWithModal (dataset)
+		case 3: data, err = replaceMissingValuesWithModal (dataset)
+		case 4: data, err = replaceGradientValue (dataset)
 		default:
 			copy(data[:], dataset)
 

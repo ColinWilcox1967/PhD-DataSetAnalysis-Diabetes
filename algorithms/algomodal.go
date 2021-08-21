@@ -1,9 +1,12 @@
 package algorithms
 
 import (
+	"sort"
+	"fmt"
+
 	"../diabetesdata"
 	"../support"
-	"sort"
+	"../logging"
 )
 
 type valueCount struct {
@@ -23,7 +26,7 @@ func valueExistsForFeature (list []valueCount, value int) (bool, int) {
 	return false, -1
 }
 
-//algo=4
+//algo=3
 func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 	numberOfFields := support.SizeOfPimaDiabetesRecord () - 1
 	numberOfRecords := len(dataset)
@@ -33,6 +36,7 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 	columnCount := make([][]valueCount, numberOfFields)
 	columnModal := make([]valueCount, numberOfFields)
 
+	fmt.Println ("A")
 	for index := 0; index < numberOfRecords; index++ {
 		r := dataset[index]
 
@@ -85,6 +89,7 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 			}
 	}
 
+	fmt.Println ("B")
 	// done all the counts. need to find modal value for each column
 	for field := 0; field < numberOfFields; field++ {
 		sort.Slice(columnCount[field][:], 
@@ -98,8 +103,26 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 			}
 	}
 
+	fmt.Println ("C")
+	// Dump all the column modal values
+	for index := 0; index < numberOfFields; index++ {
+		fieldType := support.GetFieldTypeWithinStruct (&dataset[0], index)
+
+		var str string 
+		switch fieldType {
+			case "int":
+				str = fmt.Sprintf ("Modal (%s) = %d\n", textNameforColumn(index), columnModal[index].IntValue)
+	
+			case "float64":
+				str = fmt.Sprintf ("Modal (%s) = %0.2f\n", textNameforColumn(index), columnModal[index].FloatValue)
+				default: str = fmt.Sprintf ("Unknown field type for index %d - '%s'\n", index, fieldType)
+		}
+
+		logging.DoWriteString (str, true, true)
+	}
 	// now we have the modal for each columm run through and process the data set
 	
+	fmt.Println ("D")
 	for index:= 0; index < numberOfRecords; index++ {
 		if dataset[index].NumberOfTimesPregnant == 0 {
 			resultSet[index].NumberOfTimesPregnant = columnModal[0].IntValue
