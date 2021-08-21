@@ -1,0 +1,210 @@
+2021/08/21 14:58:08 Session Date: 2021-08-21 14:58:08.8512023 +0100 BST m=+0.002006301
+2021/08/21 14:58:08 Read 768 diabetes records.
+2021/08/21 14:58:08 Split Percentage = 60.00%
+2021/08/21 14:58:08 Preprocessed Datasets...
+2021/08/21 14:58:08 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:08 Training Data Set : Sparsity = 10.97% (303 out of 2763 elements)
+2021/08/21 14:58:08 Test Data Set : Sparsity = 20.46% (849 out of 4149 elements)
+2021/08/21 14:58:08 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:08 Processed Datasets ...
+2021/08/21 14:58:08 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:08 Training Data Set : Sparsity = 10.97% (303 out of 2763 elements)
+2021/08/21 14:58:08 Test Data Set : Sparsity = 20.46% (849 out of 4149 elements)
+2021/08/21 14:58:08 Mean (Number Of Times Pregnant) = 3.84
+2021/08/21 14:58:08 Mean (Plasma Glucose Concentration) = 120.17
+2021/08/21 14:58:08 Mean (Diastolic Blood Pressure) = 68.66
+2021/08/21 14:58:08 Mean (Triceps Skinfold Thickness) = 20.02
+2021/08/21 14:58:08 Mean (Serium Insulin) = 78.99
+2021/08/21 14:58:08 Mean (Body Mass Index) = 32.00
+2021/08/21 14:58:08 Mean (Diabetes Pedigree Function) = 0.49
+2021/08/21 14:58:08 Mean (Age) = 33.40
+2021/08/21 14:58:08 Prediction accuracy  = 302 out of 461 (65.51%)
+2021/08/21 14:58:10 Session Date: 2021-08-21 14:58:10.6781014 +0100 BST m=+0.001995101
+2021/08/21 14:58:10 Read 768 diabetes records.
+2021/08/21 14:58:10 Split Percentage = 60.00%
+2021/08/21 14:58:10 Preprocessed Datasets...
+2021/08/21 14:58:10 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:10 Training Data Set : Sparsity = 10.68% (295 out of 2763 elements)
+2021/08/21 14:58:10 Test Data Set : Sparsity = 20.85% (865 out of 4149 elements)
+2021/08/21 14:58:10 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:10 Processed Datasets ...
+2021/08/21 14:58:10 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:10 Training Data Set : Sparsity = 10.68% (295 out of 2763 elements)
+2021/08/21 14:58:10 Test Data Set : Sparsity = 20.85% (865 out of 4149 elements)
+2021/08/21 14:58:10 Mean (Number Of Times Pregnant) = 3.91
+2021/08/21 14:58:10 Mean (Plasma Glucose Concentration) = 119.94
+2021/08/21 14:58:10 Mean (Diastolic Blood Pressure) = 70.42
+2021/08/21 14:58:10 Mean (Triceps Skinfold Thickness) = 20.95
+2021/08/21 14:58:10 Mean (Serium Insulin) = 82.89
+2021/08/21 14:58:10 Mean (Body Mass Index) = 32.05
+2021/08/21 14:58:10 Mean (Diabetes Pedigree Function) = 0.48
+2021/08/21 14:58:10 Mean (Age) = 33.40
+2021/08/21 14:58:10 Prediction accuracy  = 295 out of 461 (63.99%)
+2021/08/21 14:58:12 Session Date: 2021-08-21 14:58:12.8792244 +0100 BST m=+0.001994401
+2021/08/21 14:58:12 Read 768 diabetes records.
+2021/08/21 14:58:12 Split Percentage = 60.00%
+2021/08/21 14:58:12 Preprocessed Datasets...
+2021/08/21 14:58:12 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:12 Training Data Set : Sparsity = 12.27% (339 out of 2763 elements)
+2021/08/21 14:58:12 Test Data Set : Sparsity = 19.81% (822 out of 4149 elements)
+2021/08/21 14:58:12 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:12 Processed Datasets ...
+2021/08/21 14:58:12 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:12 Training Data Set : Sparsity = 12.27% (339 out of 2763 elements)
+2021/08/21 14:58:12 Test Data Set : Sparsity = 19.81% (822 out of 4149 elements)
+2021/08/21 14:58:12 Mean (Number Of Times Pregnant) = 3.85
+2021/08/21 14:58:12 Mean (Plasma Glucose Concentration) = 120.91
+2021/08/21 14:58:12 Mean (Diastolic Blood Pressure) = 68.81
+2021/08/21 14:58:12 Mean (Triceps Skinfold Thickness) = 19.21
+2021/08/21 14:58:12 Mean (Serium Insulin) = 70.63
+2021/08/21 14:58:12 Mean (Body Mass Index) = 31.72
+2021/08/21 14:58:12 Mean (Diabetes Pedigree Function) = 0.48
+2021/08/21 14:58:12 Mean (Age) = 33.12
+2021/08/21 14:58:12 Prediction accuracy  = 298 out of 461 (64.64%)
+2021/08/21 14:58:14 Session Date: 2021-08-21 14:58:14.9086467 +0100 BST m=+0.000983201
+2021/08/21 14:58:14 Read 768 diabetes records.
+2021/08/21 14:58:14 Split Percentage = 60.00%
+2021/08/21 14:58:14 Preprocessed Datasets...
+2021/08/21 14:58:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:14 Training Data Set : Sparsity = 10.97% (303 out of 2763 elements)
+2021/08/21 14:58:14 Test Data Set : Sparsity = 20.63% (856 out of 4149 elements)
+2021/08/21 14:58:14 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:14 Processed Datasets ...
+2021/08/21 14:58:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:14 Training Data Set : Sparsity = 10.97% (303 out of 2763 elements)
+2021/08/21 14:58:14 Test Data Set : Sparsity = 20.63% (856 out of 4149 elements)
+2021/08/21 14:58:14 Mean (Number Of Times Pregnant) = 3.98
+2021/08/21 14:58:14 Mean (Plasma Glucose Concentration) = 118.25
+2021/08/21 14:58:14 Mean (Diastolic Blood Pressure) = 69.09
+2021/08/21 14:58:14 Mean (Triceps Skinfold Thickness) = 20.19
+2021/08/21 14:58:14 Mean (Serium Insulin) = 75.42
+2021/08/21 14:58:14 Mean (Body Mass Index) = 32.20
+2021/08/21 14:58:14 Mean (Diabetes Pedigree Function) = 0.48
+2021/08/21 14:58:14 Mean (Age) = 33.57
+2021/08/21 14:58:14 Prediction accuracy  = 302 out of 461 (65.51%)
+2021/08/21 14:58:16 Session Date: 2021-08-21 14:58:16.7627064 +0100 BST m=+0.001994401
+2021/08/21 14:58:16 Read 768 diabetes records.
+2021/08/21 14:58:16 Split Percentage = 60.00%
+2021/08/21 14:58:16 Preprocessed Datasets...
+2021/08/21 14:58:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:16 Training Data Set : Sparsity = 10.68% (295 out of 2763 elements)
+2021/08/21 14:58:16 Test Data Set : Sparsity = 20.82% (864 out of 4149 elements)
+2021/08/21 14:58:16 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:16 Processed Datasets ...
+2021/08/21 14:58:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:16 Training Data Set : Sparsity = 10.68% (295 out of 2763 elements)
+2021/08/21 14:58:16 Test Data Set : Sparsity = 20.82% (864 out of 4149 elements)
+2021/08/21 14:58:16 Mean (Number Of Times Pregnant) = 3.66
+2021/08/21 14:58:16 Mean (Plasma Glucose Concentration) = 120.44
+2021/08/21 14:58:16 Mean (Diastolic Blood Pressure) = 68.26
+2021/08/21 14:58:16 Mean (Triceps Skinfold Thickness) = 21.21
+2021/08/21 14:58:16 Mean (Serium Insulin) = 81.64
+2021/08/21 14:58:16 Mean (Body Mass Index) = 31.97
+2021/08/21 14:58:16 Mean (Diabetes Pedigree Function) = 0.47
+2021/08/21 14:58:16 Mean (Age) = 32.79
+2021/08/21 14:58:16 Prediction accuracy  = 299 out of 461 (64.86%)
+2021/08/21 14:58:18 Session Date: 2021-08-21 14:58:18.9508001 +0100 BST m=+0.001992601
+2021/08/21 14:58:18 Read 768 diabetes records.
+2021/08/21 14:58:18 Split Percentage = 60.00%
+2021/08/21 14:58:18 Preprocessed Datasets...
+2021/08/21 14:58:18 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:18 Training Data Set : Sparsity = 11.36% (314 out of 2763 elements)
+2021/08/21 14:58:18 Test Data Set : Sparsity = 20.44% (848 out of 4149 elements)
+2021/08/21 14:58:18 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:18 Processed Datasets ...
+2021/08/21 14:58:18 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:18 Training Data Set : Sparsity = 11.36% (314 out of 2763 elements)
+2021/08/21 14:58:18 Test Data Set : Sparsity = 20.44% (848 out of 4149 elements)
+2021/08/21 14:58:18 Mean (Number Of Times Pregnant) = 3.81
+2021/08/21 14:58:18 Mean (Plasma Glucose Concentration) = 119.91
+2021/08/21 14:58:18 Mean (Diastolic Blood Pressure) = 68.15
+2021/08/21 14:58:18 Mean (Triceps Skinfold Thickness) = 20.64
+2021/08/21 14:58:18 Mean (Serium Insulin) = 84.17
+2021/08/21 14:58:18 Mean (Body Mass Index) = 31.86
+2021/08/21 14:58:18 Mean (Diabetes Pedigree Function) = 0.46
+2021/08/21 14:58:18 Mean (Age) = 33.47
+2021/08/21 14:58:18 Prediction accuracy  = 297 out of 461 (64.43%)
+2021/08/21 14:58:20 Session Date: 2021-08-21 14:58:20.6489743 +0100 BST m=+0.001027301
+2021/08/21 14:58:20 Read 768 diabetes records.
+2021/08/21 14:58:20 Split Percentage = 60.00%
+2021/08/21 14:58:20 Preprocessed Datasets...
+2021/08/21 14:58:20 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:20 Training Data Set : Sparsity = 11.22% (310 out of 2763 elements)
+2021/08/21 14:58:20 Test Data Set : Sparsity = 20.20% (838 out of 4149 elements)
+2021/08/21 14:58:20 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:20 Processed Datasets ...
+2021/08/21 14:58:20 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:20 Training Data Set : Sparsity = 11.22% (310 out of 2763 elements)
+2021/08/21 14:58:20 Test Data Set : Sparsity = 20.20% (838 out of 4149 elements)
+2021/08/21 14:58:20 Mean (Number Of Times Pregnant) = 4.16
+2021/08/21 14:58:20 Mean (Plasma Glucose Concentration) = 120.90
+2021/08/21 14:58:20 Mean (Diastolic Blood Pressure) = 68.43
+2021/08/21 14:58:20 Mean (Triceps Skinfold Thickness) = 20.00
+2021/08/21 14:58:20 Mean (Serium Insulin) = 74.36
+2021/08/21 14:58:20 Mean (Body Mass Index) = 32.25
+2021/08/21 14:58:20 Mean (Diabetes Pedigree Function) = 0.47
+2021/08/21 14:58:20 Mean (Age) = 34.12
+2021/08/21 14:58:20 Prediction accuracy  = 304 out of 461 (65.94%)
+2021/08/21 14:58:22 Session Date: 2021-08-21 14:58:22.3339596 +0100 BST m=+0.002014201
+2021/08/21 14:58:22 Read 768 diabetes records.
+2021/08/21 14:58:22 Split Percentage = 60.00%
+2021/08/21 14:58:22 Preprocessed Datasets...
+2021/08/21 14:58:22 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:22 Training Data Set : Sparsity = 10.86% (300 out of 2763 elements)
+2021/08/21 14:58:22 Test Data Set : Sparsity = 20.87% (866 out of 4149 elements)
+2021/08/21 14:58:22 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:22 Processed Datasets ...
+2021/08/21 14:58:22 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:22 Training Data Set : Sparsity = 10.86% (300 out of 2763 elements)
+2021/08/21 14:58:22 Test Data Set : Sparsity = 20.87% (866 out of 4149 elements)
+2021/08/21 14:58:22 Mean (Number Of Times Pregnant) = 3.58
+2021/08/21 14:58:22 Mean (Plasma Glucose Concentration) = 120.37
+2021/08/21 14:58:22 Mean (Diastolic Blood Pressure) = 69.09
+2021/08/21 14:58:22 Mean (Triceps Skinfold Thickness) = 20.88
+2021/08/21 14:58:22 Mean (Serium Insulin) = 83.44
+2021/08/21 14:58:22 Mean (Body Mass Index) = 31.93
+2021/08/21 14:58:22 Mean (Diabetes Pedigree Function) = 0.46
+2021/08/21 14:58:22 Mean (Age) = 33.01
+2021/08/21 14:58:22 Prediction accuracy  = 298 out of 461 (64.64%)
+2021/08/21 14:58:24 Session Date: 2021-08-21 14:58:24.5576517 +0100 BST m=+0.001993801
+2021/08/21 14:58:24 Read 768 diabetes records.
+2021/08/21 14:58:24 Split Percentage = 60.00%
+2021/08/21 14:58:24 Preprocessed Datasets...
+2021/08/21 14:58:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:24 Training Data Set : Sparsity = 11.94% (330 out of 2763 elements)
+2021/08/21 14:58:24 Test Data Set : Sparsity = 20.08% (833 out of 4149 elements)
+2021/08/21 14:58:24 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:24 Processed Datasets ...
+2021/08/21 14:58:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:24 Training Data Set : Sparsity = 11.94% (330 out of 2763 elements)
+2021/08/21 14:58:24 Test Data Set : Sparsity = 20.08% (833 out of 4149 elements)
+2021/08/21 14:58:24 Mean (Number Of Times Pregnant) = 3.82
+2021/08/21 14:58:24 Mean (Plasma Glucose Concentration) = 121.96
+2021/08/21 14:58:24 Mean (Diastolic Blood Pressure) = 68.32
+2021/08/21 14:58:24 Mean (Triceps Skinfold Thickness) = 19.96
+2021/08/21 14:58:24 Mean (Serium Insulin) = 73.04
+2021/08/21 14:58:24 Mean (Body Mass Index) = 31.76
+2021/08/21 14:58:24 Mean (Diabetes Pedigree Function) = 0.46
+2021/08/21 14:58:24 Mean (Age) = 33.19
+2021/08/21 14:58:24 Prediction accuracy  = 294 out of 461 (63.77%)
+2021/08/21 14:58:26 Session Date: 2021-08-21 14:58:26.8814231 +0100 BST m=+0.001994601
+2021/08/21 14:58:26 Read 768 diabetes records.
+2021/08/21 14:58:26 Split Percentage = 60.00%
+2021/08/21 14:58:26 Preprocessed Datasets...
+2021/08/21 14:58:26 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:26 Training Data Set : Sparsity = 10.64% (294 out of 2763 elements)
+2021/08/21 14:58:26 Test Data Set : Sparsity = 20.90% (867 out of 4149 elements)
+2021/08/21 14:58:26 Missing data algorithm: ReplaceMissingValuesWithMean
+2021/08/21 14:58:26 Processed Datasets ...
+2021/08/21 14:58:26 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/21 14:58:26 Training Data Set : Sparsity = 10.64% (294 out of 2763 elements)
+2021/08/21 14:58:26 Test Data Set : Sparsity = 20.90% (867 out of 4149 elements)
+2021/08/21 14:58:26 Mean (Number Of Times Pregnant) = 3.89
+2021/08/21 14:58:26 Mean (Plasma Glucose Concentration) = 119.94
+2021/08/21 14:58:26 Mean (Diastolic Blood Pressure) = 70.04
+2021/08/21 14:58:26 Mean (Triceps Skinfold Thickness) = 21.53
+2021/08/21 14:58:26 Mean (Serium Insulin) = 86.95
+2021/08/21 14:58:26 Mean (Body Mass Index) = 32.26
+2021/08/21 14:58:26 Mean (Diabetes Pedigree Function) = 0.45
+2021/08/21 14:58:26 Mean (Age) = 33.08
+2021/08/21 14:58:26 Prediction accuracy  = 301 out of 461 (65.29%)
