@@ -102,4 +102,9 @@ func GetFieldTypeWithinStruct (a interface{}, n int) string  {
 	return f.Kind().String()
 }
 
+// counts the number of fields in a struct definition
+func GetNumberOfFieldsInStructure (a interface {}) int {
+	return reflect.TypeOf(a).NumField()
+}
+
 // end of file
