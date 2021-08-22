@@ -10,15 +10,14 @@ import (
 )
 
 type valueCount struct {
-	IntValue int
-	FloatValue float64
+	Value float64
 	Count int
 }
 
 // just checks if value already exists in the list for this feature
-func valueExistsForFeature (list []valueCount, value int) (bool, int) {
+func valueExistsForFeature (list []valueCount, value float64) (bool, int) {
 	for i := 0; i < len(list); i++ {
-		if list[i].IntValue == value {
+		if list[i].Value == value {
 			return true, i
 		}
 	}
@@ -43,12 +42,9 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 		var pos int
 		var exists bool
 		var value float64
-		var fieldType string
-
+		
 		for field := 0; field < numberOfFields; field++ {
 
-			fieldType = support.GetFieldTypeWithinStruct (&r, field)
-						
 			switch field {
 				case 0: value = float64(r.NumberOfTimesPregnant)
 				case 1: value = float64(r.DiastolicBloodPressure)
@@ -60,113 +56,82 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 				case 7: value = float64(r.Age)
 			}
 
-			exists, pos = valueExistsForFeature (columnCount[field], int(value))
+			exists, pos = valueExistsForFeature (columnCount[field], value)
 		
-			// maintain count of unique values for each field
-			switch fieldType {
-				case "int":
-					if !exists {
-						v.Count = 1
-						v.IntValue = int(value)
-						columnCount[field] = append(columnCount[field], v)
-					} else {
-						columnCount[field][pos].Count++			
-					}
-				case "float64":
-					// floating point fields
-					if !exists {
-						v.Count = 1
-						v.FloatValue = value
-						columnCount[field] = append(columnCount[field],v)
-					} else {
-						columnCount[field][pos].Count++
-					}
-				default:
-					break
-				}	
-				
+			if !exists {
+				v.Count = 1
+				v.Value = value
+				columnCount[field] = append(columnCount[field], v)
+			} else {
+				columnCount[field][pos].Count++
 			}
+		}
 	}
 
 	// done all the counts. need to find modal value for each column
-	fieldsInStructure := support.GetNumberOfFieldsInStructure (valueCount{})
-	for field := 0; field < fieldsInStructure; field++ {
+	for field := 0; field < numberOfFields; field++ {
 		sort.Slice(columnCount[field][:], 
 					func(i, j int) bool {
 					return columnCount[field][i].Count > columnCount[field][j].Count})
 			
-			if support.GetFieldTypeWithinStruct(&columnCount[field][0], field) == "int" {
-				columnModal[field].IntValue = columnCount[field][0].IntValue
-			} else {
-				columnModal[field].FloatValue = columnCount[field][0].FloatValue
-			}
+		columnModal[field].Value = columnCount[field][0].Value
 	}
 
 	// Dump all the column modal values
 	for index := 0; index < numberOfFields; index++ {
-		fieldType := support.GetFieldTypeWithinStruct (&dataset[0], index)
-
-		var str string 
-		switch fieldType {
-			case "int":
-				str = fmt.Sprintf ("Modal (%s) = %d\n", textNameforColumn(index), columnModal[index].IntValue)
+		str := fmt.Sprintf ("Modal (%s) = %0.2f\n", textNameforColumn(index), columnModal[index].Value)
 	
-			case "float64":
-				str = fmt.Sprintf ("Modal (%s) = %0.2f\n", textNameforColumn(index), columnModal[index].FloatValue)
-				default: str = fmt.Sprintf ("Unknown field type for index %d - '%s'\n", index, fieldType)
-		}
-
 		logging.DoWriteString (str, true, true)
 	}
 	// now we have the modal for each columm run through and process the data set
 	
 	for index:= 0; index < numberOfRecords; index++ {
 		if dataset[index].NumberOfTimesPregnant == 0 {
-			resultSet[index].NumberOfTimesPregnant = columnModal[0].IntValue
+			resultSet[index].NumberOfTimesPregnant = int(columnModal[0].Value)
 		} else {
 			resultSet[index].NumberOfTimesPregnant = dataset[index].NumberOfTimesPregnant
 		}
 	
 		if dataset[index].PlasmaGlucoseConcentration == 0 {
-			resultSet[index].PlasmaGlucoseConcentration = columnModal[1].IntValue
+			resultSet[index].PlasmaGlucoseConcentration = int(columnModal[1].Value)
 		} else {
 			resultSet[index].PlasmaGlucoseConcentration = dataset[index].PlasmaGlucoseConcentration
 		}
 	
 		if dataset[index].DiastolicBloodPressure == 0 {
-			resultSet[index].DiastolicBloodPressure = columnModal[2].IntValue
+			resultSet[index].DiastolicBloodPressure = int(columnModal[2].Value)
 		} else {
-			resultSet[index].DiastolicBloodPressure = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].DiastolicBloodPressure = dataset[index].DiastolicBloodPressure
 		}
 
 		if dataset[index].TricepsSkinfoldThickness == 0 {
-			resultSet[index].TricepsSkinfoldThickness = columnModal[3].IntValue
+			resultSet[index].TricepsSkinfoldThickness = int(columnModal[3].Value)
 		} else {
-			resultSet[index].TricepsSkinfoldThickness = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].TricepsSkinfoldThickness = dataset[index].TricepsSkinfoldThickness
 		}
 
 		if dataset[index].SeriumInsulin == 0 {
-			resultSet[index].SeriumInsulin = columnModal[4].IntValue
+			resultSet[index].SeriumInsulin = int(columnModal[4].Value)
 		} else {
-			resultSet[index].SeriumInsulin = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].SeriumInsulin = dataset[index].SeriumInsulin
 		}
 
 		if dataset[index].BodyMassIndex == 0 {
-			resultSet[index].BodyMassIndex = columnModal[5].FloatValue
+			resultSet[index].BodyMassIndex = columnModal[5].Value
 		} else {
-			resultSet[index].BodyMassIndex = float64(dataset[index].PlasmaGlucoseConcentration)
+			resultSet[index].BodyMassIndex = float64(dataset[index].BodyMassIndex)
 		}
 
 		if dataset[index].DiabetesPedigreeFunction == 0 {
-			resultSet[index].DiabetesPedigreeFunction = columnModal[6].FloatValue
+			resultSet[index].DiabetesPedigreeFunction = columnModal[6].Value
 		} else {
-			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].PlasmaGlucoseConcentration)
+			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].DiabetesPedigreeFunction)
 		}
 	
 		if dataset[index].Age == 0 {
-			resultSet[index].Age = columnModal[7].IntValue
+			resultSet[index].Age = int(columnModal[7].Value)
 		} else {
-			resultSet[index].Age = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].Age = dataset[index].Age
 		}
 	}
 
