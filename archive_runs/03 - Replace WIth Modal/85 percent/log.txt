@@ -1,0 +1,130 @@
+2021/08/23 14:19:04 Session Date: 2021-08-23 14:19:04.6760726 +0100 BST m=+0.001973301
+2021/08/23 14:19:04 Read 768 diabetes records.
+2021/08/23 14:19:04 Split Percentage = 85.00%
+2021/08/23 14:19:04 Preprocessed Datasets...
+2021/08/23 14:19:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:04 Training Data Set : Sparsity = 11.50% (119 out of 1035 elements)
+2021/08/23 14:19:04 Test Data Set : Sparsity = 20.50% (1205 out of 5877 elements)
+2021/08/23 14:19:04 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:04 Processed Datasets ...
+2021/08/23 14:19:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:04 Training Data Set : Sparsity = 11.50% (119 out of 1035 elements)
+2021/08/23 14:19:04 Test Data Set : Sparsity = 20.50% (1205 out of 5877 elements)
+2021/08/23 14:19:04 Prediction accuracy  = 418 out of 653 (64.01%)
+2021/08/23 14:19:06 Session Date: 2021-08-23 14:19:06.1164947 +0100 BST m=+0.001993901
+2021/08/23 14:19:06 Read 768 diabetes records.
+2021/08/23 14:19:06 Split Percentage = 85.00%
+2021/08/23 14:19:06 Preprocessed Datasets...
+2021/08/23 14:19:06 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:06 Training Data Set : Sparsity = 11.40% (118 out of 1035 elements)
+2021/08/23 14:19:06 Test Data Set : Sparsity = 20.49% (1204 out of 5877 elements)
+2021/08/23 14:19:06 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:06 Processed Datasets ...
+2021/08/23 14:19:06 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:06 Training Data Set : Sparsity = 11.40% (118 out of 1035 elements)
+2021/08/23 14:19:06 Test Data Set : Sparsity = 20.49% (1204 out of 5877 elements)
+2021/08/23 14:19:06 Prediction accuracy  = 429 out of 653 (65.70%)
+2021/08/23 14:19:08 Session Date: 2021-08-23 14:19:08.0628334 +0100 BST m=+0.001993901
+2021/08/23 14:19:08 Read 768 diabetes records.
+2021/08/23 14:19:08 Split Percentage = 85.00%
+2021/08/23 14:19:08 Preprocessed Datasets...
+2021/08/23 14:19:08 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:08 Training Data Set : Sparsity = 10.53% (109 out of 1035 elements)
+2021/08/23 14:19:08 Test Data Set : Sparsity = 20.67% (1215 out of 5877 elements)
+2021/08/23 14:19:08 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:08 Processed Datasets ...
+2021/08/23 14:19:08 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:08 Training Data Set : Sparsity = 10.53% (109 out of 1035 elements)
+2021/08/23 14:19:08 Test Data Set : Sparsity = 20.67% (1215 out of 5877 elements)
+2021/08/23 14:19:08 Prediction accuracy  = 432 out of 653 (66.16%)
+2021/08/23 14:19:09 Session Date: 2021-08-23 14:19:09.7692016 +0100 BST m=+0.000981001
+2021/08/23 14:19:09 Read 768 diabetes records.
+2021/08/23 14:19:09 Split Percentage = 85.00%
+2021/08/23 14:19:09 Preprocessed Datasets...
+2021/08/23 14:19:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:09 Training Data Set : Sparsity = 10.53% (109 out of 1035 elements)
+2021/08/23 14:19:09 Test Data Set : Sparsity = 20.62% (1212 out of 5877 elements)
+2021/08/23 14:19:09 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:09 Processed Datasets ...
+2021/08/23 14:19:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:09 Training Data Set : Sparsity = 10.53% (109 out of 1035 elements)
+2021/08/23 14:19:09 Test Data Set : Sparsity = 20.62% (1212 out of 5877 elements)
+2021/08/23 14:19:09 Prediction accuracy  = 430 out of 653 (65.85%)
+2021/08/23 14:19:11 Session Date: 2021-08-23 14:19:11.3599135 +0100 BST m=+0.001994301
+2021/08/23 14:19:11 Read 768 diabetes records.
+2021/08/23 14:19:11 Split Percentage = 85.00%
+2021/08/23 14:19:11 Preprocessed Datasets...
+2021/08/23 14:19:11 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:11 Training Data Set : Sparsity = 10.92% (113 out of 1035 elements)
+2021/08/23 14:19:11 Test Data Set : Sparsity = 20.55% (1208 out of 5877 elements)
+2021/08/23 14:19:11 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:11 Processed Datasets ...
+2021/08/23 14:19:11 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:11 Training Data Set : Sparsity = 10.92% (113 out of 1035 elements)
+2021/08/23 14:19:11 Test Data Set : Sparsity = 20.55% (1208 out of 5877 elements)
+2021/08/23 14:19:11 Prediction accuracy  = 432 out of 653 (66.16%)
+2021/08/23 14:19:13 Session Date: 2021-08-23 14:19:13.0520021 +0100 BST m=+0.001994001
+2021/08/23 14:19:13 Read 768 diabetes records.
+2021/08/23 14:19:13 Split Percentage = 85.00%
+2021/08/23 14:19:13 Preprocessed Datasets...
+2021/08/23 14:19:13 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:13 Training Data Set : Sparsity = 11.01% (114 out of 1035 elements)
+2021/08/23 14:19:13 Test Data Set : Sparsity = 20.59% (1210 out of 5877 elements)
+2021/08/23 14:19:13 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:13 Processed Datasets ...
+2021/08/23 14:19:13 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:13 Training Data Set : Sparsity = 11.01% (114 out of 1035 elements)
+2021/08/23 14:19:13 Test Data Set : Sparsity = 20.59% (1210 out of 5877 elements)
+2021/08/23 14:19:13 Prediction accuracy  = 427 out of 653 (65.39%)
+2021/08/23 14:19:14 Session Date: 2021-08-23 14:19:14.5826787 +0100 BST m=+0.000996801
+2021/08/23 14:19:14 Read 768 diabetes records.
+2021/08/23 14:19:14 Split Percentage = 85.00%
+2021/08/23 14:19:14 Preprocessed Datasets...
+2021/08/23 14:19:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:14 Training Data Set : Sparsity = 10.34% (107 out of 1035 elements)
+2021/08/23 14:19:14 Test Data Set : Sparsity = 20.61% (1211 out of 5877 elements)
+2021/08/23 14:19:14 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:14 Processed Datasets ...
+2021/08/23 14:19:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:14 Training Data Set : Sparsity = 10.34% (107 out of 1035 elements)
+2021/08/23 14:19:14 Test Data Set : Sparsity = 20.61% (1211 out of 5877 elements)
+2021/08/23 14:19:14 Prediction accuracy  = 415 out of 653 (63.55%)
+2021/08/23 14:19:16 Session Date: 2021-08-23 14:19:16.2069379 +0100 BST m=+0.001994301
+2021/08/23 14:19:16 Read 768 diabetes records.
+2021/08/23 14:19:16 Split Percentage = 85.00%
+2021/08/23 14:19:16 Preprocessed Datasets...
+2021/08/23 14:19:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:16 Training Data Set : Sparsity = 10.82% (112 out of 1035 elements)
+2021/08/23 14:19:16 Test Data Set : Sparsity = 20.62% (1212 out of 5877 elements)
+2021/08/23 14:19:16 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:16 Processed Datasets ...
+2021/08/23 14:19:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:16 Training Data Set : Sparsity = 10.82% (112 out of 1035 elements)
+2021/08/23 14:19:16 Test Data Set : Sparsity = 20.62% (1212 out of 5877 elements)
+2021/08/23 14:19:16 Prediction accuracy  = 426 out of 653 (65.24%)
+2021/08/23 14:19:17 Session Date: 2021-08-23 14:19:17.6227437 +0100 BST m=+0.001984301
+2021/08/23 14:19:17 Read 768 diabetes records.
+2021/08/23 14:19:17 Split Percentage = 85.00%
+2021/08/23 14:19:17 Preprocessed Datasets...
+2021/08/23 14:19:17 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:17 Training Data Set : Sparsity = 10.82% (112 out of 1035 elements)
+2021/08/23 14:19:17 Test Data Set : Sparsity = 20.69% (1216 out of 5877 elements)
+2021/08/23 14:19:17 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:17 Processed Datasets ...
+2021/08/23 14:19:17 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:17 Training Data Set : Sparsity = 10.82% (112 out of 1035 elements)
+2021/08/23 14:19:17 Test Data Set : Sparsity = 20.69% (1216 out of 5877 elements)
+2021/08/23 14:19:17 Prediction accuracy  = 421 out of 653 (64.47%)
+2021/08/23 14:19:19 Session Date: 2021-08-23 14:19:19.3239046 +0100 BST m=+0.001968801
+2021/08/23 14:19:19 Read 768 diabetes records.
+2021/08/23 14:19:19 Split Percentage = 85.00%
+2021/08/23 14:19:19 Preprocessed Datasets...
+2021/08/23 14:19:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:19 Training Data Set : Sparsity = 11.11% (115 out of 1035 elements)
+2021/08/23 14:19:19 Test Data Set : Sparsity = 20.44% (1201 out of 5877 elements)
+2021/08/23 14:19:19 Missing data algorithm: Replace Missing Values With Graduations
+2021/08/23 14:19:19 Processed Datasets ...
+2021/08/23 14:19:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2021/08/23 14:19:19 Training Data Set : Sparsity = 11.11% (115 out of 1035 elements)
+2021/08/23 14:19:19 Test Data Set : Sparsity = 20.44% (1201 out of 5877 elements)
+2021/08/23 14:19:19 Prediction accuracy  = 425 out of 653 (65.08%)
