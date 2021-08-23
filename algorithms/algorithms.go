@@ -7,24 +7,16 @@ import (
 	"../support"
 	"../logging"
 	"errors"
-	"sort"
 	"os"
 	"strconv"
 )
-
-type SimilarityMeasure struct {
-	CosineSimilarity float64
-	Index			 int
-}
-
-var similarityTable []SimilarityMeasure // stores the indesx and measure of the closest records
 
 var algorithmDescriptions = []string{"None",	// 0							
 									 "Remove Incomplete Records",//1
 									 "Replace Missing Values With Mean", // 2
 									 "Replace Missing Values With Modal", // 3
-									 "Replace Missing Values With Graduations", // 4
-									 "Replace Missing Values Based On Nearest Neighbours"} // 5
+									 "Replace Missing Values Based On Nearest Neighbours", // 4
+									 "Replace Missing Values With Graduations"} // 5
 
 func GetAlgorithmDescription (algoIndex int) string {
 
@@ -51,8 +43,9 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 1: data, err = removeIncompleteRecords (dataset)
 		case 2: data, err = replaceMissingValuesWithMean (dataset)
 		case 3: data, err = replaceMissingValuesWithModal (dataset)
-		case 4: data, err = replaceGradientValue (dataset)
-		case 5:	data, err = replaceNearestNeighbours (dataset)
+		case 4:	data, err = replaceNearestNeighbours (dataset)
+		case 5: data, err = replaceGradientValue (dataset)
+		
 		default:
 			copy(data[:], dataset)
 
@@ -74,31 +67,6 @@ func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
 	anonymous[7] = float64(data.Age)
 
 	return anonymous
-}
-
-func buildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
-	elementsToCompare := support.SizeOfPimaDiabetesRecord()-1 // excluse the actual result TestedPositive
-
-	// measure similarity against each record in training set
-
-	similarityTable = []SimilarityMeasure{} // reset on each pass 
-
-	for index := 0; index < len(datasets.PimaTrainingData); index++ {
-		var measure SimilarityMeasure
-		
-		measure.Index = index
-
-		vector1 := anonymiseDiabetesRecord(datasets.PimaTrainingData[index])
-		vector2 := anonymiseDiabetesRecord(testdata)
-		measure.CosineSimilarity = support.CosineSimilarity (vector1, vector2, elementsToCompare)
-
-		similarityTable = append (similarityTable, measure)
-	}
-
-	// sort by cosine measure to get most similar at the lowest index
-	sort.Slice(similarityTable[:], func(i, j int) bool {
-		return similarityTable[i].CosineSimilarity > similarityTable[j].CosineSimilarity
-	  })
 }
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
@@ -127,16 +95,16 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		// outcome read from the actual record
 		
 		// Build SimilarityTable for all records in training set for this test record!!
-		buildSimilarityTable (testdata[index])
+		BuildSimilarityTable (testdata[index])
 
-		if len(similarityTable) == 0 {
+		if len(SimilarityTable) == 0 {
 			// ok for some reason the comparison table has ended up empty
 			return
 		}
 
 		// most similar record from training set will now be element zero.
-		similarityToTestRecord := similarityTable[0].CosineSimilarity
-		recordIndexOfClosestMatch := similarityTable[0].Index
+		similarityToTestRecord := SimilarityTable[0].CosineSimilarity
+		recordIndexOfClosestMatch := SimilarityTable[0].Index
 
 		//needs some work on tjis bit
 		str := support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)

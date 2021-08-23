@@ -75,6 +75,7 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 					return columnCount[field][i].Count > columnCount[field][j].Count})
 		
 		// select first non missing value for mode
+
 		if columnCount[field][0].Value == 0 { // can used a gap as modal value
 			columnModal[field].Value = columnCount[field][1].Value
 		} else {
