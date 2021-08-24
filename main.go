@@ -188,8 +188,6 @@ func countTrainingSetRecords () (int, int) {
 
 func processDataSets () {
 
-	// nothing for now well hook algoriths in here
-
 	str := fmt.Sprintf ("Missing data algorithm: %s\n", algorithms.GetAlgorithmDescription (algorithmToUse))
 	logging.DoWriteString (str, true, true)
 }
