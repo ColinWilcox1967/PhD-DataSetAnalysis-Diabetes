@@ -138,7 +138,6 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 		}
 
 		recordIndexList = append(recordIndexList, r) // add index to list for later
-
 		
 		//copyPimaRecordToTestData
 		var newRecord diabetesdata.PimaDiabetesRecord
@@ -151,7 +150,7 @@ func partitionData (sizeOfDataSet int, testDataSplit float64) (error, int, int) 
 		newRecord.SeriumInsulin = pimaDiabetesData[r].SeriumInsulin
 		newRecord.TestedPositive = pimaDiabetesData[r].TestedPositive
 		newRecord.TricepsSkinfoldThickness = pimaDiabetesData[r].TricepsSkinfoldThickness
-		
+
 		datasets.PimaTestData = append(datasets.PimaTestData, newRecord)
 	}
 
@@ -243,6 +242,16 @@ func main () {
 	str = fmt.Sprintf ("Split Percentage = %.2f%%\n", float64(100)*splitPercentage)
 	logging.DoWriteString(str, true, true)
 
+	
+	// now perform the missing data algorithm
+	
+	if pimaDiabetesData, err = algorithms.DoProcessAlgorithm (pimaDiabetesData, algorithmToUse); err != nil {
+		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
+
+		logging.DoWriteString (str, true, true)
+		os.Exit(-2)
+	}
+
 	// Partition source data into training and test data
 
 	err, trainingSetSize, testSetSize := partitionData (len(pimaDiabetesData), splitPercentage)
@@ -261,7 +270,7 @@ func main () {
 	positivePercentage := support.Percentage (float64(positiveCount), float64(trainingSetSize))
 	negativePercentage := support.Percentage (float64(negativeCount), float64(trainingSetSize))
 
-	fmt.Printf ("Training set split - %d Positive Outcomes (%.2f%%), %d Negative Outcomes (%.2f%%)\n", 
+	fmt.Printf ("\nTraining set split - %d Positive Outcomes (%.2f%%), %d Negative Outcomes (%.2f%%)\n", 
 				positiveCount,
 				positivePercentage,
 				negativeCount,
@@ -285,16 +294,6 @@ func main () {
 	fmt.Println("")
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
     fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
-
-
-	// now perform the missing data algorithm
-	
-	if datasets.PimaTrainingData, err = algorithms.DoProcessAlgorithm (datasets.PimaTrainingData, algorithmToUse); err != nil {
-		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
-
-		logging.DoWriteString (str, true, true)
-		os.Exit(-2)
-	}
 
 	// dump the session results here
 	

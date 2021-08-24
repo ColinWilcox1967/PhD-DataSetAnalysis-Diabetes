@@ -35,23 +35,23 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		return dataset, errors.New ("Invalid algorithm specified")
 	}
 
-	data := make([]diabetesdata.PimaDiabetesRecord, len(dataset))
+//	data := make([]diabetesdata.PimaDiabetesRecord, len(dataset))
 	var err error = nil
 
 	switch (algorithm) {
-		case 0: copy(data[:], dataset)
-		case 1: data, err = removeIncompleteRecords (dataset)
-		case 2: data, err = replaceMissingValuesWithMean (dataset)
-		case 3: data, err = replaceMissingValuesWithModal (dataset)
-		case 4:	data, err = replaceNearestNeighbours (dataset)
-		case 5: data, err = replaceGradientValue (dataset)
+		case 0: //copy(data[:], dataset)
+		case 1: dataset, err = removeIncompleteRecords (dataset)
+		case 2: dataset, err = replaceMissingValuesWithMean (dataset)
+		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
+		case 4:	dataset, err = replaceNearestNeighbours (dataset)
+		case 5: dataset, err = replaceGradientValue (dataset)
 		
 		default:
-			copy(data[:], dataset)
+			//copy(data[:], dataset)
 
 	}
 
-	return data, err
+	return dataset, err
 }
 
 func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {

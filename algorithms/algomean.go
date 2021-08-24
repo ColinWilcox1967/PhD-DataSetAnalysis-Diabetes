@@ -94,6 +94,9 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 			resultSet[index].Age = dataset[index].PlasmaGlucoseConcentration
 		}
 
+		// TestedPositive field could actually be zero
+		resultSet[index].TestedPositive = dataset[index].TestedPositive
+
 	}
 
 	return resultSet, nil

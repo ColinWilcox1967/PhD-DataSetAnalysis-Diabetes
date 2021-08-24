@@ -139,6 +139,9 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 		} else {
 			resultSet[index].Age = dataset[index].Age
 		}
+
+		// TestedPositive field may actually be zero
+		resultSet[index].TestedPositive = dataset[index].TestedPositive
 	}
 
 	return resultSet,nil
