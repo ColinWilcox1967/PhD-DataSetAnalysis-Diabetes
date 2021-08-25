@@ -25,7 +25,7 @@ const (
 	pima_diabetes_version = "0.2"
 	diabetes_data_file = "pima-indians-diabetes.txt"
 	default_logfile = "./log.txt"
-	default_session_runs = 10
+	default_session_runs = 1
 )
 
 var (
@@ -55,7 +55,7 @@ func getParameters () {
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
 	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies session log folder.")
-	flag.StringVar(&iterations, "iterations", "10", "Number of iterations per session run")
+	flag.StringVar(&iterations, "iterations", "1", "Number of iterations per session run")
 
 	flag.Parse ()
 
