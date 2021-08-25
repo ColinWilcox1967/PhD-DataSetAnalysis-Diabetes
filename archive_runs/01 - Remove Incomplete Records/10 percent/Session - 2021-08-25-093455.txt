@@ -1,0 +1,41 @@
+--- Session started : 2021-08-25-093455
+Algorithm being used is 'Remove Incomplete Records'
+
+Test Record    Best Match     Similarity  Predicted   Calculated  
+Number         Record         Measure     Outcome     Outcome     
+0              68                  1          1          1     
+1              150                 1          0          0     
+2              142                 1          1          0     
+3              157                 1          0          0     
+4              250                 1          1          0     
+5              49                  1          0          1     
+6              5                   1          0          1     
+7              147                 1          1          0     
+8              87                  1          0          1     
+9              114                 1          1          1     
+10             280                 1          0          0     
+11             215                 1          1          0     
+12             28                  1          0          0     
+13             246                 1          0          0     
+14             166                 1          0          0     
+15             66                  1          0          0     
+16             93                  1          1          0     
+17             232                 1          1          0     
+18             172                 1          0          0     
+19             41                  1          0          1     
+20             283                 1          0          0     
+21             213                 1          0          0     
+22             140                 1          0          1     
+23             23                  1          1          0     
+24             236                 1          1          1     
+25             187                 1          0          0     
+26             166                 1          1          0     
+27             147                 1          0          0     
+28             124                 1          1          0     
+29             147                 1          1          0     
+30             75                  1          0          0     
+31             27                  1          0          0     
+32             85                  1          0          0     
+33             188                 1          0          0     
+Prediction accuracy  = 19 out of 34 (55.88%)
+--- Session ended : 2021-08-25-093455

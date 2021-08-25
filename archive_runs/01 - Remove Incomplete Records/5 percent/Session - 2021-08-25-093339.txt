@@ -1,0 +1,24 @@
+--- Session started : 2021-08-25-093339
+Algorithm being used is 'Remove Incomplete Records'
+
+Test Record    Best Match     Similarity  Predicted   Calculated  
+Number         Record         Measure     Outcome     Outcome     
+0              197                 1          0          1     
+1              301                 1          1          1     
+2              95                  1          1          0     
+3              246                 1          1          1     
+4              125                 1          1          0     
+5              196                 1          0          0     
+6              260                 1          0          0     
+7              60                  1          0          0     
+8              266                 1          0          0     
+9              30                  1          0          0     
+10             162                 1          0          0     
+11             110                 1          0          0     
+12             114                 1          1          0     
+13             104                 1          0          0     
+14             150                 1          1          0     
+15             251                 1          0          1     
+16             163                 1          1          0     
+Prediction accuracy  = 10 out of 17 (58.82%)
+--- Session ended : 2021-08-25-093339
