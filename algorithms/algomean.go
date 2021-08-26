@@ -61,37 +61,37 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 		if dataset[index].DiastolicBloodPressure == 0 {
 			resultSet[index].DiastolicBloodPressure = int(columnMean[2])
 		} else {
-			resultSet[index].DiastolicBloodPressure = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].DiastolicBloodPressure = dataset[index].DiastolicBloodPressure
 		}
 
 		if dataset[index].TricepsSkinfoldThickness == 0 {
 			resultSet[index].TricepsSkinfoldThickness = int(columnMean[3])
 		} else {
-			resultSet[index].TricepsSkinfoldThickness = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].TricepsSkinfoldThickness = dataset[index].TricepsSkinfoldThickness
 		}
 
 		if dataset[index].SeriumInsulin == 0 {
 			resultSet[index].SeriumInsulin = int(columnMean[4])
 		} else {
-			resultSet[index].SeriumInsulin = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].SeriumInsulin = dataset[index].SeriumInsulin
 		}
 
 		if dataset[index].BodyMassIndex == 0 {
 			resultSet[index].BodyMassIndex = columnMean[5]
 		} else {
-			resultSet[index].BodyMassIndex = float64(dataset[index].PlasmaGlucoseConcentration)
+			resultSet[index].BodyMassIndex = float64(dataset[index].BodyMassIndex)
 		}
 
 		if dataset[index].DiabetesPedigreeFunction == 0 {
 			resultSet[index].DiabetesPedigreeFunction = columnMean[6]
 		} else {
-			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].PlasmaGlucoseConcentration)
+			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].DiabetesPedigreeFunction)
 		}
 	
 		if dataset[index].Age == 0 {
 			resultSet[index].Age = int(columnMean[7])
 		} else {
-			resultSet[index].Age = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].Age = dataset[index].Age
 		}
 
 		// TestedPositive field could actually be zero
