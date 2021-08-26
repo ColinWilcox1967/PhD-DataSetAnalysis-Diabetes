@@ -1,0 +1,46 @@
+--- Session started : 2021-08-26-140945
+Algorithm being used is 'Replace Missing Values With Mean'
+
+Test Record    Best Match     Similarity  Predicted   Calculated  
+Number         Record         Measure     Outcome     Outcome     
+0              119                 1          0          1     
+1              470                 1          0          0     
+2              625                 1          1          1     
+3              537                 1          0          0     
+4              467                 1          0          0     
+5              301                 1          1          0     
+6              118                 1          0          0     
+7              243                 1          0          0     
+8              339                 1          1          1     
+9              142                 1          0          0     
+10             588                 1          0          0     
+11             55                  1          1          0     
+12             403                 1          0          1     
+13             288                 1          0          0     
+14             256                 1          0          0     
+15             146                 1          0          0     
+16             41                  1          1          1     
+17             70                  1          0          0     
+18             711                 1          0          1     
+19             668                 1          0          0     
+20             615                 1          0          0     
+21             380                 1          0          0     
+22             719                 1          1          1     
+23             445                 1          0          0     
+24             403                 1          1          1     
+25             354                 1          1          0     
+26             507                 1          0          0     
+27             571                 1          1          1     
+28             288                 1          0          0     
+29             304                 1          0          1     
+30             49                  1          0          0     
+31             124                 1          1          1     
+32             158                 1          1          0     
+33             223                 1          1          1     
+34             722                 1          0          0     
+35             17                  1          1          0     
+36             265                 1          1          1     
+37             501                 1          0          0     
+38             590                 1          0          0     
+Prediction accuracy  = 30 out of 39 (76.92%)
+--- Session ended : 2021-08-26-140945
