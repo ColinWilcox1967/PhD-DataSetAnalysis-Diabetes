@@ -1,130 +1,210 @@
-2021/08/23 14:11:10 Session Date: 2021-08-23 14:11:10.637134 +0100 BST m=+0.000997301
-2021/08/23 14:11:10 Read 768 diabetes records.
-2021/08/23 14:11:10 Split Percentage = 45.00%
-2021/08/23 14:11:10 Preprocessed Datasets...
-2021/08/23 14:11:10 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:10 Training Data Set : Sparsity = 11.32% (430 out of 3798 elements)
-2021/08/23 14:11:10 Test Data Set : Sparsity = 20.23% (630 out of 3114 elements)
-2021/08/23 14:11:10 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:10 Processed Datasets ...
-2021/08/23 14:11:10 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:10 Training Data Set : Sparsity = 11.32% (430 out of 3798 elements)
-2021/08/23 14:11:10 Test Data Set : Sparsity = 20.23% (630 out of 3114 elements)
-2021/08/23 14:11:10 Prediction accuracy  = 232 out of 346 (67.05%)
-2021/08/23 14:11:12 Session Date: 2021-08-23 14:11:12.5302825 +0100 BST m=+0.002014201
-2021/08/23 14:11:12 Read 768 diabetes records.
-2021/08/23 14:11:12 Split Percentage = 45.00%
-2021/08/23 14:11:12 Preprocessed Datasets...
-2021/08/23 14:11:12 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:12 Training Data Set : Sparsity = 11.19% (425 out of 3798 elements)
-2021/08/23 14:11:12 Test Data Set : Sparsity = 20.36% (634 out of 3114 elements)
-2021/08/23 14:11:12 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:12 Processed Datasets ...
-2021/08/23 14:11:12 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:12 Training Data Set : Sparsity = 11.19% (425 out of 3798 elements)
-2021/08/23 14:11:12 Test Data Set : Sparsity = 20.36% (634 out of 3114 elements)
-2021/08/23 14:11:12 Prediction accuracy  = 239 out of 346 (69.08%)
-2021/08/23 14:11:14 Session Date: 2021-08-23 14:11:14.4671744 +0100 BST m=+0.001988601
-2021/08/23 14:11:14 Read 768 diabetes records.
-2021/08/23 14:11:14 Split Percentage = 45.00%
-2021/08/23 14:11:14 Preprocessed Datasets...
-2021/08/23 14:11:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:14 Training Data Set : Sparsity = 11.08% (421 out of 3798 elements)
-2021/08/23 14:11:14 Test Data Set : Sparsity = 20.30% (632 out of 3114 elements)
-2021/08/23 14:11:14 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:14 Processed Datasets ...
-2021/08/23 14:11:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:14 Training Data Set : Sparsity = 11.08% (421 out of 3798 elements)
-2021/08/23 14:11:14 Test Data Set : Sparsity = 20.30% (632 out of 3114 elements)
-2021/08/23 14:11:14 Prediction accuracy  = 231 out of 346 (66.76%)
-2021/08/23 14:11:16 Session Date: 2021-08-23 14:11:16.4048657 +0100 BST m=+0.001975701
-2021/08/23 14:11:16 Read 768 diabetes records.
-2021/08/23 14:11:16 Split Percentage = 45.00%
-2021/08/23 14:11:16 Preprocessed Datasets...
-2021/08/23 14:11:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:16 Training Data Set : Sparsity = 11.74% (446 out of 3798 elements)
-2021/08/23 14:11:16 Test Data Set : Sparsity = 19.72% (614 out of 3114 elements)
-2021/08/23 14:11:16 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:16 Processed Datasets ...
-2021/08/23 14:11:16 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:16 Training Data Set : Sparsity = 11.74% (446 out of 3798 elements)
-2021/08/23 14:11:16 Test Data Set : Sparsity = 19.72% (614 out of 3114 elements)
-2021/08/23 14:11:16 Prediction accuracy  = 225 out of 346 (65.03%)
-2021/08/23 14:11:18 Session Date: 2021-08-23 14:11:18.4744214 +0100 BST m=+0.002014901
-2021/08/23 14:11:18 Read 768 diabetes records.
-2021/08/23 14:11:18 Split Percentage = 45.00%
-2021/08/23 14:11:18 Preprocessed Datasets...
-2021/08/23 14:11:18 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:18 Training Data Set : Sparsity = 11.01% (418 out of 3798 elements)
-2021/08/23 14:11:18 Test Data Set : Sparsity = 20.39% (635 out of 3114 elements)
-2021/08/23 14:11:18 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:18 Processed Datasets ...
-2021/08/23 14:11:18 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:18 Training Data Set : Sparsity = 11.01% (418 out of 3798 elements)
-2021/08/23 14:11:18 Test Data Set : Sparsity = 20.39% (635 out of 3114 elements)
-2021/08/23 14:11:18 Prediction accuracy  = 227 out of 346 (65.61%)
-2021/08/23 14:11:20 Session Date: 2021-08-23 14:11:20.393961 +0100 BST m=+0.001993301
-2021/08/23 14:11:20 Read 768 diabetes records.
-2021/08/23 14:11:20 Split Percentage = 45.00%
-2021/08/23 14:11:20 Preprocessed Datasets...
-2021/08/23 14:11:20 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:20 Training Data Set : Sparsity = 11.24% (427 out of 3798 elements)
-2021/08/23 14:11:20 Test Data Set : Sparsity = 20.52% (639 out of 3114 elements)
-2021/08/23 14:11:20 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:20 Processed Datasets ...
-2021/08/23 14:11:20 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:20 Training Data Set : Sparsity = 11.24% (427 out of 3798 elements)
-2021/08/23 14:11:20 Test Data Set : Sparsity = 20.52% (639 out of 3114 elements)
-2021/08/23 14:11:20 Prediction accuracy  = 239 out of 346 (69.08%)
-2021/08/23 14:11:22 Session Date: 2021-08-23 14:11:22.5459607 +0100 BST m=+0.001994001
-2021/08/23 14:11:22 Read 768 diabetes records.
-2021/08/23 14:11:22 Split Percentage = 45.00%
-2021/08/23 14:11:22 Preprocessed Datasets...
-2021/08/23 14:11:22 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:22 Training Data Set : Sparsity = 10.03% (381 out of 3798 elements)
-2021/08/23 14:11:22 Test Data Set : Sparsity = 21.64% (674 out of 3114 elements)
-2021/08/23 14:11:22 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:22 Processed Datasets ...
-2021/08/23 14:11:22 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:22 Training Data Set : Sparsity = 10.03% (381 out of 3798 elements)
-2021/08/23 14:11:22 Test Data Set : Sparsity = 21.64% (674 out of 3114 elements)
-2021/08/23 14:11:22 Prediction accuracy  = 228 out of 346 (65.90%)
-2021/08/23 14:11:24 Session Date: 2021-08-23 14:11:24.3237739 +0100 BST m=+0.001994701
-2021/08/23 14:11:24 Read 768 diabetes records.
-2021/08/23 14:11:24 Split Percentage = 45.00%
-2021/08/23 14:11:24 Preprocessed Datasets...
-2021/08/23 14:11:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:24 Training Data Set : Sparsity = 11.19% (425 out of 3798 elements)
-2021/08/23 14:11:24 Test Data Set : Sparsity = 20.33% (633 out of 3114 elements)
-2021/08/23 14:11:24 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:24 Processed Datasets ...
-2021/08/23 14:11:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:24 Training Data Set : Sparsity = 11.19% (425 out of 3798 elements)
-2021/08/23 14:11:24 Test Data Set : Sparsity = 20.33% (633 out of 3114 elements)
-2021/08/23 14:11:24 Prediction accuracy  = 222 out of 346 (64.16%)
-2021/08/23 14:11:26 Session Date: 2021-08-23 14:11:26.102091 +0100 BST m=+0.001993601
-2021/08/23 14:11:26 Read 768 diabetes records.
-2021/08/23 14:11:26 Split Percentage = 45.00%
-2021/08/23 14:11:26 Preprocessed Datasets...
-2021/08/23 14:11:26 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:26 Training Data Set : Sparsity = 10.74% (408 out of 3798 elements)
-2021/08/23 14:11:26 Test Data Set : Sparsity = 21.07% (656 out of 3114 elements)
-2021/08/23 14:11:26 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:26 Processed Datasets ...
-2021/08/23 14:11:26 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:26 Training Data Set : Sparsity = 10.74% (408 out of 3798 elements)
-2021/08/23 14:11:26 Test Data Set : Sparsity = 21.07% (656 out of 3114 elements)
-2021/08/23 14:11:26 Prediction accuracy  = 223 out of 346 (64.45%)
-2021/08/23 14:11:27 Session Date: 2021-08-23 14:11:27.9973461 +0100 BST m=+0.001942001
-2021/08/23 14:11:27 Read 768 diabetes records.
-2021/08/23 14:11:27 Split Percentage = 45.00%
-2021/08/23 14:11:27 Preprocessed Datasets...
-2021/08/23 14:11:28 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:28 Training Data Set : Sparsity = 11.72% (445 out of 3798 elements)
-2021/08/23 14:11:28 Test Data Set : Sparsity = 19.75% (615 out of 3114 elements)
-2021/08/23 14:11:28 Missing data algorithm: Replace Missing Values With Graduations
-2021/08/23 14:11:28 Processed Datasets ...
-2021/08/23 14:11:28 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
-2021/08/23 14:11:28 Training Data Set : Sparsity = 11.72% (445 out of 3798 elements)
-2021/08/23 14:11:28 Test Data Set : Sparsity = 19.75% (615 out of 3114 elements)
-2021/08/23 14:11:28 Prediction accuracy  = 217 out of 346 (62.72%)
+2021/08/29 12:33:01 Session Date: 2021-08-29 12:33:01.105056 +0100 BST m=+0.001994601
+2021/08/29 12:33:01 Read 768 diabetes records.
+2021/08/29 12:33:01 Split Percentage = 45.00%
+2021/08/29 12:33:01 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:01 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:01 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:01 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:01 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:01 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:01 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:01 Modal (Age) = 22.00
+2021/08/29 12:33:01 Preprocessed Datasets...
+2021/08/29 12:33:01 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:01 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:01 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:01 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:01 Processed Datasets ...
+2021/08/29 12:33:01 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:01 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:01 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:01 Prediction accuracy  = 215 out of 346 (62.14%)
+2021/08/29 12:33:02 Session Date: 2021-08-29 12:33:02.3262402 +0100 BST m=+0.000997501
+2021/08/29 12:33:02 Read 768 diabetes records.
+2021/08/29 12:33:02 Split Percentage = 45.00%
+2021/08/29 12:33:02 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:02 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:02 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:02 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:02 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:02 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:02 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:02 Modal (Age) = 22.00
+2021/08/29 12:33:02 Preprocessed Datasets...
+2021/08/29 12:33:02 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:02 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:02 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:02 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:02 Processed Datasets ...
+2021/08/29 12:33:02 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:02 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:02 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:02 Prediction accuracy  = 224 out of 346 (64.74%)
+2021/08/29 12:33:04 Session Date: 2021-08-29 12:33:04.3504339 +0100 BST m=+0.001994301
+2021/08/29 12:33:04 Read 768 diabetes records.
+2021/08/29 12:33:04 Split Percentage = 45.00%
+2021/08/29 12:33:04 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:04 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:04 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:04 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:04 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:04 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:04 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:04 Modal (Age) = 22.00
+2021/08/29 12:33:04 Preprocessed Datasets...
+2021/08/29 12:33:04 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:04 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:04 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:04 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:04 Processed Datasets ...
+2021/08/29 12:33:04 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:04 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:04 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:04 Prediction accuracy  = 224 out of 346 (64.74%)
+2021/08/29 12:33:05 Session Date: 2021-08-29 12:33:05.7296578 +0100 BST m=+0.001993501
+2021/08/29 12:33:05 Read 768 diabetes records.
+2021/08/29 12:33:05 Split Percentage = 45.00%
+2021/08/29 12:33:05 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:05 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:05 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:05 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:05 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:05 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:05 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:05 Modal (Age) = 22.00
+2021/08/29 12:33:05 Preprocessed Datasets...
+2021/08/29 12:33:05 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:05 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:05 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:05 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:05 Processed Datasets ...
+2021/08/29 12:33:05 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:05 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:05 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:05 Prediction accuracy  = 222 out of 346 (64.16%)
+2021/08/29 12:33:07 Session Date: 2021-08-29 12:33:07.1058849 +0100 BST m=+0.001994101
+2021/08/29 12:33:07 Read 768 diabetes records.
+2021/08/29 12:33:07 Split Percentage = 45.00%
+2021/08/29 12:33:07 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:07 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:07 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:07 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:07 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:07 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:07 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:07 Modal (Age) = 22.00
+2021/08/29 12:33:07 Preprocessed Datasets...
+2021/08/29 12:33:07 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:07 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:07 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:07 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:07 Processed Datasets ...
+2021/08/29 12:33:07 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:07 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:07 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:07 Prediction accuracy  = 210 out of 346 (60.69%)
+2021/08/29 12:33:08 Session Date: 2021-08-29 12:33:08.4111515 +0100 BST m=+0.001994801
+2021/08/29 12:33:08 Read 768 diabetes records.
+2021/08/29 12:33:08 Split Percentage = 45.00%
+2021/08/29 12:33:08 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:08 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:08 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:08 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:08 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:08 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:08 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:08 Modal (Age) = 22.00
+2021/08/29 12:33:08 Preprocessed Datasets...
+2021/08/29 12:33:08 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:08 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:08 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:08 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:08 Processed Datasets ...
+2021/08/29 12:33:08 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:08 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:08 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:08 Prediction accuracy  = 232 out of 346 (67.05%)
+2021/08/29 12:33:09 Session Date: 2021-08-29 12:33:09.66132 +0100 BST m=+0.001026201
+2021/08/29 12:33:09 Read 768 diabetes records.
+2021/08/29 12:33:09 Split Percentage = 45.00%
+2021/08/29 12:33:09 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:09 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:09 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:09 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:09 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:09 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:09 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:09 Modal (Age) = 22.00
+2021/08/29 12:33:09 Preprocessed Datasets...
+2021/08/29 12:33:09 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:09 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:09 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:09 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:09 Processed Datasets ...
+2021/08/29 12:33:09 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:09 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:09 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:09 Prediction accuracy  = 225 out of 346 (65.03%)
+2021/08/29 12:33:10 Session Date: 2021-08-29 12:33:10.8503262 +0100 BST m=+0.001993901
+2021/08/29 12:33:10 Read 768 diabetes records.
+2021/08/29 12:33:10 Split Percentage = 45.00%
+2021/08/29 12:33:10 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:10 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:10 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:10 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:10 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:10 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:10 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:10 Modal (Age) = 22.00
+2021/08/29 12:33:10 Preprocessed Datasets...
+2021/08/29 12:33:10 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:10 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:10 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:10 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:10 Processed Datasets ...
+2021/08/29 12:33:10 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:10 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:10 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:10 Prediction accuracy  = 220 out of 346 (63.58%)
+2021/08/29 12:33:11 Session Date: 2021-08-29 12:33:11.997683 +0100 BST m=+0.000997401
+2021/08/29 12:33:11 Read 768 diabetes records.
+2021/08/29 12:33:11 Split Percentage = 45.00%
+2021/08/29 12:33:12 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:12 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:12 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:12 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:12 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:12 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:12 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:12 Modal (Age) = 22.00
+2021/08/29 12:33:12 Preprocessed Datasets...
+2021/08/29 12:33:12 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:12 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:12 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:12 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:12 Processed Datasets ...
+2021/08/29 12:33:12 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:12 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:12 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:12 Prediction accuracy  = 218 out of 346 (63.01%)
+2021/08/29 12:33:13 Session Date: 2021-08-29 12:33:13.2784047 +0100 BST m=+0.002019201
+2021/08/29 12:33:13 Read 768 diabetes records.
+2021/08/29 12:33:13 Split Percentage = 45.00%
+2021/08/29 12:33:13 Modal (Number Of Times Pregnant) = 1.00
+2021/08/29 12:33:13 Modal (Plasma Glucose Concentration) = 70.00
+2021/08/29 12:33:13 Modal (Diastolic Blood Pressure) = 100.00
+2021/08/29 12:33:13 Modal (Triceps Skinfold Thickness) = 32.00
+2021/08/29 12:33:13 Modal (Serium Insulin) = 105.00
+2021/08/29 12:33:13 Modal (Body Mass Index) = 32.00
+2021/08/29 12:33:13 Modal (Diabetes Pedigree Function) = 0.25
+2021/08/29 12:33:13 Modal (Age) = 22.00
+2021/08/29 12:33:13 Preprocessed Datasets...
+2021/08/29 12:33:13 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:13 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:13 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:13 Missing data algorithm: Replace Missing Values With Modal
+2021/08/29 12:33:13 Processed Datasets ...
+2021/08/29 12:33:13 Raw Data Set : Sparsity = 0.00% (0 out of 6912 elements)
+2021/08/29 12:33:13 Training Data Set : Sparsity = 0.00% (0 out of 3798 elements)
+2021/08/29 12:33:13 Test Data Set : Sparsity = 11.11% (346 out of 3114 elements)
+2021/08/29 12:33:13 Prediction accuracy  = 225 out of 346 (65.03%)
