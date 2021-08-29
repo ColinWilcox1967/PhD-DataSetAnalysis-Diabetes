@@ -25,7 +25,6 @@ const (
 	pima_diabetes_version = "0.2"
 	diabetes_data_file = "pima-indians-diabetes.txt"
 	default_logfile = "./log.txt"
-	default_session_runs = 1
 )
 
 var (
@@ -34,7 +33,6 @@ var (
 	sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
 	logfileName string
 	algorithmToUse int // reference of which cell replacement algorithm will be used.
-	sessionRuns int // number of times each session is run per iteration
 )
 
 func showTitle () {
@@ -49,13 +47,11 @@ func showSessionHeading () {
 func getParameters () {
 	
 	var sessionFolder string
-	var iterations string
 
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
 	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies session log folder.")
-	flag.StringVar(&iterations, "iterations", "1", "Number of iterations per session run")
 
 	flag.Parse ()
 
@@ -67,15 +63,6 @@ func getParameters () {
 		splitPercentage = default_split_percentage
 		logging.DoWriteString ("Invalid split value specified, reverting to default.\n", true, true)
 	}
-
-	//Parse the string and make sure its a valid integer
-	var err error
-	sessionRuns, err = strconv.Atoi(iterations)
-	if sessionRuns < 0 || err != nil {
-		sessionRuns = default_session_runs
-		logging.DoWriteString ("Invalid session iterations, reverting to default.\n", true, true)
-	}
-	
 }
 
 func loadDiabetesFile (filename string) (error, int) {
@@ -305,10 +292,8 @@ func main () {
 
 	fmt.Println("")
 	fmt.Printf ("Created training data subset with %d records (%.1f%%).\n", trainingSetSize, support.Percentage(float64(trainingSetSize), float64(count)))
-    fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
+   	fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
 
-	// dump the session results here
-	
 	// run the algorithms against the test data set
 	algorithms.DoShowAlgorithmTestSummary (sessionHandle, datasets.PimaTestData)
 
