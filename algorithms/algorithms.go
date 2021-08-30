@@ -109,7 +109,9 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		//needs some work on tjis bit
 		str := support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)
 		str += support.CentreStringInColumn (fmt.Sprintf ("%-15s",strconv.Itoa (recordIndexOfClosestMatch)), 15)
-		str += support.CentreStringInColumn (strconv.FormatFloat(similarityToTestRecord, 'g', 1, 64), 12)
+	
+		str += support.CentreStringInColumn (fmt.Sprintf ("%.8f", similarityToTestRecord), 12)
+
 		str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
 		str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)),12)
 		str += "\n"
