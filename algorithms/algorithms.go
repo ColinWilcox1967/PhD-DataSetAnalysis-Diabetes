@@ -103,21 +103,42 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		}
 
 		// most similar record from training set will now be element zero.
-		similarityToTestRecord := SimilarityTable[0].CosineSimilarity
-		recordIndexOfClosestMatch := SimilarityTable[0].Index
+
+		closestRecordsIndices := make([]int,3) // three closest matches
+		
+		closestRecordsIndices[0] = SimilarityTable[0].Index
+		closestRecordsIndices[1] = SimilarityTable[1].Index
+		closestRecordsIndices[2] = SimilarityTable[2].Index
+
+		// look for false positive and false negative situations
+		if (closestRecordsIndices[1] == closestRecordsIndices[2]) && (closestRecordsIndices[1] != closestRecordsIndices[0]) {
+			
+		}
 
 		//needs some work on tjis bit
-		str := support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)
-		str += support.CentreStringInColumn (fmt.Sprintf ("%-15s",strconv.Itoa (recordIndexOfClosestMatch)), 15)
-	
-		str += support.CentreStringInColumn (fmt.Sprintf ("%.8f", similarityToTestRecord), 12)
+		
 
-		str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
-		str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive)),12)
-		str += "\n"
-		sessionhandle.WriteString (str) // this will be in session file really
+		for recIndex := 0; recIndex < 3; recIndex++ {
+			var str string
 
-		if testdata[index].TestedPositive != datasets.PimaTrainingData[recordIndexOfClosestMatch].TestedPositive {
+			// just a bit of layout formatting to session file
+			if recIndex == 0 {
+				str = support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)
+			} else {
+				str = support.CentreStringInColumn (fmt.Sprintf ("%-15s", " "),15)
+			}
+			str += support.CentreStringInColumn (fmt.Sprintf ("%-15s",strconv.Itoa (closestRecordsIndices[recIndex])), 15)
+			str += support.CentreStringInColumn (fmt.Sprintf ("%.8f", SimilarityTable[recIndex].CosineSimilarity), 12)
+			str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
+			
+			str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[closestRecordsIndices[recIndex]].TestedPositive)),12)
+			str += "\n"
+			sessionhandle.WriteString (str) // this will be in session file really
+		}
+
+		// this is where we do the actual against predicted results
+
+		if testdata[index].TestedPositive != datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive {
 			mismatchCounter++
 		}
 
