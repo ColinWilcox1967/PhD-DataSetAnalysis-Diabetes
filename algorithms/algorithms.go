@@ -69,6 +69,25 @@ func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
 	return anonymous
 }
 
+
+func reverseExpectedOutcome (outcome int) int {
+	// in this case its just a flip but may get more complex in the future
+
+	if outcome == 1 {
+		return 0
+	}
+
+	return 1
+}
+
+func foundFalsePositiveOrNegative (indices []int) bool {
+	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+       (datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[0]].TestedPositive) {
+		return true
+	}
+	return false
+}
+
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
 	var mismatchCounter int
@@ -94,6 +113,8 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	for index := 0; index < len(testdata); index++ {
 		// outcome read from the actual record
 		
+		changeStatus := "" // either blank, FP or FN for each test record
+
 		// Build SimilarityTable for all records in training set for this test record!!
 		BuildSimilarityTable (testdata[index])
 
@@ -110,14 +131,20 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		closestRecordsIndices[1] = SimilarityTable[1].Index
 		closestRecordsIndices[2] = SimilarityTable[2].Index
 
+		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
+
 		// look for false positive and false negative situations
-		if (closestRecordsIndices[1] == closestRecordsIndices[2]) && (closestRecordsIndices[1] != closestRecordsIndices[0]) {
-			
+
+		if (foundFalsePositiveOrNegative (closestRecordsIndices)) {
+			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
+				changeStatus = "FP"
+			} else {
+				changeStatus = "FN"
+			}
+			expectedOutcomeValue = reverseExpectedOutcome (expectedOutcomeValue)
 		}
 
-		//needs some work on tjis bit
-		
-
+		// dump closest three records for each test data record to session file.
 		for recIndex := 0; recIndex < 3; recIndex++ {
 			var str string
 
@@ -132,13 +159,14 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
 			
 			str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[closestRecordsIndices[recIndex]].TestedPositive)),12)
+			str += changeStatus // FN or FP here or just blank
 			str += "\n"
 			sessionhandle.WriteString (str) // this will be in session file really
 		}
 
 		// this is where we do the actual against predicted results
 
-		if testdata[index].TestedPositive != datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive {
+		if testdata[index].TestedPositive !=  expectedOutcomeValue {
 			mismatchCounter++
 		}
 
