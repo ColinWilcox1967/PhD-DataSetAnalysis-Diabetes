@@ -45,6 +45,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
 		case 4:	dataset, err = replaceNearestNeighbours (dataset)
 		case 5: dataset, err = replaceGradientValue (dataset)
+		case 10: dataset, err = DoKFoldSplit (dataset, 10)
 		
 		default:
 			//copy(data[:], dataset)
