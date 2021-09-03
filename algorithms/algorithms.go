@@ -16,7 +16,8 @@ var algorithmDescriptions = []string{"None",	// 0
 									 "Replace Missing Values With Mean", // 2
 									 "Replace Missing Values With Modal", // 3
 									 "Replace Missing Values Based On Nearest Neighbours", // 4
-									 "Replace Missing Values With Graduations"} // 5
+									 "Replace Missing Values With Graduations", // 5
+									 "K-Fold Cross Evaluation"} // 6
 
 func GetAlgorithmDescription (algoIndex int) string {
 
@@ -35,20 +36,20 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		return dataset, errors.New ("Invalid algorithm specified")
 	}
 
-//	data := make([]diabetesdata.PimaDiabetesRecord, len(dataset))
+	data := make([]diabetesdata.PimaDiabetesRecord, len(dataset))
 	var err error = nil
 
 	switch (algorithm) {
-		case 0: //copy(data[:], dataset)
+		case 0: copy(data[:], dataset)
 		case 1: dataset, err = removeIncompleteRecords (dataset)
 		case 2: dataset, err = replaceMissingValuesWithMean (dataset)
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
-		case 4:	dataset, err = replaceNearestNeighbours (dataset)
-		case 5: dataset, err = replaceGradientValue (dataset)
-		case 10: dataset, err = DoKFoldSplit (dataset, 10)
+//		case 4:	dataset, err = replaceNearestNeighbours (dataset)
+//		case 5: dataset, err = replaceGradientValue (dataset)
+		case 6: dataset, err = DoKFoldSplit (dataset, 10)
 		
 		default:
-			//copy(data[:], dataset)
+			copy(data[:], dataset)
 
 	}
 
