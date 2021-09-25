@@ -179,6 +179,16 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
+
+	// precision and recall to be shown here
+	str = fmt.Sprintf ("Precision ")
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+	str = fmt.Sprintf ("Recall ")
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
 }
 
 
