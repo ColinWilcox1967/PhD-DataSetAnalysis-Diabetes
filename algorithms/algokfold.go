@@ -1,13 +1,18 @@
 package algorithms
 
 import (
-	"../diabetesdata"
-    "math/rand"
-//	"../logging"
+	"math"
+	"math/rand"
 	"fmt"
 	"errors"
 	"time"
+	"../diabetesdata"
+   
+//	"../logging"
+
+	"../support"
 )
+
 var (
 	kfoldFolds [][]int
 	numberOfFolds int		// number of pots to divide into
@@ -71,7 +76,24 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		return []diabetesdata.PimaDiabetesRecord{}, err
 	}
 
-	fmt.Println (len(splitDataset))
+	similarityTotals := make([]float64, numberOfFolds)
+	similarityAverages := make([]float64, numberOfFolds)
+
+	for testIndex := 0; testIndex < numberOfFolds; testIndex++ {
+
+		similarityTotals[testIndex] = 0.0
+		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
+			if testIndex != trainingIndex {
+				elementsToCompare := math.Max (float64(len(splitDataset[testIndex])), float64(len(splitDataset[trainingIndex])))
+				similarityTotals[testIndex] += support.CosineSimilarity (splitDataset[testIndex],
+																		 splitDataset[trainingIndex],
+																		 elementsToCompare )
+			}
+		}
+		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
+	}
+
+	// then we get the overall similarity right??
 
 	return dataset, nil
 	
