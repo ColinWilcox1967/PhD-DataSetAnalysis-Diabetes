@@ -3,7 +3,6 @@ package algorithms
 import (
 	"math"
 	"math/rand"
-	"fmt"
 	"errors"
 	"time"
 	"../diabetesdata"
@@ -33,17 +32,27 @@ func splitDataSetIntoEvenFolds (dataset []diabetesdata.PimaDiabetesRecord, folds
 		foundPot := false
 		for !foundPot {
 			// get a random pot to out it in
-			pot := rand.Intn (folds)
+			foldID := rand.Intn (folds)
 
-			fmt.Printf ("%d ", pot)
-			if len(kfoldFolds[pot]) <= recordsPerFold {
-				kfoldFolds[pot] = append (kfoldFolds[pot], record)
+			if len(kfoldFolds[foldID]) <= recordsPerFold {
+				kfoldFolds[foldID] = append (kfoldFolds[foldID], record)
 				foundPot = true
 			}
 		}
 	}
 
 	return kfoldFolds, nil
+}
+
+func convertSlice (slice []int) []float64 {
+
+	newSlice := make ([]float64, len(slice))
+
+	for _,item := range (slice) {
+		newSlice = append(newSlice, float64(item))
+	}
+
+	return newSlice
 }
 
 func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) ([]diabetesdata.PimaDiabetesRecord, error) {
@@ -61,9 +70,12 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
 			if testIndex != trainingIndex {
 				elementsToCompare := math.Max (float64(len(splitDataset[testIndex])), float64(len(splitDataset[trainingIndex])))
-				similarityTotals[testIndex] += support.CosineSimilarity (splitDataset[testIndex],
-																		 splitDataset[trainingIndex],
-																		 elementsToCompare )
+
+				// quick conversion from []int to []float64
+				vector1 := convertSlice(splitDataset[testIndex])
+				vector2 := convertSlice (splitDataset[trainingIndex])
+
+				similarityTotals[testIndex] += support.CosineSimilarity (vector1, vector2,	int(elementsToCompare))	
 			}
 		}
 		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
