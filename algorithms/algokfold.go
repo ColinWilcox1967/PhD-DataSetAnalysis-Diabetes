@@ -5,9 +5,9 @@ import (
 	"math/rand"
 	"errors"
 	"time"
+	"fmt"
 	"../diabetesdata"
-   
-	"../support"
+  	"../support"
 )
 
 var (
@@ -48,8 +48,9 @@ func convertSlice (slice []int) []float64 {
 
 	newSlice := make ([]float64, len(slice))
 
-	for _,item := range (slice) {
-		newSlice = append(newSlice, float64(item))
+	for index,item := range (slice) {
+		newSlice[index] =float64(item)
+
 	}
 
 	return newSlice
@@ -69,7 +70,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		similarityTotals[testIndex] = 0.0
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
 			if testIndex != trainingIndex {
-				elementsToCompare := math.Max (float64(len(splitDataset[testIndex])), float64(len(splitDataset[trainingIndex])))
+				elementsToCompare := math.Min (float64(len(splitDataset[testIndex])), float64(len(splitDataset[trainingIndex])))
 
 				// quick conversion from []int to []float64
 				vector1 := convertSlice(splitDataset[testIndex])
@@ -77,11 +78,20 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 
 				similarityTotals[testIndex] += support.CosineSimilarity (vector1, vector2,	int(elementsToCompare))	
 			}
+
 		}
 		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
+
 	}
 
 	// then we get the overall similarity right??
+	overallSimilarity := 0.0
+	for batchIndex := 0; batchIndex < numberOfFolds; batchIndex++ {
+		overallSimilarity += similarityAverages[batchIndex]
+	}
+	overallSimilarity = overallSimilarity / float64(numberOfFolds)
+	
+	fmt.Printf ("Similarity = %0.8f\n", overallSimilarity)
 
 	return dataset, nil
 	

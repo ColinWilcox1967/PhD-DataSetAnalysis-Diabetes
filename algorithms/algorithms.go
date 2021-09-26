@@ -93,6 +93,11 @@ func foundFalsePositiveOrNegative (indices []int) bool {
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
 	var mismatchCounter int
+	var truePositiveCount int
+	var trueNegativeCount int
+	var falsePositiveCount int
+	var falseNegativeCount int
+    
 	
 	// Table column headings
 	str := support.LeftAlignStringInColumn ("Test Record", 15)
@@ -135,13 +140,24 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
 
+
 		// look for false positive and false negative situations
+     
+		if expectedOutcomeValue == 1 && testdata[index].TestedPositive == 1  {
+			truePositiveCount++
+		}
+
+		if expectedOutcomeValue == 0 &&  testdata[index].TestedPositive == 0 {
+			trueNegativeCount++
+		}
 
 		if (foundFalsePositiveOrNegative (closestRecordsIndices)) {
 			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
 				changeStatus = "FP"
+				falsePositiveCount++
 			} else {
 				changeStatus = "FN"
+				falseNegativeCount++
 			}
 			expectedOutcomeValue = reverseExpectedOutcome (expectedOutcomeValue)
 		}
@@ -181,11 +197,13 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	sessionhandle.WriteString(str)			// session file
 
 	// precision and recall to be shown here
-	str = fmt.Sprintf ("Precision ")
+	precision := float64(truePositiveCount)/float64(truePositiveCount+falsePositiveCount)
+	str = fmt.Sprintf ("\nPrecision : %.04f\n", precision)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
-	str = fmt.Sprintf ("Recall ")
+	recall := float64(truePositiveCount)/float64(falseNegativeCount+truePositiveCount)
+	str = fmt.Sprintf ("Recall : %.04f\n", recall)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
