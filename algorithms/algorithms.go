@@ -11,6 +11,12 @@ import (
 	"strconv"
 )
 
+const (
+	default_kfold_count = 10 // use n=10 for kfolds
+)
+
+var KfoldCount = default_kfold_count
+
 var algorithmDescriptions = []string{"None",	// 0							
 									 "Remove Incomplete Records",//1
 									 "Replace Missing Values With Mean", // 2
@@ -46,7 +52,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
 //		case 4:	dataset, err = replaceNearestNeighbours (dataset)
 //		case 5: dataset, err = replaceGradientValue (dataset)
-		case 6: dataset, err = DoKFoldSplit (dataset, 10)
+		case 6: dataset, err = DoKFoldSplit (dataset, KfoldCount)
 		
 		default:
 			copy(data[:], dataset)

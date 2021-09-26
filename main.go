@@ -21,6 +21,7 @@ import (
 )
 
 const (
+	default_kfold_count = 10
 	default_split_percentage = 0.1		// 10% of records go in test set and 90% in training set
 	pima_diabetes_version = "0.2"
 	diabetes_data_file = "pima-indians-diabetes.txt"
@@ -32,6 +33,7 @@ var (
 	splitPercentage float64 = default_split_percentage  // 0.0 < percentage < 1.0
 	sourceDataMetrics, TrainingDataSetMetrics, TestDataSetMetrics metrics.DataSetMetrics
 	logfileName string
+	kfoldCount int
 	algorithmToUse int // reference of which cell replacement algorithm will be used.
 )
 
@@ -52,12 +54,21 @@ func getParameters () {
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
 	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies session log folder.")
+	flag.IntVar(&algorithms.KfoldCount, "kfolds", default_kfold_count, "Specifies number of folds to use in k-fold algorithm")
 
 	flag.Parse ()
 
 	// set the session folder
 	session.SetSessionFolder (sessionFolder)
 	
+	// K-Fold only
+	if algorithmToUse == 6 {
+		if algorithms.KfoldCount < 0 {
+			algorithms.KfoldCount = default_kfold_count
+			logging.DoWriteString ("Invalid folds specified, reverting to default.\n", true, true)
+		}
+	}
+
 	// out of range check?
 	if splitPercentage <= 0.0 || splitPercentage >= 1.0 {
 		splitPercentage = default_split_percentage
