@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"../diabetesdata"
   	"../support"
+	"../logging"
 )
 
 var (
@@ -57,6 +58,10 @@ func convertSlice (slice []int) []float64 {
 }
 
 func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) ([]diabetesdata.PimaDiabetesRecord, error) {
+
+	str := fmt.Sprintf ("Number of folds : %d\n", numberOfFolds)
+	logging.DoWriteString (str, true, true)
+
 	splitDataset, err := splitDataSetIntoEvenFolds (dataset, numberOfFolds)
 	if err != nil {
 		return []diabetesdata.PimaDiabetesRecord{}, err

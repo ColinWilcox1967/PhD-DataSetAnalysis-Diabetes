@@ -67,6 +67,7 @@ func getParameters () {
 			algorithms.KfoldCount = default_kfold_count
 			logging.DoWriteString ("Invalid folds specified, reverting to default.\n", true, true)
 		}
+		splitPercentage = 1.0/float64(algorithms.KfoldCount)
 	}
 
 	// out of range check?
