@@ -90,9 +90,9 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 			}
 		}
 		
-		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
+		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds-1)
 
-		str = fmt.Sprintf ("Test Fold %02d Mean Value: %0.6f%%\n\n", testIndex, 100.0*similarityAverages[testIndex])
+		str = fmt.Sprintf ("Test Fold %02d Mean Value: %0.2f%%\n\n", testIndex, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
 	}
 
@@ -103,7 +103,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 	}
 	overallConsistency = overallConsistency / float64(numberOfFolds)
 	
-	fmt.Printf ("\nOverall Consistency = %0.4f%%\n", 100.0*overallConsistency)
+	fmt.Printf ("\nOverall Consistency = %0.2f%%\n", 100.0*overallConsistency)
 
 	return dataset, nil
 	

@@ -88,13 +88,15 @@ func reverseExpectedOutcome (outcome int) int {
 	return 1
 }
 
-func foundFalsePositiveOrNegative (indices []int) bool {
-	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-       (datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[0]].TestedPositive) {
-		return true
-	}
-	return false
-}
+//func foundFalsePositiveOrNegative (indices []int) bool {
+//	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+  //     (datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[0]].TestedPositive) {
+	//	return true
+//	}
+//
+  //  if datasets.PimaTrainingData[indices[0].TestedPos]
+//	return false
+//}
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
@@ -157,16 +159,27 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			trueNegativeCount++
 		}
 
-		if (foundFalsePositiveOrNegative (closestRecordsIndices)) {
-			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
-				changeStatus = "FP"
-				falsePositiveCount++
-			} else {
-				changeStatus = "FN"
-				falseNegativeCount++
-			}
-			expectedOutcomeValue = reverseExpectedOutcome (expectedOutcomeValue)
+		if expectedOutcomeValue == 1 && testdata[index].TestedPositive == 0 {
+			changeStatus = "FP" // false positive
+			falsePositiveCount++
+
 		}
+
+		if expectedOutcomeValue == 0 && testdata[index].TestedPositive == 1 {
+			changeStatus = "FN" // false negative
+			falseNegativeCount++
+		}
+
+//		if (foundFalsePositiveOrNegative (closestRecordsIndices)) {
+//			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
+//				changeStatus = "FP"
+//				falsePositiveCount++
+//			} else {
+//				changeStatus = "FN"
+//				falseNegativeCount++
+//			}
+//			expectedOutcomeValue = reverseExpectedOutcome (expectedOutcomeValue)
+//		}
 
 		// dump closest three records for each test data record to session file.
 		for recIndex := 0; recIndex < 3; recIndex++ {
@@ -205,13 +218,13 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	// precision and recall to be shown here
 	precision := 100.0*float64(truePositiveCount)/float64(truePositiveCount+falsePositiveCount)
 	logging.DoWriteString ("\n", true, true)
-	
-	str = fmt.Sprintf ("Precision : %.04f%%\n", precision)
+
+	str = fmt.Sprintf ("Precision : %.02f%%\n", precision)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
 	recall := 100.0*float64(truePositiveCount)/float64(falseNegativeCount+truePositiveCount)
-	str = fmt.Sprintf ("Recall : %.04f%%\n", recall)
+	str = fmt.Sprintf ("Recall : %.02f%%\n", recall)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
