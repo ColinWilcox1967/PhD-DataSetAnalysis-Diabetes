@@ -92,18 +92,18 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		
 		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
 
-		str = fmt.Sprintf ("Mean : %0.6f%%\n", 100.0*similarityAverages[testIndex])
+		str = fmt.Sprintf ("Mean : %0.6f%%\n\n", 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
 	}
 
 	// then we get the overall similarity right??
-	overallSimilarity := 0.0
+	overallConsistency := 0.0
 	for batchIndex := 0; batchIndex < numberOfFolds; batchIndex++ {
-		overallSimilarity += similarityAverages[batchIndex]
+		overallConsistency += similarityAverages[batchIndex]
 	}
-	overallSimilarity = overallSimilarity / float64(numberOfFolds)
+	overallConsistency = overallConsistency / float64(numberOfFolds)
 	
-	fmt.Printf ("Overall Similarity = %0.6f%%\n", 100.0*overallSimilarity)
+	fmt.Printf ("\nOverall Consistency = %0.4f%%\n", 100.0*overallConsistency)
 
 	return dataset, nil
 	
