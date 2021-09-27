@@ -81,12 +81,19 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 				vector1 := convertSlice(splitDataset[testIndex])
 				vector2 := convertSlice (splitDataset[trainingIndex])
 
-				similarityTotals[testIndex] += support.CosineSimilarity (vector1, vector2,	int(elementsToCompare))	
-			}
+				similarity := support.CosineSimilarity (vector1, vector2,	int(elementsToCompare))	
+				similarityTotals[testIndex] += similarity
 
+				// Dump test fold measurements
+				str = fmt.Sprintf ("Fold %02d : %0.6f%%\n", testIndex+1, 100.0*similarity)
+				logging.DoWriteString (str, true, true)
+			}
 		}
+		
 		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
 
+		str = fmt.Sprintf ("Mean : %0.6f%%\n", 100.0*similarityAverages[testIndex])
+		logging.DoWriteString (str, true, true)
 	}
 
 	// then we get the overall similarity right??
@@ -96,7 +103,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 	}
 	overallSimilarity = overallSimilarity / float64(numberOfFolds)
 	
-	fmt.Printf ("Similarity = %0.8f\n", overallSimilarity)
+	fmt.Printf ("Overall Similarity = %0.6f%%\n", 100.0*overallSimilarity)
 
 	return dataset, nil
 	
