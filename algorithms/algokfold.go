@@ -92,7 +92,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		
 		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds)
 
-		str = fmt.Sprintf ("Mean : %0.6f%%\n\n", 100.0*similarityAverages[testIndex])
+		str = fmt.Sprintf ("Test Fold %02d Mean Value: %0.6f%%\n\n", testIndex, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
 	}
 

@@ -204,7 +204,9 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 	// precision and recall to be shown here
 	precision := 100.0*float64(truePositiveCount)/float64(truePositiveCount+falsePositiveCount)
-	str = fmt.Sprintf ("\nPrecision : %.04f%%\n", precision)
+	logging.DoWriteString ("\n", true, true)
+	
+	str = fmt.Sprintf ("Precision : %.04f%%\n", precision)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
