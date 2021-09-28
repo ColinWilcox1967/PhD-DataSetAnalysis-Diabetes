@@ -88,23 +88,42 @@ func reverseExpectedOutcome (outcome int) int {
 	return 1
 }
 
-//func foundFalsePositiveOrNegative (indices []int) bool {
-//	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-  //     (datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[0]].TestedPositive) {
-	//	return true
-//	}
-//
-  //  if datasets.PimaTrainingData[indices[0].TestedPos]
-//	return false
-//}
+func foundFalsePositiveOrNegative (indices []int) (bool, int) {
+
+	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
+							   datasets.PimaTrainingData[indices[1]].TestedPositive,
+							   datasets.PimaTrainingData[indices[2]].TestedPositive)
+
+	// TTF or FFT
+	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
+		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
+		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+	}
+
+	// TFT or FTF
+	if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+		   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+	   }
+
+	// FTT or TFF
+	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+		   return true, datasets.PimaTrainingData[indices[1]].TestedPositive
+	   }
+
+
+	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
+}
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
 	var mismatchCounter int
-	var truePositiveCount int
-	var trueNegativeCount int
-	var falsePositiveCount int
-	var falseNegativeCount int
+
+	var truePositiveCount int	// Number of true positives (TP)
+	var trueNegativeCount int	// Number of true negatives (TN)
+	var falsePositiveCount int  // Number of false positives (FP)
+	var falseNegativeCount int  // Number of false negatives (FN)
     
 	
 	// Table column headings
@@ -125,13 +144,13 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	sessionhandle.WriteString(str)
 
 	// Now get the results as per the test data
-	for index := 0; index < len(testdata); index++ {
+	for testIndex := 0; testIndex < len(testdata); testIndex++ {
 		// outcome read from the actual record
 		
 		changeStatus := "" // either blank, FP or FN for each test record
 
 		// Build SimilarityTable for all records in training set for this test record!!
-		BuildSimilarityTable (testdata[index])
+		BuildSimilarityTable (testdata[testIndex])
 
 		if len(SimilarityTable) == 0 {
 			// ok for some reason the comparison table has ended up empty
@@ -148,38 +167,50 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
 
-
 		// look for false positive and false negative situations
-     
-		if expectedOutcomeValue == 1 && testdata[index].TestedPositive == 1  {
+ 
+		changeNeeded, newValue := foundFalsePositiveOrNegative (closestRecordsIndices)
+
+		if (changeNeeded) {
+			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
+				changeStatus = "FP"
+				falsePositiveCount++
+	
+			} else {
+				changeStatus = "FN"
+				falseNegativeCount++
+			}
+			expectedOutcomeValue = newValue
+		}
+
+		//TP
+		if expectedOutcomeValue == 1 && testdata[testIndex].TestedPositive == 1  {
 			truePositiveCount++
 		}
 
-		if expectedOutcomeValue == 0 &&  testdata[index].TestedPositive == 0 {
+		//TN
+		if expectedOutcomeValue == 0 &&  testdata[testIndex].TestedPositive == 0 {
 			trueNegativeCount++
 		}
 
-		if expectedOutcomeValue == 1 && testdata[index].TestedPositive == 0 {
+		//FP
+		if expectedOutcomeValue == 1 && testdata[testIndex].TestedPositive == 0 {
 			changeStatus = "FP" // false positive
 			falsePositiveCount++
-
 		}
 
-		if expectedOutcomeValue == 0 && testdata[index].TestedPositive == 1 {
+		//FN
+		if expectedOutcomeValue == 0 && testdata[testIndex].TestedPositive == 1 {
 			changeStatus = "FN" // false negative
 			falseNegativeCount++
 		}
 
-//		if (foundFalsePositiveOrNegative (closestRecordsIndices)) {
-//			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
-//				changeStatus = "FP"
-//				falsePositiveCount++
-//			} else {
-//				changeStatus = "FN"
-//				falseNegativeCount++
-//			}
-//			expectedOutcomeValue = reverseExpectedOutcome (expectedOutcomeValue)
-//		}
+	
+		if changeNeeded {
+			fmt.Printf ("*")
+		}
+		fmt.Printf ("Expected %d ", expectedOutcomeValue)
+		fmt.Printf ("Actual %d\n", testdata[testIndex].TestedPositive)
 
 		// dump closest three records for each test data record to session file.
 		for recIndex := 0; recIndex < 3; recIndex++ {
@@ -187,13 +218,13 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 			// just a bit of layout formatting to session file
 			if recIndex == 0 {
-				str = support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (index)), 15)
+				str = support.CentreStringInColumn (fmt.Sprintf ("%-15s", strconv.Itoa (testIndex)), 15)
 			} else {
 				str = support.CentreStringInColumn (fmt.Sprintf ("%-15s", " "),15)
 			}
 			str += support.CentreStringInColumn (fmt.Sprintf ("%-15s",strconv.Itoa (closestRecordsIndices[recIndex])), 15)
 			str += support.CentreStringInColumn (fmt.Sprintf ("%.8f", SimilarityTable[recIndex].CosineSimilarity), 12)
-			str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[index].TestedPositive)),12)
+			str += support.CentreStringInColumn (fmt.Sprintf ("%s",strconv.Itoa(testdata[testIndex].TestedPositive)),12)
 			
 			str += support.CentreStringInColumn (fmt.Sprintf ("%s", strconv.Itoa(datasets.PimaTrainingData[closestRecordsIndices[recIndex]].TestedPositive)),12)
 			str += changeStatus // FN or FP here or just blank
@@ -203,13 +234,13 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 		// this is where we do the actual against predicted results
 
-		if testdata[index].TestedPositive !=  expectedOutcomeValue {
+		if testdata[testIndex].TestedPositive !=  expectedOutcomeValue {
 			mismatchCounter++
 		}
 
 	}
 
-	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
+	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d, M = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount, mismatchCounter)
 
 	
 	// final accuracy measure
