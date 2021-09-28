@@ -45,18 +45,6 @@ func splitDataSetIntoEvenFolds (dataset []diabetesdata.PimaDiabetesRecord, folds
 	return kfoldFolds, nil
 }
 
-func convertSlice (slice []int) []float64 {
-
-	newSlice := make ([]float64, len(slice))
-
-	for index,item := range (slice) {
-		newSlice[index] =float64(item)
-
-	}
-
-	return newSlice
-}
-
 func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	str := fmt.Sprintf ("Number of folds : %d\n", numberOfFolds)
@@ -75,24 +63,32 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		similarityTotals[testIndex] = 0.0
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
 			if testIndex != trainingIndex {
-				elementsToCompare := math.Min (float64(len(splitDataset[testIndex])), float64(len(splitDataset[trainingIndex])))
+				
+				// iterate through folds and apply each pair of of index as vectors
+				// [a b c d e] x [f g h i j]
 
-				// quick conversion from []int to []float64
-				vector1 := convertSlice(splitDataset[testIndex])
-				vector2 := convertSlice (splitDataset[trainingIndex])
+				similarityTotals[testIndex] = 0.0
+				for indexTestFold := 0; indexTestFold < len(splitDataset[testIndex]); indexTestFold++ {
+					for indexTrainingFold := 0; indexTrainingFold < len(splitDataset[trainingIndex]); indexTrainingFold++ {
 
-				similarity := support.CosineSimilarity (vector1, vector2,	int(elementsToCompare))	
-				similarityTotals[testIndex] += similarity
+						rec1 := dataset[splitDataset[testIndex][indexTestFold]]
+						rec2 := dataset[splitDataset[trainingIndex][indexTrainingFold]]
+						vector1 := anonymiseDiabetesRecord(rec1)
+						vector2 := anonymiseDiabetesRecord(rec2)
+						elementsToCompare := math.Min (float64(len(vector1)), float64(len(vector2)))
 
-				// Dump test fold measurements
-				str = fmt.Sprintf ("Fold %02d : %0.6f%%\n", testIndex+1, 100.0*similarity)
-				logging.DoWriteString (str, true, true)
+						similarity := support.CosineSimilarity (vector1, vector2, int(elementsToCompare))	
+						similarityTotals[testIndex] += similarity
+					}				
+				}
+ 
+				totalEntries := len(splitDataset[testIndex]) * len(splitDataset[trainingIndex])
+				similarityAverages[testIndex] = similarityTotals[testIndex]/float64(totalEntries)
+	
 			}
+			
 		}
-		
-		similarityAverages[testIndex] = similarityTotals[testIndex]/float64(numberOfFolds-1)
-
-		str = fmt.Sprintf ("Test Fold %02d Mean Value: %0.2f%%\n\n", testIndex, 100.0*similarityAverages[testIndex])
+		str = fmt.Sprintf ("Test Fold Index %02d Mean Value: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
 	}
 

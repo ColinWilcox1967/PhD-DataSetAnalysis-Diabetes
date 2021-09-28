@@ -209,6 +209,9 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 	}
 
+	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
+
+	
 	// final accuracy measure
 	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", len(testdata)-mismatchCounter, len(testdata), support.Percentage(float64(len(testdata)-mismatchCounter), float64(len(testdata))))
 	
