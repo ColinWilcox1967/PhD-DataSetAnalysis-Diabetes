@@ -52,7 +52,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
 //		case 4:	dataset, err = replaceNearestNeighbours (dataset)
 //		case 5: dataset, err = replaceGradientValue (dataset)
-		case 6: dataset, err = DoKFoldSplit (dataset, KfoldCount)
+//		case 6: dataset, err = DoKFoldSplit (dataset, KfoldCount)
 		
 		default:
 			copy(data[:], dataset)
@@ -234,7 +234,7 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 	
 	// final accuracy measure
-	totalCount := len(testdata)
+	totalCount := truePositiveCount+trueNegativeCount+falsePositiveCount+falseNegativeCount
 	totalCorrect := truePositiveCount+trueNegativeCount
 	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, support.Percentage(float64(totalCorrect),float64(totalCount)))
 	

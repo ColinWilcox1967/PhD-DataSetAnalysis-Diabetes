@@ -24,6 +24,7 @@ const (
 	default_kfold_count = 10
 	default_split_percentage = 0.1		// 10% of records go in test set and 90% in training set
 	pima_diabetes_version = "0.2"
+	default_apply_kfold = false
 	diabetes_data_file = "pima-indians-diabetes.txt"
 	default_logfile = "./log.txt"
 )
@@ -35,6 +36,7 @@ var (
 	logfileName string
 	kfoldCount int
 	algorithmToUse int // reference of which cell replacement algorithm will be used.
+	applyKFold bool = default_apply_kfold
 )
 
 func showTitle () {
@@ -55,8 +57,11 @@ func getParameters () {
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
 	flag.StringVar(&sessionFolder, "sessions", "./sessions", "Specifies session log folder.")
 	flag.IntVar(&algorithms.KfoldCount, "kfolds", default_kfold_count, "Specifies number of folds to use in k-fold algorithm")
+	bptr := flag.Bool ("kfold", default_apply_kfold, "Specifies whether k-fold analysis be used")
 
 	flag.Parse ()
+
+	applyKFold = *bptr // derefernce bool ptr
 
 	// set the session folder
 	session.SetSessionFolder (sessionFolder)
@@ -198,7 +203,13 @@ func countTrainingSetRecords () (int, int) {
 
 func processDataSets () {
 
-	str := fmt.Sprintf ("Missing data algorithm: %s\n", algorithms.GetAlgorithmDescription (algorithmToUse))
+	str := fmt.Sprintf ("Missing data algorithm: %s ", algorithms.GetAlgorithmDescription (algorithmToUse))
+
+	if applyKFold {
+		str += "(+ KFOLD)"
+	}
+	str += "\n"
+
 	logging.DoWriteString (str, true, true)
 }
 
@@ -255,8 +266,14 @@ func main () {
 
 	
 	// now perform the missing data algorithm
+	pimaDiabetesData, err = algorithms.DoProcessAlgorithm (pimaDiabetesData, algorithmToUse);
 	
-	if pimaDiabetesData, err = algorithms.DoProcessAlgorithm (pimaDiabetesData, algorithmToUse); err != nil {
+	//  Now if kfold is specified then apply it to modified dataset
+	if applyKFold {
+		pimaDiabetesData, err = algorithms.DoKFoldSplit (pimaDiabetesData, algorithms.KfoldCount)
+	}
+
+	if err != nil {
 		str := fmt.Sprintf ("Problem processing missing data using '%s'\n", algorithms.GetAlgorithmDescription(algorithmToUse))
 
 		logging.DoWriteString (str, true, true)
