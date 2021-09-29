@@ -65,6 +65,16 @@ func CentreStringInColumn (s string, n int) string {
 	return str
 }
 
+func RoundFloat64 (f float64, n int) float64 {
+
+	// fix to 3dp
+	dp:=3.0
+	scale := math.Pow(10,float64(dp))
+
+	f64 := math.Round(f * scale)/scale
+
+	return f64
+}
 
 // general function to produce cosine similarity
 func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {

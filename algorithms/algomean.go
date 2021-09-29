@@ -34,7 +34,8 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 
 	// work out means
 	for index := 0; index < numberOfFields; index++ {
-		columnMean[index] = float64(columnTotal[index])/float64(numberOfRecords)
+		// round up mean to n2 dp.
+		columnMean[index] = support.RoundFloat64 (float64(columnTotal[index])/float64(numberOfRecords), 2)
 	}
 
 	// Dump all the column means
@@ -47,31 +48,31 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 	for index := 0; index < numberOfRecords; index++ {
 
 		if dataset[index].NumberOfTimesPregnant == 0 {
-			resultSet[index].NumberOfTimesPregnant = int(columnMean[0])
+			resultSet[index].NumberOfTimesPregnant = columnMean[0]
 		} else {
 			resultSet[index].NumberOfTimesPregnant = dataset[index].NumberOfTimesPregnant
 		}
 	
 		if dataset[index].PlasmaGlucoseConcentration == 0 {
-			resultSet[index].PlasmaGlucoseConcentration = int(columnMean[1])
+			resultSet[index].PlasmaGlucoseConcentration = columnMean[1]
 		} else {
 			resultSet[index].PlasmaGlucoseConcentration = dataset[index].PlasmaGlucoseConcentration
 		}
 	
 		if dataset[index].DiastolicBloodPressure == 0 {
-			resultSet[index].DiastolicBloodPressure = int(columnMean[2])
+			resultSet[index].DiastolicBloodPressure = columnMean[2]
 		} else {
 			resultSet[index].DiastolicBloodPressure = dataset[index].DiastolicBloodPressure
 		}
 
 		if dataset[index].TricepsSkinfoldThickness == 0 {
-			resultSet[index].TricepsSkinfoldThickness = int(columnMean[3])
+			resultSet[index].TricepsSkinfoldThickness = columnMean[3]
 		} else {
 			resultSet[index].TricepsSkinfoldThickness = dataset[index].TricepsSkinfoldThickness
 		}
 
 		if dataset[index].SeriumInsulin == 0 {
-			resultSet[index].SeriumInsulin = int(columnMean[4])
+			resultSet[index].SeriumInsulin = columnMean[4]
 		} else {
 			resultSet[index].SeriumInsulin = dataset[index].SeriumInsulin
 		}
@@ -89,7 +90,7 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 		}
 	
 		if dataset[index].Age == 0 {
-			resultSet[index].Age = int(columnMean[7])
+			resultSet[index].Age = columnMean[7]
 		} else {
 			resultSet[index].Age = dataset[index].Age
 		}

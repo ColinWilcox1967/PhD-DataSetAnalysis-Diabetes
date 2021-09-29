@@ -46,14 +46,14 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 		for field := 0; field < numberOfFields; field++ {
 
 			switch field {
-				case 0: value = float64(r.NumberOfTimesPregnant)
-				case 1: value = float64(r.DiastolicBloodPressure)
-				case 2: value = float64(r.PlasmaGlucoseConcentration)
-				case 3: value = float64(r.TricepsSkinfoldThickness)
-				case 4: value = float64(r.SeriumInsulin)
+				case 0: value = r.NumberOfTimesPregnant
+				case 1: value = r.DiastolicBloodPressure
+				case 2: value = r.PlasmaGlucoseConcentration
+				case 3: value = r.TricepsSkinfoldThickness
+				case 4: value = r.SeriumInsulin
 				case 5: value = r.BodyMassIndex
 				case 6: value = r.DiabetesPedigreeFunction
-				case 7: value = float64(r.Age)
+				case 7: value = r.Age
 			}
 
 			exists, pos = valueExistsForFeature (columnCount[field], value)
@@ -93,49 +93,49 @@ func replaceMissingValuesWithModal (dataset []diabetesdata.PimaDiabetesRecord) (
 	
 	for index:= 0; index < numberOfRecords; index++ {
 		if dataset[index].NumberOfTimesPregnant == 0 {
-			resultSet[index].NumberOfTimesPregnant = int(columnModal[0].Value)
+			resultSet[index].NumberOfTimesPregnant = support.RoundFloat64 (columnModal[0].Value,2)
 		} else {
-			resultSet[index].NumberOfTimesPregnant = dataset[index].NumberOfTimesPregnant
+			resultSet[index].NumberOfTimesPregnant = support.RoundFloat64 (dataset[index].NumberOfTimesPregnant, 2)
 		}
 	
 		if dataset[index].PlasmaGlucoseConcentration == 0 {
-			resultSet[index].PlasmaGlucoseConcentration = int(columnModal[1].Value)
+			resultSet[index].PlasmaGlucoseConcentration = support.RoundFloat64 (columnModal[1].Value, 2)
 		} else {
-			resultSet[index].PlasmaGlucoseConcentration = dataset[index].PlasmaGlucoseConcentration
+			resultSet[index].PlasmaGlucoseConcentration = support.RoundFloat64(dataset[index].PlasmaGlucoseConcentration, 2)
 		}
 	
 		if dataset[index].DiastolicBloodPressure == 0 {
-			resultSet[index].DiastolicBloodPressure = int(columnModal[2].Value)
+			resultSet[index].DiastolicBloodPressure = support.RoundFloat64(columnModal[2].Value, 2)
 		} else {
-			resultSet[index].DiastolicBloodPressure = dataset[index].DiastolicBloodPressure
+			resultSet[index].DiastolicBloodPressure = support.RoundFloat64(dataset[index].DiastolicBloodPressure, 2)
 		}
 
 		if dataset[index].TricepsSkinfoldThickness == 0 {
-			resultSet[index].TricepsSkinfoldThickness = int(columnModal[3].Value)
+			resultSet[index].TricepsSkinfoldThickness = support.RoundFloat64(columnModal[3].Value, 2)
 		} else {
-			resultSet[index].TricepsSkinfoldThickness = dataset[index].TricepsSkinfoldThickness
+			resultSet[index].TricepsSkinfoldThickness = support.RoundFloat64(dataset[index].TricepsSkinfoldThickness, 2)
 		}
 
 		if dataset[index].SeriumInsulin == 0 {
-			resultSet[index].SeriumInsulin = int(columnModal[4].Value)
+			resultSet[index].SeriumInsulin = support.RoundFloat64(columnModal[4].Value, 2)
 		} else {
-			resultSet[index].SeriumInsulin = dataset[index].SeriumInsulin
+			resultSet[index].SeriumInsulin = support.RoundFloat64(dataset[index].SeriumInsulin, 2)
 		}
 
 		if dataset[index].BodyMassIndex == 0 {
-			resultSet[index].BodyMassIndex = columnModal[5].Value
+			resultSet[index].BodyMassIndex = support.RoundFloat64(columnModal[5].Value, 2)
 		} else {
-			resultSet[index].BodyMassIndex = float64(dataset[index].BodyMassIndex)
+			resultSet[index].BodyMassIndex = support.RoundFloat64(dataset[index].BodyMassIndex, 2)
 		}
 
 		if dataset[index].DiabetesPedigreeFunction == 0 {
-			resultSet[index].DiabetesPedigreeFunction = columnModal[6].Value
+			resultSet[index].DiabetesPedigreeFunction = support.RoundFloat64(columnModal[6].Value,2)
 		} else {
-			resultSet[index].DiabetesPedigreeFunction = float64(dataset[index].DiabetesPedigreeFunction)
+			resultSet[index].DiabetesPedigreeFunction = support.RoundFloat64(dataset[index].DiabetesPedigreeFunction,2)
 		}
 	
 		if dataset[index].Age == 0 {
-			resultSet[index].Age = int(columnModal[7].Value)
+			resultSet[index].Age = columnModal[7].Value
 		} else {
 			resultSet[index].Age = dataset[index].Age
 		}

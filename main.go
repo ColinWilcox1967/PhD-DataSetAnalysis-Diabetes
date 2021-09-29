@@ -106,16 +106,16 @@ func loadDiabetesFile (filename string) (error, int) {
 		// Append the record
 		var newRecord diabetesdata.PimaDiabetesRecord
 
-		newRecord.NumberOfTimesPregnant,_ = strconv.Atoi(record[0])
-		newRecord.PlasmaGlucoseConcentration,_ = strconv.Atoi(record[1])
-		newRecord.DiastolicBloodPressure,_ = strconv.Atoi(record[2])
-		newRecord.TricepsSkinfoldThickness,_ = strconv.Atoi(record[3])
-		newRecord.SeriumInsulin,_ = strconv.Atoi(record[4])
+		newRecord.NumberOfTimesPregnant,_ = strconv.ParseFloat(record[0], 64)
+		newRecord.PlasmaGlucoseConcentration,_ = strconv.ParseFloat(record[1],64)
+		newRecord.DiastolicBloodPressure,_ = strconv.ParseFloat(record[2],64)
+		newRecord.TricepsSkinfoldThickness,_ = strconv.ParseFloat(record[3],64)
+		newRecord.SeriumInsulin,_ = strconv.ParseFloat(record[4],64)
 
 		newRecord.BodyMassIndex,_ = strconv.ParseFloat(record[5], 64) // 64 bit float
 		newRecord.DiabetesPedigreeFunction,_ = strconv.ParseFloat(record[6], 64) // 64 bit float
 
-		newRecord.Age,_ = strconv.Atoi(record[7])
+		newRecord.Age,_ = strconv.ParseFloat(record[7],64)
 		newRecord.TestedPositive,_ = strconv.Atoi(record[8])
 
 		pimaDiabetesData = append(pimaDiabetesData, newRecord)
