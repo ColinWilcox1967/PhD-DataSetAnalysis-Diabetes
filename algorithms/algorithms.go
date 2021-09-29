@@ -90,36 +90,36 @@ func reverseExpectedOutcome (outcome int) int {
 
 func foundFalsePositiveOrNegative (indices []int) (bool, int) {
 
-	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
-							   datasets.PimaTrainingData[indices[1]].TestedPositive,
-							   datasets.PimaTrainingData[indices[2]].TestedPositive)
+	return false,0
 
-	// TTF or FFT
-	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
-		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
-		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-	}
+//	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
+//							   datasets.PimaTrainingData[indices[1]].TestedPositive,
+//							   datasets.PimaTrainingData[indices[2]].TestedPositive)
+//
+//	// TTF or FFT
+//	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
+//		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
+//		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+//	}
 
-	// TFT or FTF
-	if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-		   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-	   }
+//	// TFT or FTF
+//	if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+//	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+//		   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+//	   }
 
-	// FTT or TFF
-	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-		   return true, datasets.PimaTrainingData[indices[1]].TestedPositive
-	   }
+//	// FTT or TFF
+//	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+//	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+//		   return true, datasets.PimaTrainingData[indices[1]].TestedPositive
+//	   }
 
-
-	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
+//
+//	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
 }
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
-	var mismatchCounter int
-
 	var truePositiveCount int	// Number of true positives (TP)
 	var trueNegativeCount int	// Number of true negatives (TN)
 	var falsePositiveCount int  // Number of false positives (FP)
@@ -231,20 +231,15 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			str += "\n"
 			sessionhandle.WriteString (str) // this will be in session file really
 		}
-
-		// this is where we do the actual against predicted results
-
-		if testdata[testIndex].TestedPositive !=  expectedOutcomeValue {
-			mismatchCounter++
-		}
-
 	}
 
-	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d, M = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount, mismatchCounter)
+	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
 
 	
 	// final accuracy measure
-	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", len(testdata)-mismatchCounter, len(testdata), support.Percentage(float64(len(testdata)-mismatchCounter), float64(len(testdata))))
+	totalCount := len(testdata)
+	totalCorrect := truePositiveCount+trueNegativeCount
+	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, support.Percentage(float64(totalCorrect),float64(totalCount)))
 	
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
