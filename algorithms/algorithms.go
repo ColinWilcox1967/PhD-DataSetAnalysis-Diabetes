@@ -90,32 +90,31 @@ func reverseExpectedOutcome (outcome int) int {
 
 func foundFalsePositiveOrNegative (indices []int) (bool, int) {
 
-	return false,0
+	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
+							   datasets.PimaTrainingData[indices[1]].TestedPositive,
+							   datasets.PimaTrainingData[indices[2]].TestedPositive)
 
-//	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
-//							   datasets.PimaTrainingData[indices[1]].TestedPositive,
-//							   datasets.PimaTrainingData[indices[2]].TestedPositive)
-//
-//	// TTF or FFT
-//	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
-//		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
-//		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-//	}
+	// TTF or FFT
+	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
+		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
+		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+	} else {
 
-//	// TFT or FTF
-//	if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-//	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-//		   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-//	   }
+		// TFT or FTF
+		if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+	   		(datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+			   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
+	   	} else {
 
-//	// FTT or TFF
-//	if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-//	   (datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-//		   return true, datasets.PimaTrainingData[indices[1]].TestedPositive
-//	   }
+			// FTT or TFF
+			if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
+	   			(datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
+			   	return true, datasets.PimaTrainingData[indices[1]].TestedPositive
+	   		}
+		}
+	}
 
-//
-//	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
+	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
 }
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
@@ -165,6 +164,7 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		closestRecordsIndices[1] = SimilarityTable[1].Index
 		closestRecordsIndices[2] = SimilarityTable[2].Index
 
+		// get predicted value from closest match
 		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
 
 		// look for false positive and false negative situations
@@ -174,12 +174,10 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		if (changeNeeded) {
 			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
 				changeStatus = "FP"
-				falsePositiveCount++
 	
 			} else {
 				changeStatus = "FN"
-				falseNegativeCount++
-			}
+		}
 			expectedOutcomeValue = newValue
 		}
 
@@ -204,7 +202,6 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			changeStatus = "FN" // false negative
 			falseNegativeCount++
 		}
-
 	
 		if changeNeeded {
 			fmt.Printf ("*")
