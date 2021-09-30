@@ -117,6 +117,47 @@ func foundFalsePositiveOrNegative (indices []int) (bool, int) {
 	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
 }
 
+func showSessionMetrics (sessionhandle *os.File, truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount int) {
+	var str string
+	
+	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
+
+	// Accuracy
+	totalCount := truePositiveCount+trueNegativeCount+falsePositiveCount+falseNegativeCount
+	totalCorrect := truePositiveCount+trueNegativeCount
+	str = fmt.Sprintf("Accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, support.Percentage(float64(totalCorrect),float64(totalCount)))
+	
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+	// Precision
+	precision := 100.0*float64(truePositiveCount)/float64(truePositiveCount+falsePositiveCount)
+	logging.DoWriteString ("\n", true, true)
+
+	str = fmt.Sprintf ("Precision : %.02f%%\n", precision)
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+	// Recall
+	recall := 100.0*float64(truePositiveCount)/float64(falseNegativeCount+truePositiveCount)
+	str = fmt.Sprintf ("Recall : %.02f%%\n", recall)
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+	// Sensitivity
+	sensitivity := 100.0* float64(truePositiveCount)/float64(truePositiveCount+falseNegativeCount)
+	str = fmt.Sprintf ("Sensitivity : %0.2f%%\n", sensitivity)
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+	// Specificity
+	specificity := 100.0* float64(trueNegativeCount)/float64(trueNegativeCount+falsePositiveCount)
+	str = fmt.Sprintf ("Sensitivity : %0.2f%%\n", specificity)
+	logging.DoWriteString (str, true, true) // console and log
+	sessionhandle.WriteString(str)			// session file
+
+}
+
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
 	var truePositiveCount int	// Number of true positives (TP)
@@ -171,13 +212,14 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
  
 		changeNeeded, newValue := foundFalsePositiveOrNegative (closestRecordsIndices)
 
+		changeNeeded = false // toggle remove later
 		if (changeNeeded) {
 			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
 				changeStatus = "FP"
 	
 			} else {
 				changeStatus = "FN"
-		}
+			}
 			expectedOutcomeValue = newValue
 		}
 
@@ -230,30 +272,11 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		}
 	}
 
-	fmt.Printf ("TP = %d, TN = %d, FP = %d, FN = %d\n", truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
+		
+	// final accuracy measures
+	showSessionMetrics (sessionhandle, truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
 
 	
-	// final accuracy measure
-	totalCount := truePositiveCount+trueNegativeCount+falsePositiveCount+falseNegativeCount
-	totalCorrect := truePositiveCount+trueNegativeCount
-	str = fmt.Sprintf("Prediction accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, support.Percentage(float64(totalCorrect),float64(totalCount)))
-	
-	logging.DoWriteString (str, true, true) // console and log
-	sessionhandle.WriteString(str)			// session file
-
-	// precision and recall to be shown here
-	precision := 100.0*float64(truePositiveCount)/float64(truePositiveCount+falsePositiveCount)
-	logging.DoWriteString ("\n", true, true)
-
-	str = fmt.Sprintf ("Precision : %.02f%%\n", precision)
-	logging.DoWriteString (str, true, true) // console and log
-	sessionhandle.WriteString(str)			// session file
-
-	recall := 100.0*float64(truePositiveCount)/float64(falseNegativeCount+truePositiveCount)
-	str = fmt.Sprintf ("Recall : %.02f%%\n", recall)
-	logging.DoWriteString (str, true, true) // console and log
-	sessionhandle.WriteString(str)			// session file
-
 }
 
 
