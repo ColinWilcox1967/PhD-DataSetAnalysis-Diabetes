@@ -5,6 +5,8 @@ import (
 	"../datasets"
 	"../support"
 	"sort"
+
+//	"fmt"
 )
 
 type SimilarityMeasure struct {
@@ -37,6 +39,12 @@ func BuildSimilarityTable (testdata diabetesdata.PimaDiabetesRecord) {
 	sort.Slice(SimilarityTable[:], func(i, j int) bool {
 		return SimilarityTable[i].CosineSimilarity > SimilarityTable[j].CosineSimilarity
 	  })
+
+
+//	  for index := 0; index < len(SimilarityTable); index++ {
+//		  fmt.Printf ("%03d %d %.06f %d\n", index, SimilarityTable[index].Index, 
+//		  SimilarityTable[index].CosineSimilarity,datasets.PimaTrainingData[SimilarityTable[index].Index].TestedPositive)
+//	  }
  }
 
 // end of file

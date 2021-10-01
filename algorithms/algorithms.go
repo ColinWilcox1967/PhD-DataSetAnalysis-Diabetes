@@ -144,15 +144,9 @@ func showSessionMetrics (sessionhandle *os.File, truePositiveCount, trueNegative
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
-	// Sensitivity
-	sensitivity := 100.0* float64(truePositiveCount)/float64(truePositiveCount+falseNegativeCount)
-	str = fmt.Sprintf ("Sensitivity : %0.2f%%\n", sensitivity)
-	logging.DoWriteString (str, true, true) // console and log
-	sessionhandle.WriteString(str)			// session file
-
 	// Specificity
 	specificity := 100.0* float64(trueNegativeCount)/float64(trueNegativeCount+falsePositiveCount)
-	str = fmt.Sprintf ("Sensitivity : %0.2f%%\n", specificity)
+	str = fmt.Sprintf ("Specificity : %0.2f%%\n", specificity)
 	logging.DoWriteString (str, true, true) // console and log
 	sessionhandle.WriteString(str)			// session file
 
