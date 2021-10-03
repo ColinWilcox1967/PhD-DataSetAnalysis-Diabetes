@@ -52,9 +52,6 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 1: dataset, err = removeIncompleteRecords (dataset)
 		case 2: dataset, err = replaceMissingValuesWithMean (dataset)
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
-//		case 4:	dataset, err = replaceNearestNeighbours (dataset)
-//		case 5: dataset, err = replaceGradientValue (dataset)
-//		case 6: dataset, err = DoKFoldSplit (dataset, KfoldCount)
 		
 		default:
 			copy(data[:], dataset)
@@ -79,45 +76,6 @@ func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
 	return anonymous
 }
 
-
-func reverseExpectedOutcome (outcome int) int {
-	// in this case its just a flip but may get more complex in the future
-
-	if outcome == 1 {
-		return 0
-	}
-
-	return 1
-}
-
-func foundFalsePositiveOrNegative (indices []int) (bool, int) {
-
-	fmt.Printf ("[%d %d %d] ", datasets.PimaTrainingData[indices[0]].TestedPositive, 
-							   datasets.PimaTrainingData[indices[1]].TestedPositive,
-							   datasets.PimaTrainingData[indices[2]].TestedPositive)
-
-	// TTF or FFT
-	if  (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[1]].TestedPositive) &&
-		(datasets.PimaTrainingData[indices[1]].TestedPositive != datasets.PimaTrainingData[indices[2]].TestedPositive) {
-		return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-	} else {
-
-		// TFT or FTF
-		if (datasets.PimaTrainingData[indices[0]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-	   		(datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-			   return true, datasets.PimaTrainingData[indices[0]].TestedPositive
-	   	} else {
-
-			// FTT or TFF
-			if (datasets.PimaTrainingData[indices[1]].TestedPositive == datasets.PimaTrainingData[indices[2]].TestedPositive) &&
-	   			(datasets.PimaTrainingData[indices[0]].TestedPositive != datasets.PimaTrainingData[indices[1]].TestedPositive) {
-			   	return true, datasets.PimaTrainingData[indices[1]].TestedPositive
-	   		}
-		}
-	}
-
-	return false, datasets.PimaTrainingData[indices[0]].TestedPositive
-}
 
 func showSessionMetrics (sessionhandle *os.File, truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount int) {
 	var str string
@@ -195,46 +153,29 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 		// most similar record from training set will now be element zero.
 		numberOfNearestNeighbours := classifier.ThresholdClassifier.NumberOfNeighbours
-		countThreshold := classifier.ThresholdClassifier.TPThreshold
+		countTPThreshold := classifier.ThresholdClassifier.TPThreshold
 
 		closestRecordsIndices := make([]int,numberOfNearestNeighbours) // five closest matches
 		
 		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
 			closestRecordsIndices[neighbourIndex] = SimilarityTable[neighbourIndex].Index
 		}
-		
-
+	
 		// get predicted value from closest match
 		var expectedOutcomeValue int // defauklts to healthy = 0
-
-//		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
-
-		// look for false positive and false negative situations
  
-//		changeNeeded, newValue := foundFalsePositiveOrNegative (closestRecordsIndices)
-
-//		changeNeeded = false // toggle remove later
-//		if (changeNeeded) {
-//			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
-//				changeStatus = "FP"
-//	
-//			} else {
-//				changeStatus = "FN"
-//			}
-//			expectedOutcomeValue = newValue
-//		}
-
 		// have we sufficient positive nearest neighbours to reach the threshold
 		count:= 0
 		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
 			count += datasets.PimaTrainingData[closestRecordsIndices[neighbourIndex]].TestedPositive
 		}
-	
-		if count >= countThreshold {
-			expectedOutcomeValue = 1  // diseased
-		} else {
-			expectedOutcomeValue = 0 // healthy
+
+		if expectedOutcomeValue == 0 { // healthy
+			if count >= countTPThreshold {
+				expectedOutcomeValue = 1  // diseased
+			}
 		}
+		
 
 		//TP
 		if expectedOutcomeValue == 1 && testdata[testIndex].TestedPositive == 1  {
@@ -258,9 +199,6 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			falseNegativeCount++
 		}
 	
-		fmt.Printf ("Expected %d ", expectedOutcomeValue)
-		fmt.Printf ("Actual %d\n", testdata[testIndex].TestedPositive)
-
 		// dump closest three records for each test data record to session file.
 		for recIndex := 0; recIndex < 3; recIndex++ {
 			var str string
@@ -280,13 +218,12 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			str += "\n"
 			sessionhandle.WriteString (str) // this will be in session file really
 		}
-	}
 
+
+	}
 		
 	// final accuracy measures
 	showSessionMetrics (sessionhandle, truePositiveCount, trueNegativeCount, falsePositiveCount, falseNegativeCount)
-
-	
 }
 
 

@@ -4,9 +4,40 @@ import (
 	"os"
 	"bufio"	
 	"strings"
+	"strconv"
 ) 
 
-var Metrics ClassifierMetrics
+const (
+	default_number_of_neighbours = 7
+	default_tpthreshold = 5
+	default_tnthreshold=2
+)
+
+var ThresholdClassifier ClassifierMetrics
+
+
+
+func setDefaultClassifierMetrics () {
+	ThresholdClassifier.NumberOfNeighbours = default_number_of_neighbours
+	ThresholdClassifier.TPThreshold = default_tpthreshold
+	ThresholdClassifier.TNThreshold = default_tnthreshold
+}
+
+func countNeighbours (neighbours []int, value int) int {
+
+	if len(neighbours) < ThresholdClassifier.NumberOfNeighbours {
+		return 0
+	}
+
+	count := 0
+	for index := 0; index < ThresholdClassifier.NumberOfNeighbours; index++ {
+		if neighbours[index] == value {
+			count++
+		}
+	}
+
+	return count
+}
 
 func LoadClassifierFromFile (filepath string) ([]string, error) {
 	file, err := os.Open(filepath)
@@ -23,51 +54,50 @@ func LoadClassifierFromFile (filepath string) ([]string, error) {
     return lines, scanner.Err()
 }
 
-func SetClassifierMetrics (metrics []string) bool {
+func SetClassifierMetrics (metrics []string) {
 
+	setDefaultClassifierMetrics () // set to defaults so we have something consistent
 	for _, line := range (metrics) {
 		if line[0] != '#' { // not a comment
-		
+			//Number of neighbours
 			str := strings.ToUpper (line)
 			if strings.Contains (str, "N=") {
-				//Number of neighbours
-				return true
+				parts := strings.Split(str, "=")
+				
+				n := parts[1]
+				v, err := strconv.Atoi (n)
+				if err != nil {
+					ThresholdClassifier.NumberOfNeighbours = v
+				}
+
+				
+			
 			} 
 			if strings.Contains (str, "TP=") {
 				// True Positive Threshold
-				return true
+				parts := strings.Split(str, "=")
+				tp := parts[1]
+				v,err := strconv.Atoi (tp)
+				if err != nil {
+					ThresholdClassifier.TPThreshold = v
+				}
+				
 			}	 
 
 			if strings.Contains (str, "TN=") {
 				// True Negative Threshold
-				return true
+				parts := strings.Split(str, "=")
+				tn := parts[1]
+				v,err := strconv.Atoi(tn)
+				if err != nil {
+					ThresholdClassifier.TNThreshold = v
+				}
+				
 			}
 		}
 	}
 
-	return false
+	
 }
 
-func ChangeOutcomeValue (neighbours []int, value int) bool {
-	if countNeighbours (neighbours, value) >= Metrics.TPThreshold {
-		return true
-	}
 
-	return false
-}
-
-func countNeighbours (neighbours []int, value int) int {
-
-	if len(neighbours) < Metrics.NumberOfNeighbours {
-		return 0
-	}
-
-	count := 0
-	for index := 0; index < Metrics.NumberOfNeighbours; index++ {
-		if neighbours[index] == value {
-			count++
-		}
-	}
-
-	return count
-}

@@ -18,6 +18,7 @@ import (
 	"./logging"
 	"./algorithms"
 	"./session"
+	"./classifier"
 )
 
 const (
@@ -217,9 +218,15 @@ func main () {
 
 	var str string
 
+	// load classifier file
+	lines, err := classifier.LoadClassifierFromFile ("classifier.tp")
+	if err != nil {
+		classifier.SetClassifierMetrics (lines)
+	}
+
 	getParameters ()
 
-	if err := logging.InitLog (logfileName); err != nil {
+	if err = logging.InitLog (logfileName); err != nil {
 		fmt.Printf("%s\n", err.Error ()) // log error to console
 		os.Exit(-1)
 	}
