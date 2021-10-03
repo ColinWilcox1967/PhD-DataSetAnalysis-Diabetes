@@ -88,8 +88,13 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 			}
 			
 		}
+
 		str = fmt.Sprintf ("Test Fold Index %02d Mean Value: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
+	}
+
+	for index :=0; index < numberOfFolds; index++ {
+		fmt.Println (similarityAverages[index])
 	}
 
 	// then we get the overall similarity right??

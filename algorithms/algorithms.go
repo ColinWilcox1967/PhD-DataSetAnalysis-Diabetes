@@ -6,9 +6,11 @@ import (
 	"../datasets"
 	"../support"
 	"../logging"
+	"../classifier"
 	"errors"
 	"os"
 	"strconv"
+	
 )
 
 const (
@@ -192,29 +194,46 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 		}
 
 		// most similar record from training set will now be element zero.
+		numberOfNearestNeighbours := classifier.ThresholdClassifier.NumberOfNeighbours
+		countThreshold := classifier.ThresholdClassifier.TPThreshold
 
-		closestRecordsIndices := make([]int,3) // three closest matches
+		closestRecordsIndices := make([]int,numberOfNearestNeighbours) // five closest matches
 		
-		closestRecordsIndices[0] = SimilarityTable[0].Index
-		closestRecordsIndices[1] = SimilarityTable[1].Index
-		closestRecordsIndices[2] = SimilarityTable[2].Index
+		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
+			closestRecordsIndices[neighbourIndex] = SimilarityTable[neighbourIndex].Index
+		}
+		
 
 		// get predicted value from closest match
-		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
+		var expectedOutcomeValue int // defauklts to healthy = 0
+
+//		expectedOutcomeValue := datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive
 
 		// look for false positive and false negative situations
  
-		changeNeeded, newValue := foundFalsePositiveOrNegative (closestRecordsIndices)
+//		changeNeeded, newValue := foundFalsePositiveOrNegative (closestRecordsIndices)
 
-		changeNeeded = false // toggle remove later
-		if (changeNeeded) {
-			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
-				changeStatus = "FP"
+//		changeNeeded = false // toggle remove later
+//		if (changeNeeded) {
+//			if datasets.PimaTrainingData [closestRecordsIndices[0]].TestedPositive == 1 {
+//				changeStatus = "FP"
+//	
+//			} else {
+//				changeStatus = "FN"
+//			}
+//			expectedOutcomeValue = newValue
+//		}
+
+		// have we sufficient positive nearest neighbours to reach the threshold
+		count:= 0
+		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
+			count += datasets.PimaTrainingData[closestRecordsIndices[neighbourIndex]].TestedPositive
+		}
 	
-			} else {
-				changeStatus = "FN"
-			}
-			expectedOutcomeValue = newValue
+		if count >= countThreshold {
+			expectedOutcomeValue = 1  // diseased
+		} else {
+			expectedOutcomeValue = 0 // healthy
 		}
 
 		//TP
@@ -239,9 +258,6 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			falseNegativeCount++
 		}
 	
-		if changeNeeded {
-			fmt.Printf ("*")
-		}
 		fmt.Printf ("Expected %d ", expectedOutcomeValue)
 		fmt.Printf ("Actual %d\n", testdata[testIndex].TestedPositive)
 
