@@ -1,6 +1,6 @@
 package classifier
 
-type  ClassifierMetrics struct {
+type ClassifierMetrics struct {
 	NumberOfNeighbours int
 	TPThreshold int
 	TNThreshold int
