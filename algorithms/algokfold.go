@@ -61,6 +61,8 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 	for testIndex := 0; testIndex < numberOfFolds; testIndex++ {
 
 		similarityTotals[testIndex] = 0.0
+		similarityAverages[testIndex] = 0.0
+	
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
 			if testIndex != trainingIndex {
 				
@@ -73,21 +75,30 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 
 						rec1 := dataset[splitDataset[testIndex][indexTestFold]]
 						rec2 := dataset[splitDataset[trainingIndex][indexTrainingFold]]
+				
+
 						vector1 := anonymiseDiabetesRecord(rec1)
 						vector2 := anonymiseDiabetesRecord(rec2)
-						elementsToCompare := math.Min (float64(len(vector1)), float64(len(vector2)))
 
+						
+
+						// accomodate if fold is short
+						elementsToCompare := math.Min (float64(len(vector1)), float64(len(vector2)))
+						
 						similarity := support.CosineSimilarity (vector1, vector2, int(elementsToCompare))	
 						similarityTotals[testIndex] += similarity
-					}				
+					
+					}	
+					vectorsCompared := len(splitDataset[testIndex]) * len(splitDataset[trainingIndex])
+					similarityAverages[testIndex] = similarityTotals[testIndex]/float64(vectorsCompared)	
+							
 				}
- 
-				totalEntries := len(splitDataset[testIndex]) * len(splitDataset[trainingIndex])
-				similarityAverages[testIndex] = similarityTotals[testIndex]/float64(totalEntries)
-	
-			}
+ 			}
 			
 		}
+
+	
+	
 
 		str = fmt.Sprintf ("Test Fold Index %02d Mean Value: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
