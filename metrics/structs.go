@@ -16,4 +16,12 @@ type DataSetStatisticsRecord struct {
 	MidRange float64			//50%
 }
 
+type SessionMetrics struct {
+	TruePositiveCount int   // TP
+	TrueNegativeCount int   // TN
+	FalsePositiveCount int  // FP
+	FalseNegativeCount int  // FN
+}
+
+
 // end of file

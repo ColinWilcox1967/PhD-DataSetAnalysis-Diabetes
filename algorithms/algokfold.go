@@ -58,13 +58,19 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 	similarityTotals := make([]float64, numberOfFolds)
 	similarityAverages := make([]float64, numberOfFolds)
 
+	// Need to get metrics for each test fold
 	for testIndex := 0; testIndex < numberOfFolds; testIndex++ {
+
+//		var truePositiveCount,
+//			trueNegativeCount,
+//			falsePositiveCount,
+//			falseNegativeCount int
 
 		similarityTotals[testIndex] = 0.0
 		similarityAverages[testIndex] = 0.0
 	
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
-			if testIndex != trainingIndex {
+			if testIndex != trainingIndex { //positive matrix diagonal is ignored
 				
 				// iterate through folds and apply each pair of of index as vectors
 				// [a b c d e] x [f g h i j]
@@ -97,25 +103,19 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 			
 		}
 
-	
-	
-
-		str = fmt.Sprintf ("Test Fold Index %02d Mean Value: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
+		// Dump the similarity average for the current fold
+		str = fmt.Sprintf ("Test Fold Index %02d - Mean Similarity: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
 	}
 
-	for index :=0; index < numberOfFolds; index++ {
-		fmt.Println (similarityAverages[index])
-	}
-
-	// then we get the overall similarity right??
+	// Summary section
 	overallConsistency := 0.0
 	for batchIndex := 0; batchIndex < numberOfFolds; batchIndex++ {
 		overallConsistency += similarityAverages[batchIndex]
 	}
 	overallConsistency = overallConsistency / float64(numberOfFolds)
 	
-	fmt.Printf ("\nOverall Consistency = %0.2f%%\n", 100.0*overallConsistency)
+	fmt.Printf ("\nOverall Average Similarity = %0.2f%%\n", 100.0*overallConsistency)
 
 	return dataset, nil
 	
