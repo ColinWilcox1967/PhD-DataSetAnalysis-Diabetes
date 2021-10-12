@@ -185,6 +185,12 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	var falsePositiveCount int  // Number of false positives (FP)
 	var falseNegativeCount int  // Number of false negatives (FN)
 
+	// build up a table for each fold
+	if ApplyKFold {
+		// final accuracy measures
+		showSessionMetrics (sessionhandle)
+	}
+		
 	// Table column headings
 	str := support.LeftAlignStringInColumn ("Test Record", 15)
 	str += support.LeftAlignStringInColumn ("Best Match", 15)
@@ -202,15 +208,6 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	str+= "\n"
 	sessionhandle.WriteString(str)
 
-
-	// build up a table for each fold
-	if ApplyKFold {
-		// final accuracy measures
-		showSessionMetrics (sessionhandle)
-		return
-	}
-	
-	
 	// Now get the results as per the test data
 	for testIndex := 0; testIndex < len(testdata); testIndex++ {
 		// outcome read from the actual record
