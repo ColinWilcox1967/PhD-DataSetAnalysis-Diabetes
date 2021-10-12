@@ -20,6 +20,8 @@ const (
 )
 
 var KfoldCount = default_kfold_count
+var Metrics [10]metrics.SessionMetrics
+
 
 
 var algorithmDescriptions = []string{"None",	// 0							
@@ -79,32 +81,46 @@ func anonymiseDiabetesRecord (data diabetesdata.PimaDiabetesRecord ) []float64 {
 	return anonymous
 }
 
-func precision (metrics []metrics.SessionMetrics, index int) float64 {
-	return 100.0*float64(metrics[index].TruePositiveCount)/float64(metrics[index].TruePositiveCount+metrics[index].FalsePositiveCount) 
+func precision (index int) float64 {
+	return 100.0*float64(Metrics[index].TruePositiveCount)/float64(Metrics[index].TruePositiveCount+Metrics[index].FalsePositiveCount) 
 }
 
-func recall (metrics []metrics.SessionMetrics, index int) float64 {
-	return 100.0*float64(metrics[index].TruePositiveCount)/float64(metrics[index].FalseNegativeCount+metrics[index].TruePositiveCount)
+func recall (index int) float64 {
+	return 100.0*float64(Metrics[index].TruePositiveCount)/float64(Metrics[index].FalseNegativeCount+Metrics[index].TruePositiveCount)
 }
 
-func accuracy (metrics []metrics.SessionMetrics, index int) float64 {
-	return support.Percentage (float64(totalCorrect(metrics, index)), float64(totalCount(metrics, index)))
+func accuracy (index int) float64 {
+	return support.Percentage (float64(totalCorrect(index)), float64(totalCount(index)))
 }
 
-func totalCount (metrics []metrics.SessionMetrics, index int) int {
-	return metrics[index].TruePositiveCount+metrics[index].TrueNegativeCount+metrics[index].FalsePositiveCount+metrics[index].FalseNegativeCount
+func totalCount (index int) int {
+	return Metrics[index].TruePositiveCount+Metrics[index].TrueNegativeCount+Metrics[index].FalsePositiveCount+Metrics[index].FalseNegativeCount
 }
 
-func totalCorrect (metrics []metrics.SessionMetrics, index int) int {
-	return  metrics[index].TruePositiveCount+metrics[index].TrueNegativeCount 
+func totalCorrect (index int) int {
+	return  Metrics[index].TruePositiveCount+Metrics[index].TrueNegativeCount 
 }
 
-func specificity (metrics []metrics.SessionMetrics, index int) float64 {
+func specificity (index int) float64 {
 
-	return 100.0 * float64(metrics[index].TrueNegativeCount)/float64(metrics[index].TrueNegativeCount+metrics[index].FalsePositiveCount)
+	return 100.0 * float64(Metrics[index].TrueNegativeCount)/float64(Metrics[index].TrueNegativeCount+Metrics[index].FalsePositiveCount)
 }
 
-func showSessionMetrics (sessionhandle *os.File, metrics []metrics.SessionMetrics) {
+func truePositiveRate (index int) float64 {
+	tp := Metrics[index].TruePositiveCount
+	fn := Metrics[index].FalseNegativeCount
+
+	return support.Percentage (float64(tp), float64(tp+fn))
+}
+
+func falsePositiveRate (index int) float64 {
+	fp := Metrics[index].FalsePositiveCount
+	tn := Metrics[index].TrueNegativeCount
+
+	return support.Percentage (float64(fp),float64(fp+tn))
+}
+
+func showSessionMetrics (sessionhandle *os.File) {
 	var str string
 
 	for index := 0; index < KfoldCount; index++ {
@@ -113,53 +129,62 @@ func showSessionMetrics (sessionhandle *os.File, metrics []metrics.SessionMetric
 		logging.DoWriteString (str, true, true)
 		sessionhandle.WriteString (str)
 
-		tp := metrics[index].TruePositiveCount
-		tn := metrics[index].TrueNegativeCount
-		fp := metrics[index].FalsePositiveCount
-		fn := metrics[index].FalseNegativeCount
+		tp := Metrics[index].TruePositiveCount
+		tn := Metrics[index].TrueNegativeCount
+		fp := Metrics[index].FalsePositiveCount
+		fn := Metrics[index].FalseNegativeCount
 		str = fmt.Sprintf ("(TP=%d, TN=%d, FP=%d, FN=%d)\n", tp, tn, fp, fn)
 		logging.DoWriteString(str, true, true)
 		sessionhandle.WriteString (str)
 
 		// Accuracy
-		totalCount := totalCount (metrics, index)
-		totalCorrect := totalCorrect(metrics, index)
-		str = fmt.Sprintf("Accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, accuracy(metrics, index))
+		totalCount := totalCount (index)
+		totalCorrect := totalCorrect(index)
+		str = fmt.Sprintf("Accuracy  = %d out of %d (%.02f%%)\n", totalCorrect, totalCount, accuracy(index))
 	
 		logging.DoWriteString (str, true, true) // console and log
 		sessionhandle.WriteString(str)			// session file
 
 		// Precision
-		str = fmt.Sprintf ("Precision : %.02f%%\n", precision(metrics, index))
+		str = fmt.Sprintf ("Precision : %.02f%%\n", precision(index))
 		logging.DoWriteString (str, true, true) // console and log
 		sessionhandle.WriteString(str)			// session file
 
 		// Recall
-		str = fmt.Sprintf ("Recall : %.02f%%\n", recall (metrics, index))
+		str = fmt.Sprintf ("Recall : %.02f%%\n", recall (index))
 		logging.DoWriteString (str, true, true) // console and log
 		sessionhandle.WriteString(str)			// session file
 
 		// Specificity
-		str = fmt.Sprintf ("Specificity : %0.2f%%\n", specificity (metrics, index))
+		str = fmt.Sprintf ("Specificity : %0.2f%%\n", specificity (index))
 		logging.DoWriteString (str, true, true) // console and log
 		sessionhandle.WriteString(str)			// session file
 
+		
+
+		// True Positive Rate (TPR)
+		str = fmt.Sprintf ("True Positive Rate (TPR) = %0.2f%%\n", truePositiveRate (index))
+		logging.DoWriteString (str, true, true)
+		sessionhandle.WriteString (str)
+
+		// False Positive Rate (FPR)
+		str = fmt.Sprintf ("False Positive Rate (FPR) = %0.2f%%\n", falsePositiveRate (index))
+		logging.DoWriteString (str, true, true)
+		sessionhandle.WriteString (str)
+
 		logging.DoWriteString ("\n", true, true)
 		sessionhandle.WriteString ("\n")
+
 	}
 }
 
 func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata.PimaDiabetesRecord ) {
 	
-
-	metrics := make ([]metrics.SessionMetrics, 10) // 10 fold
-
 	var truePositiveCount int	// Number of true positives (TP)
 	var trueNegativeCount int	// Number of true negatives (TN)
 	var falsePositiveCount int  // Number of false positives (FP)
 	var falseNegativeCount int  // Number of false negatives (FN)
-    
-	
+
 	// Table column headings
 	str := support.LeftAlignStringInColumn ("Test Record", 15)
 	str += support.LeftAlignStringInColumn ("Best Match", 15)
@@ -177,10 +202,19 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 	str+= "\n"
 	sessionhandle.WriteString(str)
 
+
+	// build up a table for each fold
+	if ApplyKFold {
+		// final accuracy measures
+		showSessionMetrics (sessionhandle)
+		return
+	}
+	
+	
 	// Now get the results as per the test data
 	for testIndex := 0; testIndex < len(testdata); testIndex++ {
 		// outcome read from the actual record
-		
+			
 		changeStatus := "" // either blank, FP or FN for each test record
 
 		// Build SimilarityTable for all records in training set for this test record!!
@@ -238,6 +272,8 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			changeStatus = "FN" // false negative
 			falseNegativeCount++
 		}
+
+	
 	
 		// dump closest three records for each test data record to session file.
 		for recIndex := 0; recIndex < 3; recIndex++ {
@@ -262,8 +298,7 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 	}
 		
-	// final accuracy measures
-	showSessionMetrics (sessionhandle, metrics)
+	
 }
 
 

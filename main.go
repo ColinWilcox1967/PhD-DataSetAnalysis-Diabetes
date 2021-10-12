@@ -37,7 +37,9 @@ var (
 	logfileName string
 	kfoldCount int
 	algorithmToUse int // reference of which cell replacement algorithm will be used.
-	applyKFold bool = default_apply_kfold
+
+
+	
 )
 
 func showTitle () {
@@ -62,7 +64,7 @@ func getParameters () {
 
 	flag.Parse ()
 
-	applyKFold = *bptr // derefernce bool ptr
+	algorithms.ApplyKFold = *bptr // derefernce bool ptr
 
 	// set the session folder
 	session.SetSessionFolder (sessionFolder)
@@ -206,7 +208,7 @@ func processDataSets () {
 
 	str := fmt.Sprintf ("Missing data algorithm: %s ", algorithms.GetAlgorithmDescription (algorithmToUse))
 
-	if applyKFold {
+	if algorithms.ApplyKFold {
 		str += "(+ KFOLD)"
 	}
 	str += "\n"
@@ -276,7 +278,7 @@ func main () {
 	pimaDiabetesData, err = algorithms.DoProcessAlgorithm (pimaDiabetesData, algorithmToUse);
 	
 	//  Now if kfold is specified then apply it to modified dataset
-	if applyKFold {
+	if algorithms.ApplyKFold {
 		pimaDiabetesData, err = algorithms.DoKFoldSplit (pimaDiabetesData, algorithms.KfoldCount)
 	}
 
@@ -331,8 +333,9 @@ func main () {
    	fmt.Printf ("Created test data subset with %d records (%.1f%%).\n", testSetSize, support.Percentage(float64(testSetSize), float64(count)))
 
 	// run the algorithms against the test data set
-	algorithms.DoShowAlgorithmTestSummary (sessionHandle, datasets.PimaTestData)
 
+	algorithms.DoShowAlgorithmTestSummary (sessionHandle, datasets.PimaTestData)
+	
 	if session.EndSession (sessionHandle) != nil {
 		logging.DoWriteString ("Problem closing session file", true, true)
 	}

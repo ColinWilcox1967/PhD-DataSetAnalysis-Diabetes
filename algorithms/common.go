@@ -2,6 +2,10 @@ package algorithms
 
 import "../support"
 
+
+var ApplyKFold bool
+
+
 func textNameforColumn (column int) string {
 
 	numberOfFields := support.SizeOfPimaDiabetesRecord () - 1
