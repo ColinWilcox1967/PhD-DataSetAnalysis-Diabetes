@@ -1,0 +1,198 @@
+--- Session started : 2021-10-13-125127
+Algorithm being used is 'Remove Incomplete Records'
+
+Test Fold 01: 
+(TP=0, TN=21, FP=0, FN=13)
+Accuracy  = 21 out of 34 (61.76%)
+Precision : NaN%
+Recall : 0.00%
+Specificity : 100.00%
+True Positive Rate (TPR) = 0.00%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 02: 
+(TP=0, TN=19, FP=0, FN=15)
+Accuracy  = 19 out of 34 (55.88%)
+Precision : NaN%
+Recall : 0.00%
+Specificity : 100.00%
+True Positive Rate (TPR) = 0.00%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 03: 
+(TP=1, TN=23, FP=0, FN=10)
+Accuracy  = 24 out of 34 (70.59%)
+Precision : 100.00%
+Recall : 9.09%
+Specificity : 100.00%
+True Positive Rate (TPR) = 9.09%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 04: 
+(TP=1, TN=20, FP=0, FN=13)
+Accuracy  = 21 out of 34 (61.76%)
+Precision : 100.00%
+Recall : 7.14%
+Specificity : 100.00%
+True Positive Rate (TPR) = 7.14%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 05: 
+(TP=1, TN=18, FP=0, FN=12)
+Accuracy  = 19 out of 31 (61.29%)
+Precision : 100.00%
+Recall : 7.69%
+Specificity : 100.00%
+True Positive Rate (TPR) = 7.69%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 06: 
+(TP=0, TN=24, FP=0, FN=10)
+Accuracy  = 24 out of 34 (70.59%)
+Precision : NaN%
+Recall : 0.00%
+Specificity : 100.00%
+True Positive Rate (TPR) = 0.00%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 07: 
+(TP=5, TN=16, FP=0, FN=13)
+Accuracy  = 21 out of 34 (61.76%)
+Precision : 100.00%
+Recall : 27.78%
+Specificity : 100.00%
+True Positive Rate (TPR) = 27.78%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 08: 
+(TP=4, TN=20, FP=0, FN=10)
+Accuracy  = 24 out of 34 (70.59%)
+Precision : 100.00%
+Recall : 28.57%
+Specificity : 100.00%
+True Positive Rate (TPR) = 28.57%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 09: 
+(TP=3, TN=22, FP=0, FN=9)
+Accuracy  = 25 out of 34 (73.53%)
+Precision : 100.00%
+Recall : 25.00%
+Specificity : 100.00%
+True Positive Rate (TPR) = 25.00%
+False Positive Rate (FPR) = 0.00%
+
+Test Fold 10: 
+(TP=0, TN=26, FP=0, FN=7)
+Accuracy  = 26 out of 33 (78.79%)
+Precision : NaN%
+Recall : 0.00%
+Specificity : 100.00%
+True Positive Rate (TPR) = 0.00%
+False Positive Rate (FPR) = 0.00%
+
+Test Record    Best Match     Similarity  Predicted   Calculated  
+Number         Record         Measure     Outcome     Outcome     
+0              297             0.99792991      0          1     FP
+               282             0.99789040      0          1     FP
+               51              0.99758521      0          1     FP
+1              299             0.99419875      0          0     
+               20              0.99411752      0          0     
+               41              0.98523706      0          0     
+2              188             0.99833176      0          1     FP
+               38              0.99790157      0          1     FP
+               184             0.99782938      0          1     FP
+3              285             0.99756033      1          1     
+               231             0.99744290      1          1     
+               9               0.99731849      1          1     
+4              208             0.99860317      0          0     
+               301             0.99833067      0          0     
+               147             0.99766869      0          1     
+5              270             0.99886652      0          0     
+               173             0.99886102      0          1     
+               124             0.99870173      0          1     
+6              214             0.97551462      0          0     
+               121             0.97452126      0          0     
+               93              0.97025343      0          0     
+7              185             0.98648810      0          0     
+               218             0.97836956      0          0     
+               222             0.97315951      0          0     
+8              57              0.99908718      1          0     FN
+               23              0.99826685      1          1     FN
+               237             0.99716140      1          1     FN
+9              236             0.99960743      1          0     FN
+               175             0.99848795      1          1     FN
+               240             0.99846069      1          1     FN
+10             127             0.99896211      1          0     FN
+               6               0.99822085      1          1     FN
+               158             0.99814687      1          0     FN
+11             152             0.99845748      0          0     
+               193             0.99831323      0          0     
+               248             0.99751789      0          1     
+12             276             0.99766644      0          1     FP
+               202             0.99728428      0          1     FP
+               139             0.99631009      0          0     FP
+13             140             0.99694753      0          0     
+               181             0.99586757      0          0     
+               11              0.99551409      0          0     
+14             149             0.99960580      1          0     FN
+               122             0.99747905      1          0     FN
+               259             0.99733635      1          0     FN
+15             208             0.99852622      0          0     
+               207             0.99847614      0          0     
+               127             0.99782064      0          0     
+16             209             0.99767257      0          0     
+               208             0.99734397      0          0     
+               156             0.99732962      0          0     
+17             299             0.99751686      0          0     
+               41              0.99582913      0          0     
+               90              0.98899863      0          0     
+18             266             0.99887349      0          0     
+               175             0.99862924      0          1     
+               120             0.99796163      0          1     
+19             21              0.99777441      1          1     FN
+               159             0.99735455      1          0     FN
+               241             0.99684472      1          1     FN
+20             124             0.99933231      0          1     
+               270             0.99926332      0          0     
+               277             0.99887478      0          0     
+21             105             0.99543999      0          0     
+               218             0.99484275      0          0     
+               19              0.99293501      0          0     
+22             186             0.99537417      0          0     
+               296             0.99511957      0          0     
+               121             0.99443751      0          0     
+23             48              0.99884062      0          0     
+               180             0.99762954      0          0     
+               254             0.99728231      0          0     
+24             14              0.99923132      0          0     
+               124             0.99887534      0          1     
+               21              0.99881593      0          1     
+25             270             0.99941601      1          0     FN
+               277             0.99895040      1          0     FN
+               166             0.99865704      1          0     FN
+26             6               0.99867543      1          1     FN
+               122             0.99843053      1          0     FN
+               158             0.99822442      1          0     FN
+27             255             0.99924263      0          0     
+               223             0.99886339      0          0     
+               156             0.99857215      0          0     
+28             117             0.99775655      1          0     FN
+               42              0.99746065      1          1     FN
+               225             0.99686735      1          0     FN
+29             7               0.99930190      1          0     FN
+               279             0.99921435      1          1     FN
+               38              0.99893904      1          1     FN
+30             299             0.99111939      1          0     FN
+               20              0.99109713      1          0     FN
+               19              0.98491936      1          0     FN
+31             236             0.99886848      1          0     FN
+               266             0.99856733      1          0     FN
+               54              0.99849684      1          0     FN
+32             150             0.99928817      1          0     FN
+               164             0.99844335      1          0     FN
+               116             0.99745217      1          1     FN
+33             110             0.99839661      0          0     
+               182             0.99669548      0          0     
+               226             0.99655796      0          0     
+--- Session ended : 2021-10-13-125127
