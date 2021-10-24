@@ -145,12 +145,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 	// Need to get metrics for each test fold
 	for testIndex := 0; testIndex < numberOfFolds; testIndex++ {
 
-		similarityTotals[testIndex] = 0.0
-		similarityAverages[testIndex] = 0.0
-	
 		resetTestCounters () // reset all counters for this fold
-
-		
 
 		for trainingIndex := 0; trainingIndex < numberOfFolds; trainingIndex++ {
 			if testIndex != trainingIndex { //positive matrix diagonal is ignored
@@ -159,6 +154,8 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 				// [a b c d e] x [f g h i j]
 
 				similarityTotals[testIndex] = 0.0
+				similarityAverages[testIndex] = 0.0
+
 				for indexTestFold := 0; indexTestFold < len(splitDataset[testIndex]); indexTestFold++ {
 
 					var index int
@@ -179,7 +176,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 						
 						similarity := support.CosineSimilarity (vector1, vector2, int(elementsToCompare))	
 						similarityTotals[testIndex] += similarity
-
+						
 						// add it to the kfold table
 						
 						sim = similarity
@@ -216,6 +213,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 					similarityAverages[testIndex] = similarityTotals[testIndex]/float64(vectorsCompared)	
 			
 				}
+			
 		
 				resetTestCounters ()
 								
@@ -225,14 +223,15 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 		// Dump the similarity average for the current fold
 		str = fmt.Sprintf ("Test Fold Index %02d - Mean Similarity: %0.2f%%\n", testIndex+1, 100.0*similarityAverages[testIndex])
 		logging.DoWriteString (str, true, true)
+	
 	}
 
 	// Summary section
 	overallConsistency := 0.0
-	for batchIndex := 0; batchIndex < numberOfFolds; batchIndex++ {
+	for batchIndex := 0; batchIndex < numberOfFolds-1; batchIndex++ {
 		overallConsistency += similarityAverages[batchIndex]
 	}
-	overallConsistency = overallConsistency / float64(numberOfFolds)
+	overallConsistency = overallConsistency / float64(numberOfFolds-1)
 	
 	fmt.Printf ("\nOverall Average Similarity = %0.2f%%\n", 100.0*overallConsistency)
 
