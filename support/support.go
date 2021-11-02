@@ -87,15 +87,20 @@ func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {
 
 	//numerator
 	for index := 0; index < elements; index++ {
-		numerator += float64(vector1[index] * vector2[index]) 
+		if vector1[index] != 0 && vector2[index] != 0 {
+			numerator += float64(vector1[index] * vector2[index]) 
+		}
 	}
 
 	//denominator
 	squareSumVector1 := 0.0
 	squareSumVector2 := 0.0
 	for index := 0; index < elements; index++ {
-		squareSumVector1 += (vector1[index] * vector1[index])
-		squareSumVector2 += (vector2[index] * vector2[index])
+
+		if vector1[index] != 0 && vector2[index] != 0 {
+			squareSumVector1 += (vector1[index] * vector1[index])
+			squareSumVector2 += (vector2[index] * vector2[index])
+		}
 	}
 	denominator = math.Sqrt(squareSumVector1)*math.Sqrt(squareSumVector2)
 
