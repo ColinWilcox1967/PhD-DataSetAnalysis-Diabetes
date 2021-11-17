@@ -156,6 +156,7 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 				similarityTotals[testIndex] = 0.0
 				similarityAverages[testIndex] = 0.0
 
+	
 				for indexTestFold := 0; indexTestFold < len(splitDataset[testIndex]); indexTestFold++ {
 
 					var index int
@@ -176,7 +177,8 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 						
 						similarity := support.CosineSimilarity (vector1, vector2, int(elementsToCompare))	
 						similarityTotals[testIndex] += similarity
-						
+
+												
 						// add it to the kfold table
 						
 						sim = similarity
@@ -228,10 +230,10 @@ func DoKFoldSplit (dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int)
 
 	// Summary section
 	overallConsistency := 0.0
-	for batchIndex := 0; batchIndex < numberOfFolds-1; batchIndex++ {
+	for batchIndex := 0; batchIndex < numberOfFolds; batchIndex++ {
 		overallConsistency += similarityAverages[batchIndex]
 	}
-	overallConsistency = overallConsistency / float64(numberOfFolds-1)
+	overallConsistency = overallConsistency / float64(numberOfFolds)
 	
 	fmt.Printf ("\nOverall Average Similarity = %0.2f%%\n", 100.0*overallConsistency)
 
