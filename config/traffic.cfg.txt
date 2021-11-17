@@ -1,0 +1,6 @@
+5
+Timestamp
+North Volume
+North Average Speed
+South Volume
+South Average Speed
