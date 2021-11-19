@@ -37,7 +37,7 @@ var (
 	logfileName string
 	kfoldCount int
 	algorithmToUse int // reference of which cell replacement algorithm will be used.
-
+	dataset string // diabetes or traffic data
 
 	
 )
@@ -62,6 +62,7 @@ func getParameters () {
 	flag.IntVar(&algorithms.KfoldCount, "kfolds", default_kfold_count, "Specifies number of folds to use in k-fold algorithm")
 	bptr := flag.Bool ("kfold", default_apply_kfold, "Specifies whether k-fold analysis be used")
 
+
 	flag.Parse ()
 
 	algorithms.ApplyKFold = *bptr // derefernce bool ptr
@@ -84,6 +85,7 @@ func getParameters () {
 		logging.DoWriteString ("Invalid split value specified, reverting to default.\n", true, true)
 	}
 }
+
 
 func loadDiabetesFile (filename string) (error, int) {
 	file, err := os.Open (filename)
