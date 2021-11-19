@@ -1,9 +1,0 @@
-8
-Number of Times Pregnant
-Plasma Glucose Concentration
-Diastolic Blood Pressure
-Triceps Skinfold Thickness
-2-Hour Serum Insulin
-Body Mass Index
-Diabetes Pedigree Function
-Age
