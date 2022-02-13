@@ -57,6 +57,7 @@ func DoProcessAlgorithm (dataset []diabetesdata.PimaDiabetesRecord, algorithm in
 		case 1: dataset, err = removeIncompleteRecords (dataset)
 		case 2: dataset, err = replaceMissingValuesWithMean (dataset)
 		case 3: dataset, err = replaceMissingValuesWithModal (dataset)
+		case 4: dataset, err = replaceNearestNeighbours(dataset) // the new N-neighbour algo
 		
 		default:
 			copy(data[:], dataset)
@@ -224,7 +225,7 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 
 		// most similar record from training set will now be element zero.
 		numberOfNearestNeighbours := classifier.ThresholdClassifier.NumberOfNeighbours
-		countTPThreshold := classifier.ThresholdClassifier.TPThreshold
+	//	countTPThreshold := classifier.ThresholdClassifier.TPThreshold
 
 		closestRecordsIndices := make([]int,numberOfNearestNeighbours) // five closest matches
 		
@@ -241,11 +242,11 @@ func DoShowAlgorithmTestSummary (sessionhandle *os.File, testdata []diabetesdata
 			count += datasets.PimaTrainingData[closestRecordsIndices[neighbourIndex]].TestedPositive
 		}
 
-		if expectedOutcomeValue == 0 { // healthy
-			if count >= countTPThreshold {
-				expectedOutcomeValue = 1  // diseased
-			}
-		}
+	//	if expectedOutcomeValue == 0 { // healthy
+	//		if count >= countTPThreshold {
+	//			expectedOutcomeValue = 1  // diseased
+	//		}
+	//	}
 		
 
 		//TP
