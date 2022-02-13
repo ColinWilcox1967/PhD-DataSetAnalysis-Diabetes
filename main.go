@@ -273,7 +273,6 @@ func main() {
 	logging.DoWriteString(str, true, true)
 
 	// now perform the missing data algorithm
-	algorithmToUse = 4 // temp for testing
 	pimaDiabetesData, err = algorithms.DoProcessAlgorithm(pimaDiabetesData, algorithmToUse)
 
 	//  Now if kfold is specified then apply it to modified dataset

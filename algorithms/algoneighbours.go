@@ -64,7 +64,7 @@ func dumpSimTable() {
 	}
 }
 
-// algo=5
+// algo=4
 func isMissing(value float64) bool {
 	return value == 0.0
 }
@@ -86,27 +86,31 @@ func toVector(r diabetesdata.PimaDiabetesRecord) []float64 {
 	return vector
 }
 
-func setField(r diabetesdata.PimaDiabetesRecord, idx int, value float64) {
+func setField(r diabetesdata.PimaDiabetesRecord, idx int, value float64) diabetesdata.PimaDiabetesRecord {
+	var newRec diabetesdata.PimaDiabetesRecord = r
+
 	switch idx {
 	case 0:
-		r.NumberOfTimesPregnant = value
+		newRec.NumberOfTimesPregnant = value
 	case 1:
-		r.DiastolicBloodPressure = value
+		newRec.DiastolicBloodPressure = value
 	case 2:
-		r.PlasmaGlucoseConcentration = value
+		newRec.PlasmaGlucoseConcentration = value
 	case 3:
-		r.TricepsSkinfoldThickness = value
+		newRec.TricepsSkinfoldThickness = value
 	case 4:
-		r.SeriumInsulin = value
+		newRec.SeriumInsulin = value
 	case 5:
-		r.BodyMassIndex = value
+		newRec.BodyMassIndex = value
 	case 6:
-		r.DiabetesPedigreeFunction = value
+		newRec.DiabetesPedigreeFunction = value
 	case 7:
-		r.Age = value
+		newRec.Age = value
 	default:
 		os.Exit(-2)
 	}
+
+	return newRec
 
 }
 
@@ -164,25 +168,23 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 	var resultSet = make([]diabetesdata.PimaDiabetesRecord, numberOfRecords)
 
 	copy(resultSet[:], dataset)
-	// just copy dataset to resultset
 
-	for record := 0; record < len(dataset); record++ {
-		incomplete, missingFields := isIncompleteRecord(dataset[record])
+	// just copy dataset to resultset and work on this slice going fwd
+
+	for record := 0; record < len(resultSet); record++ {
+		incomplete, missingFields := isIncompleteRecord(resultSet[record])
 		if incomplete {
-
 			for index := 0; index < len(missingFields); index++ {
 				total := 0.0
 				idx := missingFields[index]
 
-				items := 0
-				for rec := 0; rec < len(dataset); rec++ {
+				for rec := 0; rec < len(resultSet); rec++ {
 					if rec != record {
-						incomplete, _ = isIncompleteRecord(dataset[rec])
+						incomplete, _ = isIncompleteRecord(resultSet[rec])
 						if !incomplete {
-							numberOfFields := support.GetNumberOfFieldsInStructure(dataset[rec]) - 1
-							addToSimilarityTable(rec, support.CosineSimilarity(toVector(dataset[record]), toVector(dataset[rec]), numberOfFields))
-							total += getField(dataset[rec], idx)
-							items++
+							numberOfFields := support.GetNumberOfFieldsInStructure(resultSet[rec])
+							addToSimilarityTable(rec, support.CosineSimilarity(toVector(resultSet[record]), toVector(resultSet[rec]), numberOfFields))
+							total += getField(resultSet[rec], idx)
 						}
 					}
 
@@ -191,21 +193,33 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 				// Apply the neighbourhood stuff
 				value := 0.0
 				for i := 0; i < N; i++ { // average of nearest N values for this field
-					value += getField(dataset[table[i].Index], idx)
+					value += getField(resultSet[table[i].Index], idx)
 				}
-				//value := data[table[0].Index].Field[idx] // pick same field from most similar record
 
 				if N <= 0 {
-					value = getField(dataset[table[0].Index], idx) // prevent divide by zero or calc error
+					value = getField(resultSet[table[0].Index], idx) // prevent divide by zero or calc error
 				}
 
-				setField(resultSet[record], idx, value/float64(N))
-				//	resultSet[record].SetField([idx] = value / float64(N)
-
+				resultSet[record] = setField(resultSet[record], idx, value/float64(N))
 			}
-			// we have a slice of indexes of missing data
-
 		}
+
+	}
+
+	// sanity check to ensure dataset  isnt sparse!!!
+	counter := 0
+
+	// check data set for missing records
+	for i := 0; i < len(resultSet); i++ {
+		incomplete, _ := isIncompleteRecord(resultSet[i])
+		if incomplete {
+			counter++
+		}
+	}
+
+	if counter > 0 {
+		fmt.Println("Error: Dataset is still incomplete this shouldnt be the case")
+		os.Exit(-99)
 	}
 
 	return resultSet, nil
