@@ -69,7 +69,7 @@ func isMissing(value float64) bool {
 	return value == 0.0
 }
 
-func toVector (r diabetesdata.PimaDiabetesRecord) []float64 {
+func toVector(r diabetesdata.PimaDiabetesRecord) []float64 {
 
 	var vector []float64
 
@@ -140,7 +140,7 @@ func getField(r diabetesdata.PimaDiabetesRecord, idx int) float64 {
 
 func isIncompleteRecord(rec diabetesdata.PimaDiabetesRecord) (bool, []int) {
 
-	numberOfFields := support.GetNumberOfFieldsInStructure(rec)
+	numberOfFields := support.GetNumberOfFieldsInStructure(rec) - 1 // skip outcome field as this may well be zero
 	var missing []int = make([]int, 0, numberOfFields)
 	var incomplete = false
 
@@ -179,8 +179,8 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 					if rec != record {
 						incomplete, _ = isIncompleteRecord(dataset[rec])
 						if !incomplete {
-							numberOfFields := support.GetNumberOfFieldsInStructure(rec)
-							addToSimilarityTable(rec, support.CosineSimilarity(toVector(dataset[record]), toVector(dataset[rec]),numberOfFields))
+							numberOfFields := support.GetNumberOfFieldsInStructure(dataset[rec]) - 1
+							addToSimilarityTable(rec, support.CosineSimilarity(toVector(dataset[record]), toVector(dataset[rec]), numberOfFields))
 							total += getField(dataset[rec], idx)
 							items++
 						}
@@ -207,6 +207,7 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 
 		}
 	}
+
 	return resultSet, nil
 
 }
