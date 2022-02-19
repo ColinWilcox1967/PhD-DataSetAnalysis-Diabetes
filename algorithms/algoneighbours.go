@@ -192,6 +192,8 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 
 				// Apply the neighbourhood stuff
 				value := 0.0
+
+				// Algorithm: Mean N-Neighbour
 				for i := 0; i < N; i++ { // average of nearest N values for this field
 					value += getField(resultSet[table[i].Index], idx)
 				}
@@ -201,6 +203,17 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 				}
 
 				resultSet[record] = setField(resultSet[record], idx, value/float64(N))
+
+				// Algorithm: Point based trending
+				//	trend := 0.0
+				//	for i := 0; i <= N-1; i++ {
+				//		value1 := getField(resultSet[table[i].Index], idx)
+				//		value2 := getField(resultSet[table[i+1].Index], idx)
+				//
+				//					trend += (value2 - value1)
+				//				}
+				//				value = getField(resultSet[table[0].Index], idx) - trend
+				//				resultSet[record] = setField(resultSet[record], idx, value)
 			}
 		}
 
@@ -209,6 +222,7 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 	// sanity check to ensure dataset  isnt sparse!!!
 	counter := 0
 
+	// Algorithm : Mean Neighbour
 	// check data set for missing records
 	for i := 0; i < len(resultSet); i++ {
 		incomplete, _ := isIncompleteRecord(resultSet[i])
