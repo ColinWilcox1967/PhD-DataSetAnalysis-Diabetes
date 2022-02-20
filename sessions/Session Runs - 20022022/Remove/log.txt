@@ -1,0 +1,1140 @@
+2022/02/20 13:04:46 Session Date: 2022-02-20 13:04:46.5299544 +0000 GMT m=+0.001994401
+2022/02/20 13:04:46 Read 768 diabetes records.
+2022/02/20 13:04:46 Split Percentage = 10.00%
+2022/02/20 13:04:46 Records removed from data set = 432 (56.25%)
+2022/02/20 13:04:46 Number of folds : 10
+2022/02/20 13:04:46 Test Fold Index 01 - Mean Similarity: 93.93%
+2022/02/20 13:04:46 Test Fold Index 02 - Mean Similarity: 92.57%
+2022/02/20 13:04:46 Test Fold Index 03 - Mean Similarity: 93.25%
+2022/02/20 13:04:46 Test Fold Index 04 - Mean Similarity: 93.35%
+2022/02/20 13:04:46 Test Fold Index 05 - Mean Similarity: 91.87%
+2022/02/20 13:04:46 Test Fold Index 06 - Mean Similarity: 93.41%
+2022/02/20 13:04:46 Test Fold Index 07 - Mean Similarity: 93.06%
+2022/02/20 13:04:46 Test Fold Index 08 - Mean Similarity: 92.97%
+2022/02/20 13:04:46 Test Fold Index 09 - Mean Similarity: 92.49%
+2022/02/20 13:04:46 Test Fold Index 10 - Mean Similarity: 92.49%
+2022/02/20 13:04:46 Preprocessed Datasets...
+2022/02/20 13:04:46 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:46 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:46 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:46 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:04:46 Processed Datasets ...
+2022/02/20 13:04:46 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:46 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:46 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:46 Test Fold 01: 
+2022/02/20 13:04:46 (TP=10, TN=16, FP=5, FN=3)
+2022/02/20 13:04:46 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:46 Precision : 66.67%
+2022/02/20 13:04:46 Recall : 76.92%
+2022/02/20 13:04:46 Specificity : 76.19%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 76.92%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 23.81%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 02: 
+2022/02/20 13:04:46 (TP=16, TN=11, FP=5, FN=2)
+2022/02/20 13:04:46 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:46 Precision : 76.19%
+2022/02/20 13:04:46 Recall : 88.89%
+2022/02/20 13:04:46 Specificity : 68.75%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 88.89%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 31.25%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 03: 
+2022/02/20 13:04:46 (TP=8, TN=12, FP=3, FN=11)
+2022/02/20 13:04:46 Accuracy  = 20 out of 34 (58.82%)
+2022/02/20 13:04:46 Precision : 72.73%
+2022/02/20 13:04:46 Recall : 42.11%
+2022/02/20 13:04:46 Specificity : 80.00%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 42.11%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 20.00%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 04: 
+2022/02/20 13:04:46 (TP=13, TN=14, FP=5, FN=2)
+2022/02/20 13:04:46 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:46 Precision : 72.22%
+2022/02/20 13:04:46 Recall : 86.67%
+2022/02/20 13:04:46 Specificity : 73.68%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 86.67%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 26.32%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 05: 
+2022/02/20 13:04:46 (TP=8, TN=13, FP=6, FN=3)
+2022/02/20 13:04:46 Accuracy  = 21 out of 30 (70.00%)
+2022/02/20 13:04:46 Precision : 57.14%
+2022/02/20 13:04:46 Recall : 72.73%
+2022/02/20 13:04:46 Specificity : 68.42%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 72.73%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 31.58%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 06: 
+2022/02/20 13:04:46 (TP=12, TN=17, FP=1, FN=4)
+2022/02/20 13:04:46 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:04:46 Precision : 92.31%
+2022/02/20 13:04:46 Recall : 75.00%
+2022/02/20 13:04:46 Specificity : 94.44%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 75.00%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 5.56%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 07: 
+2022/02/20 13:04:46 (TP=7, TN=18, FP=3, FN=6)
+2022/02/20 13:04:46 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:04:46 Precision : 70.00%
+2022/02/20 13:04:46 Recall : 53.85%
+2022/02/20 13:04:46 Specificity : 85.71%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 53.85%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 08: 
+2022/02/20 13:04:46 (TP=10, TN=16, FP=1, FN=7)
+2022/02/20 13:04:46 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:46 Precision : 90.91%
+2022/02/20 13:04:46 Recall : 58.82%
+2022/02/20 13:04:46 Specificity : 94.12%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 58.82%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 5.88%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 09: 
+2022/02/20 13:04:46 (TP=14, TN=13, FP=3, FN=4)
+2022/02/20 13:04:46 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:46 Precision : 82.35%
+2022/02/20 13:04:46 Recall : 77.78%
+2022/02/20 13:04:46 Specificity : 81.25%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 77.78%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 18.75%
+2022/02/20 13:04:46 
+2022/02/20 13:04:46 Test Fold 10: 
+2022/02/20 13:04:46 (TP=3, TN=22, FP=2, FN=7)
+2022/02/20 13:04:46 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:04:46 Precision : 60.00%
+2022/02/20 13:04:46 Recall : 30.00%
+2022/02/20 13:04:46 Specificity : 91.67%
+2022/02/20 13:04:46 True Positive Rate (TPR) = 30.00%
+2022/02/20 13:04:46 False Positive Rate (FPR) = 8.33%
+2022/02/20 13:04:46 
+2022/02/20 13:04:50 Session Date: 2022-02-20 13:04:50.1812036 +0000 GMT m=+0.002018801
+2022/02/20 13:04:50 Read 768 diabetes records.
+2022/02/20 13:04:50 Split Percentage = 10.00%
+2022/02/20 13:04:50 Records removed from data set = 432 (56.25%)
+2022/02/20 13:04:50 Number of folds : 10
+2022/02/20 13:04:50 Test Fold Index 01 - Mean Similarity: 90.97%
+2022/02/20 13:04:50 Test Fold Index 02 - Mean Similarity: 90.63%
+2022/02/20 13:04:50 Test Fold Index 03 - Mean Similarity: 91.01%
+2022/02/20 13:04:50 Test Fold Index 04 - Mean Similarity: 92.09%
+2022/02/20 13:04:50 Test Fold Index 05 - Mean Similarity: 91.63%
+2022/02/20 13:04:50 Test Fold Index 06 - Mean Similarity: 91.11%
+2022/02/20 13:04:50 Test Fold Index 07 - Mean Similarity: 90.68%
+2022/02/20 13:04:50 Test Fold Index 08 - Mean Similarity: 90.73%
+2022/02/20 13:04:50 Test Fold Index 09 - Mean Similarity: 91.54%
+2022/02/20 13:04:50 Test Fold Index 10 - Mean Similarity: 91.54%
+2022/02/20 13:04:50 Preprocessed Datasets...
+2022/02/20 13:04:50 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:50 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:50 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:50 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:04:50 Processed Datasets ...
+2022/02/20 13:04:50 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:50 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:50 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:50 Test Fold 01: 
+2022/02/20 13:04:50 (TP=12, TN=14, FP=3, FN=5)
+2022/02/20 13:04:50 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:50 Precision : 80.00%
+2022/02/20 13:04:50 Recall : 70.59%
+2022/02/20 13:04:50 Specificity : 82.35%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 70.59%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 17.65%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 02: 
+2022/02/20 13:04:50 (TP=6, TN=17, FP=7, FN=4)
+2022/02/20 13:04:50 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:04:50 Precision : 46.15%
+2022/02/20 13:04:50 Recall : 60.00%
+2022/02/20 13:04:50 Specificity : 70.83%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 60.00%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 29.17%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 03: 
+2022/02/20 13:04:50 (TP=6, TN=19, FP=7, FN=2)
+2022/02/20 13:04:50 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:04:50 Precision : 46.15%
+2022/02/20 13:04:50 Recall : 75.00%
+2022/02/20 13:04:50 Specificity : 73.08%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 75.00%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 26.92%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 04: 
+2022/02/20 13:04:50 (TP=19, TN=8, FP=4, FN=3)
+2022/02/20 13:04:50 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:50 Precision : 82.61%
+2022/02/20 13:04:50 Recall : 86.36%
+2022/02/20 13:04:50 Specificity : 66.67%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 86.36%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 33.33%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 05: 
+2022/02/20 13:04:50 (TP=10, TN=17, FP=4, FN=3)
+2022/02/20 13:04:50 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:50 Precision : 71.43%
+2022/02/20 13:04:50 Recall : 76.92%
+2022/02/20 13:04:50 Specificity : 80.95%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 76.92%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 19.05%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 06: 
+2022/02/20 13:04:50 (TP=8, TN=18, FP=3, FN=5)
+2022/02/20 13:04:50 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:50 Precision : 72.73%
+2022/02/20 13:04:50 Recall : 61.54%
+2022/02/20 13:04:50 Specificity : 85.71%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 61.54%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 07: 
+2022/02/20 13:04:50 (TP=9, TN=15, FP=7, FN=3)
+2022/02/20 13:04:50 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:04:50 Precision : 56.25%
+2022/02/20 13:04:50 Recall : 75.00%
+2022/02/20 13:04:50 Specificity : 68.18%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 75.00%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 31.82%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 08: 
+2022/02/20 13:04:50 (TP=7, TN=14, FP=5, FN=4)
+2022/02/20 13:04:50 Accuracy  = 21 out of 30 (70.00%)
+2022/02/20 13:04:50 Precision : 58.33%
+2022/02/20 13:04:50 Recall : 63.64%
+2022/02/20 13:04:50 Specificity : 73.68%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 63.64%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 26.32%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 09: 
+2022/02/20 13:04:50 (TP=9, TN=14, FP=1, FN=10)
+2022/02/20 13:04:50 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:04:50 Precision : 90.00%
+2022/02/20 13:04:50 Recall : 47.37%
+2022/02/20 13:04:50 Specificity : 93.33%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 47.37%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 6.67%
+2022/02/20 13:04:50 
+2022/02/20 13:04:50 Test Fold 10: 
+2022/02/20 13:04:50 (TP=4, TN=21, FP=1, FN=8)
+2022/02/20 13:04:50 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:04:50 Precision : 80.00%
+2022/02/20 13:04:50 Recall : 33.33%
+2022/02/20 13:04:50 Specificity : 95.45%
+2022/02/20 13:04:50 True Positive Rate (TPR) = 33.33%
+2022/02/20 13:04:50 False Positive Rate (FPR) = 4.55%
+2022/02/20 13:04:50 
+2022/02/20 13:04:54 Session Date: 2022-02-20 13:04:54.3513277 +0000 GMT m=+0.001990701
+2022/02/20 13:04:54 Read 768 diabetes records.
+2022/02/20 13:04:54 Split Percentage = 10.00%
+2022/02/20 13:04:54 Records removed from data set = 432 (56.25%)
+2022/02/20 13:04:54 Number of folds : 10
+2022/02/20 13:04:54 Test Fold Index 01 - Mean Similarity: 92.91%
+2022/02/20 13:04:54 Test Fold Index 02 - Mean Similarity: 93.80%
+2022/02/20 13:04:54 Test Fold Index 03 - Mean Similarity: 92.74%
+2022/02/20 13:04:54 Test Fold Index 04 - Mean Similarity: 91.21%
+2022/02/20 13:04:54 Test Fold Index 05 - Mean Similarity: 91.98%
+2022/02/20 13:04:54 Test Fold Index 06 - Mean Similarity: 91.80%
+2022/02/20 13:04:54 Test Fold Index 07 - Mean Similarity: 93.33%
+2022/02/20 13:04:54 Test Fold Index 08 - Mean Similarity: 92.16%
+2022/02/20 13:04:54 Test Fold Index 09 - Mean Similarity: 91.43%
+2022/02/20 13:04:54 Test Fold Index 10 - Mean Similarity: 91.43%
+2022/02/20 13:04:54 Preprocessed Datasets...
+2022/02/20 13:04:54 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:54 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:54 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:54 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:04:54 Processed Datasets ...
+2022/02/20 13:04:54 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:54 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:54 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:54 Test Fold 01: 
+2022/02/20 13:04:54 (TP=4, TN=16, FP=5, FN=9)
+2022/02/20 13:04:54 Accuracy  = 20 out of 34 (58.82%)
+2022/02/20 13:04:54 Precision : 44.44%
+2022/02/20 13:04:54 Recall : 30.77%
+2022/02/20 13:04:54 Specificity : 76.19%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 30.77%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 23.81%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 02: 
+2022/02/20 13:04:54 (TP=12, TN=14, FP=2, FN=5)
+2022/02/20 13:04:54 Accuracy  = 26 out of 33 (78.79%)
+2022/02/20 13:04:54 Precision : 85.71%
+2022/02/20 13:04:54 Recall : 70.59%
+2022/02/20 13:04:54 Specificity : 87.50%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 70.59%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 03: 
+2022/02/20 13:04:54 (TP=5, TN=20, FP=3, FN=5)
+2022/02/20 13:04:54 Accuracy  = 25 out of 33 (75.76%)
+2022/02/20 13:04:54 Precision : 62.50%
+2022/02/20 13:04:54 Recall : 50.00%
+2022/02/20 13:04:54 Specificity : 86.96%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 50.00%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 13.04%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 04: 
+2022/02/20 13:04:54 (TP=5, TN=18, FP=3, FN=8)
+2022/02/20 13:04:54 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:04:54 Precision : 62.50%
+2022/02/20 13:04:54 Recall : 38.46%
+2022/02/20 13:04:54 Specificity : 85.71%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 38.46%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 05: 
+2022/02/20 13:04:54 (TP=7, TN=24, FP=2, FN=1)
+2022/02/20 13:04:54 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:04:54 Precision : 77.78%
+2022/02/20 13:04:54 Recall : 87.50%
+2022/02/20 13:04:54 Specificity : 92.31%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 87.50%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 7.69%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 06: 
+2022/02/20 13:04:54 (TP=6, TN=17, FP=3, FN=6)
+2022/02/20 13:04:54 Accuracy  = 23 out of 32 (71.88%)
+2022/02/20 13:04:54 Precision : 66.67%
+2022/02/20 13:04:54 Recall : 50.00%
+2022/02/20 13:04:54 Specificity : 85.00%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 50.00%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 15.00%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 07: 
+2022/02/20 13:04:54 (TP=7, TN=17, FP=2, FN=8)
+2022/02/20 13:04:54 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:04:54 Precision : 77.78%
+2022/02/20 13:04:54 Recall : 46.67%
+2022/02/20 13:04:54 Specificity : 89.47%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 46.67%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 10.53%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 08: 
+2022/02/20 13:04:54 (TP=9, TN=20, FP=1, FN=4)
+2022/02/20 13:04:54 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:04:54 Precision : 90.00%
+2022/02/20 13:04:54 Recall : 69.23%
+2022/02/20 13:04:54 Specificity : 95.24%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 69.23%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 4.76%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 09: 
+2022/02/20 13:04:54 (TP=3, TN=23, FP=4, FN=4)
+2022/02/20 13:04:54 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:54 Precision : 42.86%
+2022/02/20 13:04:54 Recall : 42.86%
+2022/02/20 13:04:54 Specificity : 85.19%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 42.86%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 14.81%
+2022/02/20 13:04:54 
+2022/02/20 13:04:54 Test Fold 10: 
+2022/02/20 13:04:54 (TP=9, TN=20, FP=5, FN=0)
+2022/02/20 13:04:54 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:04:54 Precision : 64.29%
+2022/02/20 13:04:54 Recall : 100.00%
+2022/02/20 13:04:54 Specificity : 80.00%
+2022/02/20 13:04:54 True Positive Rate (TPR) = 100.00%
+2022/02/20 13:04:54 False Positive Rate (FPR) = 20.00%
+2022/02/20 13:04:54 
+2022/02/20 13:04:56 Session Date: 2022-02-20 13:04:56.9279799 +0000 GMT m=+0.002028401
+2022/02/20 13:04:56 Read 768 diabetes records.
+2022/02/20 13:04:56 Split Percentage = 10.00%
+2022/02/20 13:04:56 Records removed from data set = 432 (56.25%)
+2022/02/20 13:04:56 Number of folds : 10
+2022/02/20 13:04:56 Test Fold Index 01 - Mean Similarity: 93.02%
+2022/02/20 13:04:56 Test Fold Index 02 - Mean Similarity: 92.24%
+2022/02/20 13:04:56 Test Fold Index 03 - Mean Similarity: 92.31%
+2022/02/20 13:04:56 Test Fold Index 04 - Mean Similarity: 92.58%
+2022/02/20 13:04:56 Test Fold Index 05 - Mean Similarity: 92.26%
+2022/02/20 13:04:56 Test Fold Index 06 - Mean Similarity: 92.70%
+2022/02/20 13:04:56 Test Fold Index 07 - Mean Similarity: 91.76%
+2022/02/20 13:04:56 Test Fold Index 08 - Mean Similarity: 91.82%
+2022/02/20 13:04:56 Test Fold Index 09 - Mean Similarity: 90.67%
+2022/02/20 13:04:56 Test Fold Index 10 - Mean Similarity: 90.67%
+2022/02/20 13:04:56 Preprocessed Datasets...
+2022/02/20 13:04:56 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:56 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:56 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:56 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:04:56 Processed Datasets ...
+2022/02/20 13:04:56 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:56 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:56 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:56 Test Fold 01: 
+2022/02/20 13:04:56 (TP=18, TN=10, FP=3, FN=3)
+2022/02/20 13:04:56 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:04:56 Precision : 85.71%
+2022/02/20 13:04:56 Recall : 85.71%
+2022/02/20 13:04:56 Specificity : 76.92%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 85.71%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 23.08%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 02: 
+2022/02/20 13:04:56 (TP=16, TN=14, FP=2, FN=1)
+2022/02/20 13:04:56 Accuracy  = 30 out of 33 (90.91%)
+2022/02/20 13:04:56 Precision : 88.89%
+2022/02/20 13:04:56 Recall : 94.12%
+2022/02/20 13:04:56 Specificity : 87.50%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 94.12%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 03: 
+2022/02/20 13:04:56 (TP=11, TN=16, FP=2, FN=2)
+2022/02/20 13:04:56 Accuracy  = 27 out of 31 (87.10%)
+2022/02/20 13:04:56 Precision : 84.62%
+2022/02/20 13:04:56 Recall : 84.62%
+2022/02/20 13:04:56 Specificity : 88.89%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 84.62%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 11.11%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 04: 
+2022/02/20 13:04:56 (TP=16, TN=11, FP=5, FN=2)
+2022/02/20 13:04:56 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:56 Precision : 76.19%
+2022/02/20 13:04:56 Recall : 88.89%
+2022/02/20 13:04:56 Specificity : 68.75%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 88.89%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 31.25%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 05: 
+2022/02/20 13:04:56 (TP=12, TN=13, FP=3, FN=6)
+2022/02/20 13:04:56 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:04:56 Precision : 80.00%
+2022/02/20 13:04:56 Recall : 66.67%
+2022/02/20 13:04:56 Specificity : 81.25%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 66.67%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 18.75%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 06: 
+2022/02/20 13:04:56 (TP=19, TN=13, FP=0, FN=2)
+2022/02/20 13:04:56 Accuracy  = 32 out of 34 (94.12%)
+2022/02/20 13:04:56 Precision : 100.00%
+2022/02/20 13:04:56 Recall : 90.48%
+2022/02/20 13:04:56 Specificity : 100.00%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 90.48%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 0.00%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 07: 
+2022/02/20 13:04:56 (TP=9, TN=21, FP=3, FN=1)
+2022/02/20 13:04:56 Accuracy  = 30 out of 34 (88.24%)
+2022/02/20 13:04:56 Precision : 75.00%
+2022/02/20 13:04:56 Recall : 90.00%
+2022/02/20 13:04:56 Specificity : 87.50%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 90.00%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 08: 
+2022/02/20 13:04:56 (TP=15, TN=11, FP=3, FN=5)
+2022/02/20 13:04:56 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:56 Precision : 83.33%
+2022/02/20 13:04:56 Recall : 75.00%
+2022/02/20 13:04:56 Specificity : 78.57%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 75.00%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 21.43%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 09: 
+2022/02/20 13:04:56 (TP=13, TN=19, FP=1, FN=1)
+2022/02/20 13:04:56 Accuracy  = 32 out of 34 (94.12%)
+2022/02/20 13:04:56 Precision : 92.86%
+2022/02/20 13:04:56 Recall : 92.86%
+2022/02/20 13:04:56 Specificity : 95.00%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 92.86%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 5.00%
+2022/02/20 13:04:56 
+2022/02/20 13:04:56 Test Fold 10: 
+2022/02/20 13:04:56 (TP=5, TN=16, FP=5, FN=8)
+2022/02/20 13:04:56 Accuracy  = 21 out of 34 (61.76%)
+2022/02/20 13:04:56 Precision : 50.00%
+2022/02/20 13:04:56 Recall : 38.46%
+2022/02/20 13:04:56 Specificity : 76.19%
+2022/02/20 13:04:56 True Positive Rate (TPR) = 38.46%
+2022/02/20 13:04:56 False Positive Rate (FPR) = 23.81%
+2022/02/20 13:04:56 
+2022/02/20 13:04:59 Session Date: 2022-02-20 13:04:59.0792311 +0000 GMT m=+0.001993701
+2022/02/20 13:04:59 Read 768 diabetes records.
+2022/02/20 13:04:59 Split Percentage = 10.00%
+2022/02/20 13:04:59 Records removed from data set = 432 (56.25%)
+2022/02/20 13:04:59 Number of folds : 10
+2022/02/20 13:04:59 Test Fold Index 01 - Mean Similarity: 91.50%
+2022/02/20 13:04:59 Test Fold Index 02 - Mean Similarity: 91.63%
+2022/02/20 13:04:59 Test Fold Index 03 - Mean Similarity: 91.22%
+2022/02/20 13:04:59 Test Fold Index 04 - Mean Similarity: 91.90%
+2022/02/20 13:04:59 Test Fold Index 05 - Mean Similarity: 91.00%
+2022/02/20 13:04:59 Test Fold Index 06 - Mean Similarity: 91.66%
+2022/02/20 13:04:59 Test Fold Index 07 - Mean Similarity: 91.19%
+2022/02/20 13:04:59 Test Fold Index 08 - Mean Similarity: 92.07%
+2022/02/20 13:04:59 Test Fold Index 09 - Mean Similarity: 91.50%
+2022/02/20 13:04:59 Test Fold Index 10 - Mean Similarity: 91.50%
+2022/02/20 13:04:59 Preprocessed Datasets...
+2022/02/20 13:04:59 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:59 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:59 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:59 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:04:59 Processed Datasets ...
+2022/02/20 13:04:59 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:04:59 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:04:59 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:04:59 Test Fold 01: 
+2022/02/20 13:04:59 (TP=8, TN=18, FP=8, FN=0)
+2022/02/20 13:04:59 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:59 Precision : 50.00%
+2022/02/20 13:04:59 Recall : 100.00%
+2022/02/20 13:04:59 Specificity : 69.23%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 100.00%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 30.77%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 02: 
+2022/02/20 13:04:59 (TP=13, TN=10, FP=6, FN=5)
+2022/02/20 13:04:59 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:04:59 Precision : 68.42%
+2022/02/20 13:04:59 Recall : 72.22%
+2022/02/20 13:04:59 Specificity : 62.50%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 72.22%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 37.50%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 03: 
+2022/02/20 13:04:59 (TP=11, TN=16, FP=3, FN=4)
+2022/02/20 13:04:59 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:04:59 Precision : 78.57%
+2022/02/20 13:04:59 Recall : 73.33%
+2022/02/20 13:04:59 Specificity : 84.21%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 73.33%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 15.79%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 04: 
+2022/02/20 13:04:59 (TP=12, TN=14, FP=3, FN=5)
+2022/02/20 13:04:59 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:59 Precision : 80.00%
+2022/02/20 13:04:59 Recall : 70.59%
+2022/02/20 13:04:59 Specificity : 82.35%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 70.59%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 17.65%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 05: 
+2022/02/20 13:04:59 (TP=12, TN=17, FP=3, FN=2)
+2022/02/20 13:04:59 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:04:59 Precision : 80.00%
+2022/02/20 13:04:59 Recall : 85.71%
+2022/02/20 13:04:59 Specificity : 85.00%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 85.71%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 15.00%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 06: 
+2022/02/20 13:04:59 (TP=10, TN=15, FP=2, FN=3)
+2022/02/20 13:04:59 Accuracy  = 25 out of 30 (83.33%)
+2022/02/20 13:04:59 Precision : 83.33%
+2022/02/20 13:04:59 Recall : 76.92%
+2022/02/20 13:04:59 Specificity : 88.24%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 76.92%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 11.76%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 07: 
+2022/02/20 13:04:59 (TP=10, TN=18, FP=3, FN=3)
+2022/02/20 13:04:59 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:04:59 Precision : 76.92%
+2022/02/20 13:04:59 Recall : 76.92%
+2022/02/20 13:04:59 Specificity : 85.71%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 76.92%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 08: 
+2022/02/20 13:04:59 (TP=14, TN=15, FP=2, FN=3)
+2022/02/20 13:04:59 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:04:59 Precision : 87.50%
+2022/02/20 13:04:59 Recall : 82.35%
+2022/02/20 13:04:59 Specificity : 88.24%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 82.35%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 11.76%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 09: 
+2022/02/20 13:04:59 (TP=15, TN=11, FP=6, FN=2)
+2022/02/20 13:04:59 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:04:59 Precision : 71.43%
+2022/02/20 13:04:59 Recall : 88.24%
+2022/02/20 13:04:59 Specificity : 64.71%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 88.24%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 35.29%
+2022/02/20 13:04:59 
+2022/02/20 13:04:59 Test Fold 10: 
+2022/02/20 13:04:59 (TP=11, TN=12, FP=5, FN=6)
+2022/02/20 13:04:59 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:04:59 Precision : 68.75%
+2022/02/20 13:04:59 Recall : 64.71%
+2022/02/20 13:04:59 Specificity : 70.59%
+2022/02/20 13:04:59 True Positive Rate (TPR) = 64.71%
+2022/02/20 13:04:59 False Positive Rate (FPR) = 29.41%
+2022/02/20 13:04:59 
+2022/02/20 13:05:01 Session Date: 2022-02-20 13:05:01.2107335 +0000 GMT m=+0.002005901
+2022/02/20 13:05:01 Read 768 diabetes records.
+2022/02/20 13:05:01 Split Percentage = 10.00%
+2022/02/20 13:05:01 Records removed from data set = 432 (56.25%)
+2022/02/20 13:05:01 Number of folds : 10
+2022/02/20 13:05:01 Test Fold Index 01 - Mean Similarity: 91.76%
+2022/02/20 13:05:01 Test Fold Index 02 - Mean Similarity: 92.27%
+2022/02/20 13:05:01 Test Fold Index 03 - Mean Similarity: 93.55%
+2022/02/20 13:05:01 Test Fold Index 04 - Mean Similarity: 93.12%
+2022/02/20 13:05:01 Test Fold Index 05 - Mean Similarity: 93.98%
+2022/02/20 13:05:01 Test Fold Index 06 - Mean Similarity: 93.28%
+2022/02/20 13:05:01 Test Fold Index 07 - Mean Similarity: 92.94%
+2022/02/20 13:05:01 Test Fold Index 08 - Mean Similarity: 92.76%
+2022/02/20 13:05:01 Test Fold Index 09 - Mean Similarity: 93.54%
+2022/02/20 13:05:01 Test Fold Index 10 - Mean Similarity: 93.54%
+2022/02/20 13:05:01 Preprocessed Datasets...
+2022/02/20 13:05:01 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:01 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:01 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:01 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:05:01 Processed Datasets ...
+2022/02/20 13:05:01 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:01 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:01 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:01 Test Fold 01: 
+2022/02/20 13:05:01 (TP=8, TN=22, FP=2, FN=2)
+2022/02/20 13:05:01 Accuracy  = 30 out of 34 (88.24%)
+2022/02/20 13:05:01 Precision : 80.00%
+2022/02/20 13:05:01 Recall : 80.00%
+2022/02/20 13:05:01 Specificity : 91.67%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 80.00%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 8.33%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 02: 
+2022/02/20 13:05:01 (TP=10, TN=21, FP=3, FN=0)
+2022/02/20 13:05:01 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:05:01 Precision : 76.92%
+2022/02/20 13:05:01 Recall : 100.00%
+2022/02/20 13:05:01 Specificity : 87.50%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 100.00%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 03: 
+2022/02/20 13:05:01 (TP=13, TN=17, FP=3, FN=1)
+2022/02/20 13:05:01 Accuracy  = 30 out of 34 (88.24%)
+2022/02/20 13:05:01 Precision : 81.25%
+2022/02/20 13:05:01 Recall : 92.86%
+2022/02/20 13:05:01 Specificity : 85.00%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 92.86%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 15.00%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 04: 
+2022/02/20 13:05:01 (TP=10, TN=19, FP=1, FN=2)
+2022/02/20 13:05:01 Accuracy  = 29 out of 32 (90.62%)
+2022/02/20 13:05:01 Precision : 90.91%
+2022/02/20 13:05:01 Recall : 83.33%
+2022/02/20 13:05:01 Specificity : 95.00%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 83.33%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 5.00%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 05: 
+2022/02/20 13:05:01 (TP=12, TN=16, FP=3, FN=3)
+2022/02/20 13:05:01 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:05:01 Precision : 80.00%
+2022/02/20 13:05:01 Recall : 80.00%
+2022/02/20 13:05:01 Specificity : 84.21%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 80.00%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 15.79%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 06: 
+2022/02/20 13:05:01 (TP=9, TN=20, FP=3, FN=2)
+2022/02/20 13:05:01 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:05:01 Precision : 75.00%
+2022/02/20 13:05:01 Recall : 81.82%
+2022/02/20 13:05:01 Specificity : 86.96%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 81.82%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 13.04%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 07: 
+2022/02/20 13:05:01 (TP=12, TN=18, FP=4, FN=0)
+2022/02/20 13:05:01 Accuracy  = 30 out of 34 (88.24%)
+2022/02/20 13:05:01 Precision : 75.00%
+2022/02/20 13:05:01 Recall : 100.00%
+2022/02/20 13:05:01 Specificity : 81.82%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 100.00%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 18.18%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 08: 
+2022/02/20 13:05:01 (TP=14, TN=15, FP=4, FN=1)
+2022/02/20 13:05:01 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:05:01 Precision : 77.78%
+2022/02/20 13:05:01 Recall : 93.33%
+2022/02/20 13:05:01 Specificity : 78.95%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 93.33%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 21.05%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 09: 
+2022/02/20 13:05:01 (TP=8, TN=12, FP=8, FN=4)
+2022/02/20 13:05:01 Accuracy  = 20 out of 32 (62.50%)
+2022/02/20 13:05:01 Precision : 50.00%
+2022/02/20 13:05:01 Recall : 66.67%
+2022/02/20 13:05:01 Specificity : 60.00%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 66.67%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 40.00%
+2022/02/20 13:05:01 
+2022/02/20 13:05:01 Test Fold 10: 
+2022/02/20 13:05:01 (TP=18, TN=6, FP=8, FN=2)
+2022/02/20 13:05:01 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:05:01 Precision : 69.23%
+2022/02/20 13:05:01 Recall : 90.00%
+2022/02/20 13:05:01 Specificity : 42.86%
+2022/02/20 13:05:01 True Positive Rate (TPR) = 90.00%
+2022/02/20 13:05:01 False Positive Rate (FPR) = 57.14%
+2022/02/20 13:05:01 
+2022/02/20 13:05:03 Session Date: 2022-02-20 13:05:03.4045773 +0000 GMT m=+0.001995501
+2022/02/20 13:05:03 Read 768 diabetes records.
+2022/02/20 13:05:03 Split Percentage = 10.00%
+2022/02/20 13:05:03 Records removed from data set = 432 (56.25%)
+2022/02/20 13:05:03 Number of folds : 10
+2022/02/20 13:05:03 Test Fold Index 01 - Mean Similarity: 91.28%
+2022/02/20 13:05:03 Test Fold Index 02 - Mean Similarity: 90.28%
+2022/02/20 13:05:03 Test Fold Index 03 - Mean Similarity: 91.44%
+2022/02/20 13:05:03 Test Fold Index 04 - Mean Similarity: 90.85%
+2022/02/20 13:05:03 Test Fold Index 05 - Mean Similarity: 92.36%
+2022/02/20 13:05:03 Test Fold Index 06 - Mean Similarity: 90.50%
+2022/02/20 13:05:03 Test Fold Index 07 - Mean Similarity: 93.40%
+2022/02/20 13:05:03 Test Fold Index 08 - Mean Similarity: 91.47%
+2022/02/20 13:05:03 Test Fold Index 09 - Mean Similarity: 91.34%
+2022/02/20 13:05:03 Test Fold Index 10 - Mean Similarity: 91.34%
+2022/02/20 13:05:03 Preprocessed Datasets...
+2022/02/20 13:05:03 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:03 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:03 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:03 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:05:03 Processed Datasets ...
+2022/02/20 13:05:03 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:03 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:03 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:03 Test Fold 01: 
+2022/02/20 13:05:03 (TP=7, TN=19, FP=2, FN=6)
+2022/02/20 13:05:03 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:05:03 Precision : 77.78%
+2022/02/20 13:05:03 Recall : 53.85%
+2022/02/20 13:05:03 Specificity : 90.48%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 53.85%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 9.52%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 02: 
+2022/02/20 13:05:03 (TP=10, TN=21, FP=0, FN=3)
+2022/02/20 13:05:03 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:05:03 Precision : 100.00%
+2022/02/20 13:05:03 Recall : 76.92%
+2022/02/20 13:05:03 Specificity : 100.00%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 76.92%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 0.00%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 03: 
+2022/02/20 13:05:03 (TP=5, TN=22, FP=4, FN=3)
+2022/02/20 13:05:03 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:05:03 Precision : 55.56%
+2022/02/20 13:05:03 Recall : 62.50%
+2022/02/20 13:05:03 Specificity : 84.62%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 62.50%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 15.38%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 04: 
+2022/02/20 13:05:03 (TP=7, TN=17, FP=1, FN=5)
+2022/02/20 13:05:03 Accuracy  = 24 out of 30 (80.00%)
+2022/02/20 13:05:03 Precision : 87.50%
+2022/02/20 13:05:03 Recall : 58.33%
+2022/02/20 13:05:03 Specificity : 94.44%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 58.33%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 5.56%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 05: 
+2022/02/20 13:05:03 (TP=6, TN=17, FP=6, FN=5)
+2022/02/20 13:05:03 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:05:03 Precision : 50.00%
+2022/02/20 13:05:03 Recall : 54.55%
+2022/02/20 13:05:03 Specificity : 73.91%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 54.55%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 26.09%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 06: 
+2022/02/20 13:05:03 (TP=8, TN=20, FP=6, FN=0)
+2022/02/20 13:05:03 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:05:03 Precision : 57.14%
+2022/02/20 13:05:03 Recall : 100.00%
+2022/02/20 13:05:03 Specificity : 76.92%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 100.00%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 23.08%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 07: 
+2022/02/20 13:05:03 (TP=11, TN=20, FP=2, FN=1)
+2022/02/20 13:05:03 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:05:03 Precision : 84.62%
+2022/02/20 13:05:03 Recall : 91.67%
+2022/02/20 13:05:03 Specificity : 90.91%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 91.67%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 9.09%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 08: 
+2022/02/20 13:05:03 (TP=7, TN=20, FP=3, FN=4)
+2022/02/20 13:05:03 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:05:03 Precision : 70.00%
+2022/02/20 13:05:03 Recall : 63.64%
+2022/02/20 13:05:03 Specificity : 86.96%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 63.64%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 13.04%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 09: 
+2022/02/20 13:05:03 (TP=5, TN=19, FP=4, FN=6)
+2022/02/20 13:05:03 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:05:03 Precision : 55.56%
+2022/02/20 13:05:03 Recall : 45.45%
+2022/02/20 13:05:03 Specificity : 82.61%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 45.45%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 17.39%
+2022/02/20 13:05:03 
+2022/02/20 13:05:03 Test Fold 10: 
+2022/02/20 13:05:03 (TP=8, TN=10, FP=10, FN=6)
+2022/02/20 13:05:03 Accuracy  = 18 out of 34 (52.94%)
+2022/02/20 13:05:03 Precision : 44.44%
+2022/02/20 13:05:03 Recall : 57.14%
+2022/02/20 13:05:03 Specificity : 50.00%
+2022/02/20 13:05:03 True Positive Rate (TPR) = 57.14%
+2022/02/20 13:05:03 False Positive Rate (FPR) = 50.00%
+2022/02/20 13:05:03 
+2022/02/20 13:05:05 Session Date: 2022-02-20 13:05:05.3061876 +0000 GMT m=+0.001994201
+2022/02/20 13:05:05 Read 768 diabetes records.
+2022/02/20 13:05:05 Split Percentage = 10.00%
+2022/02/20 13:05:05 Records removed from data set = 432 (56.25%)
+2022/02/20 13:05:05 Number of folds : 10
+2022/02/20 13:05:05 Test Fold Index 01 - Mean Similarity: 92.36%
+2022/02/20 13:05:05 Test Fold Index 02 - Mean Similarity: 92.58%
+2022/02/20 13:05:05 Test Fold Index 03 - Mean Similarity: 93.88%
+2022/02/20 13:05:05 Test Fold Index 04 - Mean Similarity: 93.31%
+2022/02/20 13:05:05 Test Fold Index 05 - Mean Similarity: 93.95%
+2022/02/20 13:05:05 Test Fold Index 06 - Mean Similarity: 92.95%
+2022/02/20 13:05:05 Test Fold Index 07 - Mean Similarity: 92.72%
+2022/02/20 13:05:05 Test Fold Index 08 - Mean Similarity: 92.46%
+2022/02/20 13:05:05 Test Fold Index 09 - Mean Similarity: 92.16%
+2022/02/20 13:05:05 Test Fold Index 10 - Mean Similarity: 92.16%
+2022/02/20 13:05:05 Preprocessed Datasets...
+2022/02/20 13:05:05 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:05 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:05 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:05 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:05:05 Processed Datasets ...
+2022/02/20 13:05:05 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:05 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:05 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:05 Test Fold 01: 
+2022/02/20 13:05:05 (TP=3, TN=24, FP=2, FN=5)
+2022/02/20 13:05:05 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:05:05 Precision : 60.00%
+2022/02/20 13:05:05 Recall : 37.50%
+2022/02/20 13:05:05 Specificity : 92.31%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 37.50%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 7.69%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 02: 
+2022/02/20 13:05:05 (TP=8, TN=16, FP=4, FN=6)
+2022/02/20 13:05:05 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:05:05 Precision : 66.67%
+2022/02/20 13:05:05 Recall : 57.14%
+2022/02/20 13:05:05 Specificity : 80.00%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 57.14%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 20.00%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 03: 
+2022/02/20 13:05:05 (TP=4, TN=21, FP=3, FN=6)
+2022/02/20 13:05:05 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:05:05 Precision : 57.14%
+2022/02/20 13:05:05 Recall : 40.00%
+2022/02/20 13:05:05 Specificity : 87.50%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 40.00%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 04: 
+2022/02/20 13:05:05 (TP=7, TN=20, FP=0, FN=7)
+2022/02/20 13:05:05 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:05:05 Precision : 100.00%
+2022/02/20 13:05:05 Recall : 50.00%
+2022/02/20 13:05:05 Specificity : 100.00%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 50.00%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 0.00%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 05: 
+2022/02/20 13:05:05 (TP=5, TN=21, FP=2, FN=2)
+2022/02/20 13:05:05 Accuracy  = 26 out of 30 (86.67%)
+2022/02/20 13:05:05 Precision : 71.43%
+2022/02/20 13:05:05 Recall : 71.43%
+2022/02/20 13:05:05 Specificity : 91.30%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 71.43%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 8.70%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 06: 
+2022/02/20 13:05:05 (TP=6, TN=25, FP=2, FN=1)
+2022/02/20 13:05:05 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:05:05 Precision : 75.00%
+2022/02/20 13:05:05 Recall : 85.71%
+2022/02/20 13:05:05 Specificity : 92.59%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 85.71%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 7.41%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 07: 
+2022/02/20 13:05:05 (TP=8, TN=21, FP=2, FN=3)
+2022/02/20 13:05:05 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:05:05 Precision : 80.00%
+2022/02/20 13:05:05 Recall : 72.73%
+2022/02/20 13:05:05 Specificity : 91.30%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 72.73%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 8.70%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 08: 
+2022/02/20 13:05:05 (TP=10, TN=22, FP=0, FN=2)
+2022/02/20 13:05:05 Accuracy  = 32 out of 34 (94.12%)
+2022/02/20 13:05:05 Precision : 100.00%
+2022/02/20 13:05:05 Recall : 83.33%
+2022/02/20 13:05:05 Specificity : 100.00%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 83.33%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 0.00%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 09: 
+2022/02/20 13:05:05 (TP=3, TN=19, FP=5, FN=7)
+2022/02/20 13:05:05 Accuracy  = 22 out of 34 (64.71%)
+2022/02/20 13:05:05 Precision : 37.50%
+2022/02/20 13:05:05 Recall : 30.00%
+2022/02/20 13:05:05 Specificity : 79.17%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 30.00%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 20.83%
+2022/02/20 13:05:05 
+2022/02/20 13:05:05 Test Fold 10: 
+2022/02/20 13:05:05 (TP=3, TN=22, FP=1, FN=8)
+2022/02/20 13:05:05 Accuracy  = 25 out of 34 (73.53%)
+2022/02/20 13:05:05 Precision : 75.00%
+2022/02/20 13:05:05 Recall : 27.27%
+2022/02/20 13:05:05 Specificity : 95.65%
+2022/02/20 13:05:05 True Positive Rate (TPR) = 27.27%
+2022/02/20 13:05:05 False Positive Rate (FPR) = 4.35%
+2022/02/20 13:05:05 
+2022/02/20 13:05:07 Session Date: 2022-02-20 13:05:07.3198301 +0000 GMT m=+0.001993901
+2022/02/20 13:05:07 Read 768 diabetes records.
+2022/02/20 13:05:07 Split Percentage = 10.00%
+2022/02/20 13:05:07 Records removed from data set = 432 (56.25%)
+2022/02/20 13:05:07 Number of folds : 10
+2022/02/20 13:05:07 Test Fold Index 01 - Mean Similarity: 91.61%
+2022/02/20 13:05:07 Test Fold Index 02 - Mean Similarity: 92.89%
+2022/02/20 13:05:07 Test Fold Index 03 - Mean Similarity: 92.64%
+2022/02/20 13:05:07 Test Fold Index 04 - Mean Similarity: 91.43%
+2022/02/20 13:05:07 Test Fold Index 05 - Mean Similarity: 93.37%
+2022/02/20 13:05:07 Test Fold Index 06 - Mean Similarity: 93.13%
+2022/02/20 13:05:07 Test Fold Index 07 - Mean Similarity: 93.10%
+2022/02/20 13:05:07 Test Fold Index 08 - Mean Similarity: 93.09%
+2022/02/20 13:05:07 Test Fold Index 09 - Mean Similarity: 91.91%
+2022/02/20 13:05:07 Test Fold Index 10 - Mean Similarity: 91.91%
+2022/02/20 13:05:07 Preprocessed Datasets...
+2022/02/20 13:05:07 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:07 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:07 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:07 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:05:07 Processed Datasets ...
+2022/02/20 13:05:07 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:07 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:07 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:07 Test Fold 01: 
+2022/02/20 13:05:07 (TP=10, TN=20, FP=2, FN=2)
+2022/02/20 13:05:07 Accuracy  = 30 out of 34 (88.24%)
+2022/02/20 13:05:07 Precision : 83.33%
+2022/02/20 13:05:07 Recall : 83.33%
+2022/02/20 13:05:07 Specificity : 90.91%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 83.33%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 9.09%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 02: 
+2022/02/20 13:05:07 (TP=5, TN=23, FP=1, FN=2)
+2022/02/20 13:05:07 Accuracy  = 28 out of 31 (90.32%)
+2022/02/20 13:05:07 Precision : 83.33%
+2022/02/20 13:05:07 Recall : 71.43%
+2022/02/20 13:05:07 Specificity : 95.83%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 71.43%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 4.17%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 03: 
+2022/02/20 13:05:07 (TP=11, TN=18, FP=3, FN=2)
+2022/02/20 13:05:07 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:05:07 Precision : 78.57%
+2022/02/20 13:05:07 Recall : 84.62%
+2022/02/20 13:05:07 Specificity : 85.71%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 84.62%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 04: 
+2022/02/20 13:05:07 (TP=4, TN=24, FP=4, FN=2)
+2022/02/20 13:05:07 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:05:07 Precision : 50.00%
+2022/02/20 13:05:07 Recall : 66.67%
+2022/02/20 13:05:07 Specificity : 85.71%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 66.67%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 14.29%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 05: 
+2022/02/20 13:05:07 (TP=8, TN=23, FP=1, FN=2)
+2022/02/20 13:05:07 Accuracy  = 31 out of 34 (91.18%)
+2022/02/20 13:05:07 Precision : 88.89%
+2022/02/20 13:05:07 Recall : 80.00%
+2022/02/20 13:05:07 Specificity : 95.83%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 80.00%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 4.17%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 06: 
+2022/02/20 13:05:07 (TP=13, TN=16, FP=0, FN=5)
+2022/02/20 13:05:07 Accuracy  = 29 out of 34 (85.29%)
+2022/02/20 13:05:07 Precision : 100.00%
+2022/02/20 13:05:07 Recall : 72.22%
+2022/02/20 13:05:07 Specificity : 100.00%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 72.22%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 0.00%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 07: 
+2022/02/20 13:05:07 (TP=8, TN=15, FP=2, FN=9)
+2022/02/20 13:05:07 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:05:07 Precision : 80.00%
+2022/02/20 13:05:07 Recall : 47.06%
+2022/02/20 13:05:07 Specificity : 88.24%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 47.06%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 11.76%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 08: 
+2022/02/20 13:05:07 (TP=7, TN=19, FP=2, FN=5)
+2022/02/20 13:05:07 Accuracy  = 26 out of 33 (78.79%)
+2022/02/20 13:05:07 Precision : 77.78%
+2022/02/20 13:05:07 Recall : 58.33%
+2022/02/20 13:05:07 Specificity : 90.48%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 58.33%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 9.52%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 09: 
+2022/02/20 13:05:07 (TP=6, TN=21, FP=3, FN=4)
+2022/02/20 13:05:07 Accuracy  = 27 out of 34 (79.41%)
+2022/02/20 13:05:07 Precision : 66.67%
+2022/02/20 13:05:07 Recall : 60.00%
+2022/02/20 13:05:07 Specificity : 87.50%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 60.00%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 12.50%
+2022/02/20 13:05:07 
+2022/02/20 13:05:07 Test Fold 10: 
+2022/02/20 13:05:07 (TP=8, TN=20, FP=4, FN=2)
+2022/02/20 13:05:07 Accuracy  = 28 out of 34 (82.35%)
+2022/02/20 13:05:07 Precision : 66.67%
+2022/02/20 13:05:07 Recall : 80.00%
+2022/02/20 13:05:07 Specificity : 83.33%
+2022/02/20 13:05:07 True Positive Rate (TPR) = 80.00%
+2022/02/20 13:05:07 False Positive Rate (FPR) = 16.67%
+2022/02/20 13:05:07 
+2022/02/20 13:05:09 Session Date: 2022-02-20 13:05:09.3347602 +0000 GMT m=+0.001966501
+2022/02/20 13:05:09 Read 768 diabetes records.
+2022/02/20 13:05:09 Split Percentage = 10.00%
+2022/02/20 13:05:09 Records removed from data set = 432 (56.25%)
+2022/02/20 13:05:09 Number of folds : 10
+2022/02/20 13:05:09 Test Fold Index 01 - Mean Similarity: 91.67%
+2022/02/20 13:05:09 Test Fold Index 02 - Mean Similarity: 92.01%
+2022/02/20 13:05:09 Test Fold Index 03 - Mean Similarity: 93.04%
+2022/02/20 13:05:09 Test Fold Index 04 - Mean Similarity: 92.85%
+2022/02/20 13:05:09 Test Fold Index 05 - Mean Similarity: 92.31%
+2022/02/20 13:05:09 Test Fold Index 06 - Mean Similarity: 91.79%
+2022/02/20 13:05:09 Test Fold Index 07 - Mean Similarity: 93.73%
+2022/02/20 13:05:09 Test Fold Index 08 - Mean Similarity: 92.84%
+2022/02/20 13:05:09 Test Fold Index 09 - Mean Similarity: 92.19%
+2022/02/20 13:05:09 Test Fold Index 10 - Mean Similarity: 92.19%
+2022/02/20 13:05:09 Preprocessed Datasets...
+2022/02/20 13:05:09 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:09 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:09 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:09 Missing data algorithm: Remove Incomplete Records (+ KFOLD)
+2022/02/20 13:05:09 Processed Datasets ...
+2022/02/20 13:05:09 Raw Data Set : Sparsity = 0.00% (0 out of 3024 elements)
+2022/02/20 13:05:09 Training Data Set : Sparsity = 0.00% (0 out of 2718 elements)
+2022/02/20 13:05:09 Test Data Set : Sparsity = 11.11% (34 out of 306 elements)
+2022/02/20 13:05:09 Test Fold 01: 
+2022/02/20 13:05:09 (TP=9, TN=15, FP=3, FN=7)
+2022/02/20 13:05:09 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:05:09 Precision : 75.00%
+2022/02/20 13:05:09 Recall : 56.25%
+2022/02/20 13:05:09 Specificity : 83.33%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 56.25%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 16.67%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 02: 
+2022/02/20 13:05:09 (TP=8, TN=15, FP=7, FN=4)
+2022/02/20 13:05:09 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:05:09 Precision : 53.33%
+2022/02/20 13:05:09 Recall : 66.67%
+2022/02/20 13:05:09 Specificity : 68.18%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 66.67%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 31.82%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 03: 
+2022/02/20 13:05:09 (TP=7, TN=10, FP=5, FN=12)
+2022/02/20 13:05:09 Accuracy  = 17 out of 34 (50.00%)
+2022/02/20 13:05:09 Precision : 58.33%
+2022/02/20 13:05:09 Recall : 36.84%
+2022/02/20 13:05:09 Specificity : 66.67%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 36.84%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 33.33%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 04: 
+2022/02/20 13:05:09 (TP=3, TN=14, FP=6, FN=11)
+2022/02/20 13:05:09 Accuracy  = 17 out of 34 (50.00%)
+2022/02/20 13:05:09 Precision : 33.33%
+2022/02/20 13:05:09 Recall : 21.43%
+2022/02/20 13:05:09 Specificity : 70.00%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 21.43%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 30.00%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 05: 
+2022/02/20 13:05:09 (TP=4, TN=18, FP=5, FN=6)
+2022/02/20 13:05:09 Accuracy  = 22 out of 33 (66.67%)
+2022/02/20 13:05:09 Precision : 44.44%
+2022/02/20 13:05:09 Recall : 40.00%
+2022/02/20 13:05:09 Specificity : 78.26%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 40.00%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 21.74%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 06: 
+2022/02/20 13:05:09 (TP=9, TN=14, FP=6, FN=5)
+2022/02/20 13:05:09 Accuracy  = 23 out of 34 (67.65%)
+2022/02/20 13:05:09 Precision : 60.00%
+2022/02/20 13:05:09 Recall : 64.29%
+2022/02/20 13:05:09 Specificity : 70.00%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 64.29%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 30.00%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 07: 
+2022/02/20 13:05:09 (TP=7, TN=13, FP=1, FN=10)
+2022/02/20 13:05:09 Accuracy  = 20 out of 31 (64.52%)
+2022/02/20 13:05:09 Precision : 87.50%
+2022/02/20 13:05:09 Recall : 41.18%
+2022/02/20 13:05:09 Specificity : 92.86%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 41.18%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 7.14%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 08: 
+2022/02/20 13:05:09 (TP=6, TN=15, FP=6, FN=7)
+2022/02/20 13:05:09 Accuracy  = 21 out of 34 (61.76%)
+2022/02/20 13:05:09 Precision : 50.00%
+2022/02/20 13:05:09 Recall : 46.15%
+2022/02/20 13:05:09 Specificity : 71.43%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 46.15%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 28.57%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 09: 
+2022/02/20 13:05:09 (TP=7, TN=17, FP=3, FN=7)
+2022/02/20 13:05:09 Accuracy  = 24 out of 34 (70.59%)
+2022/02/20 13:05:09 Precision : 70.00%
+2022/02/20 13:05:09 Recall : 50.00%
+2022/02/20 13:05:09 Specificity : 85.00%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 50.00%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 15.00%
+2022/02/20 13:05:09 
+2022/02/20 13:05:09 Test Fold 10: 
+2022/02/20 13:05:09 (TP=0, TN=26, FP=1, FN=7)
+2022/02/20 13:05:09 Accuracy  = 26 out of 34 (76.47%)
+2022/02/20 13:05:09 Precision : 0.00%
+2022/02/20 13:05:09 Recall : 0.00%
+2022/02/20 13:05:09 Specificity : 96.30%
+2022/02/20 13:05:09 True Positive Rate (TPR) = 0.00%
+2022/02/20 13:05:09 False Positive Rate (FPR) = 3.70%
+2022/02/20 13:05:09 
