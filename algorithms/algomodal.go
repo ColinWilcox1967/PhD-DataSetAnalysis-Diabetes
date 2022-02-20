@@ -39,45 +39,44 @@ func replaceMissingValuesWithModal(dataset []diabetesdata.PimaDiabetesRecord) ([
 		r := dataset[index]
 
 		// dont include incomplete records
-		if support.IsIncompleteRecord(r) {
-			break
-		}
+		if !support.IsIncompleteRecord(r) {
 
-		// only complete records considered from here onwards
-		var v valueCount
-		var pos int
-		var exists bool
-		var value float64
+			// only complete records considered from here onwards
+			var v valueCount
+			var pos int
+			var exists bool
+			var value float64
 
-		for field := 0; field < numberOfFields; field++ {
+			for field := 0; field < numberOfFields; field++ {
 
-			switch field {
-			case 0:
-				value = r.NumberOfTimesPregnant
-			case 1:
-				value = r.DiastolicBloodPressure
-			case 2:
-				value = r.PlasmaGlucoseConcentration
-			case 3:
-				value = r.TricepsSkinfoldThickness
-			case 4:
-				value = r.SeriumInsulin
-			case 5:
-				value = r.BodyMassIndex
-			case 6:
-				value = r.DiabetesPedigreeFunction
-			case 7:
-				value = r.Age
-			}
+				switch field {
+				case 0:
+					value = r.NumberOfTimesPregnant
+				case 1:
+					value = r.DiastolicBloodPressure
+				case 2:
+					value = r.PlasmaGlucoseConcentration
+				case 3:
+					value = r.TricepsSkinfoldThickness
+				case 4:
+					value = r.SeriumInsulin
+				case 5:
+					value = r.BodyMassIndex
+				case 6:
+					value = r.DiabetesPedigreeFunction
+				case 7:
+					value = r.Age
+				}
 
-			exists, pos = valueExistsForFeature(columnCount[field], value)
+				exists, pos = valueExistsForFeature(columnCount[field], value)
 
-			if !exists {
-				v.Count = 1
-				v.Value = value
-				columnCount[field] = append(columnCount[field], v)
-			} else {
-				columnCount[field][pos].Count++
+				if !exists {
+					v.Count = 1
+					v.Value = value
+					columnCount[field] = append(columnCount[field], v)
+				} else {
+					columnCount[field][pos].Count++
+				}
 			}
 		}
 	}
