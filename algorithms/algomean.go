@@ -12,7 +12,7 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 
 	numberOfFields := support.SizeOfPimaDiabetesRecord () - 1
 	numberOfRecords := len(dataset)
-
+	
 	var resultSet = make([]diabetesdata.PimaDiabetesRecord, numberOfRecords)
 
 	// loop through and replace all missing elements with mean for the column
@@ -21,21 +21,26 @@ func replaceMissingValuesWithMean (dataset []diabetesdata.PimaDiabetesRecord) ([
 	var columnTotal = make([]float64, numberOfFields)
 	var columnMean = make([]float64, numberOfFields)
 
+	completeRecordCount := 0
+
 	for index := 0; index < numberOfRecords; index++ {
-		columnTotal[0] += float64(dataset[index].NumberOfTimesPregnant)
-		columnTotal[1] += float64(dataset[index].PlasmaGlucoseConcentration)
-		columnTotal[2] += float64(dataset[index].DiastolicBloodPressure)
-		columnTotal[3] += float64(dataset[index].TricepsSkinfoldThickness)
-		columnTotal[4] += float64(dataset[index].SeriumInsulin)
-		columnTotal[5] += dataset[index].BodyMassIndex
-		columnTotal[6] += dataset[index].DiabetesPedigreeFunction
-		columnTotal[7] += float64(dataset[index].Age)
+		if !support.IsIncompleteRecord (dataset[index]) {
+			columnTotal[0] += float64(dataset[index].NumberOfTimesPregnant)
+			columnTotal[1] += float64(dataset[index].PlasmaGlucoseConcentration)
+			columnTotal[2] += float64(dataset[index].DiastolicBloodPressure)
+			columnTotal[3] += float64(dataset[index].TricepsSkinfoldThickness)
+			columnTotal[4] += float64(dataset[index].SeriumInsulin)
+			columnTotal[5] += dataset[index].BodyMassIndex
+			columnTotal[6] += dataset[index].DiabetesPedigreeFunction
+			columnTotal[7] += float64(dataset[index].Age)
+			completeRecordCount++
+		}
 	}
 
 	// work out means
 	for index := 0; index < numberOfFields; index++ {
 		// round up mean to n2 dp.
-		columnMean[index] = support.RoundFloat64 (float64(columnTotal[index])/float64(numberOfRecords), 2)
+			columnMean[index] = support.RoundFloat64 (float64(columnTotal[index])/float64(completeRecordCount), 2)
 	}
 
 	// Dump all the column means

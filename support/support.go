@@ -7,6 +7,48 @@ import (
 	"../diabetesdata"
 )
 
+// merge with definitions elsewhere
+func isEmptyField (value float64) bool {
+	return value == 0.0 // for this case zero indicates missing
+}
+
+func IsIncompleteRecord (rec diabetesdata.PimaDiabetesRecord) bool {
+		
+	if isEmptyField (rec.NumberOfTimesPregnant) {
+		return true
+	}
+
+	if isEmptyField(rec.PlasmaGlucoseConcentration) {
+		return true
+	}
+
+	if isEmptyField(rec.DiastolicBloodPressure) {
+		return true
+	}
+
+	if isEmptyField(rec.TricepsSkinfoldThickness) {
+		return true
+	}
+
+	if isEmptyField(rec.SeriumInsulin) {
+		return true
+	}
+
+	if isEmptyField(rec.BodyMassIndex) {
+		return true
+	}
+
+	if isEmptyField (rec.DiabetesPedigreeFunction) {
+		return true
+	}
+
+	if isEmptyField (float64(rec.Age)) {
+		return true
+	}
+
+	return false
+}
+
 func Percentage (numerator, denominator float64) float64 {
 	return 100*numerator/denominator
 }
