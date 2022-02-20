@@ -137,6 +137,7 @@ func showSessionMetrics(sessionhandle *os.File) {
 		fp := Metrics[index].FalsePositiveCount
 		fn := Metrics[index].FalseNegativeCount
 		str = fmt.Sprintf("(TP=%d, TN=%d, FP=%d, FN=%d)\n", tp, tn, fp, fn)
+
 		logging.DoWriteString(str, true, true)
 		sessionhandle.WriteString(str)
 

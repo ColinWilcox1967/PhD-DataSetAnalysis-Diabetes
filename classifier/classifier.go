@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	default_number_of_neighbours = 7
+	default_number_of_neighbours = 4
 	default_tpthreshold          = 3
 	default_tnthreshold          = 2
 )
