@@ -274,7 +274,10 @@ func DoShowAlgorithmTestSummary(sessionhandle *os.File, testdata []diabetesdata.
 		}
 
 		// dump closest three records for each test data record to session file.
-		for recIndex := 0; recIndex < 3; recIndex++ {
+
+		N := classifier.GetNeighbourhoodSize()
+
+		for recIndex := 0; recIndex < N; recIndex++ {
 			var str string
 
 			// just a bit of layout formatting to session file
