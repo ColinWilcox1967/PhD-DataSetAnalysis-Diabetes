@@ -1,20 +1,27 @@
 package support
 
 import (
-	"reflect"
 	"math"
 	"os"
+	"reflect"
+
 	"../diabetesdata"
 )
 
+const N = 1 // Neighbour count
+
 // merge with definitions elsewhere
-func isEmptyField (value float64) bool {
+func isEmptyField(value float64) bool {
 	return value == 0.0 // for this case zero indicates missing
 }
 
-func IsIncompleteRecord (rec diabetesdata.PimaDiabetesRecord) bool {
-		
-	if isEmptyField (rec.NumberOfTimesPregnant) {
+func GetNumberOfNeighbours() int {
+	return N
+}
+
+func IsIncompleteRecord(rec diabetesdata.PimaDiabetesRecord) bool {
+
+	if isEmptyField(rec.NumberOfTimesPregnant) {
 		return true
 	}
 
@@ -38,26 +45,26 @@ func IsIncompleteRecord (rec diabetesdata.PimaDiabetesRecord) bool {
 		return true
 	}
 
-	if isEmptyField (rec.DiabetesPedigreeFunction) {
+	if isEmptyField(rec.DiabetesPedigreeFunction) {
 		return true
 	}
 
-	if isEmptyField (float64(rec.Age)) {
+	if isEmptyField(float64(rec.Age)) {
 		return true
 	}
 
 	return false
 }
 
-func Percentage (numerator, denominator float64) float64 {
-	return 100*numerator/denominator
+func Percentage(numerator, denominator float64) float64 {
+	return 100 * numerator / denominator
 }
 
-func SizeOfPimaDiabetesRecord () int {
-	return reflect.TypeOf(diabetesdata.PimaDiabetesRecord {}).NumField() // get number of fields in a struct
+func SizeOfPimaDiabetesRecord() int {
+	return reflect.TypeOf(diabetesdata.PimaDiabetesRecord{}).NumField() // get number of fields in a struct
 }
 
-func FileExists (filename string) bool {
+func FileExists(filename string) bool {
 	if _, err := os.Stat(filename); os.IsNotExist(err) {
 		return false
 	}
@@ -65,7 +72,7 @@ func FileExists (filename string) bool {
 	return true
 }
 
-func LeftAlignStringInColumn (s string, n int) string {
+func LeftAlignStringInColumn(s string, n int) string {
 	l := len(s)
 	if l > n {
 		return s
@@ -79,8 +86,8 @@ func LeftAlignStringInColumn (s string, n int) string {
 	return str
 }
 
-func ContainsInArray (array []int, n int) bool {
-	for _, value := range (array) {
+func ContainsInArray(array []int, n int) bool {
+	for _, value := range array {
 		if value == n {
 			return true
 		}
@@ -89,12 +96,12 @@ func ContainsInArray (array []int, n int) bool {
 	return false
 }
 
-func CentreStringInColumn (s string, n int) string {
+func CentreStringInColumn(s string, n int) string {
 	l := len(s)
 	if l > n {
 		return s
 	}
-	padding :=(n - l)/2
+	padding := (n - l) / 2
 
 	str := ""
 	for i := 0; i < padding; i++ {
@@ -107,19 +114,19 @@ func CentreStringInColumn (s string, n int) string {
 	return str
 }
 
-func RoundFloat64 (f float64, n int) float64 {
+func RoundFloat64(f float64, n int) float64 {
 
 	// fix to 3dp
-	dp:=3.0
-	scale := math.Pow(10,float64(dp))
+	dp := 3.0
+	scale := math.Pow(10, float64(dp))
 
-	f64 := math.Round(f * scale)/scale
+	f64 := math.Round(f*scale) / scale
 
 	return f64
 }
 
 // general function to produce cosine similarity
-func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {
+func CosineSimilarity(vector1, vector2 []float64, elements int) float64 {
 
 	similarity := 0.0
 	denominator := 0.0
@@ -130,7 +137,7 @@ func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {
 	//numerator
 	for index := 0; index < elements; index++ {
 		if vector1[index] != 0 && vector2[index] != 0 {
-			numerator += float64(vector1[index] * vector2[index]) 
+			numerator += float64(vector1[index] * vector2[index])
 		}
 	}
 
@@ -144,23 +151,22 @@ func CosineSimilarity (vector1, vector2 []float64, elements int) float64 {
 			squareSumVector2 += (vector2[index] * vector2[index])
 		}
 	}
-	denominator = math.Sqrt(squareSumVector1)*math.Sqrt(squareSumVector2)
+	denominator = math.Sqrt(squareSumVector1) * math.Sqrt(squareSumVector2)
 
-
-	similarity = numerator/denominator
+	similarity = numerator / denominator
 
 	return similarity
 }
 
 // determines the nature of a field within a struct
-func GetFieldTypeWithinStruct (a interface{}, n int) string  {
+func GetFieldTypeWithinStruct(a interface{}, n int) string {
 	v := reflect.ValueOf(a).Elem()
-	f:= v.Field(n)
+	f := v.Field(n)
 	return f.Kind().String()
 }
 
 // counts the number of fields in a struct definition
-func GetNumberOfFieldsInStructure (a interface {}) int {
+func GetNumberOfFieldsInStructure(a interface{}) int {
 	return reflect.TypeOf(a).NumField()
 }
 

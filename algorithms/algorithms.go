@@ -3,7 +3,6 @@ package algorithms
 import (
 	"fmt"
 
-	"../classifier"
 	"../datasets"
 	"../diabetesdata"
 	"../logging"
@@ -141,6 +140,8 @@ func showSessionMetrics(sessionhandle *os.File) {
 		logging.DoWriteString(str, true, true)
 		sessionhandle.WriteString(str)
 
+		os.Exit(-01)
+
 		// Accuracy
 		totalCount := totalCount(index)
 		totalCorrect := totalCorrect(index)
@@ -225,7 +226,7 @@ func DoShowAlgorithmTestSummary(sessionhandle *os.File, testdata []diabetesdata.
 		}
 
 		// most similar record from training set will now be element zero.
-		numberOfNearestNeighbours := classifier.ThresholdClassifier.NumberOfNeighbours
+		numberOfNearestNeighbours := support.GetNumberOfNeighbours()
 		//countTPThreshold := classifier.ThresholdClassifier.TPThreshold
 
 		closestRecordsIndices := make([]int, numberOfNearestNeighbours) // five closest matches
@@ -237,45 +238,33 @@ func DoShowAlgorithmTestSummary(sessionhandle *os.File, testdata []diabetesdata.
 		// get predicted value from closest match
 
 		var expectedOutcomeValue int = testdata[testIndex].TestedPositive
-		//var expectedOutcomeValue int = datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive // defauklts to infected
-
-		// have we sufficient positive nearest neighbours to reach the threshold
-		//		count := 0
-		//		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
-		//			count += datasets.PimaTrainingData[closestRecordsIndices[neighbourIndex]].TestedPositive
-		//		}
-
-		//		if expectedOutcomeValue == 0 { // healthy
-		//			if count >= countTPThreshold {
-		//				expectedOutcomeValue = 1 // diseased
-		//			}
-		//		}
+		var closestOutcomeValue int = datasets.PimaTrainingData[closestRecordsIndices[0]].TestedPositive // defauklts to infected
 
 		//TP
-		if expectedOutcomeValue == 1 && testdata[testIndex].TestedPositive == 1 {
+		if expectedOutcomeValue == 1 && closestOutcomeValue == 1 {
 			truePositiveCount++
 		}
 
 		//TN
-		if expectedOutcomeValue == 0 && testdata[testIndex].TestedPositive == 0 {
+		if expectedOutcomeValue == 0 && closestOutcomeValue == 0 {
 			trueNegativeCount++
 		}
 
 		//FP
-		if expectedOutcomeValue == 1 && testdata[testIndex].TestedPositive == 0 {
+		if expectedOutcomeValue == 1 && closestOutcomeValue == 0 {
 			changeStatus = "FP" // false positive
 			falsePositiveCount++
 		}
 
 		//FN
-		if expectedOutcomeValue == 0 && testdata[testIndex].TestedPositive == 1 {
+		if expectedOutcomeValue == 0 && closestOutcomeValue == 1 {
 			changeStatus = "FN" // false negative
 			falseNegativeCount++
 		}
 
 		// dump closest three records for each test data record to session file.
 
-		N := classifier.GetNeighbourhoodSize()
+		N := support.GetNumberOfNeighbours()
 
 		for recIndex := 0; recIndex < N; recIndex++ {
 			var str string

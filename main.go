@@ -13,7 +13,6 @@ import (
 	"time"
 
 	"./algorithms"
-	"./classifier"
 	"./datasets"
 	"./diabetesdata"
 	"./logging"
@@ -25,7 +24,7 @@ import (
 const (
 	default_kfold_count      = 10
 	default_split_percentage = 0.1 // 10% of records go in test set and 90% in training set
-	pima_diabetes_version    = "0.2"
+	pima_diabetes_version    = "0.3"
 	default_apply_kfold      = false
 	diabetes_data_file       = "pima-indians-diabetes.txt"
 	default_logfile          = "./log.txt"
@@ -219,15 +218,9 @@ func main() {
 
 	var str string
 
-	// load classifier file
-	lines, err := classifier.LoadClassifierFromFile("classifier.tp")
-	if err != nil {
-		classifier.SetClassifierMetrics(lines)
-	}
-
 	getParameters()
 
-	if err = logging.InitLog(logfileName); err != nil {
+	if err := logging.InitLog(logfileName); err != nil {
 		fmt.Printf("%s\n", err.Error()) // log error to console
 		os.Exit(-1)
 	}

@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	N          = 1 // neighbourhood size
+	N          = support.N
 	TABLE_SIZE = N
 )
 
