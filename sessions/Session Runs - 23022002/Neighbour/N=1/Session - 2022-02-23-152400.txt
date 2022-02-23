@@ -1,0 +1,173 @@
+--- Session started : 2022-02-23-152400
+Algorithm being used is 'Replace Missing Values Based On Nearest Neighbours'
+
+Test Fold 01: 
+(TP=10, TN=26, FP=19, FN=22)
+Accuracy  = 36 out of 77 (46.75%)
+Precision : 34.48%
+Recall : 31.25%
+Specificity : 57.78%
+True Positive Rate (TPR) = 31.25%
+False Positive Rate (FPR) = 42.22%
+
+Test Fold 02: 
+(TP=11, TN=31, FP=18, FN=17)
+Accuracy  = 42 out of 77 (54.55%)
+Precision : 37.93%
+Recall : 39.29%
+Specificity : 63.27%
+True Positive Rate (TPR) = 39.29%
+False Positive Rate (FPR) = 36.73%
+
+Test Fold 03: 
+(TP=10, TN=27, FP=25, FN=13)
+Accuracy  = 37 out of 75 (49.33%)
+Precision : 28.57%
+Recall : 43.48%
+Specificity : 51.92%
+True Positive Rate (TPR) = 43.48%
+False Positive Rate (FPR) = 48.08%
+
+Test Fold 04: 
+(TP=9, TN=34, FP=23, FN=11)
+Accuracy  = 43 out of 77 (55.84%)
+Precision : 28.12%
+Recall : 45.00%
+Specificity : 59.65%
+True Positive Rate (TPR) = 45.00%
+False Positive Rate (FPR) = 40.35%
+
+Test Fold 05: 
+(TP=11, TN=32, FP=23, FN=11)
+Accuracy  = 43 out of 77 (55.84%)
+Precision : 32.35%
+Recall : 50.00%
+Specificity : 58.18%
+True Positive Rate (TPR) = 50.00%
+False Positive Rate (FPR) = 41.82%
+
+Test Fold 06: 
+(TP=9, TN=25, FP=30, FN=13)
+Accuracy  = 34 out of 77 (44.16%)
+Precision : 23.08%
+Recall : 40.91%
+Specificity : 45.45%
+True Positive Rate (TPR) = 40.91%
+False Positive Rate (FPR) = 54.55%
+
+Test Fold 07: 
+(TP=9, TN=35, FP=17, FN=16)
+Accuracy  = 44 out of 77 (57.14%)
+Precision : 34.62%
+Recall : 36.00%
+Specificity : 67.31%
+True Positive Rate (TPR) = 36.00%
+False Positive Rate (FPR) = 32.69%
+
+Test Fold 08: 
+(TP=11, TN=25, FP=29, FN=12)
+Accuracy  = 36 out of 77 (46.75%)
+Precision : 27.50%
+Recall : 47.83%
+Specificity : 46.30%
+True Positive Rate (TPR) = 47.83%
+False Positive Rate (FPR) = 53.70%
+
+Test Fold 09: 
+(TP=14, TN=26, FP=28, FN=9)
+Accuracy  = 40 out of 77 (51.95%)
+Precision : 33.33%
+Recall : 60.87%
+Specificity : 48.15%
+True Positive Rate (TPR) = 60.87%
+False Positive Rate (FPR) = 51.85%
+
+Test Fold 10: 
+(TP=5, TN=38, FP=15, FN=19)
+Accuracy  = 43 out of 77 (55.84%)
+Precision : 25.00%
+Recall : 20.83%
+Specificity : 71.70%
+True Positive Rate (TPR) = 20.83%
+False Positive Rate (FPR) = 28.30%
+
+Test Record    Best Match     Similarity  Predicted   Calculated  
+Number         Record         Measure     Outcome     Outcome     
+0              500             0.99995551      1          0     FP
+1              103             0.99857781      1          1     
+2              17              0.99849766      0          1     FN
+3              125             0.99913766      0          0     
+4              634             0.99933982      1          0     FP
+5              7               0.99896644      1          1     
+6              304             0.99763979      1          0     FP
+7              626             0.99999395      0          0     
+8              355             0.99921618      1          1     
+9              667             0.99860767      0          0     
+10             362             0.99981479      0          0     
+11             355             0.99896332      1          1     
+12             649             0.99712878      0          0     
+13             130             0.99888840      1          0     FP
+14             230             0.99967850      0          0     
+15             29              0.99959923      1          1     
+16             289             0.99961238      1          0     FP
+17             212             0.99964573      0          0     
+18             504             0.99848240      0          0     
+19             23              0.99866261      1          1     
+20             189             0.99959445      0          0     
+21             625             0.99775297      0          1     FN
+22             270             0.99854448      0          1     FN
+23             443             0.99822662      0          0     
+24             279             0.99948621      0          0     
+25             453             0.99984175      0          0     
+26             234             0.99908448      0          0     
+27             257             0.99998007      1          1     
+28             289             0.99894949      1          0     FP
+29             29              0.99819542      0          1     FN
+30             648             0.99938221      0          1     FN
+31             426             0.99995553      0          0     
+32             599             0.99929588      0          0     
+33             481             0.99999711      0          0     
+34             12              0.99933107      1          1     
+35             552             0.99996840      0          0     
+36             410             0.99989111      1          1     
+37             644             0.99875962      0          0     
+38             584             0.99725268      0          0     
+39             561             0.99998869      1          0     FP
+40             155             0.99938245      1          0     FP
+41             313             0.99890200      0          0     
+42             160             0.99525907      0          0     
+43             144             0.99967989      0          0     
+44             258             0.99908609      1          0     FP
+45             95              0.99910822      0          0     
+46             543             0.99782469      1          0     FP
+47             656             0.99680116      0          1     FN
+48             455             0.99761991      0          1     FN
+49             221             0.99986220      1          0     FP
+50             61              0.99924263      0          1     FN
+51             254             0.99931951      1          1     
+52             158             0.99982660      0          1     FN
+53             267             0.99816417      1          0     FP
+54             648             0.99920253      1          1     
+55             615             0.99962969      0          0     
+56             409             0.99894980      0          0     
+57             178             0.99933207      0          0     
+58             105             0.99925452      0          0     
+59             562             0.99991441      0          0     
+60             335             0.99867240      1          0     FP
+61             599             0.99835474      1          0     FP
+62             626             0.99994395      0          0     
+63             29              0.99883472      1          1     
+64             573             0.99664228      0          0     
+65             656             0.99924823      0          1     FN
+66             556             0.99994689      0          0     
+67             298             0.99765099      0          1     FN
+68             630             0.99989120      1          0     FP
+69             483             0.99990684      0          0     
+70             97              0.99975472      1          0     FP
+71             122             0.99852485      1          1     
+72             500             0.99996656      0          0     
+73             395             0.99987188      0          1     FN
+74             688             0.99997497      1          0     FP
+75             103             0.99839132      1          1     
+76             486             0.99954918      0          1     FN
+--- Session ended : 2022-02-23-152400
