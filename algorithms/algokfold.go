@@ -67,15 +67,14 @@ func splitDataSetIntoEvenFolds(dataset []diabetesdata.PimaDiabetesRecord, folds 
 	return kfoldFolds, nil
 }
 
-func calculateKFoldMetrics(dataset []diabetesdata.PimaDiabetesRecord, foldIndex int) {
+func calculateKFoldMetrics(dataset []diabetesdata.PimaDiabetesRecord, foldIndex int, actualOutcomeValue int) {
 
 	if len(kfoldSimilarityTable) == 0 { // sanity checking
 		return
 	}
 
 	// most similar record from training set will now be element zero.
-	numberOfNearestNeighbours := support.GetNumberOfNeighbours()
-	//	countTPThreshold := classifier.ThresholdClassifier.TPThreshold
+	numberOfNearestNeighbours := support.GetNumberOfNeighbours() // N
 
 	closestRecordsIndices := make([]int, numberOfNearestNeighbours) // set of closest matches
 
@@ -83,42 +82,44 @@ func calculateKFoldMetrics(dataset []diabetesdata.PimaDiabetesRecord, foldIndex 
 		closestRecordsIndices[neighbourIndex] = kfoldSimilarityTable[neighbourIndex].Index
 	}
 
-	// get predicted value from closest match
-	var expectedOutcomeValue int // defaults to healthy = 0
-
 	// have we sufficient positive nearest neighbours to reach the threshold
-	count := 0
-
+	falseCount := 0
+	trueCount := 0
+	predictedOutcomeValue := actualOutcomeValue // healthy
+	// get concensus from N nearest records
 	for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
-		count += dataset[closestRecordsIndices[neighbourIndex]].TestedPositive
+
+		if dataset[closestRecordsIndices[neighbourIndex]].TestedPositive == 1 {
+			trueCount++
+		} else {
+			falseCount++
+		}
 	}
 
-	// some munging!!!!
-	//	if expectedOutcomeValue == 0 { // healthy
-	//		if count >= countTPThreshold {
-	//			expectedOutcomeValue = 1  // diseased
-	//		}
-	//	}
-
-	actualOutcome := dataset[closestRecordsIndices[0]].TestedPositive //??
+	// if sufficient then flip count
+	if trueCount > falseCount { // concensus
+		predictedOutcomeValue = 1
+	} else if falseCount > trueCount {
+		predictedOutcomeValue = 0
+	}
 
 	//TP
-	if expectedOutcomeValue == 1 && actualOutcome == 1 {
+	if predictedOutcomeValue == 1 && actualOutcomeValue == 1 {
 		truePositiveCount++
 	}
 
-	//TN
-	if expectedOutcomeValue == 0 && actualOutcome == 0 {
-		trueNegativeCount++
-	}
-
 	//FP
-	if expectedOutcomeValue == 1 && actualOutcome == 0 {
+	if predictedOutcomeValue == 1 && actualOutcomeValue == 0 {
 		falsePositiveCount++
 	}
 
+	//TN
+	if predictedOutcomeValue == 0 && actualOutcomeValue == 0 {
+		trueNegativeCount++
+	}
+
 	//FN
-	if expectedOutcomeValue == 0 && actualOutcome == 1 {
+	if predictedOutcomeValue == 0 && actualOutcomeValue == 1 {
 		falseNegativeCount++
 	}
 
@@ -129,6 +130,8 @@ func calculateKFoldMetrics(dataset []diabetesdata.PimaDiabetesRecord, foldIndex 
 }
 
 func DoKFoldSplit(dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) ([]diabetesdata.PimaDiabetesRecord, error) {
+
+	var expectedValue int
 
 	str := fmt.Sprintf("Number of folds : %d\n", numberOfFolds)
 	logging.DoWriteString(str, true, true)
@@ -160,6 +163,7 @@ func DoKFoldSplit(dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) 
 					var index int
 					var sim float64
 
+					expectedValue = dataset[(testIndex*numberOfFolds)+indexTestFold].TestedPositive
 					for indexTrainingFold := 0; indexTrainingFold < len(splitDataset[trainingIndex]); indexTrainingFold++ {
 
 						rec1 := dataset[splitDataset[testIndex][indexTestFold]]
@@ -203,7 +207,7 @@ func DoKFoldSplit(dataset []diabetesdata.PimaDiabetesRecord, numberOfFolds int) 
 					}
 
 					//get metrics for this test fold
-					calculateKFoldMetrics(dataset, testIndex) // get TP, FP, TN, FN etc for test index
+					calculateKFoldMetrics(dataset, testIndex, expectedValue) // get TP, FP, TN, FN etc for test index
 					kfoldSimilarityTable = kfoldSimilarityTable[:0]
 
 					vectorsCompared := len(splitDataset[testIndex]) * len(splitDataset[trainingIndex])

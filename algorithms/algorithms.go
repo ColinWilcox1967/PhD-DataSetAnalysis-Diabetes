@@ -140,8 +140,6 @@ func showSessionMetrics(sessionhandle *os.File) {
 		logging.DoWriteString(str, true, true)
 		sessionhandle.WriteString(str)
 
-		os.Exit(-01)
-
 		// Accuracy
 		totalCount := totalCount(index)
 		totalCorrect := totalCorrect(index)

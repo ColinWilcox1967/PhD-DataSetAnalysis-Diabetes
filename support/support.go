@@ -8,6 +8,7 @@ import (
 	"../diabetesdata"
 )
 
+// Sole place of definition now !!!!
 const N = 1 // Neighbour count
 
 // merge with definitions elsewhere
