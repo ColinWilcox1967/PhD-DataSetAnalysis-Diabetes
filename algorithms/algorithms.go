@@ -22,7 +22,7 @@ var KfoldCount = default_kfold_count
 var Metrics [10]metrics.SessionMetrics
 
 var algorithmDescriptions = []string{"None", // 0
-	"Remove Incomplete Records",                          //1
+	"Remove Incomplete Records",                          // 1
 	"Replace Missing Values With Mean",                   // 2
 	"Replace Missing Values With Modal",                  // 3
 	"Replace Missing Values Based On Nearest Neighbours", // 4
