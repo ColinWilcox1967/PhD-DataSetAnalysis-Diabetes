@@ -17,6 +17,7 @@ import (
 	"./diabetesdata"
 	"./logging"
 	"./metrics"
+	"./msqrt"
 	"./session"
 	"./support"
 )
@@ -39,6 +40,14 @@ var (
 	algorithmToUse                                                int    // reference of which cell replacement algorithm will be used.
 	dataset                                                       string // diabetes or traffic data
 
+	msqrt_in_use bool
+
+	//temp
+	total     [8]float64
+	missing   [8]int
+	mean      [8]float64
+	existing  [8]int
+	existMean [8]float64
 )
 
 func showTitle() {
@@ -50,10 +59,134 @@ func showSessionHeading() {
 	logging.DoWriteString(str, false, true)
 }
 
+//temp
+func clearTotal() {
+	for i := 0; i < 8; i++ {
+		total[i] = 0.0
+	}
+}
+func clearMean() {
+	for i := 0; i < 8; i++ {
+		mean[i] = 0.0
+	}
+}
+
+func clearMissing() {
+	for i := 0; i < 8; i++ {
+		missing[i] = 0
+	}
+}
+
+func clearExisting() {
+	for i := 0; i < 8; i++ {
+		existing[i] = 0
+	}
+}
+
+func updateAllExisting() {
+	for i := 0; i < 8; i++ {
+		existing[i]++
+	}
+}
+
+func getStats(data []diabetesdata.PimaDiabetesRecord) {
+
+	clearMissing()
+	clearMean()
+	clearExisting()
+	clearTotal()
+	for i := 0; i < len(data); i++ {
+		rec := data[i]
+
+		if support.IsIncompleteRecord(rec) {
+			if rec.NumberOfTimesPregnant == 0 {
+				missing[0]++
+			} else {
+				existing[0]++
+				total[0] += rec.NumberOfTimesPregnant
+			}
+
+			if rec.PlasmaGlucoseConcentration == 0.0 {
+				missing[1]++
+			} else {
+				existing[1]++
+				total[1] += rec.PlasmaGlucoseConcentration
+			}
+
+			if rec.DiastolicBloodPressure == 0.0 {
+				missing[2]++
+			} else {
+				existing[2]++
+				total[2] += rec.DiastolicBloodPressure
+			}
+
+			if rec.TricepsSkinfoldThickness == 0.0 {
+				missing[3]++
+			} else {
+				existing[3]++
+				total[3] += rec.TricepsSkinfoldThickness
+			}
+
+			if rec.SeriumInsulin == 0.0 {
+				missing[4]++
+			} else {
+				existing[4]++
+				total[4] += rec.SeriumInsulin
+			}
+
+			if rec.BodyMassIndex == 0.0 {
+				missing[5]++
+			} else {
+				existing[5]++
+				total[5] += rec.BodyMassIndex
+			}
+
+			if rec.DiabetesPedigreeFunction == 0.0 {
+				missing[6]++
+			} else {
+				existing[6]++
+				total[6] += rec.DiabetesPedigreeFunction
+			}
+
+			if rec.Age == 0 {
+				missing[7]++
+			} else {
+				existing[7]++
+				total[7] += rec.Age
+			}
+
+		} else {
+			updateAllExisting()
+			total[0] += rec.NumberOfTimesPregnant
+			total[1] += rec.PlasmaGlucoseConcentration
+			total[2] += rec.DiastolicBloodPressure
+			total[3] += rec.TricepsSkinfoldThickness
+			total[4] += rec.SeriumInsulin
+			total[5] += rec.BodyMassIndex
+			total[6] += rec.DiabetesPedigreeFunction
+			total[7] += rec.Age
+		}
+	}
+
+	// update means
+	for i := 0; i < 8; i++ {
+		mean[i] = total[i] / float64(existing[i])
+	}
+
+	for i := 0; i < 8; i++ {
+		fmt.Printf("%d: Missing %d (%0.2f),  Existing %d (%0.2f), Total %0.4f Mean %0.4f\n", i, missing[i], support.Percentage(float64(missing[i]), 768.0), existing[i], support.Percentage(float64(existing[i]), 768.0), total[i], mean[i])
+	}
+
+	os.Exit(-1)
+}
+
+// end temp
+
 func getParameters() {
 
 	var sessionFolder string
 
+	flag.BoolVar(&msqrt_in_use, "msqrt", false, "Dump MSQRT Data")
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
 	flag.IntVar(&algorithmToUse, "algo", 0, "Specifies which missing data algorithm is applied.")
@@ -257,6 +390,11 @@ func main() {
 	err, count := loadDiabetesFile(diabetes_data_file)
 	if err != nil {
 		panic(err)
+	}
+
+	// Only if -MSQRT flag is provided
+	if msqrt_in_use {
+		msqrt.DoCalculateMSQR(pimaDiabetesData)
 	}
 
 	str = fmt.Sprintf("Read %d diabetes records.\n", count)
