@@ -38,7 +38,6 @@ func createMSQRTFile(filename string) (*os.File, error) {
 	var err error
 	var handle *os.File
 
-	fmt.Println(filename)
 	handle, err = os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		return nil, err
@@ -57,6 +56,7 @@ func featureName(i int) string {
 }
 
 func dumpMSQRTRecordSubset(handle *os.File, feature int) {
+
 	str := fmt.Sprintf("Feature: %s ...\n", featureName(feature))
 
 	handle.WriteString(str)
@@ -109,8 +109,11 @@ func calculateMSQRT() float64 {
 }
 
 func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
-	handle, err := createMSQRTFile(createMSQRTFileName())
 
+	filename := createMSQRTFileName()
+	handle, err := createMSQRTFile(filename)
+
+	fmt.Printf("MSQRT File : %s\n", filename)
 	if err != nil {
 		os.Exit(-99) // just  a simple bomb out
 	}
@@ -135,9 +138,10 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 			counter++
 		}
+
 		dumpMSQRTRecordSubset(handle, feature)
 
-		str := fmt.Sprintf("*** MSQRT for Feature %d = %0.4f\n", feature+1, calculateMSQRT())
+		str := fmt.Sprintf("*** MSQRT for Feature = %0.4f\n", calculateMSQRT())
 		handle.WriteString(str)
 
 	}

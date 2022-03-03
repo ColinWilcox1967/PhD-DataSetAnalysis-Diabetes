@@ -40,7 +40,8 @@ var (
 	algorithmToUse                                                int    // reference of which cell replacement algorithm will be used.
 	dataset                                                       string // diabetes or traffic data
 
-	msqrt_in_use bool
+	msqrt_in_use          bool
+	sparsity_stats_in_use bool
 
 	//temp
 	total     [8]float64
@@ -186,6 +187,7 @@ func getParameters() {
 
 	var sessionFolder string
 
+	flag.BoolVar(&sparsity_stats_in_use, "stats", false, "Dump sparsity stats")
 	flag.BoolVar(&msqrt_in_use, "msqrt", false, "Dump MSQRT Data")
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
 	flag.StringVar(&logfileName, "log", default_logfile, "Name of logging file.")
@@ -390,6 +392,10 @@ func main() {
 	err, count := loadDiabetesFile(diabetes_data_file)
 	if err != nil {
 		panic(err)
+	}
+
+	if sparsity_stats_in_use {
+		getStats(pimaDiabetesData)
 	}
 
 	// Only if -MSQRT flag is provided
