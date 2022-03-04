@@ -177,8 +177,6 @@ func getStats(data []diabetesdata.PimaDiabetesRecord) {
 	for i := 0; i < 8; i++ {
 		fmt.Printf("%d: Missing %d (%0.2f),  Existing %d (%0.2f), Total %0.4f Mean %0.4f\n", i, missing[i], support.Percentage(float64(missing[i]), 768.0), existing[i], support.Percentage(float64(existing[i]), 768.0), total[i], mean[i])
 	}
-
-	os.Exit(-1)
 }
 
 // end temp
@@ -396,6 +394,7 @@ func main() {
 
 	if sparsity_stats_in_use {
 		getStats(pimaDiabetesData)
+		os.Exit(-1)
 	}
 
 	// Only if -MSQRT flag is provided
