@@ -21,6 +21,7 @@ type TableItem struct {
 }
 
 var table []TableItem
+var tableIndex int
 
 type dataItem struct {
 	Field [9]float64
@@ -33,19 +34,20 @@ func addToSimilarityTable(index int, similarity float64) {
 	newItem.Index = index
 	newItem.Similarity = similarity
 
-	if len(table) < TABLE_SIZE {
-		table = append(table, newItem)
+	if tableIndex < TABLE_SIZE {
+		table[tableIndex].Index = newItem.Index
+		table[tableIndex].Similarity = newItem.Similarity
+		tableIndex++
 	} else {
 		if newItem.Similarity < table[TABLE_SIZE-1].Similarity {
 			table[TABLE_SIZE-1].Index = newItem.Index
 			table[TABLE_SIZE-1].Similarity = newItem.Similarity
 		}
-
+		sort.Slice(table, func(i, j int) bool {
+			return table[i].Similarity < table[j].Similarity
+		})
 	}
 
-	sort.Slice(table, func(i, j int) bool {
-		return table[i].Similarity < table[j].Similarity
-	})
 }
 
 func dumpData(data []dataItem) {
@@ -62,6 +64,17 @@ func dumpSimTable() {
 	for i := 0; i < len(table); i++ {
 		fmt.Printf("(%d) %d %f\n", i, table[i].Index, table[i].Similarity)
 	}
+}
+
+func dumpSimTableValues(resultsSet []diabetesdata.PimaDiabetesRecord, index int) {
+	total := 0.0
+	for i := 0; i < N; i++ {
+		value := getField(resultsSet[table[i].Index], index)
+		fmt.Printf("(%d) %d %0.4f; ", i, table[i].Index, value)
+		total += getField(resultsSet[table[i].Index], index)
+	}
+	fmt.Printf(" Avg: %0.4f\n", total/float64(N))
+
 }
 
 // algo=4
@@ -116,30 +129,28 @@ func setField(r diabetesdata.PimaDiabetesRecord, idx int, value float64) diabete
 
 func getField(r diabetesdata.PimaDiabetesRecord, idx int) float64 {
 
-	var value float64
-
 	switch idx {
 	case 0:
-		value = r.NumberOfTimesPregnant
+		return r.NumberOfTimesPregnant
 	case 1:
-		value = r.DiastolicBloodPressure
+		return r.DiastolicBloodPressure
 	case 2:
-		value = r.PlasmaGlucoseConcentration
+		return r.PlasmaGlucoseConcentration
 	case 3:
-		value = r.TricepsSkinfoldThickness
+		return r.TricepsSkinfoldThickness
 	case 4:
-		value = r.SeriumInsulin
+		return r.SeriumInsulin
 	case 5:
-		value = r.BodyMassIndex
+		return r.BodyMassIndex
 	case 6:
-		value = r.DiabetesPedigreeFunction
+		return r.DiabetesPedigreeFunction
 	case 7:
-		value = r.Age
+		return r.Age
 	default:
 		os.Exit(-2)
 	}
 
-	return value
+	return -1
 }
 
 func isIncompleteRecord(rec diabetesdata.PimaDiabetesRecord) (bool, []int) {
@@ -172,19 +183,22 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 	// just copy dataset to resultset and work on this slice going fwd
 
 	for record := 0; record < len(resultSet); record++ {
+
 		incomplete, missingFields := isIncompleteRecord(resultSet[record])
 		if incomplete {
 			for index := 0; index < len(missingFields); index++ {
-				total := 0.0
+				//	total := 0.0
 				idx := missingFields[index]
+
+				table = make([]TableItem, TABLE_SIZE)
+				tableIndex = 0
 
 				for rec := 0; rec < len(resultSet); rec++ {
 					if rec != record {
 						incomplete, _ = isIncompleteRecord(resultSet[rec])
 						if !incomplete {
-							numberOfFields := support.GetNumberOfFieldsInStructure(resultSet[rec])
+							numberOfFields := support.GetNumberOfFieldsInStructure(resultSet[rec]) - 1
 							addToSimilarityTable(rec, support.CosineSimilarity(toVector(resultSet[record]), toVector(resultSet[rec]), numberOfFields))
-							total += getField(resultSet[rec], idx)
 						}
 					}
 
@@ -195,8 +209,11 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 
 				// Algorithm: Mean N-Neighbour
 				for i := 0; i < N; i++ { // average of nearest N values for this field
-					value += getField(resultSet[table[i].Index], idx)
+					v := getField(resultSet[table[i].Index], idx)
+					value += v
 				}
+
+				//				dumpSimTableValues(resultSet, idx)
 
 				if N <= 0 {
 					value = getField(resultSet[table[0].Index], idx) // prevent divide by zero or calc error
@@ -220,11 +237,5 @@ func replaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 		}
 	}
 
-	if counter > 0 {
-		fmt.Println("Error: Dataset is still incomplete this shouldnt be the case")
-		os.Exit(-99)
-	}
-
 	return resultSet, nil
-
 }

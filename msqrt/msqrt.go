@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	N_MSQRT    = 50
+	N_MSQRT    = 3 // for testing against 6 complete records
 	MSQRT_FILE = "MSQRT_"
 )
 
@@ -21,9 +21,6 @@ type MSQRTDetails struct {
 	Id                int
 	Predicted, Actual float64
 }
-
-//var completeSubset [N_MSQRT]diabetesdata.PimaDiabetesRecord // storage for the complete subsets
-var dataCopy []diabetesdata.PimaDiabetesRecord
 
 var MSQRTData [N_MSQRT]MSQRTDetails
 var counter int
@@ -45,44 +42,6 @@ func createMSQRTFileName() string {
 	str += fmt.Sprintf("%s.txt", getCurrentTimestamp())
 
 	return str
-}
-
-func predictMissingValue(r diabetesdata.PimaDiabetesRecord, featureIndex int) {
-	var active diabetesdata.PimaDiabetesRecord
-
-	// surelty we can just copy this structure???
-	active.NumberOfTimesPregnant = r.NumberOfTimesPregnant
-	active.PlasmaGlucoseConcentration = r.PlasmaGlucoseConcentration
-	active.DiastolicBloodPressure = r.DiastolicBloodPressure
-	active.TricepsSkinfoldThickness = r.TricepsSkinfoldThickness
-	active.SeriumInsulin = r.SeriumInsulin
-	active.BodyMassIndex = r.BodyMassIndex
-	active.DiabetesPedigreeFunction = r.DiabetesPedigreeFunction
-	active.Age = r.Age
-	active.TestedPositive = r.TestedPositive
-
-	switch featureIndex {
-	case 0:
-		active.NumberOfTimesPregnant = 0
-	case 1:
-		active.PlasmaGlucoseConcentration = 0.0
-	case 2:
-		active.DiastolicBloodPressure = 0.0
-	case 3:
-		active.TricepsSkinfoldThickness = 0.0
-	case 4:
-		active.SeriumInsulin = 0.0
-	case 5:
-		active.BodyMassIndex = 0.0
-	case 6:
-		active.DiabetesPedigreeFunction = 0.0
-	case 7:
-		active.Age = 0
-	default:
-		fmt.Printf("Illegal field Id")
-		os.Exit(-99)
-	}
-
 }
 
 func createMSQRTFile(filename string) (*os.File, error) {
@@ -208,6 +167,7 @@ func calculateMSQRT() float64 {
 
 func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
+	// Create logging data session file
 	filename := createMSQRTFileName()
 	handle, err := createMSQRTFile(filename)
 
@@ -218,69 +178,67 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 	defer handle.Close()
 
-	dataCopy := make([]diabetesdata.PimaDiabetesRecord, len(data))
-	copy(dataCopy[:], data)
+	// backup complete record subset for later use
+	var dataCompleteSubset []diabetesdata.PimaDiabetesRecord
 
-	fmt.Printf("Len data copy, data = %d %d\n", len(dataCopy), len(data))
+	for i := 0; i < len(data); i++ {
+		if !support.IsIncompleteRecord(data[i]) {
+			dataCompleteSubset = append(dataCompleteSubset, data[i])
+		}
+	}
+
+	rawData := make([]diabetesdata.PimaDiabetesRecord, len(dataCompleteSubset))
+
+	// for each feature remove M_SQRT random values
 	for feature := 0; feature < 8; feature++ {
-
 		resetMSQRTData()
 
-		counter := 0
-		//pick N_MSQRT records at random
+		copy(rawData[:], dataCompleteSubset)
 
+		counter := 0
+
+		//pick N_MSQRT records at random
 		rand.Seed(time.Now().UTC().UnixNano())
 		for counter < N_MSQRT {
 
-			var r = rand.Intn(len(data))
+			var r = rand.Intn(len(rawData))
 
 			// only choose unique complete records
-			for alreadyChosenRecord(r) || support.IsIncompleteRecord(data[r]) {
-				r = rand.Intn(len(data))
-
+			for alreadyChosenRecord(r) {
+				r = rand.Intn(len(rawData))
 			}
 
 			MSQRTData[counter].Id = r
 			MSQRTData[counter].Predicted = 0.0
 
-			MSQRTData[counter].Actual = getFeatureValue(data[r], feature)
+			MSQRTData[counter].Actual = getFeatureValue(rawData[r], feature)
 
 			// now clear it for repopulation
-			data[r] = setFeatureValue(data[r], feature, 0.0)
+			rawData[r] = setFeatureValue(rawData[r], feature, 0.0)
 
 			counter++
-
 		}
 
-		// take each record
-		for i := 0; i < N_MSQRT; i++ {
-			predictMissingValue(data[MSQRTData[i].Id], feature)
-		}
+		// Call the neighbourhood algorithm with the prepared data
 
-		newdata, err := algorithms.DoProcessAlgorithm(data, 4) // hook into to new neighbour algo
+		newdata, err := algorithms.DoProcessAlgorithm(rawData, 4)
 
 		if err != nil {
 			fmt.Println("Error running neighbour algo")
 			os.Exit(-100)
 		}
 
-		// *** fill in all the predicted values here
+		// Fill in all the predicted values here
 		for i := 0; i < N_MSQRT; i++ {
-			// get the predicted value out
-
 			rec := newdata[MSQRTData[i].Id]
-
 			MSQRTData[i].Predicted = getFeatureValue(rec, feature)
-
 		}
 
+		// Dump predicted and actual values to file
 		dumpMSQRTRecordSubset(handle, feature)
 
-		str := fmt.Sprintf("*** MSQRT for Feature = %0.4f\n", calculateMSQRT())
+		str := fmt.Sprintf("*** MSQRT for Feature = %0.4f\n\n", calculateMSQRT())
 		handle.WriteString(str)
-
-		copy(data[:], dataCopy)
-
 	}
 
 }
