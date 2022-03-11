@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	N_MSQRT    = 3 // for testing against 6 complete records
+	N_MSQRT    = 5 // for testing against complete records
 	MSQRT_FILE = "MSQRT_"
 )
 
@@ -39,7 +39,7 @@ func resetMSQRTData() {
 
 func createMSQRTFileName() string {
 	str := MSQRT_FILE
-	str += fmt.Sprintf("%s.txt", getCurrentTimestamp())
+	str += fmt.Sprintf("%s (N=%d).txt", getCurrentTimestamp(), support.N)
 
 	return str
 }
@@ -71,10 +71,10 @@ func dumpMSQRTRecordSubset(handle *os.File, feature int) {
 
 	handle.WriteString(str)
 	for i := 0; i < N_MSQRT; i++ {
-		str = fmt.Sprintf("%03d: Predicted %0.4f, Actual %0.4f\n", MSQRTData[i].Id, MSQRTData[i].Predicted, MSQRTData[i].Actual)
-
+		str = fmt.Sprintf("%03d: Actual %0.4f, Predicted %0.4f\n", MSQRTData[i].Id, MSQRTData[i].Actual, MSQRTData[i].Predicted)
 		handle.WriteString(str)
 	}
+
 }
 
 // simply prevent duplicates
@@ -191,6 +191,11 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 	// for each feature remove M_SQRT random values
 	for feature := 0; feature < 8; feature++ {
+
+		fmt.Println(feature)
+
+		actualValues := make([]float64, 8)
+
 		resetMSQRTData()
 
 		copy(rawData[:], dataCompleteSubset)
@@ -213,6 +218,8 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 			MSQRTData[counter].Actual = getFeatureValue(rawData[r], feature)
 
+			actualValues[counter] = MSQRTData[counter].Actual
+
 			// now clear it for repopulation
 			rawData[r] = setFeatureValue(rawData[r], feature, 0.0)
 
@@ -221,7 +228,7 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 		// Call the neighbourhood algorithm with the prepared data
 
-		newdata, err := algorithms.DoProcessAlgorithm(rawData, 4)
+		newdata, err := algorithms.ReplaceNearestNeighbours(actualValues, rawData) // the new N-neighbour algo
 
 		if err != nil {
 			fmt.Println("Error running neighbour algo")
@@ -239,6 +246,7 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 		str := fmt.Sprintf("*** MSQRT for Feature = %0.4f\n\n", calculateMSQRT())
 		handle.WriteString(str)
+
 	}
 
 }

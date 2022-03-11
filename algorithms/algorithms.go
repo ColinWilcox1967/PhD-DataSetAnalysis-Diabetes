@@ -19,7 +19,7 @@ const (
 )
 
 var KfoldCount = default_kfold_count
-var Metrics [10]metrics.SessionMetrics
+var Metrics [11]metrics.SessionMetrics
 
 var algorithmDescriptions = []string{"None", // 0
 	"Remove Incomplete Records",                          // 1
@@ -58,7 +58,7 @@ func DoProcessAlgorithm(dataset []diabetesdata.PimaDiabetesRecord, algorithm int
 	case 3:
 		dataset, err = replaceMissingValuesWithModal(dataset)
 	case 4:
-		dataset, err = replaceNearestNeighbours(dataset) // the new N-neighbour algo
+		//		dataset, err = ReplaceNearestNeighbours(dataset) // the new N-neighbour algo
 
 	default:
 		copy(data[:], dataset)
@@ -227,7 +227,7 @@ func DoShowAlgorithmTestSummary(sessionhandle *os.File, testdata []diabetesdata.
 		numberOfNearestNeighbours := support.GetNumberOfNeighbours()
 		//countTPThreshold := classifier.ThresholdClassifier.TPThreshold
 
-		closestRecordsIndices := make([]int, numberOfNearestNeighbours) // five closest matches
+		closestRecordsIndices := make([]int, numberOfNearestNeighbours) // N closest matches
 
 		for neighbourIndex := 0; neighbourIndex < numberOfNearestNeighbours; neighbourIndex++ {
 			closestRecordsIndices[neighbourIndex] = SimilarityTable[neighbourIndex].Index
