@@ -4,16 +4,86 @@ import (
 	"math"
 	"os"
 	"reflect"
+	"sort"
 
 	"../diabetesdata"
 )
 
 // Sole place of definition now !!!!
-const N = 1 // Neighbour count
+const N = 5 // Neighbour count
 
 // merge with definitions elsewhere
 func isEmptyField(value float64) bool {
 	return value == 0.0 // for this case zero indicates missing
+}
+
+func GetMeanValue(data []float64) float64 {
+	total := 0.0
+
+	for i := 0; i < len(data); i++ {
+		total += data[i]
+	}
+
+	return total / float64(len(data))
+}
+
+func GetMedianValue(data []float64) float64 {
+
+	n := len(data)
+
+	sorted := make([]float64, n)
+	copy(sorted, data)
+
+	sort.Slice(sorted, func(i, j int) bool {
+		return sorted[i] > sorted[j]
+	})
+
+	if n%2 == 0 {
+		// even
+		return (sorted[n/2] + sorted[(n/2)-1]) / 2
+	}
+
+	return sorted[(n-1)/2]
+}
+
+func alreadyAdded(data []float64, value float64) bool {
+	for i := 0; i < len(data); i++ {
+		if data[i] == value {
+			return true
+		}
+	}
+
+	return false
+}
+
+func GetModalValue(data []float64) []float64 {
+
+	frequency := make(map[float64]int)
+	var results []float64
+	var maxCount int = 0
+
+	for i := 0; i < len(data); i++ {
+		count := frequency[data[i]]
+
+		if count > 0 {
+			frequency[data[i]]++
+		} else {
+			frequency[data[i]] = 1
+		}
+
+		// update top counter
+		if frequency[data[i]] > maxCount {
+			maxCount = frequency[data[i]]
+		}
+	}
+
+	for i := 0; i < len(frequency); i++ {
+		if (frequency[data[i]] == maxCount) && !alreadyAdded(results, data[i]) {
+			results = append(results, data[i])
+		}
+	}
+
+	return results
 }
 
 func GetNumberOfNeighbours() int {

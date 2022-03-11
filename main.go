@@ -351,6 +351,7 @@ func main() {
 
 	var str string
 
+
 	getParameters()
 
 	if err := logging.InitLog(logfileName); err != nil {
