@@ -192,15 +192,16 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 	// for each feature remove M_SQRT random values
 	for feature := 0; feature < 8; feature++ {
 
-		fmt.Println(feature)
-
 		actualValues := make([]float64, 8)
 
 		resetMSQRTData()
 
 		copy(rawData[:], dataCompleteSubset)
-
 		counter := 0
+
+		// N-Neighbour algorithm preprocessing ...
+		// (1) remove any records which contain a unique feature value
+		rawData = algorithms.PreprocessRemoveUniqueFeatureRecords(rawData)
 
 		//pick N_MSQRT records at random
 		rand.Seed(time.Now().UTC().UnixNano())

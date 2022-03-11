@@ -12,6 +12,7 @@ import (
 )
 
 const (
+	DEBUG_FLAG                 = true
 	N                          = support.N
 	TABLE_SIZE                 = N
 	SOMETHING_BIG_AND_POSITIVE = 99999.0
@@ -199,7 +200,6 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 
 	// cut off the extremes
 	if len(featureValues) > 3 {
-		fmt.Println(median)
 		minValue := median * .80
 		maxValue := median * 1.2
 
@@ -269,6 +269,55 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 	return mean
 }
 
+func preprocessRemoveIncompleteRecords(data []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord {
+	var results []diabetesdata.PimaDiabetesRecord
+
+	for record := 0; record < len(results); record++ {
+		if !support.IsIncompleteRecord(data[record]) {
+			results = append(results, data[record])
+		}
+	}
+
+	return results
+}
+
+func PreprocessRemoveUniqueFeatureRecords(data []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord {
+
+	results := make([]diabetesdata.PimaDiabetesRecord, len(data))
+	copy(results[:], data)
+
+	// for each feature ...
+	for feature := 0; feature < 8; feature++ {
+		freqs := make(map[float64]int)
+
+		// ... build a map of the frequencies of each feature value
+		for record := 0; record < len(results); record++ {
+			value := getField(results[record], feature)
+			if freqs[value] == 0 {
+				freqs[value] = 1
+			} else {
+				freqs[value]++
+			}
+		}
+
+		// and remove any records whose feature value appears only once.
+		for record := 0; record < len(results); record++ {
+			value := getField(results[record], feature)
+			if freqs[value] == 1 {
+				// lose the record at index 0
+				if record == 0 {
+					results = results[0:]
+				} else { // lose record  at index record.
+					results = append(results[:record], results[record+1:]...)
+				}
+			}
+		}
+
+	}
+
+	return results
+}
+
 // using plain nearest neighbour removing incomplete data from the set of possible donors
 func ReplaceNearestNeighbours(actualValues []float64, dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
@@ -312,21 +361,26 @@ func ReplaceNearestNeighbours(actualValues []float64, dataset []diabetesdata.Pim
 				}
 
 				// TEMP DEBUG
-				fmt.Println("-------")
+				if DEBUG_FLAG {
+					fmt.Println("-------")
 
-				fmt.Printf("Idx %d Actual = %0.4f\n", idx, actualValues[idx])
-				fmt.Println(resultSet[record])
-				// END OF TEMP DEBUG
+					fmt.Printf("Idx %d Actual = %0.4f\n", idx, actualValues[idx])
+					fmt.Println(resultSet[record])
+					// END OF TEMP DEBUG
+				}
 
 				fieldValueForClosestRecord := getField(resultSet[table[0].Index], idx)
 
-				fmt.Println(featureValues)
-
-				fmt.Printf("Index 0 = %0.4f ", fieldValueForClosestRecord)
+				if DEBUG_FLAG {
+					fmt.Println(featureValues)
+					fmt.Printf("Index 0 = %0.4f ", fieldValueForClosestRecord)
+				}
 
 				bestValue := replaceMissingValue(fieldValueForClosestRecord, featureValues)
 
-				fmt.Printf("Best = %0.4f\n", bestValue)
+				if DEBUG_FLAG {
+					fmt.Printf("Best = %0.4f\n", bestValue)
+				}
 				resultSet[record] = setField(resultSet[record], idx, bestValue)
 			}
 		}
