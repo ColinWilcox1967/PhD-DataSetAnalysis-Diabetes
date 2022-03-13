@@ -185,6 +185,7 @@ func getParameters() {
 
 	var sessionFolder string
 
+	flag.BoolVar(&algorithms.UseDebug, "debug", false, "Allow debug printing")
 	flag.BoolVar(&sparsity_stats_in_use, "stats", false, "Dump sparsity stats")
 	flag.BoolVar(&msqrt_in_use, "msqrt", false, "Dump MSQRT Data")
 	flag.Float64Var(&splitPercentage, "split", default_split_percentage, "Ratio of test data to training data set sizes. Ratio is between 0 and 1 exclusive.")
@@ -350,7 +351,6 @@ func processDataSets() {
 func main() {
 
 	var str string
-
 
 	getParameters()
 

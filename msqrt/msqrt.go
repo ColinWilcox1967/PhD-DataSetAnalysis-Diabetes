@@ -187,24 +187,20 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 		}
 	}
 
-	rawData := make([]diabetesdata.PimaDiabetesRecord, len(dataCompleteSubset))
+	//rawData := make([]diabetesdata.PimaDiabetesRecord, len(dataCompleteSubset))
+	// N-Neighbour algorithm preprocessing ...
+	// (1) remove any records which contain a unique feature value
+	rawData := algorithms.PreprocessRemoveUniqueFeatureRecords(dataCompleteSubset)
 
+	actualValues := make([]float64, 8)
 	// for each feature remove M_SQRT random values
 	for feature := 0; feature < 8; feature++ {
-
-		actualValues := make([]float64, 8)
-
 		resetMSQRTData()
-
-		copy(rawData[:], dataCompleteSubset)
-		counter := 0
-
-		// N-Neighbour algorithm preprocessing ...
-		// (1) remove any records which contain a unique feature value
-		rawData = algorithms.PreprocessRemoveUniqueFeatureRecords(rawData)
 
 		//pick N_MSQRT records at random
 		rand.Seed(time.Now().UTC().UnixNano())
+
+		counter := 0
 		for counter < N_MSQRT {
 
 			var r = rand.Intn(len(rawData))
@@ -216,7 +212,6 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 
 			MSQRTData[counter].Id = r
 			MSQRTData[counter].Predicted = 0.0
-
 			MSQRTData[counter].Actual = getFeatureValue(rawData[r], feature)
 
 			actualValues[counter] = MSQRTData[counter].Actual
@@ -228,8 +223,7 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 		}
 
 		// Call the neighbourhood algorithm with the prepared data
-
-		newdata, err := algorithms.ReplaceNearestNeighbours(actualValues, rawData) // the new N-neighbour algo
+		newdata, err := algorithms.ReplaceNearestNeighbours(rawData) // the new N-neighbour algo
 
 		if err != nil {
 			fmt.Println("Error running neighbour algo")
@@ -248,6 +242,7 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 		str := fmt.Sprintf("*** MSQRT for Feature = %0.4f\n\n", calculateMSQRT())
 		handle.WriteString(str)
 
+		copy(rawData[:], dataCompleteSubset)
 	}
 
 }

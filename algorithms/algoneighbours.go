@@ -12,7 +12,6 @@ import (
 )
 
 const (
-	DEBUG_FLAG                 = true
 	N                          = support.N
 	TABLE_SIZE                 = N
 	SOMETHING_BIG_AND_POSITIVE = 99999.0
@@ -24,8 +23,14 @@ type TableItem struct {
 	Similarity float64
 }
 
-var table []TableItem
-var tableIndex int
+var (
+	featureFrequencies map[float64]int
+	table              []TableItem
+	tableIndex         int
+)
+
+// global flag
+var UseDebug bool = false
 
 type dataItem struct {
 	Field [9]float64
@@ -186,7 +191,7 @@ func distance(a, b float64) float64 {
 func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValues []float64) float64 {
 
 	//Preprocess 0 - Remove extreme values
-	median := support.GetMedianValue(featureValues)
+	//	median := support.GetMedianValue(featureValues)
 
 	var valuesToUse []float64
 
@@ -199,33 +204,67 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 	})
 
 	// cut off the extremes
-	if len(featureValues) > 3 {
-		minValue := median * .80
-		maxValue := median * 1.2
-
-		for i := 0; i < len(featureValues); i++ {
-			if (featureValues[i] >= minValue) && (featureValues[i] <= maxValue) {
-				valuesToUse = append(valuesToUse, featureValues[i])
-			}
-		}
-	}
+	//	if len(featureValues) > 3 {
+	//		minValue := median * .80
+	//		maxValue := median * 1.2
+	//
+	//		for i := 0; i < len(featureValues); i++ {
+	//			if (featureValues[i] >= minValue) && (featureValues[i] <= maxValue) {
+	//				valuesToUse = append(valuesToUse, featureValues[i])
+	//			}
+	//		}
+	//	}
 	mean := support.GetMeanValue(valuesToUse)
 
 	// Test 1 - Do we have a unique dominant modal value ?
 	modalValues := support.GetModalValue(valuesToUse)
 
+	if UseDebug {
+		fmt.Printf("Modals : ")
+		fmt.Println(modalValues)
+	}
+
 	if len(modalValues) == 1 {
+		if UseDebug {
+			fmt.Println("Test 1 triggered")
+		}
 		return modalValues[0]
 	}
 
-	// Test 2 - Does one of the modal values match the feature value of closest record?
+	// Test 2: Is one of the other modals exist in frequency list
+	// use the global featureFrequencies
+	mostOccurences := 0
+	mostFrequent := -1.0
+
+	for key, value := range featureFrequencies {
+		if value > mostOccurences {
+			mostOccurences = value
+			mostFrequent = key
+		}
+	}
+
+	// if the most common value lies in ther global list use this
+	for _, value := range modalValues {
+		if value == mostFrequent {
+			if UseDebug {
+				fmt.Println("Test 2 triggered")
+			}
+
+			return mostFrequent
+		}
+	}
+
+	// Test 3 - Does one of the modal values match the feature value of closest record?
 	for i := 0; i < len(featureValues); i++ {
 		if valuesToUse[i] == closestMatchingRecordFeatureValue {
+			if UseDebug {
+				fmt.Println("Test 3 triggered")
+			}
 			return valuesToUse[i]
 		}
 	}
 
-	// Test 3 : Is there a modal value closest to predicted value if closest record ?
+	// Test 4 : Is there a modal value closest to predicted value if closest record ?
 	smallestDistance := SOMETHING_BIG_AND_POSITIVE // something arbitary large and positive
 	bestModalValue := 0.0
 	foundClosestMatch := true
@@ -242,11 +281,13 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 	}
 
 	if foundClosestMatch && smallestDistance != SOMETHING_BIG_AND_POSITIVE {
+		if UseDebug {
+			fmt.Println("Test 4 triggered")
+		}
 		return bestModalValue
 	}
 
-	// Test 4 : Is one of the modal values closest to the median?
-
+	// Test 5 : Is one of the modal values closest to the median?
 	d := SOMETHING_BIG_AND_POSITIVE
 	foundClosestMatch = true
 	closestModalToMedian := 0.0
@@ -260,13 +301,36 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 	}
 
 	if foundClosestMatch {
+		if UseDebug {
+			fmt.Println("Test 5 triggered")
+		}
 		return closestModalToMedian
 	}
 
-	// Test 5 : Ensure selected value is within some kind of tolerances
+	// Test 6 : Ensure selected value is within some kind of tolerances
 
 	//  Default: Use Mean
+	if UseDebug {
+		fmt.Println("Test 6 triggered")
+	}
 	return mean
+}
+
+func preprocessBuildFeatureValueFrequencyTable(data []diabetesdata.PimaDiabetesRecord, idx int) map[float64]int {
+
+	featureFrequencies := make(map[float64]int, 8)
+
+	for record := 0; record < len(data); record++ {
+		value := getField(data[record], idx)
+
+		if featureFrequencies[value] > 0 {
+			featureFrequencies[value]++
+		} else {
+			featureFrequencies[value] = 1
+		}
+	}
+
+	return featureFrequencies
 }
 
 func preprocessRemoveIncompleteRecords(data []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord {
@@ -319,7 +383,7 @@ func PreprocessRemoveUniqueFeatureRecords(data []diabetesdata.PimaDiabetesRecord
 }
 
 // using plain nearest neighbour removing incomplete data from the set of possible donors
-func ReplaceNearestNeighbours(actualValues []float64, dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
+func ReplaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diabetesdata.PimaDiabetesRecord, error) {
 
 	numberOfRecords := len(dataset)
 
@@ -341,6 +405,13 @@ func ReplaceNearestNeighbours(actualValues []float64, dataset []diabetesdata.Pim
 				table = make([]TableItem, TABLE_SIZE)
 				tableIndex = 0
 
+				featureFrequencies = preprocessBuildFeatureValueFrequencyTable(resultSet, idx)
+
+				if UseDebug {
+					fmt.Printf("Most common values for feature %d : ", idx)
+					fmt.Println(featureFrequencies)
+				}
+
 				for rec := 0; rec < len(resultSet); rec++ {
 					if rec != record {
 						incomplete, _ = isIncompleteRecord(resultSet[rec])
@@ -360,27 +431,28 @@ func ReplaceNearestNeighbours(actualValues []float64, dataset []diabetesdata.Pim
 					featureValues = append(featureValues, v)
 				}
 
-				// TEMP DEBUG
-				if DEBUG_FLAG {
+				if UseDebug {
 					fmt.Println("-------")
 
-					fmt.Printf("Idx %d Actual = %0.4f\n", idx, actualValues[idx])
+					fmt.Printf("Feature Id %d ...\n", idx)
+					fmt.Printf("Active Record : ")
 					fmt.Println(resultSet[record])
-					// END OF TEMP DEBUG
 				}
 
 				fieldValueForClosestRecord := getField(resultSet[table[0].Index], idx)
 
-				if DEBUG_FLAG {
+				if UseDebug {
+					fmt.Printf("Feature values from most similar records : ")
 					fmt.Println(featureValues)
-					fmt.Printf("Index 0 = %0.4f ", fieldValueForClosestRecord)
+					fmt.Printf("Feature Value In Closest Match = %0.4f \n", fieldValueForClosestRecord)
 				}
 
 				bestValue := replaceMissingValue(fieldValueForClosestRecord, featureValues)
 
-				if DEBUG_FLAG {
-					fmt.Printf("Best = %0.4f\n", bestValue)
+				if UseDebug {
+					fmt.Printf("Best Choice Value = %0.4f\n", bestValue)
 				}
+
 				resultSet[record] = setField(resultSet[record], idx, bestValue)
 			}
 		}
