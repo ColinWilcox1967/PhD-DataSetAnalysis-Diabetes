@@ -10,7 +10,7 @@ import (
 )
 
 // Sole place of definition now !!!!
-const N = 5 // Neighbour count
+const N = 10 // Neighbour count
 
 // merge with definitions elsewhere
 func isEmptyField(value float64) bool {
@@ -25,6 +25,18 @@ func GetMeanValue(data []float64) float64 {
 	}
 
 	return total / float64(len(data))
+}
+
+func StandardDeviation(data []float64) float64 {
+	mean := GetMeanValue(data)
+
+	deltaSumSquared := 0.0
+
+	for i := 0; i < len(data); i++ {
+		deltaSumSquared += ((data[i] - mean) * (data[i] - mean))
+	}
+
+	return math.Sqrt(deltaSumSquared / float64(len(data)))
 }
 
 func GetMedianValue(data []float64) float64 {
@@ -77,9 +89,9 @@ func GetModalValue(data []float64) []float64 {
 		}
 	}
 
-	for i := 0; i < len(frequency); i++ {
-		if (frequency[data[i]] == maxCount) && !alreadyAdded(results, data[i]) {
-			results = append(results, data[i])
+	for key, value := range frequency {
+		if value == maxCount {
+			results = append(results, key)
 		}
 	}
 

@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	N_MSQRT    = 5 // for testing against complete records
+	N_MSQRT    = 10 // for testing against complete records
 	MSQRT_FILE = "MSQRT_"
 )
 
@@ -153,6 +153,35 @@ func getFeatureValue(r diabetesdata.PimaDiabetesRecord, index int) float64 {
 	return (-1) //unreachable code!!!
 }
 
+func normaliseDiabetesData(data []diabetesdata.PimaDiabetesRecord) []diabetesdata.PimaDiabetesRecord {
+
+	means := make([]float64, 8)                                          // feature mean values
+	sds := make([]float64, 8)                                            // feature standard deviations
+	normalisedData := make([]diabetesdata.PimaDiabetesRecord, len(data)) // normalised data to return
+
+	for feature := 0; feature < 8; feature++ {
+		featureData := make([]float64, len(data)) // column of all values for a feature
+
+		for record := 0; record < len(data); record++ {
+			featureData[record] = getFeatureValue(data[record], feature)
+		}
+
+		means[feature] = support.GetMeanValue(featureData)
+		sds[feature] = support.StandardDeviation(featureData)
+	}
+
+	// now normalise the data
+	copy(normalisedData[:], data)
+	for feature := 0; feature < 8; feature++ {
+		for record := 0; record < len(data); record++ {
+			currentValue := getFeatureValue(data[record], feature)
+			normalisedValue := (currentValue - means[feature]) / sds[feature]
+			normalisedData[record] = setFeatureValue(normalisedData[record], feature, normalisedValue)
+		}
+	}
+
+	return normalisedData
+}
 func calculateMSQRT() float64 {
 
 	sum := 0.0
@@ -192,6 +221,8 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 	// (1) remove any records which contain a unique feature value
 	rawData := algorithms.PreprocessRemoveUniqueFeatureRecords(dataCompleteSubset)
 
+	rawData = normaliseDiabetesData(rawData)
+
 	actualValues := make([]float64, 8)
 	// for each feature remove M_SQRT random values
 	for feature := 0; feature < 8; feature++ {
@@ -214,7 +245,7 @@ func DoCalculateMSQR(data []diabetesdata.PimaDiabetesRecord) {
 			MSQRTData[counter].Predicted = 0.0
 			MSQRTData[counter].Actual = getFeatureValue(rawData[r], feature)
 
-			actualValues[counter] = MSQRTData[counter].Actual
+			actualValues[feature] = MSQRTData[counter].Actual
 
 			// now clear it for repopulation
 			rawData[r] = setFeatureValue(rawData[r], feature, 0.0)

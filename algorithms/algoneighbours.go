@@ -191,7 +191,7 @@ func distance(a, b float64) float64 {
 func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValues []float64) float64 {
 
 	//Preprocess 0 - Remove extreme values
-	//	median := support.GetMedianValue(featureValues)
+	median := support.GetMedianValue(featureValues)
 
 	var valuesToUse []float64
 
@@ -203,38 +203,32 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 		return valuesToUse[i] > valuesToUse[j]
 	})
 
-	// cut off the extremes
-	//	if len(featureValues) > 3 {
-	//		minValue := median * .80
-	//		maxValue := median * 1.2
-	//
-	//		for i := 0; i < len(featureValues); i++ {
-	//			if (featureValues[i] >= minValue) && (featureValues[i] <= maxValue) {
-	//				valuesToUse = append(valuesToUse, featureValues[i])
-	//			}
-	//		}
-	//	}
+	if UseDebug {
+		fmt.Printf("Values To Use : ")
+		fmt.Println(valuesToUse)
+	}
+
 	mean := support.GetMeanValue(valuesToUse)
 
 	// Test 1 - Do we have a unique dominant modal value ?
 	modalValues := support.GetModalValue(valuesToUse)
 
 	if UseDebug {
-		fmt.Printf("Modals : ")
+		fmt.Printf("Modals (%d) : ", len(modalValues))
 		fmt.Println(modalValues)
 	}
 
 	if len(modalValues) == 1 {
 		if UseDebug {
-			fmt.Println("Test 1 triggered")
+			fmt.Printf("Test 1 triggered (%0.4f)\n", modalValues[0])
 		}
 		return modalValues[0]
 	}
 
-	// Test 2: Is one of the other modals exist in frequency list
+	// Test 2: Does one of the other modal values exist in frequency list
 	// use the global featureFrequencies
 	mostOccurences := 0
-	mostFrequent := -1.0
+	mostFrequent := 0.0
 
 	for key, value := range featureFrequencies {
 		if value > mostOccurences {
@@ -244,21 +238,28 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 	}
 
 	// if the most common value lies in ther global list use this
-	for _, value := range modalValues {
+	for index, value := range modalValues {
 		if value == mostFrequent {
 			if UseDebug {
-				fmt.Println("Test 2 triggered")
+				fmt.Printf("Test 2 triggered (%0.4f)\n", mostFrequent)
 			}
 
 			return mostFrequent
+		} else {
+			if modalValues[index] == closestMatchingRecordFeatureValue {
+				if UseDebug {
+					fmt.Printf("Test 3 Triggered (%0.4f)\n", closestMatchingRecordFeatureValue)
+				}
+				return closestMatchingRecordFeatureValue
+			}
 		}
 	}
 
 	// Test 3 - Does one of the modal values match the feature value of closest record?
-	for i := 0; i < len(featureValues); i++ {
+	for i := 0; i < len(valuesToUse); i++ {
 		if valuesToUse[i] == closestMatchingRecordFeatureValue {
 			if UseDebug {
-				fmt.Println("Test 3 triggered")
+				fmt.Printf("Test 3 triggered (%0.4f)\n", valuesToUse[i])
 			}
 			return valuesToUse[i]
 		}
@@ -282,7 +283,7 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 
 	if foundClosestMatch && smallestDistance != SOMETHING_BIG_AND_POSITIVE {
 		if UseDebug {
-			fmt.Println("Test 4 triggered")
+			fmt.Printf("Test 4 triggered (%0.4f)\n", bestModalValue)
 		}
 		return bestModalValue
 	}
@@ -302,18 +303,19 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 
 	if foundClosestMatch {
 		if UseDebug {
-			fmt.Println("Test 5 triggered")
+			fmt.Printf("Test 5 triggered (%0.4f)\n", closestModalToMedian)
 		}
 		return closestModalToMedian
 	}
 
 	// Test 6 : Ensure selected value is within some kind of tolerances
 
-	//  Default: Use Mean
+	//  Default: Use Median
 	if UseDebug {
-		fmt.Println("Test 6 triggered")
+		fmt.Printf("Test 6 triggered (%0.4f)\n", median)
 	}
-	return mean
+
+	return median
 }
 
 func preprocessBuildFeatureValueFrequencyTable(data []diabetesdata.PimaDiabetesRecord, idx int) map[float64]int {
@@ -454,6 +456,7 @@ func ReplaceNearestNeighbours(dataset []diabetesdata.PimaDiabetesRecord) ([]diab
 				}
 
 				resultSet[record] = setField(resultSet[record], idx, bestValue)
+
 			}
 		}
 
