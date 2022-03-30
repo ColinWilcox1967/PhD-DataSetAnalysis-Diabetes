@@ -1,0 +1,56 @@
+Feature: Number Of Times Pregnant (Neighbourhood Size N=4)...
+014: Actual 0.4165, Predicted -0.8759
+075: Actual 1.0627, Predicted -0.8759
+064: Actual -0.8759, Predicted -0.8759
+038: Actual -0.2297, Predicted -0.8759
+*** MSQRT for Feature = 1.2089
+
+Feature: Plasma Glucose Concentration (Neighbourhood Size N=4)...
+020: Actual -0.7222, Predicted -0.4920
+010: Actual 1.7439, Predicted -0.9524
+064: Actual -0.2290, Predicted -0.4920
+017: Actual 0.6917, Predicted 0.2314
+*** MSQRT for Feature = 1.3787
+
+Feature: Diastolic Blood Pressure (Neighbourhood Size N=4)...
+082: Actual 0.0814, Predicted 0.0814
+037: Actual 0.7249, Predicted -0.2404
+020: Actual -0.4012, Predicted -0.2404
+057: Actual 0.4032, Predicted 0.0814
+*** MSQRT for Feature = 0.5151
+
+Feature: Triceps Skinfold Thickness (Neighbourhood Size N=4)...
+015: Actual 1.3212, Predicted 0.9101
+008: Actual -1.1454, Predicted -0.6315
+080: Actual 0.8073, Predicted -0.3232
+060: Actual 0.4990, Predicted 0.3962
+*** MSQRT for Feature = 0.6561
+
+Feature: Serium Insulin (Neighbourhood Size N=4)...
+010: Actual 0.0558, Predicted -0.4309
+029: Actual 0.0558, Predicted -0.1816
+044: Actual -0.5021, Predicted -0.1816
+008: Actual -0.6445, Predicted -0.4309
+*** MSQRT for Feature = 0.3322
+
+Feature: Body Mass Index (Neighbourhood Size N=4)...
+025: Actual 0.2037, Predicted -0.1407
+040: Actual -0.1251, Predicted -0.1407
+017: Actual -0.0624, Predicted -0.1407
+032: Actual 0.5482, Predicted -0.1407
+*** MSQRT for Feature = 0.3872
+
+Feature: Diabetes Pedigree Function (Neighbourhood Size N=4)...
+001: Actual -1.0423, Predicted 1.9921
+043: Actual -0.9570, Predicted 1.9921
+045: Actual -0.9028, Predicted -0.4261
+035: Actual 0.2908, Predicted -0.9570
+*** MSQRT for Feature = 2.2187
+
+Feature: Age (Neighbourhood Size N=4)...
+034: Actual -0.4630, Predicted -1.0768
+079: Actual -0.5858, Predicted -1.0768
+006: Actual -0.4630, Predicted 0.3964
+025: Actual 2.6063, Predicted -1.0768
+*** MSQRT for Feature = 1.9314
+
