@@ -1,0 +1,64 @@
+Feature: Number Of Times Pregnant (Neighbourhood Size N=4)...
+072: Actual 0.7396, Predicted -0.8759
+016: Actual 1.3858, Predicted -0.8759
+059: Actual -0.2297, Predicted -0.8759
+025: Actual 2.3551, Predicted -0.8759
+041: Actual -0.2297, Predicted -0.8759
+*** MSQRT for Feature = 1.9493
+
+Feature: Plasma Glucose Concentration (Neighbourhood Size N=4)...
+043: Actual 0.0341, Predicted -0.4920
+063: Actual -0.2947, Predicted -0.4920
+005: Actual -0.5907, Predicted -0.9852
+045: Actual 0.3629, Predicted -0.9524
+021: Actual -0.5907, Predicted -0.4920
+*** MSQRT for Feature = 0.6650
+
+Feature: Diastolic Blood Pressure (Neighbourhood Size N=4)...
+014: Actual 0.2423, Predicted -3.1362
+071: Actual 2.9773, Predicted 0.4032
+062: Actual -2.0101, Predicted -0.7230
+027: Actual 0.7249, Predicted -3.1362
+079: Actual 0.7249, Predicted -0.2404
+*** MSQRT for Feature = 2.6660
+
+Feature: Triceps Skinfold Thickness (Neighbourhood Size N=4)...
+007: Actual -1.1454, Predicted -0.8370
+082: Actual -0.7343, Predicted -0.3232
+026: Actual 0.2935, Predicted -0.6315
+041: Actual -1.3509, Predicted -0.6315
+043: Actual -1.6592, Predicted -0.6315
+*** MSQRT for Feature = 0.7339
+
+Feature: Serium Insulin (Neighbourhood Size N=4)...
+019: Actual -1.0244, Predicted -0.4309
+033: Actual 0.0558, Predicted -0.4309
+075: Actual 4.1508, Predicted -0.1816
+016: Actual -0.0036, Predicted -0.5615
+046: Actual 0.9460, Predicted -0.1816
+*** MSQRT for Feature = 2.0466
+
+Feature: Body Mass Index (Neighbourhood Size N=4)...
+058: Actual 0.0002, Predicted -0.6104
+056: Actual -0.8922, Predicted -0.6104
+010: Actual 0.2037, Predicted -0.6104
+076: Actual -0.5635, Predicted -0.6104
+068: Actual -1.0645, Predicted -0.6104
+*** MSQRT for Feature = 0.5145
+
+Feature: Diabetes Pedigree Function (Neighbourhood Size N=4)...
+052: Actual 0.3683, Predicted -0.9570
+003: Actual 1.9921, Predicted -0.9570
+071: Actual -1.1121, Predicted -0.9570
+068: Actual -0.8447, Predicted -0.9570
+047: Actual -0.8485, Predicted -0.9570
+*** MSQRT for Feature = 1.4493
+
+Feature: Age (Neighbourhood Size N=4)...
+029: Actual 2.6063, Predicted 1.3786
+050: Actual 1.1330, Predicted 0.3964
+027: Actual -1.0768, Predicted 0.3964
+024: Actual -0.0947, Predicted 0.3964
+051: Actual 1.1330, Predicted 0.0281
+*** MSQRT for Feature = 1.0661
+
