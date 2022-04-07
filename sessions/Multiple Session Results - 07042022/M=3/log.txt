@@ -1,0 +1,1200 @@
+2022/04/07 15:56:28 Session Date: 2022-04-07 15:56:28.8566082 +0100 BST m=+0.002993701
+2022/04/07 15:56:28 Read 768 diabetes records.
+2022/04/07 15:56:28 Split Percentage = 10.00%
+2022/04/07 15:56:28 Preprocessed Datasets...
+2022/04/07 15:56:28 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:28 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 15:56:28 Test Data Set : Sparsity = 19.05% (132 out of 693 elements)
+2022/04/07 15:56:28 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:28 Processed Datasets ...
+2022/04/07 15:56:28 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:28 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 15:56:28 Test Data Set : Sparsity = 19.05% (132 out of 693 elements)
+2022/04/07 15:56:34 Session Date: 2022-04-07 15:56:34.173568 +0100 BST m=+0.001996701
+2022/04/07 15:56:34 Read 768 diabetes records.
+2022/04/07 15:56:34 Split Percentage = 10.00%
+2022/04/07 15:56:34 Preprocessed Datasets...
+2022/04/07 15:56:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:34 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:56:34 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:56:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:34 Processed Datasets ...
+2022/04/07 15:56:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:34 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:56:34 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:56:39 Session Date: 2022-04-07 15:56:39.8142413 +0100 BST m=+0.002018901
+2022/04/07 15:56:39 Read 768 diabetes records.
+2022/04/07 15:56:39 Split Percentage = 10.00%
+2022/04/07 15:56:39 Preprocessed Datasets...
+2022/04/07 15:56:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:39 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:56:39 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:56:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:39 Processed Datasets ...
+2022/04/07 15:56:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:39 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:56:39 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:56:44 Session Date: 2022-04-07 15:56:44.1779328 +0100 BST m=+0.002983701
+2022/04/07 15:56:44 Read 768 diabetes records.
+2022/04/07 15:56:44 Split Percentage = 10.00%
+2022/04/07 15:56:44 Preprocessed Datasets...
+2022/04/07 15:56:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:44 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:56:44 Test Data Set : Sparsity = 22.08% (153 out of 693 elements)
+2022/04/07 15:56:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:44 Processed Datasets ...
+2022/04/07 15:56:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:44 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:56:44 Test Data Set : Sparsity = 22.08% (153 out of 693 elements)
+2022/04/07 15:56:49 Session Date: 2022-04-07 15:56:49.2241591 +0100 BST m=+0.002026001
+2022/04/07 15:56:49 Read 768 diabetes records.
+2022/04/07 15:56:49 Split Percentage = 10.00%
+2022/04/07 15:56:49 Preprocessed Datasets...
+2022/04/07 15:56:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:49 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 15:56:49 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 15:56:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:49 Processed Datasets ...
+2022/04/07 15:56:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:49 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 15:56:49 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 15:56:54 Session Date: 2022-04-07 15:56:54.1529309 +0100 BST m=+0.004985501
+2022/04/07 15:56:54 Read 768 diabetes records.
+2022/04/07 15:56:54 Split Percentage = 10.00%
+2022/04/07 15:56:54 Preprocessed Datasets...
+2022/04/07 15:56:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:54 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 15:56:54 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:56:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:54 Processed Datasets ...
+2022/04/07 15:56:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:54 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 15:56:54 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:56:59 Session Date: 2022-04-07 15:56:59.1883778 +0100 BST m=+0.002997001
+2022/04/07 15:56:59 Read 768 diabetes records.
+2022/04/07 15:56:59 Split Percentage = 10.00%
+2022/04/07 15:56:59 Preprocessed Datasets...
+2022/04/07 15:56:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:59 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 15:56:59 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:56:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:56:59 Processed Datasets ...
+2022/04/07 15:56:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:56:59 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 15:56:59 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:57:04 Session Date: 2022-04-07 15:57:04.2527476 +0100 BST m=+0.001993901
+2022/04/07 15:57:04 Read 768 diabetes records.
+2022/04/07 15:57:04 Split Percentage = 10.00%
+2022/04/07 15:57:04 Preprocessed Datasets...
+2022/04/07 15:57:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:04 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:57:04 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 15:57:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:04 Processed Datasets ...
+2022/04/07 15:57:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:04 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:57:04 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 15:57:09 Session Date: 2022-04-07 15:57:09.1512717 +0100 BST m=+0.002021301
+2022/04/07 15:57:09 Read 768 diabetes records.
+2022/04/07 15:57:09 Split Percentage = 10.00%
+2022/04/07 15:57:09 Preprocessed Datasets...
+2022/04/07 15:57:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:09 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:57:09 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 15:57:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:09 Processed Datasets ...
+2022/04/07 15:57:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:09 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:57:09 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 15:57:14 Session Date: 2022-04-07 15:57:14.2268154 +0100 BST m=+0.001995001
+2022/04/07 15:57:14 Read 768 diabetes records.
+2022/04/07 15:57:14 Split Percentage = 10.00%
+2022/04/07 15:57:14 Preprocessed Datasets...
+2022/04/07 15:57:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:14 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:57:14 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:14 Processed Datasets ...
+2022/04/07 15:57:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:14 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:57:14 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:19 Session Date: 2022-04-07 15:57:19.1309435 +0100 BST m=+0.002960401
+2022/04/07 15:57:19 Read 768 diabetes records.
+2022/04/07 15:57:19 Split Percentage = 10.00%
+2022/04/07 15:57:19 Preprocessed Datasets...
+2022/04/07 15:57:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:19 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:57:19 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:19 Processed Datasets ...
+2022/04/07 15:57:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:19 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:57:19 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:24 Session Date: 2022-04-07 15:57:24.2039938 +0100 BST m=+0.001994701
+2022/04/07 15:57:24 Read 768 diabetes records.
+2022/04/07 15:57:24 Split Percentage = 10.00%
+2022/04/07 15:57:24 Preprocessed Datasets...
+2022/04/07 15:57:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:24 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 15:57:24 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:57:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:24 Processed Datasets ...
+2022/04/07 15:57:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:24 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 15:57:24 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:57:29 Session Date: 2022-04-07 15:57:29.2623486 +0100 BST m=+0.001987101
+2022/04/07 15:57:29 Read 768 diabetes records.
+2022/04/07 15:57:29 Split Percentage = 10.00%
+2022/04/07 15:57:29 Preprocessed Datasets...
+2022/04/07 15:57:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:29 Training Data Set : Sparsity = 10.73% (667 out of 6219 elements)
+2022/04/07 15:57:29 Test Data Set : Sparsity = 23.09% (160 out of 693 elements)
+2022/04/07 15:57:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:29 Processed Datasets ...
+2022/04/07 15:57:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:29 Training Data Set : Sparsity = 10.73% (667 out of 6219 elements)
+2022/04/07 15:57:29 Test Data Set : Sparsity = 23.09% (160 out of 693 elements)
+2022/04/07 15:57:34 Session Date: 2022-04-07 15:57:34.1764697 +0100 BST m=+0.001989301
+2022/04/07 15:57:34 Read 768 diabetes records.
+2022/04/07 15:57:34 Split Percentage = 10.00%
+2022/04/07 15:57:34 Preprocessed Datasets...
+2022/04/07 15:57:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:34 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:57:34 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 15:57:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:34 Processed Datasets ...
+2022/04/07 15:57:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:34 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:57:34 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 15:57:39 Session Date: 2022-04-07 15:57:39.2292898 +0100 BST m=+0.001996601
+2022/04/07 15:57:39 Read 768 diabetes records.
+2022/04/07 15:57:39 Split Percentage = 10.00%
+2022/04/07 15:57:39 Preprocessed Datasets...
+2022/04/07 15:57:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:39 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:57:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 15:57:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:39 Processed Datasets ...
+2022/04/07 15:57:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:39 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:57:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 15:57:44 Session Date: 2022-04-07 15:57:44.1494866 +0100 BST m=+0.002994001
+2022/04/07 15:57:44 Read 768 diabetes records.
+2022/04/07 15:57:44 Split Percentage = 10.00%
+2022/04/07 15:57:44 Preprocessed Datasets...
+2022/04/07 15:57:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 15:57:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:57:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:44 Processed Datasets ...
+2022/04/07 15:57:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 15:57:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:57:49 Session Date: 2022-04-07 15:57:49.2042841 +0100 BST m=+0.001994801
+2022/04/07 15:57:49 Read 768 diabetes records.
+2022/04/07 15:57:49 Split Percentage = 10.00%
+2022/04/07 15:57:49 Preprocessed Datasets...
+2022/04/07 15:57:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:49 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 15:57:49 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:49 Processed Datasets ...
+2022/04/07 15:57:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:49 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 15:57:49 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:57:54 Session Date: 2022-04-07 15:57:54.2656675 +0100 BST m=+0.001996601
+2022/04/07 15:57:54 Read 768 diabetes records.
+2022/04/07 15:57:54 Split Percentage = 10.00%
+2022/04/07 15:57:54 Preprocessed Datasets...
+2022/04/07 15:57:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:54 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 15:57:54 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:57:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:54 Processed Datasets ...
+2022/04/07 15:57:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:54 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 15:57:54 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:57:59 Session Date: 2022-04-07 15:57:59.1672325 +0100 BST m=+0.001985201
+2022/04/07 15:57:59 Read 768 diabetes records.
+2022/04/07 15:57:59 Split Percentage = 10.00%
+2022/04/07 15:57:59 Preprocessed Datasets...
+2022/04/07 15:57:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:59 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:57:59 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:57:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:57:59 Processed Datasets ...
+2022/04/07 15:57:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:57:59 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:57:59 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:58:04 Session Date: 2022-04-07 15:58:04.2199631 +0100 BST m=+0.001994701
+2022/04/07 15:58:04 Read 768 diabetes records.
+2022/04/07 15:58:04 Split Percentage = 10.00%
+2022/04/07 15:58:04 Preprocessed Datasets...
+2022/04/07 15:58:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:04 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:58:04 Test Data Set : Sparsity = 20.92% (145 out of 693 elements)
+2022/04/07 15:58:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:04 Processed Datasets ...
+2022/04/07 15:58:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:04 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 15:58:04 Test Data Set : Sparsity = 20.92% (145 out of 693 elements)
+2022/04/07 15:58:09 Session Date: 2022-04-07 15:58:09.2733011 +0100 BST m=+0.001993901
+2022/04/07 15:58:09 Read 768 diabetes records.
+2022/04/07 15:58:09 Split Percentage = 10.00%
+2022/04/07 15:58:09 Preprocessed Datasets...
+2022/04/07 15:58:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:09 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:58:09 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 15:58:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:09 Processed Datasets ...
+2022/04/07 15:58:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:09 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:58:09 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 15:58:14 Session Date: 2022-04-07 15:58:14.1721143 +0100 BST m=+0.003025301
+2022/04/07 15:58:14 Read 768 diabetes records.
+2022/04/07 15:58:14 Split Percentage = 10.00%
+2022/04/07 15:58:14 Preprocessed Datasets...
+2022/04/07 15:58:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:14 Training Data Set : Sparsity = 10.85% (675 out of 6219 elements)
+2022/04/07 15:58:14 Test Data Set : Sparsity = 22.66% (157 out of 693 elements)
+2022/04/07 15:58:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:14 Processed Datasets ...
+2022/04/07 15:58:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:14 Training Data Set : Sparsity = 10.85% (675 out of 6219 elements)
+2022/04/07 15:58:14 Test Data Set : Sparsity = 22.66% (157 out of 693 elements)
+2022/04/07 15:58:19 Session Date: 2022-04-07 15:58:19.2307903 +0100 BST m=+0.002004901
+2022/04/07 15:58:19 Read 768 diabetes records.
+2022/04/07 15:58:19 Split Percentage = 10.00%
+2022/04/07 15:58:19 Preprocessed Datasets...
+2022/04/07 15:58:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:19 Training Data Set : Sparsity = 11.00% (684 out of 6219 elements)
+2022/04/07 15:58:19 Test Data Set : Sparsity = 21.07% (146 out of 693 elements)
+2022/04/07 15:58:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:19 Processed Datasets ...
+2022/04/07 15:58:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:19 Training Data Set : Sparsity = 11.00% (684 out of 6219 elements)
+2022/04/07 15:58:19 Test Data Set : Sparsity = 21.07% (146 out of 693 elements)
+2022/04/07 15:58:24 Session Date: 2022-04-07 15:58:24.1406228 +0100 BST m=+0.001994301
+2022/04/07 15:58:24 Read 768 diabetes records.
+2022/04/07 15:58:24 Split Percentage = 10.00%
+2022/04/07 15:58:24 Preprocessed Datasets...
+2022/04/07 15:58:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:24 Training Data Set : Sparsity = 10.74% (668 out of 6219 elements)
+2022/04/07 15:58:24 Test Data Set : Sparsity = 22.66% (157 out of 693 elements)
+2022/04/07 15:58:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:24 Processed Datasets ...
+2022/04/07 15:58:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:24 Training Data Set : Sparsity = 10.74% (668 out of 6219 elements)
+2022/04/07 15:58:24 Test Data Set : Sparsity = 22.66% (157 out of 693 elements)
+2022/04/07 15:58:29 Session Date: 2022-04-07 15:58:29.2169917 +0100 BST m=+0.001994401
+2022/04/07 15:58:29 Read 768 diabetes records.
+2022/04/07 15:58:29 Split Percentage = 10.00%
+2022/04/07 15:58:29 Preprocessed Datasets...
+2022/04/07 15:58:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:29 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:58:29 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 15:58:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:29 Processed Datasets ...
+2022/04/07 15:58:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:29 Training Data Set : Sparsity = 10.90% (678 out of 6219 elements)
+2022/04/07 15:58:29 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 15:58:34 Session Date: 2022-04-07 15:58:34.1275606 +0100 BST m=+0.002991901
+2022/04/07 15:58:34 Read 768 diabetes records.
+2022/04/07 15:58:34 Split Percentage = 10.00%
+2022/04/07 15:58:34 Preprocessed Datasets...
+2022/04/07 15:58:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:34 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 15:58:34 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:58:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:34 Processed Datasets ...
+2022/04/07 15:58:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:34 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 15:58:34 Test Data Set : Sparsity = 20.78% (144 out of 693 elements)
+2022/04/07 15:58:39 Session Date: 2022-04-07 15:58:39.1809188 +0100 BST m=+0.002021201
+2022/04/07 15:58:39 Read 768 diabetes records.
+2022/04/07 15:58:39 Split Percentage = 10.00%
+2022/04/07 15:58:39 Preprocessed Datasets...
+2022/04/07 15:58:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:39 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:58:39 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 15:58:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:39 Processed Datasets ...
+2022/04/07 15:58:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:39 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:58:39 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 15:58:44 Session Date: 2022-04-07 15:58:44.2390011 +0100 BST m=+0.002030601
+2022/04/07 15:58:44 Read 768 diabetes records.
+2022/04/07 15:58:44 Split Percentage = 10.00%
+2022/04/07 15:58:44 Preprocessed Datasets...
+2022/04/07 15:58:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:44 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 15:58:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:58:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:44 Processed Datasets ...
+2022/04/07 15:58:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:44 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 15:58:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 15:58:49 Session Date: 2022-04-07 15:58:49.1391473 +0100 BST m=+0.004097601
+2022/04/07 15:58:49 Read 768 diabetes records.
+2022/04/07 15:58:49 Split Percentage = 10.00%
+2022/04/07 15:58:49 Preprocessed Datasets...
+2022/04/07 15:58:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:49 Training Data Set : Sparsity = 11.22% (698 out of 6219 elements)
+2022/04/07 15:58:49 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 15:58:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:49 Processed Datasets ...
+2022/04/07 15:58:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:49 Training Data Set : Sparsity = 11.22% (698 out of 6219 elements)
+2022/04/07 15:58:49 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 15:58:54 Session Date: 2022-04-07 15:58:54.2181809 +0100 BST m=+0.001994401
+2022/04/07 15:58:54 Read 768 diabetes records.
+2022/04/07 15:58:54 Split Percentage = 10.00%
+2022/04/07 15:58:54 Preprocessed Datasets...
+2022/04/07 15:58:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:54 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 15:58:54 Test Data Set : Sparsity = 18.04% (125 out of 693 elements)
+2022/04/07 15:58:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:54 Processed Datasets ...
+2022/04/07 15:58:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:54 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 15:58:54 Test Data Set : Sparsity = 18.04% (125 out of 693 elements)
+2022/04/07 15:58:59 Session Date: 2022-04-07 15:58:59.2703007 +0100 BST m=+0.001994901
+2022/04/07 15:58:59 Read 768 diabetes records.
+2022/04/07 15:58:59 Split Percentage = 10.00%
+2022/04/07 15:58:59 Preprocessed Datasets...
+2022/04/07 15:58:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:59 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 15:58:59 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:58:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:58:59 Processed Datasets ...
+2022/04/07 15:58:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:58:59 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 15:58:59 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 15:59:04 Session Date: 2022-04-07 15:59:04.1555891 +0100 BST m=+0.002992701
+2022/04/07 15:59:04 Read 768 diabetes records.
+2022/04/07 15:59:04 Split Percentage = 10.00%
+2022/04/07 15:59:04 Preprocessed Datasets...
+2022/04/07 15:59:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:04 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 15:59:04 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:59:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:04 Processed Datasets ...
+2022/04/07 15:59:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:04 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 15:59:04 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:59:09 Session Date: 2022-04-07 15:59:09.218815 +0100 BST m=+0.001994301
+2022/04/07 15:59:09 Read 768 diabetes records.
+2022/04/07 15:59:09 Split Percentage = 10.00%
+2022/04/07 15:59:09 Preprocessed Datasets...
+2022/04/07 15:59:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:09 Training Data Set : Sparsity = 10.81% (672 out of 6219 elements)
+2022/04/07 15:59:09 Test Data Set : Sparsity = 22.37% (155 out of 693 elements)
+2022/04/07 15:59:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:09 Processed Datasets ...
+2022/04/07 15:59:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:09 Training Data Set : Sparsity = 10.81% (672 out of 6219 elements)
+2022/04/07 15:59:09 Test Data Set : Sparsity = 22.37% (155 out of 693 elements)
+2022/04/07 15:59:14 Session Date: 2022-04-07 15:59:14.2617964 +0100 BST m=+0.002020701
+2022/04/07 15:59:14 Read 768 diabetes records.
+2022/04/07 15:59:14 Split Percentage = 10.00%
+2022/04/07 15:59:14 Preprocessed Datasets...
+2022/04/07 15:59:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:14 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 15:59:14 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 15:59:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:14 Processed Datasets ...
+2022/04/07 15:59:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:14 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 15:59:14 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 15:59:19 Session Date: 2022-04-07 15:59:19.1598351 +0100 BST m=+0.003004001
+2022/04/07 15:59:19 Read 768 diabetes records.
+2022/04/07 15:59:19 Split Percentage = 10.00%
+2022/04/07 15:59:19 Preprocessed Datasets...
+2022/04/07 15:59:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:19 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 15:59:19 Test Data Set : Sparsity = 18.47% (128 out of 693 elements)
+2022/04/07 15:59:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:19 Processed Datasets ...
+2022/04/07 15:59:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:19 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 15:59:19 Test Data Set : Sparsity = 18.47% (128 out of 693 elements)
+2022/04/07 15:59:24 Session Date: 2022-04-07 15:59:24.2125124 +0100 BST m=+0.001994101
+2022/04/07 15:59:24 Read 768 diabetes records.
+2022/04/07 15:59:24 Split Percentage = 10.00%
+2022/04/07 15:59:24 Preprocessed Datasets...
+2022/04/07 15:59:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:24 Training Data Set : Sparsity = 11.27% (701 out of 6219 elements)
+2022/04/07 15:59:24 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 15:59:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:24 Processed Datasets ...
+2022/04/07 15:59:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:24 Training Data Set : Sparsity = 11.27% (701 out of 6219 elements)
+2022/04/07 15:59:24 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 15:59:29 Session Date: 2022-04-07 15:59:29.2756371 +0100 BST m=+0.001995301
+2022/04/07 15:59:29 Read 768 diabetes records.
+2022/04/07 15:59:29 Split Percentage = 10.00%
+2022/04/07 15:59:29 Preprocessed Datasets...
+2022/04/07 15:59:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:29 Training Data Set : Sparsity = 10.84% (674 out of 6219 elements)
+2022/04/07 15:59:29 Test Data Set : Sparsity = 22.37% (155 out of 693 elements)
+2022/04/07 15:59:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:29 Processed Datasets ...
+2022/04/07 15:59:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:29 Training Data Set : Sparsity = 10.84% (674 out of 6219 elements)
+2022/04/07 15:59:29 Test Data Set : Sparsity = 22.37% (155 out of 693 elements)
+2022/04/07 15:59:34 Session Date: 2022-04-07 15:59:34.1718112 +0100 BST m=+0.003988901
+2022/04/07 15:59:34 Read 768 diabetes records.
+2022/04/07 15:59:34 Split Percentage = 10.00%
+2022/04/07 15:59:34 Preprocessed Datasets...
+2022/04/07 15:59:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:34 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 15:59:34 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 15:59:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:34 Processed Datasets ...
+2022/04/07 15:59:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:34 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 15:59:34 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 15:59:39 Session Date: 2022-04-07 15:59:39.2304841 +0100 BST m=+0.001961601
+2022/04/07 15:59:39 Read 768 diabetes records.
+2022/04/07 15:59:39 Split Percentage = 10.00%
+2022/04/07 15:59:39 Preprocessed Datasets...
+2022/04/07 15:59:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:39 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:59:39 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 15:59:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:39 Processed Datasets ...
+2022/04/07 15:59:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:39 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 15:59:39 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 15:59:44 Session Date: 2022-04-07 15:59:44.1333846 +0100 BST m=+0.002992101
+2022/04/07 15:59:44 Read 768 diabetes records.
+2022/04/07 15:59:44 Split Percentage = 10.00%
+2022/04/07 15:59:44 Preprocessed Datasets...
+2022/04/07 15:59:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:44 Training Data Set : Sparsity = 10.87% (676 out of 6219 elements)
+2022/04/07 15:59:44 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 15:59:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:44 Processed Datasets ...
+2022/04/07 15:59:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:44 Training Data Set : Sparsity = 10.87% (676 out of 6219 elements)
+2022/04/07 15:59:44 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 15:59:49 Session Date: 2022-04-07 15:59:49.1722997 +0100 BST m=+0.001994601
+2022/04/07 15:59:49 Read 768 diabetes records.
+2022/04/07 15:59:49 Split Percentage = 10.00%
+2022/04/07 15:59:49 Preprocessed Datasets...
+2022/04/07 15:59:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:49 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:59:49 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 15:59:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:49 Processed Datasets ...
+2022/04/07 15:59:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:49 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:59:49 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 15:59:54 Session Date: 2022-04-07 15:59:54.1613163 +0100 BST m=+0.003986301
+2022/04/07 15:59:54 Read 768 diabetes records.
+2022/04/07 15:59:54 Split Percentage = 10.00%
+2022/04/07 15:59:54 Preprocessed Datasets...
+2022/04/07 15:59:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:54 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:59:54 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:59:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:54 Processed Datasets ...
+2022/04/07 15:59:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:54 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 15:59:54 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 15:59:59 Session Date: 2022-04-07 15:59:59.1663885 +0100 BST m=+0.001994001
+2022/04/07 15:59:59 Read 768 diabetes records.
+2022/04/07 15:59:59 Split Percentage = 10.00%
+2022/04/07 15:59:59 Preprocessed Datasets...
+2022/04/07 15:59:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:59 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:59:59 Test Data Set : Sparsity = 20.06% (139 out of 693 elements)
+2022/04/07 15:59:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 15:59:59 Processed Datasets ...
+2022/04/07 15:59:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 15:59:59 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 15:59:59 Test Data Set : Sparsity = 20.06% (139 out of 693 elements)
+2022/04/07 16:00:04 Session Date: 2022-04-07 16:00:04.2322075 +0100 BST m=+0.001993501
+2022/04/07 16:00:04 Read 768 diabetes records.
+2022/04/07 16:00:04 Split Percentage = 10.00%
+2022/04/07 16:00:04 Preprocessed Datasets...
+2022/04/07 16:00:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:04 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:00:04 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 16:00:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:04 Processed Datasets ...
+2022/04/07 16:00:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:04 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:00:04 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 16:00:09 Session Date: 2022-04-07 16:00:09.1347334 +0100 BST m=+0.003989601
+2022/04/07 16:00:09 Read 768 diabetes records.
+2022/04/07 16:00:09 Split Percentage = 10.00%
+2022/04/07 16:00:09 Preprocessed Datasets...
+2022/04/07 16:00:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:09 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:00:09 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:00:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:09 Processed Datasets ...
+2022/04/07 16:00:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:09 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:00:09 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:00:14 Session Date: 2022-04-07 16:00:14.1662198 +0100 BST m=+0.001990801
+2022/04/07 16:00:14 Read 768 diabetes records.
+2022/04/07 16:00:14 Split Percentage = 10.00%
+2022/04/07 16:00:14 Preprocessed Datasets...
+2022/04/07 16:00:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:14 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:00:14 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:00:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:14 Processed Datasets ...
+2022/04/07 16:00:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:14 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:00:14 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:00:19 Session Date: 2022-04-07 16:00:19.2090834 +0100 BST m=+0.003022501
+2022/04/07 16:00:19 Read 768 diabetes records.
+2022/04/07 16:00:19 Split Percentage = 10.00%
+2022/04/07 16:00:19 Preprocessed Datasets...
+2022/04/07 16:00:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:19 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:00:19 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:00:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:19 Processed Datasets ...
+2022/04/07 16:00:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:19 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:00:19 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:00:24 Session Date: 2022-04-07 16:00:24.2614722 +0100 BST m=+0.001957401
+2022/04/07 16:00:24 Read 768 diabetes records.
+2022/04/07 16:00:24 Split Percentage = 10.00%
+2022/04/07 16:00:24 Preprocessed Datasets...
+2022/04/07 16:00:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:24 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:00:24 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:00:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:24 Processed Datasets ...
+2022/04/07 16:00:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:24 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:00:24 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:00:29 Session Date: 2022-04-07 16:00:29.1551745 +0100 BST m=+0.004018101
+2022/04/07 16:00:29 Read 768 diabetes records.
+2022/04/07 16:00:29 Split Percentage = 10.00%
+2022/04/07 16:00:29 Preprocessed Datasets...
+2022/04/07 16:00:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:29 Training Data Set : Sparsity = 11.45% (712 out of 6219 elements)
+2022/04/07 16:00:29 Test Data Set : Sparsity = 17.60% (122 out of 693 elements)
+2022/04/07 16:00:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:29 Processed Datasets ...
+2022/04/07 16:00:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:29 Training Data Set : Sparsity = 11.45% (712 out of 6219 elements)
+2022/04/07 16:00:29 Test Data Set : Sparsity = 17.60% (122 out of 693 elements)
+2022/04/07 16:00:34 Session Date: 2022-04-07 16:00:34.2075901 +0100 BST m=+0.001981101
+2022/04/07 16:00:34 Read 768 diabetes records.
+2022/04/07 16:00:34 Split Percentage = 10.00%
+2022/04/07 16:00:34 Preprocessed Datasets...
+2022/04/07 16:00:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:34 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:00:34 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:00:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:34 Processed Datasets ...
+2022/04/07 16:00:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:34 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:00:34 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:00:39 Session Date: 2022-04-07 16:00:39.2064178 +0100 BST m=+0.003989401
+2022/04/07 16:00:39 Read 768 diabetes records.
+2022/04/07 16:00:39 Split Percentage = 10.00%
+2022/04/07 16:00:39 Preprocessed Datasets...
+2022/04/07 16:00:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:39 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:00:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 16:00:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:39 Processed Datasets ...
+2022/04/07 16:00:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:39 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:00:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 16:00:44 Session Date: 2022-04-07 16:00:44.223358 +0100 BST m=+0.002953001
+2022/04/07 16:00:44 Read 768 diabetes records.
+2022/04/07 16:00:44 Split Percentage = 10.00%
+2022/04/07 16:00:44 Preprocessed Datasets...
+2022/04/07 16:00:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:00:44 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:00:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:44 Processed Datasets ...
+2022/04/07 16:00:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:00:44 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:00:49 Session Date: 2022-04-07 16:00:49.2282031 +0100 BST m=+0.001994601
+2022/04/07 16:00:49 Read 768 diabetes records.
+2022/04/07 16:00:49 Split Percentage = 10.00%
+2022/04/07 16:00:49 Preprocessed Datasets...
+2022/04/07 16:00:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:49 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 16:00:49 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 16:00:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:49 Processed Datasets ...
+2022/04/07 16:00:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:49 Training Data Set : Sparsity = 11.03% (686 out of 6219 elements)
+2022/04/07 16:00:49 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 16:00:54 Session Date: 2022-04-07 16:00:54.1996551 +0100 BST m=+0.001995001
+2022/04/07 16:00:54 Read 768 diabetes records.
+2022/04/07 16:00:54 Split Percentage = 10.00%
+2022/04/07 16:00:54 Preprocessed Datasets...
+2022/04/07 16:00:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:54 Training Data Set : Sparsity = 10.85% (675 out of 6219 elements)
+2022/04/07 16:00:54 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 16:00:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:54 Processed Datasets ...
+2022/04/07 16:00:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:54 Training Data Set : Sparsity = 10.85% (675 out of 6219 elements)
+2022/04/07 16:00:54 Test Data Set : Sparsity = 21.79% (151 out of 693 elements)
+2022/04/07 16:00:59 Session Date: 2022-04-07 16:00:59.2474572 +0100 BST m=+0.001993701
+2022/04/07 16:00:59 Read 768 diabetes records.
+2022/04/07 16:00:59 Split Percentage = 10.00%
+2022/04/07 16:00:59 Preprocessed Datasets...
+2022/04/07 16:00:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:59 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:00:59 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:00:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:00:59 Processed Datasets ...
+2022/04/07 16:00:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:00:59 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:00:59 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:01:04 Session Date: 2022-04-07 16:01:04.1293002 +0100 BST m=+0.001994801
+2022/04/07 16:01:04 Read 768 diabetes records.
+2022/04/07 16:01:04 Split Percentage = 10.00%
+2022/04/07 16:01:04 Preprocessed Datasets...
+2022/04/07 16:01:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:04 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:01:04 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:01:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:04 Processed Datasets ...
+2022/04/07 16:01:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:04 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:01:04 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:01:09 Session Date: 2022-04-07 16:01:09.1795088 +0100 BST m=+0.002029001
+2022/04/07 16:01:09 Read 768 diabetes records.
+2022/04/07 16:01:09 Split Percentage = 10.00%
+2022/04/07 16:01:09 Preprocessed Datasets...
+2022/04/07 16:01:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:09 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 16:01:09 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:01:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:09 Processed Datasets ...
+2022/04/07 16:01:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:09 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 16:01:09 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:01:14 Session Date: 2022-04-07 16:01:14.2352808 +0100 BST m=+0.001995101
+2022/04/07 16:01:14 Read 768 diabetes records.
+2022/04/07 16:01:14 Split Percentage = 10.00%
+2022/04/07 16:01:14 Preprocessed Datasets...
+2022/04/07 16:01:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:14 Training Data Set : Sparsity = 10.84% (674 out of 6219 elements)
+2022/04/07 16:01:14 Test Data Set : Sparsity = 22.51% (156 out of 693 elements)
+2022/04/07 16:01:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:14 Processed Datasets ...
+2022/04/07 16:01:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:14 Training Data Set : Sparsity = 10.84% (674 out of 6219 elements)
+2022/04/07 16:01:14 Test Data Set : Sparsity = 22.51% (156 out of 693 elements)
+2022/04/07 16:01:19 Session Date: 2022-04-07 16:01:19.1392761 +0100 BST m=+0.003989301
+2022/04/07 16:01:19 Read 768 diabetes records.
+2022/04/07 16:01:19 Split Percentage = 10.00%
+2022/04/07 16:01:19 Preprocessed Datasets...
+2022/04/07 16:01:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:19 Training Data Set : Sparsity = 11.19% (696 out of 6219 elements)
+2022/04/07 16:01:19 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 16:01:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:19 Processed Datasets ...
+2022/04/07 16:01:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:19 Training Data Set : Sparsity = 11.19% (696 out of 6219 elements)
+2022/04/07 16:01:19 Test Data Set : Sparsity = 18.61% (129 out of 693 elements)
+2022/04/07 16:01:24 Session Date: 2022-04-07 16:01:24.1879133 +0100 BST m=+0.000996701
+2022/04/07 16:01:24 Read 768 diabetes records.
+2022/04/07 16:01:24 Split Percentage = 10.00%
+2022/04/07 16:01:24 Preprocessed Datasets...
+2022/04/07 16:01:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:24 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 16:01:24 Test Data Set : Sparsity = 19.48% (135 out of 693 elements)
+2022/04/07 16:01:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:24 Processed Datasets ...
+2022/04/07 16:01:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:24 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 16:01:24 Test Data Set : Sparsity = 19.48% (135 out of 693 elements)
+2022/04/07 16:01:29 Session Date: 2022-04-07 16:01:29.2395057 +0100 BST m=+0.002992001
+2022/04/07 16:01:29 Read 768 diabetes records.
+2022/04/07 16:01:29 Split Percentage = 10.00%
+2022/04/07 16:01:29 Preprocessed Datasets...
+2022/04/07 16:01:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:29 Training Data Set : Sparsity = 10.77% (670 out of 6219 elements)
+2022/04/07 16:01:29 Test Data Set : Sparsity = 22.80% (158 out of 693 elements)
+2022/04/07 16:01:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:29 Processed Datasets ...
+2022/04/07 16:01:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:29 Training Data Set : Sparsity = 10.77% (670 out of 6219 elements)
+2022/04/07 16:01:29 Test Data Set : Sparsity = 22.80% (158 out of 693 elements)
+2022/04/07 16:01:34 Session Date: 2022-04-07 16:01:34.1338913 +0100 BST m=+0.002991601
+2022/04/07 16:01:34 Read 768 diabetes records.
+2022/04/07 16:01:34 Split Percentage = 10.00%
+2022/04/07 16:01:34 Preprocessed Datasets...
+2022/04/07 16:01:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:34 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 16:01:34 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:01:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:34 Processed Datasets ...
+2022/04/07 16:01:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:34 Training Data Set : Sparsity = 10.89% (677 out of 6219 elements)
+2022/04/07 16:01:34 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:01:39 Session Date: 2022-04-07 16:01:39.2762481 +0100 BST m=+0.001994401
+2022/04/07 16:01:39 Read 768 diabetes records.
+2022/04/07 16:01:39 Split Percentage = 10.00%
+2022/04/07 16:01:39 Preprocessed Datasets...
+2022/04/07 16:01:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:39 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 16:01:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:39 Processed Datasets ...
+2022/04/07 16:01:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:39 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:39 Test Data Set : Sparsity = 21.93% (152 out of 693 elements)
+2022/04/07 16:01:44 Session Date: 2022-04-07 16:01:44.160698 +0100 BST m=+0.003989801
+2022/04/07 16:01:44 Read 768 diabetes records.
+2022/04/07 16:01:44 Split Percentage = 10.00%
+2022/04/07 16:01:44 Preprocessed Datasets...
+2022/04/07 16:01:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:44 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:01:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:44 Processed Datasets ...
+2022/04/07 16:01:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:44 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:44 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:01:49 Session Date: 2022-04-07 16:01:49.2184131 +0100 BST m=+0.002023801
+2022/04/07 16:01:49 Read 768 diabetes records.
+2022/04/07 16:01:49 Split Percentage = 10.00%
+2022/04/07 16:01:49 Preprocessed Datasets...
+2022/04/07 16:01:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:49 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:01:49 Test Data Set : Sparsity = 21.07% (146 out of 693 elements)
+2022/04/07 16:01:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:49 Processed Datasets ...
+2022/04/07 16:01:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:49 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:01:49 Test Data Set : Sparsity = 21.07% (146 out of 693 elements)
+2022/04/07 16:01:54 Session Date: 2022-04-07 16:01:54.2162566 +0100 BST m=+0.001968201
+2022/04/07 16:01:54 Read 768 diabetes records.
+2022/04/07 16:01:54 Split Percentage = 10.00%
+2022/04/07 16:01:54 Preprocessed Datasets...
+2022/04/07 16:01:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:54 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:54 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:01:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:54 Processed Datasets ...
+2022/04/07 16:01:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:54 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:01:54 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:01:59 Session Date: 2022-04-07 16:01:59.2220148 +0100 BST m=+0.004992401
+2022/04/07 16:01:59 Read 768 diabetes records.
+2022/04/07 16:01:59 Split Percentage = 10.00%
+2022/04/07 16:01:59 Preprocessed Datasets...
+2022/04/07 16:01:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:59 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:01:59 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 16:01:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:01:59 Processed Datasets ...
+2022/04/07 16:01:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:01:59 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:01:59 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 16:02:04 Session Date: 2022-04-07 16:02:04.2155196 +0100 BST m=+0.002991601
+2022/04/07 16:02:04 Read 768 diabetes records.
+2022/04/07 16:02:04 Split Percentage = 10.00%
+2022/04/07 16:02:04 Preprocessed Datasets...
+2022/04/07 16:02:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:04 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:02:04 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:04 Processed Datasets ...
+2022/04/07 16:02:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:04 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:02:04 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:09 Session Date: 2022-04-07 16:02:09.2674432 +0100 BST m=+0.001994701
+2022/04/07 16:02:09 Read 768 diabetes records.
+2022/04/07 16:02:09 Split Percentage = 10.00%
+2022/04/07 16:02:09 Preprocessed Datasets...
+2022/04/07 16:02:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:09 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:09 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:09 Processed Datasets ...
+2022/04/07 16:02:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:09 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:09 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:14 Session Date: 2022-04-07 16:02:14.1697158 +0100 BST m=+0.004965001
+2022/04/07 16:02:14 Read 768 diabetes records.
+2022/04/07 16:02:14 Split Percentage = 10.00%
+2022/04/07 16:02:14 Preprocessed Datasets...
+2022/04/07 16:02:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:14 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:02:14 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:02:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:14 Processed Datasets ...
+2022/04/07 16:02:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:14 Training Data Set : Sparsity = 10.97% (682 out of 6219 elements)
+2022/04/07 16:02:14 Test Data Set : Sparsity = 20.63% (143 out of 693 elements)
+2022/04/07 16:02:19 Session Date: 2022-04-07 16:02:19.2226957 +0100 BST m=+0.001994701
+2022/04/07 16:02:19 Read 768 diabetes records.
+2022/04/07 16:02:19 Split Percentage = 10.00%
+2022/04/07 16:02:19 Preprocessed Datasets...
+2022/04/07 16:02:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:19 Training Data Set : Sparsity = 11.13% (692 out of 6219 elements)
+2022/04/07 16:02:19 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:02:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:19 Processed Datasets ...
+2022/04/07 16:02:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:19 Training Data Set : Sparsity = 11.13% (692 out of 6219 elements)
+2022/04/07 16:02:19 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:02:24 Session Date: 2022-04-07 16:02:24.2711882 +0100 BST m=+0.001989201
+2022/04/07 16:02:24 Read 768 diabetes records.
+2022/04/07 16:02:24 Split Percentage = 10.00%
+2022/04/07 16:02:24 Preprocessed Datasets...
+2022/04/07 16:02:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:24 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:24 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:24 Processed Datasets ...
+2022/04/07 16:02:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:24 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:24 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:02:29 Session Date: 2022-04-07 16:02:29.1704186 +0100 BST m=+0.002991401
+2022/04/07 16:02:29 Read 768 diabetes records.
+2022/04/07 16:02:29 Split Percentage = 10.00%
+2022/04/07 16:02:29 Preprocessed Datasets...
+2022/04/07 16:02:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:29 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 16:02:29 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 16:02:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:29 Processed Datasets ...
+2022/04/07 16:02:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:29 Training Data Set : Sparsity = 10.98% (683 out of 6219 elements)
+2022/04/07 16:02:29 Test Data Set : Sparsity = 21.36% (148 out of 693 elements)
+2022/04/07 16:02:34 Session Date: 2022-04-07 16:02:34.2233314 +0100 BST m=+0.001980601
+2022/04/07 16:02:34 Read 768 diabetes records.
+2022/04/07 16:02:34 Split Percentage = 10.00%
+2022/04/07 16:02:34 Preprocessed Datasets...
+2022/04/07 16:02:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:34 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:02:34 Test Data Set : Sparsity = 20.92% (145 out of 693 elements)
+2022/04/07 16:02:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:34 Processed Datasets ...
+2022/04/07 16:02:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:34 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:02:34 Test Data Set : Sparsity = 20.92% (145 out of 693 elements)
+2022/04/07 16:02:39 Session Date: 2022-04-07 16:02:39.2767529 +0100 BST m=+0.001998901
+2022/04/07 16:02:39 Read 768 diabetes records.
+2022/04/07 16:02:39 Split Percentage = 10.00%
+2022/04/07 16:02:39 Preprocessed Datasets...
+2022/04/07 16:02:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:39 Training Data Set : Sparsity = 11.10% (690 out of 6219 elements)
+2022/04/07 16:02:39 Test Data Set : Sparsity = 19.34% (134 out of 693 elements)
+2022/04/07 16:02:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:39 Processed Datasets ...
+2022/04/07 16:02:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:39 Training Data Set : Sparsity = 11.10% (690 out of 6219 elements)
+2022/04/07 16:02:39 Test Data Set : Sparsity = 19.34% (134 out of 693 elements)
+2022/04/07 16:02:44 Session Date: 2022-04-07 16:02:44.1669327 +0100 BST m=+0.003991301
+2022/04/07 16:02:44 Read 768 diabetes records.
+2022/04/07 16:02:44 Split Percentage = 10.00%
+2022/04/07 16:02:44 Preprocessed Datasets...
+2022/04/07 16:02:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:44 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:02:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:44 Processed Datasets ...
+2022/04/07 16:02:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:44 Training Data Set : Sparsity = 11.05% (687 out of 6219 elements)
+2022/04/07 16:02:44 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:02:49 Session Date: 2022-04-07 16:02:49.2009628 +0100 BST m=+0.001994501
+2022/04/07 16:02:49 Read 768 diabetes records.
+2022/04/07 16:02:49 Split Percentage = 10.00%
+2022/04/07 16:02:49 Preprocessed Datasets...
+2022/04/07 16:02:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:49 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:02:49 Test Data Set : Sparsity = 19.62% (136 out of 693 elements)
+2022/04/07 16:02:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:49 Processed Datasets ...
+2022/04/07 16:02:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:49 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:02:49 Test Data Set : Sparsity = 19.62% (136 out of 693 elements)
+2022/04/07 16:02:54 Session Date: 2022-04-07 16:02:54.1975089 +0100 BST m=+0.002019101
+2022/04/07 16:02:54 Read 768 diabetes records.
+2022/04/07 16:02:54 Split Percentage = 10.00%
+2022/04/07 16:02:54 Preprocessed Datasets...
+2022/04/07 16:02:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:54 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:02:54 Test Data Set : Sparsity = 19.19% (133 out of 693 elements)
+2022/04/07 16:02:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:54 Processed Datasets ...
+2022/04/07 16:02:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:54 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:02:54 Test Data Set : Sparsity = 19.19% (133 out of 693 elements)
+2022/04/07 16:02:59 Session Date: 2022-04-07 16:02:59.2013789 +0100 BST m=+0.002992001
+2022/04/07 16:02:59 Read 768 diabetes records.
+2022/04/07 16:02:59 Split Percentage = 10.00%
+2022/04/07 16:02:59 Preprocessed Datasets...
+2022/04/07 16:02:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:59 Training Data Set : Sparsity = 11.19% (696 out of 6219 elements)
+2022/04/07 16:02:59 Test Data Set : Sparsity = 19.48% (135 out of 693 elements)
+2022/04/07 16:02:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:02:59 Processed Datasets ...
+2022/04/07 16:02:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:02:59 Training Data Set : Sparsity = 11.19% (696 out of 6219 elements)
+2022/04/07 16:02:59 Test Data Set : Sparsity = 19.48% (135 out of 693 elements)
+2022/04/07 16:03:04 Session Date: 2022-04-07 16:03:04.2227798 +0100 BST m=+0.001994001
+2022/04/07 16:03:04 Read 768 diabetes records.
+2022/04/07 16:03:04 Split Percentage = 10.00%
+2022/04/07 16:03:04 Preprocessed Datasets...
+2022/04/07 16:03:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:04 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 16:03:04 Test Data Set : Sparsity = 17.89% (124 out of 693 elements)
+2022/04/07 16:03:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:04 Processed Datasets ...
+2022/04/07 16:03:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:04 Training Data Set : Sparsity = 11.34% (705 out of 6219 elements)
+2022/04/07 16:03:04 Test Data Set : Sparsity = 17.89% (124 out of 693 elements)
+2022/04/07 16:03:09 Session Date: 2022-04-07 16:03:09.2749078 +0100 BST m=+0.002997101
+2022/04/07 16:03:09 Read 768 diabetes records.
+2022/04/07 16:03:09 Split Percentage = 10.00%
+2022/04/07 16:03:09 Preprocessed Datasets...
+2022/04/07 16:03:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:09 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:03:09 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:03:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:09 Processed Datasets ...
+2022/04/07 16:03:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:09 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:03:09 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:03:14 Session Date: 2022-04-07 16:03:14.1601493 +0100 BST m=+0.004008601
+2022/04/07 16:03:14 Read 768 diabetes records.
+2022/04/07 16:03:14 Split Percentage = 10.00%
+2022/04/07 16:03:14 Preprocessed Datasets...
+2022/04/07 16:03:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:14 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:03:14 Test Data Set : Sparsity = 19.19% (133 out of 693 elements)
+2022/04/07 16:03:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:14 Processed Datasets ...
+2022/04/07 16:03:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:14 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:03:14 Test Data Set : Sparsity = 19.19% (133 out of 693 elements)
+2022/04/07 16:03:19 Session Date: 2022-04-07 16:03:19.2214024 +0100 BST m=+0.002006501
+2022/04/07 16:03:19 Read 768 diabetes records.
+2022/04/07 16:03:19 Split Percentage = 10.00%
+2022/04/07 16:03:19 Preprocessed Datasets...
+2022/04/07 16:03:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:19 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:03:19 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:19 Processed Datasets ...
+2022/04/07 16:03:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:19 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:03:19 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:24 Session Date: 2022-04-07 16:03:24.2214533 +0100 BST m=+0.003970501
+2022/04/07 16:03:24 Read 768 diabetes records.
+2022/04/07 16:03:24 Split Percentage = 10.00%
+2022/04/07 16:03:24 Preprocessed Datasets...
+2022/04/07 16:03:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:24 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:03:24 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:03:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:24 Processed Datasets ...
+2022/04/07 16:03:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:24 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:03:24 Test Data Set : Sparsity = 21.21% (147 out of 693 elements)
+2022/04/07 16:03:29 Session Date: 2022-04-07 16:03:29.2165904 +0100 BST m=+0.001994301
+2022/04/07 16:03:29 Read 768 diabetes records.
+2022/04/07 16:03:29 Split Percentage = 10.00%
+2022/04/07 16:03:29 Preprocessed Datasets...
+2022/04/07 16:03:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:29 Training Data Set : Sparsity = 10.76% (669 out of 6219 elements)
+2022/04/07 16:03:29 Test Data Set : Sparsity = 22.22% (154 out of 693 elements)
+2022/04/07 16:03:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:29 Processed Datasets ...
+2022/04/07 16:03:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:29 Training Data Set : Sparsity = 10.76% (669 out of 6219 elements)
+2022/04/07 16:03:29 Test Data Set : Sparsity = 22.22% (154 out of 693 elements)
+2022/04/07 16:03:34 Session Date: 2022-04-07 16:03:34.2233856 +0100 BST m=+0.002990201
+2022/04/07 16:03:34 Read 768 diabetes records.
+2022/04/07 16:03:34 Split Percentage = 10.00%
+2022/04/07 16:03:34 Preprocessed Datasets...
+2022/04/07 16:03:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:34 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:03:34 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:34 Processed Datasets ...
+2022/04/07 16:03:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:34 Training Data Set : Sparsity = 11.08% (689 out of 6219 elements)
+2022/04/07 16:03:34 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:39 Session Date: 2022-04-07 16:03:39.2749855 +0100 BST m=+0.001994601
+2022/04/07 16:03:39 Read 768 diabetes records.
+2022/04/07 16:03:39 Split Percentage = 10.00%
+2022/04/07 16:03:39 Preprocessed Datasets...
+2022/04/07 16:03:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:39 Training Data Set : Sparsity = 11.14% (693 out of 6219 elements)
+2022/04/07 16:03:39 Test Data Set : Sparsity = 19.62% (136 out of 693 elements)
+2022/04/07 16:03:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:39 Processed Datasets ...
+2022/04/07 16:03:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:39 Training Data Set : Sparsity = 11.14% (693 out of 6219 elements)
+2022/04/07 16:03:39 Test Data Set : Sparsity = 19.62% (136 out of 693 elements)
+2022/04/07 16:03:44 Session Date: 2022-04-07 16:03:44.1892908 +0100 BST m=+0.003007101
+2022/04/07 16:03:44 Read 768 diabetes records.
+2022/04/07 16:03:44 Split Percentage = 10.00%
+2022/04/07 16:03:44 Preprocessed Datasets...
+2022/04/07 16:03:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:44 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 16:03:44 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 16:03:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:44 Processed Datasets ...
+2022/04/07 16:03:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:44 Training Data Set : Sparsity = 11.16% (694 out of 6219 elements)
+2022/04/07 16:03:44 Test Data Set : Sparsity = 19.91% (138 out of 693 elements)
+2022/04/07 16:03:49 Session Date: 2022-04-07 16:03:49.2517907 +0100 BST m=+0.002017301
+2022/04/07 16:03:49 Read 768 diabetes records.
+2022/04/07 16:03:49 Split Percentage = 10.00%
+2022/04/07 16:03:49 Preprocessed Datasets...
+2022/04/07 16:03:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:49 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:03:49 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:03:49 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:49 Processed Datasets ...
+2022/04/07 16:03:49 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:49 Training Data Set : Sparsity = 10.92% (679 out of 6219 elements)
+2022/04/07 16:03:49 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:03:54 Session Date: 2022-04-07 16:03:54.145351 +0100 BST m=+0.004008101
+2022/04/07 16:03:54 Read 768 diabetes records.
+2022/04/07 16:03:54 Split Percentage = 10.00%
+2022/04/07 16:03:54 Preprocessed Datasets...
+2022/04/07 16:03:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:54 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:03:54 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:54 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:54 Processed Datasets ...
+2022/04/07 16:03:54 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:54 Training Data Set : Sparsity = 11.11% (691 out of 6219 elements)
+2022/04/07 16:03:54 Test Data Set : Sparsity = 19.77% (137 out of 693 elements)
+2022/04/07 16:03:59 Session Date: 2022-04-07 16:03:59.194013 +0100 BST m=+0.001994501
+2022/04/07 16:03:59 Read 768 diabetes records.
+2022/04/07 16:03:59 Split Percentage = 10.00%
+2022/04/07 16:03:59 Preprocessed Datasets...
+2022/04/07 16:03:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:59 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:03:59 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:03:59 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:03:59 Processed Datasets ...
+2022/04/07 16:03:59 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:03:59 Training Data Set : Sparsity = 10.95% (681 out of 6219 elements)
+2022/04/07 16:03:59 Test Data Set : Sparsity = 21.50% (149 out of 693 elements)
+2022/04/07 16:04:04 Session Date: 2022-04-07 16:04:04.2629838 +0100 BST m=+0.001994801
+2022/04/07 16:04:04 Read 768 diabetes records.
+2022/04/07 16:04:04 Split Percentage = 10.00%
+2022/04/07 16:04:04 Preprocessed Datasets...
+2022/04/07 16:04:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:04 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 16:04:04 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:04:04 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:04 Processed Datasets ...
+2022/04/07 16:04:04 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:04 Training Data Set : Sparsity = 10.93% (680 out of 6219 elements)
+2022/04/07 16:04:04 Test Data Set : Sparsity = 21.65% (150 out of 693 elements)
+2022/04/07 16:04:09 Session Date: 2022-04-07 16:04:09.161804 +0100 BST m=+0.002004801
+2022/04/07 16:04:09 Read 768 diabetes records.
+2022/04/07 16:04:09 Split Percentage = 10.00%
+2022/04/07 16:04:09 Preprocessed Datasets...
+2022/04/07 16:04:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:09 Training Data Set : Sparsity = 10.64% (662 out of 6219 elements)
+2022/04/07 16:04:09 Test Data Set : Sparsity = 23.67% (164 out of 693 elements)
+2022/04/07 16:04:09 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:09 Processed Datasets ...
+2022/04/07 16:04:09 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:09 Training Data Set : Sparsity = 10.64% (662 out of 6219 elements)
+2022/04/07 16:04:09 Test Data Set : Sparsity = 23.67% (164 out of 693 elements)
+2022/04/07 16:04:14 Session Date: 2022-04-07 16:04:14.2043684 +0100 BST m=+0.001961901
+2022/04/07 16:04:14 Read 768 diabetes records.
+2022/04/07 16:04:14 Split Percentage = 10.00%
+2022/04/07 16:04:14 Preprocessed Datasets...
+2022/04/07 16:04:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:14 Training Data Set : Sparsity = 11.00% (684 out of 6219 elements)
+2022/04/07 16:04:14 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:04:14 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:14 Processed Datasets ...
+2022/04/07 16:04:14 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:14 Training Data Set : Sparsity = 11.00% (684 out of 6219 elements)
+2022/04/07 16:04:14 Test Data Set : Sparsity = 20.49% (142 out of 693 elements)
+2022/04/07 16:04:19 Session Date: 2022-04-07 16:04:19.2629484 +0100 BST m=+0.002992001
+2022/04/07 16:04:19 Read 768 diabetes records.
+2022/04/07 16:04:19 Split Percentage = 10.00%
+2022/04/07 16:04:19 Preprocessed Datasets...
+2022/04/07 16:04:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:19 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:04:19 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:04:19 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:19 Processed Datasets ...
+2022/04/07 16:04:19 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:19 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:04:19 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:04:24 Session Date: 2022-04-07 16:04:24.1785276 +0100 BST m=+0.002991801
+2022/04/07 16:04:24 Read 768 diabetes records.
+2022/04/07 16:04:24 Split Percentage = 10.00%
+2022/04/07 16:04:24 Preprocessed Datasets...
+2022/04/07 16:04:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:24 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:04:24 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:04:24 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:24 Processed Datasets ...
+2022/04/07 16:04:24 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:24 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:04:24 Test Data Set : Sparsity = 20.20% (140 out of 693 elements)
+2022/04/07 16:04:29 Session Date: 2022-04-07 16:04:29.2109147 +0100 BST m=+0.002020601
+2022/04/07 16:04:29 Read 768 diabetes records.
+2022/04/07 16:04:29 Split Percentage = 10.00%
+2022/04/07 16:04:29 Preprocessed Datasets...
+2022/04/07 16:04:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:29 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:04:29 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:04:29 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:29 Processed Datasets ...
+2022/04/07 16:04:29 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:29 Training Data Set : Sparsity = 11.01% (685 out of 6219 elements)
+2022/04/07 16:04:29 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:04:34 Session Date: 2022-04-07 16:04:34.2106454 +0100 BST m=+0.004988401
+2022/04/07 16:04:34 Read 768 diabetes records.
+2022/04/07 16:04:34 Split Percentage = 10.00%
+2022/04/07 16:04:34 Preprocessed Datasets...
+2022/04/07 16:04:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:34 Training Data Set : Sparsity = 11.27% (701 out of 6219 elements)
+2022/04/07 16:04:34 Test Data Set : Sparsity = 18.47% (128 out of 693 elements)
+2022/04/07 16:04:34 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:34 Processed Datasets ...
+2022/04/07 16:04:34 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:34 Training Data Set : Sparsity = 11.27% (701 out of 6219 elements)
+2022/04/07 16:04:34 Test Data Set : Sparsity = 18.47% (128 out of 693 elements)
+2022/04/07 16:04:39 Session Date: 2022-04-07 16:04:39.223623 +0100 BST m=+0.002991001
+2022/04/07 16:04:39 Read 768 diabetes records.
+2022/04/07 16:04:39 Split Percentage = 10.00%
+2022/04/07 16:04:39 Preprocessed Datasets...
+2022/04/07 16:04:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:39 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:04:39 Test Data Set : Sparsity = 19.34% (134 out of 693 elements)
+2022/04/07 16:04:39 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:39 Processed Datasets ...
+2022/04/07 16:04:39 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:39 Training Data Set : Sparsity = 11.21% (697 out of 6219 elements)
+2022/04/07 16:04:39 Test Data Set : Sparsity = 19.34% (134 out of 693 elements)
+2022/04/07 16:04:44 Session Date: 2022-04-07 16:04:44.2145798 +0100 BST m=+0.003988801
+2022/04/07 16:04:44 Read 768 diabetes records.
+2022/04/07 16:04:44 Split Percentage = 10.00%
+2022/04/07 16:04:44 Preprocessed Datasets...
+2022/04/07 16:04:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:44 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:04:44 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
+2022/04/07 16:04:44 Missing data algorithm: Replace Missing Values Based On Nearest Neighbours 
+2022/04/07 16:04:44 Processed Datasets ...
+2022/04/07 16:04:44 Raw Data Set : Sparsity = 11.04% (763 out of 6912 elements)
+2022/04/07 16:04:44 Training Data Set : Sparsity = 11.06% (688 out of 6219 elements)
+2022/04/07 16:04:44 Test Data Set : Sparsity = 20.35% (141 out of 693 elements)
