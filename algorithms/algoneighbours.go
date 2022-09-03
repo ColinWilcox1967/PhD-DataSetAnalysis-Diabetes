@@ -208,7 +208,7 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 		fmt.Println(valuesToUse)
 	}
 
-	mean := support.GetMeanValue(valuesToUse)
+	//	mean := support.GetMeanValue(valuesToUse)
 
 	// Test 1 - Do we have a unique dominant modal value ?
 	modalValues := support.GetModalValue(valuesToUse)
@@ -255,58 +255,58 @@ func replaceMissingValue(closestMatchingRecordFeatureValue float64, featureValue
 		}
 	}
 
-	// Test 3 - Does one of the modal values match the feature value of closest record?
-	for i := 0; i < len(valuesToUse); i++ {
-		if valuesToUse[i] == closestMatchingRecordFeatureValue {
-			if UseDebug {
-				fmt.Printf("Test 3 triggered (%0.4f)\n", valuesToUse[i])
-			}
-			return valuesToUse[i]
-		}
-	}
+	//	// Test 3 - Does one of the modal values match the feature value of closest record?
+	//	for i := 0; i < len(valuesToUse); i++ {
+	//		if valuesToUse[i] == closestMatchingRecordFeatureValue {
+	//			if UseDebug {
+	//				fmt.Printf("Test 3 triggered (%0.4f)\n", valuesToUse[i])
+	//			}
+	//			return valuesToUse[i]
+	//		}
+	//	}
 
-	// Test 4 : Is there a modal value closest to predicted value if closest record ?
-	smallestDistance := SOMETHING_BIG_AND_POSITIVE // something arbitary large and positive
-	bestModalValue := 0.0
-	foundClosestMatch := true
+	//	// Test 4 : Is there a modal value closest to predicted value if closest record ?
+	//	smallestDistance := SOMETHING_BIG_AND_POSITIVE // something arbitary large and positive
+	//	bestModalValue := 0.0
+	//	foundClosestMatch := true
+	//
+	//	for i := 0; i < len(valuesToUse); i++ {
+	//		d := distance(valuesToUse[i], closestMatchingRecordFeatureValue)
+	//		if d < smallestDistance {
+	//			smallestDistance = d
+	//			bestModalValue = valuesToUse[i]
+	//		} else {
+	//			// there is already a modal value this distance so abort
+	//			foundClosestMatch = false
+	//		}
+	//	}
 
-	for i := 0; i < len(valuesToUse); i++ {
-		d := distance(valuesToUse[i], closestMatchingRecordFeatureValue)
-		if d < smallestDistance {
-			smallestDistance = d
-			bestModalValue = valuesToUse[i]
-		} else {
-			// there is already a modal value this distance so abort
-			foundClosestMatch = false
-		}
-	}
+	//	if foundClosestMatch && smallestDistance != SOMETHING_BIG_AND_POSITIVE {
+	//		if UseDebug {
+	//			fmt.Printf("Test 4 triggered (%0.4f)\n", bestModalValue)
+	//		}
+	//		return bestModalValue
+	//	}
 
-	if foundClosestMatch && smallestDistance != SOMETHING_BIG_AND_POSITIVE {
-		if UseDebug {
-			fmt.Printf("Test 4 triggered (%0.4f)\n", bestModalValue)
-		}
-		return bestModalValue
-	}
-
-	// Test 5 : Is one of the modal values closest to the median?
-	d := SOMETHING_BIG_AND_POSITIVE
-	foundClosestMatch = true
-	closestModalToMedian := 0.0
-	for i := 0; i < len(valuesToUse); i++ {
-		if distance(valuesToUse[i], mean) < d {
-			d = distance(valuesToUse[i], mean)
-			closestModalToMedian = valuesToUse[i]
-		} else {
-			foundClosestMatch = false
-		}
-	}
-
-	if foundClosestMatch {
-		if UseDebug {
-			fmt.Printf("Test 5 triggered (%0.4f)\n", closestModalToMedian)
-		}
-		return closestModalToMedian
-	}
+	//	// Test 5 : Is one of the modal values closest to the median?
+	//	d := SOMETHING_BIG_AND_POSITIVE
+	//	foundClosestMatch = true
+	//	closestModalToMedian := 0.0
+	//	for i := 0; i < len(valuesToUse); i++ {
+	//		if distance(valuesToUse[i], mean) < d {
+	//			d = distance(valuesToUse[i], mean)
+	//			closestModalToMedian = valuesToUse[i]
+	//		} else {
+	//			foundClosestMatch = false
+	//		}
+	//	}
+	//
+	//	if foundClosestMatch {
+	//		if UseDebug {
+	//			fmt.Printf("Test 5 triggered (%0.4f)\n", closestModalToMedian)
+	//		}
+	//		return closestModalToMedian
+	//	}
 
 	// Test 6 : Ensure selected value is within some kind of tolerances
 

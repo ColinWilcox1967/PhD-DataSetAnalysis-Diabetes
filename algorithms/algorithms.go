@@ -27,7 +27,8 @@ var algorithmDescriptions = []string{"None", // 0
 	"Replace Missing Values With Modal",                  // 3
 	"Replace Missing Values Based On Nearest Neighbours", // 4
 	"Replace Missing Values With Graduations",            // 5
-	"K-Fold Cross Evaluation"}                            // 6
+	"K-Fold Cross Evaluation",						      // 6
+	"Hot Deck"}                         			     // 7
 
 func GetAlgorithmDescription(algoIndex int) string {
 
@@ -60,6 +61,8 @@ func DoProcessAlgorithm(dataset []diabetesdata.PimaDiabetesRecord, algorithm int
 	case 4:
 		//		dataset, err = ReplaceNearestNeighbours(dataset) // the new N-neighbour algo
 
+	case 7: dataset, err = ReplaceUsingHotDeck (dataset)
+	
 	default:
 		copy(data[:], dataset)
 
